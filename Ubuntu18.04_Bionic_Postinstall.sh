@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.8b
+# version 0.1.9
 
 #  Copyleft 2018 Simbd
 #  
@@ -526,6 +526,7 @@ then
     echo -e "[14] Gnome Shell/DtD : Activer la minimisation de fenêtre ${cyan}(DashToDock doit être installé !)${neutre}"
     echo "[15] Augmenter la sécurité de votre compte : empêcher l'accès à votre dossier perso aux autres utilisateurs"
     echo "[16] Installation de switcheroo-control : permet d'utiliser la carte dédié avec le pilote opensource" 
+    echo "[17] Retirer les paquets snappy pré-installés et réinstaller les paquets concernés par apt"
     #echo "[99][Ne fonctionne pas] Installer + Configurer Bumblebee (pilote Nvidia proprio) pour technologie Optimus nvidia/intel"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3 7) : " choixOptimisation
@@ -1789,11 +1790,11 @@ do
             ;;            
         "16") #Pour utiliser carte nvidia/pilote nouveau pour un jeu
             apt install switcheroo-control -y
+            ;; 
+        "17") #Retirer paquet snappy et réinstaller les logiciels de manière classique
+            snap remove gnome-calculator gnome-characters gnome-logs gnome-system-monitor
+            apt install -y gnome-calculator gnome-characters gnome-logs gnome-system-monitor
             ;;               
-        #"99") #Nvidia Bumblebee pour techno optimus (Ne fonctionne pas)
-            #wget https://raw.githubusercontent.com/BionicBeaver/Divers/master/BumblebeeBionic_install.sh ; chmod +x BumblebeeBionic_install.sh
-            #./BumblebeeBionic_install.sh
-            #;;   
     esac
 done
 
