@@ -2012,7 +2012,7 @@ apt update ; apt install -fy ; apt autoremove --purge -y ; apt clean ; apt full-
 flatpak update -y ; snap refresh ; clear
 
 echo "Pour prendre en compte tous les changements, il faut maintenant redémarrer !"
-read -p "Voulez-vous redémarrer immédiatement ? [o/n] " rep_reboot
+read -p "Voulez-vous redémarrer immédiatement ? [o/N] " rep_reboot
 if [ "$rep_reboot" = "o" ] || [ "$rep_reboot" = "O" ]
 then
     reboot
