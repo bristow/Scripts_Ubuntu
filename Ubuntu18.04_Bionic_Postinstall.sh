@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.9
+# version 0.1.10
 
 #  Copyleft 2018 Simbd
 #  
@@ -374,6 +374,7 @@ then
     echo "[24] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
     echo "[25] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
     echo -e "[26] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
+    echo -e "[27] AnyDesk (assistance à distance comme teamviewer, natif linux)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixUtilitaire
     clear
@@ -1411,7 +1412,11 @@ do
             ;; 
         "26") #Synaptic
             apt install synaptic -y
-            ;;               
+            ;;  
+        "27") #AnyDesk
+            wget https://download.anydesk.com/linux/anydesk_2.9.5-1_amd64.deb
+            dpkg -i anydesk* ; apt install -fy ; rm anydesk* ;
+            ;;              
     esac
 done
 
