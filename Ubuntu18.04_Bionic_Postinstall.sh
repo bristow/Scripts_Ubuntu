@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.10
+# version 0.1.11
 
 #  Copyleft 2018 Simbd
 #  
@@ -646,7 +646,7 @@ apt install snapd flatpak gnome-software-plugin-flatpak -y
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
 
 # Autres outils utiles
-apt install inxi curl net-tools git gdebi vim htop gparted openjdk-8-jre hardinfo ppa-purge numlockx unace unrar debconf-utils -y
+apt install inxi curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
 
 # Codecs utiles
 apt install  x264 x265 -y
@@ -662,15 +662,15 @@ sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
 if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
 then
     # logiciels utiles pour Gnome
-    apt install dconf-editor gnome-tweak-tool folder-color gedit-plugins nautilus-image-converter gnome-themes-standard gnome-weather gnome-packagekit -y
+    apt install dconf-editor gnome-tweak-tool folder-color gnome-packagekit -y
     # Suppression de l'icone Amazon (présent uniquement sur la version de base)
-    apt remove ubuntu-web-launchers -y
+    apt purge ubuntu-web-launchers -y
     # Autres logiciels utiles
     apt install ubuntu-restricted-addons ubuntu-restricted-extras -y
     # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
     su $SUDO_USER -c "mkdir ~/.local/share/gnome-shell/extensions ; mkdir ~/.themes ; mkdir ~/.icons"
     # Augmenter le temps maximum pour la capture vidéo à 20 minutes (1200s) (par défaut c'était 30s)
-    gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 1200
+    su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 1200"
 fi
 ###################################################
 # Spécifique Xubuntu/Xfce 18.04
