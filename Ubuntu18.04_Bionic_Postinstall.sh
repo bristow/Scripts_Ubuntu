@@ -131,11 +131,10 @@ then
     echo "[14] Midori (libre & léger mais un peu obsolète maintenant...)"
     echo "[15] QupZilla/Falkon (une alternative libre et légère utilisant Webkit)"   
     echo "[16] Min (un navigateur minimaliste et donc très léger)"   
-    echo "[17] NetSurf (basique mais très léger et performant)"
-    echo "[18] Dillo (navigateur capable de tourner sur des ordinosaures)"
-    echo "[19] Lynx (navigateur 100% en ligne de commande, pratique depuis une console SSH)"
-    echo -e "[20] Rekonq (navigateur web conçu surtout pour KDE)"
-    echo -e "[21] Eolie ${bleu}[Flatpak]${neutre} (une autre alternative pour Gnome)"
+    echo "[17] Dillo (navigateur capable de tourner sur des ordinosaures)"
+    echo "[18] Lynx (navigateur 100% en ligne de commande, pratique depuis une console SSH)"
+    echo -e "[19] Rekonq (navigateur web conçu surtout pour KDE)"
+    echo -e "[20] Eolie ${bleu}[Flatpak]${neutre} (une autre alternative pour Gnome)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants séparés d'un espace (exemple : 6 10 16) : " choixNavigateur
     clear
@@ -797,19 +796,16 @@ do
             dpkg -i Min_1.6.3_amd64.deb
             apt install -fy
             ;;
-        "17") #Netsurf
-            apt install netsurf-gtk -y
-            ;;
-        "18") #Dillo
+        "17") #Dillo
             apt install dillo -y
             ;;
-        "19") #Lynx
+        "18") #Lynx
             apt install lynx -y
             ;;
-        "20") #Rekonq
+        "19") #Rekonq
             apt install rekonq -y
             ;;
-        "21") #Eolie via Flatpak
+        "20") #Eolie via Flatpak
             flatpak install --from https://flathub.org/repo/appstream/org.gnome.Eolie.flatpakref -y
             ;;
     esac
