@@ -1,6 +1,6 @@
 #!/bin/bash
 ## NE PAS UTILISER CE SCRIPT POUR L'INSTANT (tant que vs voyez ce msg) ! IL Y A UN GROS BUG DE SESSION NON RESOLU !
-# version 0.1.14.8
+# version 0.1.14.9
 
 #  Copyleft 2018 Simbd
 #  
@@ -657,7 +657,7 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus rapidement dans nautilus
 
 # Pour pouvoir installer des paquets flatpak
-apt install gnome-software-plugin-flatpak -y
+#apt install gnome-software-plugin-flatpak -y
 
 # Désactivation de l'affichage des messages d'erreurs à l'écran
 sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
@@ -2011,7 +2011,8 @@ chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$S
 
 # Maj
 apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y
-flatpak update -y ; snap refresh ; clear
+snap refresh ; #flatpak update -y 
+clear 
 
 echo "Pour prendre en compte tous les changements, il faut maintenant redémarrer !"
 read -p "Voulez-vous redémarrer immédiatement ? [o/N] " rep_reboot
