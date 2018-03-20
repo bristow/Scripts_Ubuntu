@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.11
+# version 0.1.12
 
 #  Copyleft 2018 Simbd
 #  
@@ -64,6 +64,7 @@ echo -e "${bleu}[Flatpak]${neutre} => S'installera avec Flatpak, une alternative
 echo -e "${vert}[Appimage]${neutre} => Application portable (pas d'installation), à lancer comme ceci : ./nomdulogiciel.AppImage"
 echo -e "${rouge}[I!]${neutre} => Intervention nécessaire : installation pas totalement automatisé (par ex : valider contrat de licence)"
 echo -e "${rouge}[D!]${neutre} => Dangereux : le logiciel est potentiellement instable, déconseillé aux novices !"
+echo -e "${rouge}[HS!]${neutre} => Logiciel HS : ne fonctionne pas actuellement, un correctif sera ajouté plus tard"
 echo -e "${violet}[X!]${neutre} => Xorg uniquement : logiciel ok en session Xorg (par défaut) mais pas en session Wayland (choix alternatif sous Gnome)"
 echo -e "${cyan}[M!]${neutre} => Manuel : pas de raccourci, il faudra aller vous même dans le dossier et le lancer manuellement, parfois en CLI"
 echo -e "Si rien de précisé => Installation classique depuis les dépots officiels ou PPA"
@@ -123,7 +124,7 @@ then
     echo "[6] Chromium (la version libre/opensource de Chrome)"
     echo "[7] Google Chrome (le célèbre navigateur de Google mais il est propriétaire !)"
     echo "[8] Vivaldi (un navigateur propriétaire avec une interface sobre assez particulière)"
-    echo "[9] Opera (un navigateur propriétaire relativement connu)"
+    echo "[9] Opera ${rouge}[HS!]${neutre} (un navigateur propriétaire relativement connu)"
     echo "[10] PaleMoon (un navigateur plutôt récent, libre & performant)"
     echo "[11] WaterFox (un fork de Firefox compatible avec les anciennes extensions)"
     echo "[12] Tor Browser (pour naviguer dans l'anonymat avec le réseau tor : basé sur Firefox ESR)"
@@ -135,6 +136,7 @@ then
     echo "[18] Lynx (navigateur 100% en ligne de commande, pratique depuis une console SSH)"
     echo -e "[19] Rekonq (navigateur web conçu surtout pour KDE)"
     echo -e "[20] Eolie ${bleu}[Flatpak]${neutre} (une autre alternative pour Gnome)"
+    echo -e "[21] Beaker ${vert}[Appimage]${neutre} (Navigateur opensource qui permet de surfer en P2P)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants séparés d'un espace (exemple : 6 10 16) : " choixNavigateur
     clear
@@ -760,16 +762,13 @@ do
             echo "deb http://repo.vivaldi.com/stable/deb/ stable main" >> /etc/apt/sources.list.d/vivaldi.list
             apt update ; apt install vivaldi-stable -y
             ;;
-        "9") #opera 
-            wget -q http://deb.opera.com/archive.key -O- | apt-key add -
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 517590D9A8492E35
-            echo "deb https://deb.opera.com/opera/ stable non-free" | tee -a /etc/apt/sources.list.d/opera-stable.list
-            echo "opera-stable opera-stable/add-deb-source boolean true\n" | debconf-set-selections
-            apt update ; apt install opera-stable -y
+        "9") #opera (le paquet deb ajoute automatiquement le dépot d'Opéra pour maj future)  => HS actuellement pour la 18.04
+            #wget http://nux87.free.fr/script-postinstall-ubuntu/deb/opera-stable.deb
+            #dpkg -i opera-stable.deb ; apt install -fy ; rm -f opera*
             ;;
         "10") #Palemoon
-            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/palemoon27.6.2-amd64.deb
-            dpkg -i palemoon27.6.2-amd64.deb ; apt install -fy ; rm palemoon27.6.2-amd64.deb
+            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/palemoon.deb
+            dpkg -i palemoon.deb ; apt install -fy ; rm -f palemoon*
             ;; 
         "11") #Waterfox
             echo "deb https://dl.bintray.com/hawkeye116477/waterfox-deb release main" >> /etc/apt/sources.list.d/waterfox.list
@@ -792,9 +791,8 @@ do
             apt install qupzilla -y
             ;;
         "16") #Min
-            wget https://github.com/minbrowser/min/releases/download/v1.6.3/Min_1.6.3_amd64.deb
-            dpkg -i Min_1.6.3_amd64.deb
-            apt install -fy
+            wget https://github.com/minbrowser/min/releases/download/v1.7.1/min_1.7.1_amd64.deb
+            dpkg -i min*.deb ; apt install -fy ; rm -f Min*
             ;;
         "17") #Dillo
             apt install dillo -y
@@ -808,6 +806,10 @@ do
         "20") #Eolie via Flatpak
             flatpak install --from https://flathub.org/repo/appstream/org.gnome.Eolie.flatpakref -y
             ;;
+        "21") #Beaker Browser (appimage)
+            wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/beaker-browser-0.7.11-x86_64.AppImage
+            chmod +x beaker*
+            ;;            
     esac
 done
 
