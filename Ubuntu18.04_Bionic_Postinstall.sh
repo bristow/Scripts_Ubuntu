@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.14.4
+# version 0.1.14.5
 
 #  Copyleft 2018 Simbd
 #  
@@ -631,7 +631,7 @@ fi
 ###################################################
 # Communs à tous quelque soit la variante
 
-# Pour automatiser l'instalaliton de certains logiciels qui pose des questions :
+# Pour automatiser l'installation de certains logiciels :
 export DEBIAN_FRONTEND="noninteractive"
 
 # Activation du dépot partenaire 
@@ -643,17 +643,17 @@ apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
 #Paquet Snappy & Flatpak (snapd est déjà installé sur Ubuntu mais pas forcément sur les dérivés)
 apt install snapd flatpak gnome-software-plugin-flatpak -y
 
-#Police d'écriture Microsoft
-#echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
-
 # Autres outils utiles
 apt install inxi curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
 
 # Codecs utiles
 apt install  x264 x265 -y
 
+#Police d'écriture Microsoft
+#echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
+
 #optimisation
-apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus rapidement dans nautilus
+#apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus rapidement dans nautilus
 
 # Désactivation de l'affichage des messages d'erreurs à l'écran
 sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
@@ -663,7 +663,7 @@ sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
 if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
 then
     # logiciels utiles pour Gnome
-    apt install dconf-editor gnome-tweak-tool folder-color gnome-packagekit -y
+    apt install dconf-editor gnome-tweak-tool folder-color -y
     # Suppression de l'icone Amazon (présent uniquement sur la version de base)
     apt purge ubuntu-web-launchers -y
     # Autres logiciels utiles
@@ -2006,7 +2006,7 @@ done
 #chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
 
 # Maj
-apt update ; apt install -fy ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y
+apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y
 flatpak update -y ; snap refresh ; clear
 
 echo "Pour prendre en compte tous les changements, il faut maintenant redémarrer !"
