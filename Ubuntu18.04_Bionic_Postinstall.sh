@@ -103,7 +103,7 @@ then
         echo "[2] Machine virtuelle avec Virtualbox (flatpak doit être installé manuellement avant si l'utilisez)"
         echo "[3] Machine virtuelle avec VmWare"
         echo "*******************************************************"
-        read -p "Répondre par le ou les chiffres correspondants séparés d'un espace (exemple : 1) : " choixMachine
+        read -p "Répondre par le chiffre correspondant (exemple : 1) : " choixMachine
         clear
 
     # Vérification si Flatpak est installé (l'installation depuis le script pose problème en VM)
@@ -676,7 +676,7 @@ apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus r
 # Désactivation de l'affichage des messages d'erreurs à l'écran
 sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
 
-if [ "$choixMachine" = "1" ] ; then  #machine physique
+if [ "$choixMachine" = "1" ] || [ "$choixMachine" = "" ] ; then  #machine physique
     apt install flatpak gnome-software-plugin-flatpak -y
     elif [ "$choixMachine" = "2" ] ; then #vm virtualbox
         apt install virtualbox-guest-utils -y
