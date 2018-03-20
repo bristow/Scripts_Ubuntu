@@ -124,7 +124,7 @@ then
     echo "[6] Chromium (la version libre/opensource de Chrome)"
     echo "[7] Google Chrome (le célèbre navigateur de Google mais il est propriétaire !)"
     echo "[8] Vivaldi (un navigateur propriétaire avec une interface sobre assez particulière)"
-    echo "[9] Opera ${rouge}[HS!]${neutre} (un navigateur propriétaire relativement connu)"
+    echo -e "[9] Opera ${rouge}[HS!]${neutre} (un navigateur propriétaire relativement connu)"
     echo "[10] PaleMoon (un navigateur plutôt récent, libre & performant)"
     echo "[11] WaterFox (un fork de Firefox compatible avec les anciennes extensions)"
     echo "[12] Tor Browser (pour naviguer dans l'anonymat avec le réseau tor : basé sur Firefox ESR)"
