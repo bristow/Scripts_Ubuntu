@@ -669,9 +669,10 @@ then
     # Autres logiciels utiles
     apt install ubuntu-restricted-addons ubuntu-restricted-extras -y
     # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
-    mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions && chown -R $SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell/extensions
-    mkdir /home/$SUDO_USER/.themes && chown -R $SUDO_USER /home/$SUDO_USER/.themes
-    mkdir /home/$SUDO_USER/.icons && chown -R $SUDO_USER /home/$SUDO_USER/.icons
+    #mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions && chown -R $SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell/extensions
+    #mkdir /home/$SUDO_USER/.themes && chown -R $SUDO_USER /home/$SUDO_USER/.themes
+    #mkdir /home/$SUDO_USER/.icons && chown -R $SUDO_USER /home/$SUDO_USER/.icons
+    
     # Augmenter le temps maximum pour la capture vidéo à 10 minutes (600s) (par défaut c'était 30s)
     su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600"
 fi
