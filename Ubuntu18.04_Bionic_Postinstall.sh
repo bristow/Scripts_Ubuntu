@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.14.3
+# version 0.1.14.4
 
 #  Copyleft 2018 Simbd
 #  
@@ -667,7 +667,7 @@ then
     # Suppression de l'icone Amazon (présent uniquement sur la version de base)
     apt purge ubuntu-web-launchers -y
     # Autres logiciels utiles
-    apt install ubuntu-restricted-addons ubuntu-restricted-extras -y
+    #apt install ubuntu-restricted-addons ubuntu-restricted-extras -y
     # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
     #mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions && chown -R $SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell/extensions
     #mkdir /home/$SUDO_USER/.themes && chown -R $SUDO_USER /home/$SUDO_USER/.themes
