@@ -1999,9 +1999,8 @@ done
     
    
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
-mkdir ./appimages ; rm *.deb ; mv *.AppImage ./appimages/
-chown -R $SUDO_USER:$SUDO_USER ./appimages
-chmod -R +x ./appimages
+mkdir /home/$SUDO_USER/appimages ; rm *.deb ; mv *.AppImage /home/$SUDO_USER/appimages/
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
 
 # Finalisation & nettoyage
 if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
