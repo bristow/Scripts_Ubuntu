@@ -22,9 +22,13 @@ Astuce : si vous voulez faire le choix par défaut (qui correspond à 1), vous p
 ```bash 
   chmod +x Ubuntu18.04_BionicBeaver_Postinstallation.sh
 ```
-- Enfin pour le lancer : 
+- Enfin pour le lancer (depuis une machine physique) : 
 ```bash 
   sudo ./Ubuntu18.04_BionicBeaver_Postinstallation.sh
+```  
+- Si vous utilisez Virtualbox, il faut préciser l'argument "vbox" pour le lancer, c'est à dire comme ceci :
+```bash 
+  sudo ./Ubuntu18.04_BionicBeaver_Postinstallation.sh vbox
 ```  
 
 ### 4/ Utilisation
