@@ -633,7 +633,7 @@ fi
 # Communs à tous quelque soit la variante
 
 # Pour pouvoir installer des paquets flatpak
-apt install flatpak gnome-software-plugin-flatpak -y
+#apt install flatpak gnome-software-plugin-flatpak -y
 
 # Pour automatiser l'installation de certains logiciels :
 export DEBIAN_FRONTEND="noninteractive"
