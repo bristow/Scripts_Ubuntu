@@ -1,5 +1,6 @@
 #!/bin/bash
-# version 0.1.14.5
+## NE PAS UTILISER CE SCRIPT POUR L'INSTANT (tant que vs voyez ce msg) ! IL Y A UN GROS BUG DE SESSION NON RESOLU !
+# version 0.1.14.6
 
 #  Copyleft 2018 Simbd
 #  
@@ -644,10 +645,10 @@ apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
 apt install snapd flatpak gnome-software-plugin-flatpak -y
 
 # Autres outils utiles
-apt install inxi curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
+apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
 
 # Codecs utiles
-apt install  x264 x265 -y
+apt install x264 x265 -y
 
 #Police d'écriture Microsoft
 #echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
@@ -698,7 +699,7 @@ fi
 # Spécifique Kubuntu/Kde 18.04
 if [ "$distrib" = "4" ]
 then
-    apt insstall kubuntu-restricted-addons kubuntu-restricted-extras -y
+    apt install kubuntu-restricted-addons kubuntu-restricted-extras -y
 fi
 ###################################################
 # Logiciels automatiques pour mode novice :
