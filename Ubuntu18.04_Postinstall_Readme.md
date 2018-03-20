@@ -26,7 +26,7 @@ Astuce : si vous voulez faire le choix par défaut (qui correspond à 1), vous p
 ```bash 
   sudo ./Ubuntu18.04_BionicBeaver_Postinstallation.sh
 ```  
-- Si vous utilisez Virtualbox, il faut préciser l'argument "vbox" pour le lancer, c'est à dire comme ceci :
+- Si vous lancez le script dans une machine virtuelle avec Virtualbox, il faut préciser l'argument "vbox" pour le lancer sinon cela pourrai poser un problème. Il faut donc faire comme ceci :
 ```bash 
   sudo ./Ubuntu18.04_BionicBeaver_Postinstallation.sh vbox
 ```  
