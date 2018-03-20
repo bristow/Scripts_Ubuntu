@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.14.2
+# version 0.1.14.3
 
 #  Copyleft 2018 Simbd
 #  
@@ -644,7 +644,7 @@ apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
 apt install snapd flatpak gnome-software-plugin-flatpak -y
 
 #Police d'écriture Microsoft
-echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
+#echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
 
 # Autres outils utiles
 apt install inxi curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
@@ -674,7 +674,7 @@ then
     #mkdir /home/$SUDO_USER/.icons && chown -R $SUDO_USER /home/$SUDO_USER/.icons
     
     # Augmenter le temps maximum pour la capture vidéo à 10 minutes (600s) (par défaut c'était 30s)
-    su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600"
+    #su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600"
 fi
 ###################################################
 # Spécifique Xubuntu/Xfce 18.04
@@ -2002,8 +2002,8 @@ done
     
    
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
-mkdir /home/$SUDO_USER/appimages ; rm *.deb ; mv *.AppImage /home/$SUDO_USER/appimages/
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
+#mkdir /home/$SUDO_USER/appimages ; rm *.deb ; mv *.AppImage /home/$SUDO_USER/appimages/
+#chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
 
 # Maj
 apt update ; apt install -fy ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y
