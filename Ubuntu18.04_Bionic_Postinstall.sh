@@ -1,6 +1,6 @@
 #!/bin/bash
 ## NE PAS UTILISER CE SCRIPT POUR L'INSTANT (tant que vs voyez ce msg) ! IL Y A UN GROS BUG DE SESSION NON RESOLU !
-# version 0.1.14.7
+# version 0.1.14.8
 
 #  Copyleft 2018 Simbd
 #  
@@ -632,6 +632,9 @@ fi
 ###################################################
 # Communs à tous quelque soit la variante
 
+# Pour pouvoir installer des paquets flatpak
+apt install flatpak gnome-software-plugin-flatpak -y
+
 # Pour automatiser l'installation de certains logiciels :
 export DEBIAN_FRONTEND="noninteractive"
 
@@ -658,9 +661,6 @@ apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus r
 
 # Désactivation de l'affichage des messages d'erreurs à l'écran
 sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
-
-# Pour pouvoir installer des paquets flatpak
-apt install flatpak gnome-software-plugin-flatpak -y
 
 ###################################################
 # Pour version de base sous Gnome Shell
