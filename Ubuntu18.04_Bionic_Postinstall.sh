@@ -322,7 +322,7 @@ then
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixBureautique
     clear
 
-    # Question 11 : Science et éducation (voir pour Scratch2 + Celestia ?)
+    # Question 11 : Science et éducation
     echo "*******************************************************"
     echo -e "${bleu}11/ Des logiciels de science ou pour l'éducation ?${neutre}"
     echo "*******************************************************"
@@ -1293,7 +1293,7 @@ do
             apt install skychart-data-stars skychart-data-dso skychart-data-pictures -y
             ;;
         "10") #Celestia
-            wget https://raw.githubusercontent.com/BionicBeaver/Divers/master/CelestiaBionic.sh && chmod +x CelestiaBionic.sh
+            wget https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh && chmod +x CelestiaBionic.sh
             ./CelestiaBionic.sh ; rm CelestiaBionic.sh
             ;;
         "11") #Avogadro
