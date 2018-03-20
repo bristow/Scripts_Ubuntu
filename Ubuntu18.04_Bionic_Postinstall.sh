@@ -632,9 +632,6 @@ fi
 ###################################################
 # Communs à tous quelque soit la variante
 
-# Pour pouvoir installer des paquets flatpak
-#apt install flatpak gnome-software-plugin-flatpak -y
-
 # Pour automatiser l'installation de certains logiciels :
 export DEBIAN_FRONTEND="noninteractive"
 
@@ -658,6 +655,9 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 
 #optimisation
 apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus rapidement dans nautilus
+
+# Pour pouvoir installer des paquets flatpak
+apt install gnome-software-plugin-flatpak -y
 
 # Désactivation de l'affichage des messages d'erreurs à l'écran
 sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
@@ -2006,8 +2006,8 @@ done
     
    
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
-#mkdir /home/$SUDO_USER/appimages ; rm *.deb ; mv *.AppImage /home/$SUDO_USER/appimages/
-#chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
+mkdir /home/$SUDO_USER/appimages ; rm *.deb ; mv *.AppImage /home/$SUDO_USER/appimages/
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
 
 # Maj
 apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y
