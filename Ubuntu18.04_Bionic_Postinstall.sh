@@ -96,9 +96,9 @@ done
 if [ "$choixMode" != "0" ] #lancement pour tous sauf mode novice
 then
     # Vérification si Flatpak est installé (l'installation depuis le script pose problème en VM)
-    if [ "$(which flatpak)" = "/usr/bin/flatpak" ]
+    if [ "$(which flatpak)" != "/usr/bin/flatpak" ]
     then
-        echo -e "${bleu}FlatPak n'est actuellement pas installé sur votre PC, si vous souhaitez installer des logiciels via Flatpak (proposé notamment par ce script), merci d'installer manuellement le paquet 'flatpak' avant de poursuivre, sinon vous pouvez continuer"
+        echo -e "${rouge}Important : FlatPak n'est actuellement pas installé sur votre PC, si vous souhaitez installer des logiciels via Flatpak (proposé notamment par ce script), merci d'installer manuellement le paquet 'flatpak' avant de poursuivre, sinon vous pouvez continuer"
     fi
 
     if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
