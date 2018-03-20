@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.13
+# version 0.1.14
 
 #  Copyleft 2018 Simbd
 #  
@@ -669,9 +669,11 @@ then
     # Autres logiciels utiles
     apt install ubuntu-restricted-addons ubuntu-restricted-extras -y
     # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
-    su $SUDO_USER -c "mkdir ~/.local/share/gnome-shell/extensions ; mkdir ~/.themes ; mkdir ~/.icons"
-    # Augmenter le temps maximum pour la capture vidéo à 20 minutes (1200s) (par défaut c'était 30s)
-    su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 1200"
+    mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions && chown -R $SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell/extensions
+    mkdir /home/$SUDO_USER/.themes && chown -R $SUDO_USER /home/$SUDO_USER/.themes
+    mkdir /home/$SUDO_USER/.icons && chown -R $SUDO_USER /home/$SUDO_USER/.icons
+    # Augmenter le temps maximum pour la capture vidéo à 10 minutes (600s) (par défaut c'était 30s)
+    su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600"
 fi
 ###################################################
 # Spécifique Xubuntu/Xfce 18.04
@@ -2001,13 +2003,6 @@ done
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
 mkdir /home/$SUDO_USER/appimages ; rm *.deb ; mv *.AppImage /home/$SUDO_USER/appimages/
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
-
-# Finalisation & nettoyage
-if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
-then
-    chown -R $SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell/extensions
-    rm *-extension.zip 
-fi
 
 # Maj
 apt update ; apt install -fy ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y
