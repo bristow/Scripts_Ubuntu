@@ -1,6 +1,5 @@
 #!/bin/bash
-## NE PAS UTILISER CE SCRIPT POUR L'INSTANT (tant que vs voyez ce msg) ! IL Y A UN GROS BUG DE SESSION NON RESOLU !
-# version 0.1.15
+# version 0.1.16
 
 #  Copyleft 2018 Simbd
 #  
@@ -662,11 +661,11 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 #optimisation
 apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus rapidement dans nautilus
 
-# Pour pouvoir installer des paquets flatpak
-#apt install gnome-software-plugin-flatpak -y
-
 # Désactivation de l'affichage des messages d'erreurs à l'écran
 sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
+
+# Flatpak (désactivé dans le script car pose problème depuis une VM)
+#apt install flatpak gnome-software-plugin-flatpak -y
 
 ###################################################
 # Pour version de base sous Gnome Shell
