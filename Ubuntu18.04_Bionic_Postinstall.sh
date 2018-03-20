@@ -1,6 +1,6 @@
 #!/bin/bash
 ## NE PAS UTILISER CE SCRIPT POUR L'INSTANT (tant que vs voyez ce msg) ! IL Y A UN GROS BUG DE SESSION NON RESOLU !
-# version 0.1.14.9
+# version 0.1.15
 
 #  Copyleft 2018 Simbd
 #  
@@ -95,6 +95,12 @@ done
 
 if [ "$choixMode" != "0" ] #lancement pour tous sauf mode novice
 then
+    # Vérification si Flatpak est installé (l'installation depuis le script pose problème en VM)
+    if [ "$(which flatpak)" = "/usr/bin/flatpak" ]
+    then
+        echo -e "${bleu}FlatPak n'est actuellement pas installé sur votre PC, si vous souhaitez installer des logiciels via Flatpak (proposé notamment par ce script), merci d'installer manuellement le paquet 'flatpak' avant de poursuivre, sinon vous pouvez continuer"
+    fi
+
     if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
     then
         echo "======================================================="
