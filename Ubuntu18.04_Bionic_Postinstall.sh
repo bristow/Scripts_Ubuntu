@@ -94,11 +94,23 @@ done
 
 if [ "$choixMode" != "0" ] #lancement pour tous sauf mode novice
 then
+
+        echo "======================================================="
+        echo "*******************************************************"
+        echo -e "${orange}1.1/ Sur quel type de machine est installé votre Linux ?${neutre}"
+        echo "*******************************************************"
+        echo "[1] Machine physique (pc réel)"
+        echo "[2] Machine virtuelle avec Virtualbox (flatpak doit être installé manuellement avant si l'utilisez)"
+        echo "[3] Machine virtuelle avec VmWare"
+        echo "*******************************************************"
+        read -p "Répondre par le ou les chiffres correspondants séparés d'un espace (exemple : 1) : " choixMachine
+        clear
+
     # Vérification si Flatpak est installé (l'installation depuis le script pose problème en VM)
-    if [ "$(which flatpak)" != "/usr/bin/flatpak" ]
-    then
-        echo -e "${rouge}Important : FlatPak n'est actuellement pas installé sur votre PC, si vous souhaitez installer des logiciels via Flatpak (proposé notamment par ce script), merci d'installer manuellement le paquet 'flatpak' avant de poursuivre, sinon vous pouvez continuer"
-    fi
+    #if [ "$(which flatpak)" != "/usr/bin/flatpak" ]
+    #then
+    #    echo -e "${rouge}Important : FlatPak n'est actuellement pas installé sur votre PC, si vous souhaitez installer des logiciels via Flatpak (proposé notamment par ce script), merci d'installer manuellement le paquet 'flatpak' avant de poursuivre, sinon vous pouvez continuer"
+    #fi
 
     if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
     then
@@ -664,8 +676,15 @@ apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus r
 # Désactivation de l'affichage des messages d'erreurs à l'écran
 sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
 
-# Flatpak (désactivé dans le script car pose problème depuis une VM)
-#apt install flatpak gnome-software-plugin-flatpak -y
+if [ "$choixMachine" = "1" ] ; then  #machine physique
+    apt install flatpak gnome-software-plugin-flatpak -y
+    elif [ "$choixMachine" = "2" ] ; then #vm virtualbox
+        apt install virtualbox-guest-utils -y
+        elif [ "$choixMachine" = "3" ] ; then #vm vmware
+            apt install install open-vm-tools -y
+        fi
+    fi
+fi
 
 ###################################################
 # Pour version de base sous Gnome Shell
