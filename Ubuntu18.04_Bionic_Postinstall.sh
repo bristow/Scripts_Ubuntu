@@ -1,6 +1,6 @@
 #!/bin/bash
 ## NE PAS UTILISER CE SCRIPT POUR L'INSTANT (tant que vs voyez ce msg) ! IL Y A UN GROS BUG DE SESSION NON RESOLU !
-# version 0.1.14.6
+# version 0.1.14.7
 
 #  Copyleft 2018 Simbd
 #  
@@ -641,8 +641,8 @@ sed -i "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 #Maj du système + nettoyage
 apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
 
-#Paquet Snappy & Flatpak (snapd est déjà installé sur Ubuntu mais pas forcément sur les dérivés)
-apt install snapd flatpak gnome-software-plugin-flatpak -y
+#Vérification que snapd est bien installé (surtout utile pour les variantes)
+apt install snapd -y
 
 # Autres outils utiles
 apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
@@ -650,14 +650,17 @@ apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-uti
 # Codecs utiles
 apt install x264 x265 -y
 
-#Police d'écriture Microsoft
-#echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
+#Police d'écriture Microsoft (serveur parfois très lent)
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
 
 #optimisation
-#apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus rapidement dans nautilus
+apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus rapidement dans nautilus
 
 # Désactivation de l'affichage des messages d'erreurs à l'écran
 sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
+
+# Pour pouvoir installer des paquets flatpak
+apt install flatpak gnome-software-plugin-flatpak -y
 
 ###################################################
 # Pour version de base sous Gnome Shell
@@ -668,14 +671,14 @@ then
     # Suppression de l'icone Amazon (présent uniquement sur la version de base)
     apt purge ubuntu-web-launchers -y
     # Autres logiciels utiles
-    #apt install ubuntu-restricted-addons ubuntu-restricted-extras -y
+    apt install ubuntu-restricted-addons ubuntu-restricted-extras -y
     # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
-    #mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions && chown -R $SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell/extensions
-    #mkdir /home/$SUDO_USER/.themes && chown -R $SUDO_USER /home/$SUDO_USER/.themes
-    #mkdir /home/$SUDO_USER/.icons && chown -R $SUDO_USER /home/$SUDO_USER/.icons
+    mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions && chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell/extensions
+    mkdir /home/$SUDO_USER/.themes && chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.themes
+    mkdir /home/$SUDO_USER/.icons && chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.icons
     
     # Augmenter le temps maximum pour la capture vidéo à 10 minutes (600s) (par défaut c'était 30s)
-    #su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600"
+    su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600"
 fi
 ###################################################
 # Spécifique Xubuntu/Xfce 18.04
