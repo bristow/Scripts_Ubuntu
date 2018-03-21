@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.17
+# version 0.1.18
 
 #  Copyleft 2018 Simbd
 #  
@@ -640,8 +640,8 @@ sed -i "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 #Maj du système + nettoyage
 apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
 
-#Vérification que snapd est bien installé (surtout utile pour les variantes)
-apt install snapd -y
+#Vérification que snapd est bien installé (surtout utile pour les variantes) + installation de flatpak
+apt install snapd flatpak gnome-software-plugin-flatpak -y
 
 # Autres outils utiles
 apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
@@ -658,11 +658,8 @@ apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus r
 # Désactivation de l'affichage des messages d'erreurs à l'écran
 sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
 
-if [ "$1" = "vbox" ] 
-    then
-        apt install virtualbox-guest-utils -y    
-    else
-        apt install flatpak gnome-software-plugin-flatpak -y
+if [ "$1" = "vbox" ] ; then  # installe les additions invités pour une vm si script lancé avec paramètre "vbox" : ./script.sh vbox
+    apt install virtualbox-guest-utils -y    
 fi
 
 ###################################################
