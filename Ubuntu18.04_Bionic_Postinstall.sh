@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.18
+# version 0.1.19
 
 #  Copyleft 2018 Simbd
 #  
@@ -358,24 +358,25 @@ then
     echo "[7] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
     echo "[8] Oracle Java 8 (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
     echo "[9] Oracle Java 9 (nouvelle version de Java)"
-    echo "[10] OpenJDK v9 (JRE) (implémentation libre de Java, à noter que la V8 est installée par défaut)"
-    echo "[11] OpenJDK v10 (JRE) (implémentation libre de la prochaine version de Java)"
-    echo "[12] Installer FlashPlayer (via le dépot partenaire)"
-    echo "[13] VirtualBox (virtualisation de système Windows/Mac/Linux/Bsd)"
-    echo "[14] KeePassX2 (centralise la gestion de vos mots de passe personnels, protégé par un master password)"
-    echo -e "[15] TeamViewer ${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
-    echo "[16] Cheese (outil pour prendre des photos/vidéos à partir d'une webcam)"
-    echo "[17] Gnome Recipes (pour les gourmets : appli Gnome spécialisée dans les recettes de cuisine)"
-    echo -e "[18] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
-    echo "[19] Pack d'appli en cyber-sécurité (aircrack-ng + John The Ripper[snap] + Nmap)"
-    echo "[20] Gnome Enfs Manager (coffre-fort pour vos fichiers/dossiers)"
-    echo -e "[21] Bleachbit ${rougesouligne}[D!]${neutre} (efface les fichiers inutiles/temporaires du système)"
-    echo -e "[22] VMWare Workstation Player ${rouge}[I!]${neutre}${violet}[X!]${neutre} (version gratuite mais propriétaire de VmWare)"
-    echo -e "[23] CoreBird (un client de bureau pour le réseau social Twitter)"
-    echo "[24] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
-    echo "[25] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
-    echo -e "[26] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
-    echo -e "[27] AnyDesk (assistance à distance comme teamviewer, natif linux)"
+    echo "[10] OpenJDK v9 (JRE) (implémentation libre de l'ancienne version de Java)"
+    echo "[11] OpenJDK v10 (JRE) (implémentation libre de la version actuelle de Java)"
+    echo "[12] OpenJDK v11 (JRE) (implémentation libre de la prochaine version de Java)"   
+    echo "[13] Installer FlashPlayer (via le dépot partenaire)"
+    echo "[14] VirtualBox (virtualisation de système Windows/Mac/Linux/Bsd)"
+    echo "[15] KeePassX2 (centralise la gestion de vos mots de passe personnels, protégé par un master password)"
+    echo -e "[16] TeamViewer ${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
+    echo "[17] Cheese (outil pour prendre des photos/vidéos à partir d'une webcam)"
+    echo "[18] Gnome Recipes (pour les gourmets : appli Gnome spécialisée dans les recettes de cuisine)"
+    echo -e "[19] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
+    echo "[20] Pack d'appli en cyber-sécurité (aircrack-ng + John The Ripper[snap] + Nmap)"
+    echo "[21] Gnome Enfs Manager (coffre-fort pour vos fichiers/dossiers)"
+    echo -e "[22] Bleachbit ${rougesouligne}[D!]${neutre} (efface les fichiers inutiles/temporaires du système)"
+    echo -e "[23] VMWare Workstation Player ${rouge}[I!]${neutre}${violet}[X!]${neutre} (version gratuite mais propriétaire de VmWare)"
+    echo -e "[24] CoreBird (un client de bureau pour le réseau social Twitter)"
+    echo "[25] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
+    echo "[26] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
+    echo -e "[27] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
+    echo -e "[28] AnyDesk (assistance à distance comme teamviewer, natif linux)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixUtilitaire
     clear
@@ -1361,64 +1362,67 @@ do
             ;; 
         "11") # OpenJDK 10
             apt install openjdk-10-jre -y
-            ;;             
-        "12") #FlashPlayer (avec dépot partenaire)
+            ;;          
+        "12") # OpenJDK 11
+            apt install openjdk-11-jre -y
+            ;;                 
+        "13") #FlashPlayer (avec dépot partenaire)
             apt install adobe-flashplugin -y
             ;;
-        "13") #VirtualBox
+        "14") #VirtualBox
             apt install virtualbox -y
             ;;            
-        "14") #KeepassX2
+        "15") #KeepassX2
             apt install keepassx -y
             ;; 
-        "15") #Teamviewer
+        "16") #Teamviewer
             wget https://dl.tvcdn.de/download/linux/version_13x/teamviewer_13.0.5494_amd64.deb
             dpkg -i teamviewer_13.0.5494_amd64.deb
             apt install -fy
             ;;   
-        "16") #Cheese
+        "17") #Cheese
             apt install cheese -y
             ;; 
-        "17") #Gnome Recipes
+        "18") #Gnome Recipes
             apt install gnome-recipes -y
             ;;   
-        "18") #Gufw
+        "19") #Gufw
             apt install gufw -y
             ;;  
-        "19") #Pack cyber-sécurité
+        "20") #Pack cyber-sécurité
             apt install aircrack-ng nmap -y
             snap install john-the-ripper
             ;;  
-        "20") #Gnome Encfs Manager (dépot Xenial car Bionic pas encore actif)
+        "21") #Gnome Encfs Manager (dépot Xenial car Bionic pas encore actif)
             add-apt-repository "deb http://ppa.launchpad.net/gencfsm/ppa/ubuntu xenial main" -y
             apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 6A0344470F68ADCA
             apt update ; apt install gnome-encfs-manager -y
             ;;             
-        "21") #Bleachbit
+        "22") #Bleachbit
             apt install bleachbit -y
             ;;    
-        "22") #VMWare Workstation Player 
+        "23") #VMWare Workstation Player 
             #apt install gcc -y #<= vérifier si nécessaire sur MP
             wget https://download3.vmware.com/software/player/file/VMware-Player-14.0.0-6661328.x86_64.bundle
             chmod +x VMware-Player-14.0.0-6661328.x86_64.bundle
             ./VMware-Player-12.5.7-5813279.x86_64.bundle
             ;;              
-        "23") #Corebird
+        "24") #Corebird
             apt install corebird -y
             ;; 
-        "24") #Wireshark
+        "25") #Wireshark
             debconf-set-selections <<< "wireshark-common/install-setuid true"
             apt install wireshark -y
             usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
             ;;   
-        "25") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
+        "26") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
             apt install vrms screenfetch asciinema ncdu screen rclone -y
             wget http://hoper.dnsalias.net/tdc/public/kclean.deb && dpkg -i kclean.deb ; apt install -fy ; rm kclean.deb
             ;; 
-        "26") #Synaptic
+        "27") #Synaptic
             apt install synaptic -y
             ;;  
-        "27") #AnyDesk
+        "28") #AnyDesk
             wget https://download.anydesk.com/linux/anydesk_2.9.5-1_amd64.deb
             dpkg -i anydesk* ; apt install -fy ; rm anydesk* ;
             ;;              
