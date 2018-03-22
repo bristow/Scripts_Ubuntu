@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.19
+# version 0.1.20
 
 #  Copyleft 2018 Simbd
 #  
@@ -124,7 +124,7 @@ then
     echo "[6] Chromium (la version libre/opensource de Chrome)"
     echo "[7] Google Chrome (le célèbre navigateur de Google mais il est propriétaire !)"
     echo "[8] Vivaldi (un navigateur propriétaire avec une interface sobre assez particulière)"
-    echo -e "[9] Opera ${rouge}[HS!]${neutre} (un navigateur propriétaire relativement connu)"
+    echo -e "[9] Opera ${rouge}[I!]${neutre} (navigateur norvégien, propriétaire, basé sur Chromium)"
     echo "[10] PaleMoon (un navigateur plutôt récent, libre & performant)"
     echo "[11] WaterFox (un fork de Firefox compatible avec les anciennes extensions)"
     echo "[12] Tor Browser (pour naviguer dans l'anonymat avec le réseau tor : basé sur Firefox ESR)"
@@ -643,6 +643,7 @@ apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
 
 #Vérification que snapd est bien installé (surtout utile pour les variantes) + installation de flatpak
 apt install snapd flatpak gnome-software-plugin-flatpak -y
+flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Autres outils utiles
 apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
@@ -765,14 +766,14 @@ do
             sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
             apt update ; apt install google-chrome-stable -y
             ;;
-        "8") #vivaldi x64
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2CC26F777B8B44A1
-            echo "deb http://repo.vivaldi.com/stable/deb/ stable main" >> /etc/apt/sources.list.d/vivaldi.list
-            apt update ; apt install vivaldi-stable -y
+        "8") #vivaldi x64 (sera toujours à jour bien qu'une version précise soit téléchargé : dépot ajouté par le deb)
+            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/vivaldi.deb
+            dpkg -i vivaldi* ; apt install -fy ; apt upgrade vivaldi-stable -y ; rm vivaldi.deb
             ;;
-        "9") #opera (le paquet deb ajoute automatiquement le dépot d'Opéra pour maj future)  => HS actuellement pour la 18.04
-            #wget http://nux87.free.fr/script-postinstall-ubuntu/deb/opera-stable.deb
-            #dpkg -i opera-stable.deb ; apt install -fy ; rm -f opera*
+        "9") #opera (Intervention nécessaire pendant l'installation)
+            add-apt-repository -y 'deb https://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)'
+            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A5C7FF72 ; apt update ;
+            apt install -Vy opera-stable
             ;;
         "10") #Palemoon
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/palemoon.deb
@@ -871,6 +872,7 @@ do
             apt install polari -y
             ;;                       
         "15") #discord (via snap)
+            apt install snapd-xdg-open -y
             snap install discord
             ;;
         "16") #telegram 
@@ -1291,8 +1293,8 @@ do
             apt install skychart-data-stars skychart-data-dso skychart-data-pictures -y
             ;;
         "10") #Celestia
-            wget https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh && chmod +x CelestiaBionic.sh
-            ./CelestiaBionic.sh ; rm CelestiaBionic.sh
+            wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh ; chmod +x Celestia*
+            ./Celestia*.sh ; rm Celestia* ;
             ;;
         "11") #Avogadro
             apt install avogadro -y
