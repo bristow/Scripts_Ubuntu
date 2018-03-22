@@ -621,7 +621,6 @@ then
     echo -e "[18] Skype for Business ${vert}[Appimage]${neutre}"
     echo -e "[19] Spotify web client ${vert}[Appimage]${neutre}"
     echo -e "[20] Tulip ${vert}[Appimage]${neutre}"
-    echo -e "[21] Wire ${vert}[Appimage]${neutre}"
     echo "*******************************************************"
     read -p "Choix appimage : " choixAppimage
     clear
@@ -2003,10 +2002,7 @@ do
             ;;      
         "20") #Tulip
             wget https://github.com/Tulip-Dev/tulip/releases/download/tulip_5_1_0/Tulip-5.1.0-x86_64.AppImage
-            ;;        
-        "21") #Wire
-            wget https://wire-app.wire.com/linux/wire-3.0.2816-x86_64.AppImage
-            ;;                
+            ;;                      
     esac
 done
     
