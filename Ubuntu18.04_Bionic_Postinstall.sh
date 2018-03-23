@@ -1697,10 +1697,8 @@ do
             sed -i -e '/.swapfile*/d' /etc/fstab #ligne swap retiré de fstab
             ;;
         "4") #Activer TLP + install Powertop (Attention : TLP installe postfix en dépendance)
-            apt install tlp powertop -y
-            systemctl enable tlp
-            systemctl emable tlp-sleep
-            systemctl disable postfix.service
+            apt install --no-install-recommends tlp tlp-rdw -y
+            systemctl enable tlp ; systemctl enable tlp-sleep
             ;;
         "5") #Microcode Intel
             apt install intel-microcode -y
