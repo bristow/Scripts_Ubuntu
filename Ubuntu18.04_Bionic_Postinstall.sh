@@ -327,18 +327,15 @@ then
     echo "[1] Pas d'ajout"
     echo "[2] [GEO] Google Earth Pro (globe terrestre de Google pour explorer la planète)"
     echo "[3] [GEO] Extension OooHg pour LibreOffice (ajoute 1600 cartes de géographie)"
-    echo "[4] [SCIENCE] SciLab (logiciel scientifique pour le calcul numérique pour des applications scientifiques"
-    echo "[5] [MATH] GeoGebra (géométrie dynamique pour manipuler des objets avec un ensemble de fonctions algébriques)"
-    echo "[6] [MATH] Algobox (logiciel libre d'aide à l'élaboration/exécution d'algorithmes en mathématique)"
-    echo "[7] [MATH] CaRMetal (logiciel libre de géométrie dynamique, conçu à partir du moteur de C.a.R)"
-    echo "[8] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
-    echo "[9] [ASTRO] SkyChart (cartographie céleste très complète avec un catalogue riche)"
-    echo "[10] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"
-    echo "[11] [CHIMIE] Avogadro (éditeur/visualiseur avancé de molécules pour le calcul scientifique en chimie)"
-    echo "[12] [TECHNO] Scratch 1.4 (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
-    echo -e "[13] [TECHNO] Scratch 2 ${rouge}[I!]${neutre} (dernière version stable de Scratch)"
-    echo -e "[14] [TECHNO] mBlock ${rouge}[D!]${neutre}(environnement de programmation basé sur Scratch 2 pour Arduino"
-    echo -e "[15] [TECHNO] Algoid ${cyan}[M!]${neutre} (langage de programmation éducatif)"
+    echo "[4] [MATH] GeoGebra (géométrie dynamique pour manipuler des objets avec un ensemble de fonctions algébriques)"
+    echo "[5] [MATH] Algobox (logiciel libre d'aide à l'élaboration/exécution d'algorithmes en mathématique)"
+    echo "[6] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
+    echo "[7] [ASTRO] SkyChart (cartographie céleste très complète avec un catalogue riche)"
+    echo "[8] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"
+    echo "[9] [CHIMIE] Avogadro (éditeur/visualiseur avancé de molécules pour le calcul scientifique en chimie)"
+    echo "[10] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
+    echo -e "[11] [TECHNO] mBlock ${rouge}[D!]${neutre}(environnement de programmation basé sur Scratch 2 pour Arduino"
+    echo -e "[12] [TECHNO] Algoid ${cyan}[M!]${neutre} (langage de programmation éducatif)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixScience
     clear
@@ -1257,44 +1254,32 @@ do
         "3") #extension LO oooHG
             apt install ooohg -y
             ;;
-        "4") #Scilab
-            apt install scilab -y
-            ;;
-        "5") #Geogebra
+        "4") #Geogebra
             apt install geogebra -y
             ;;
-        "6") #Algobox
+        "5") #Algobox
             apt install algobox -y
             ;;
-        "7") #Carmetal
-            apt install carmetal -y
-            ;;
-        "8") #Stellarium
+        "6") #Stellarium
             apt install stellarium -y
             ;;            
-        "9") #Skychart
+        "7") #Skychart
             add-apt-repository 'deb http://www.ap-i.net/apt stable main' -y ; add-apt-repository --remove 'deb-src http://www.ap-i.net/apt stable main' -y
             apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AA716FC2 apt update ; 
             apt install --no-install-recommends skychart -y
             apt install skychart-data-stars skychart-data-dso skychart-data-pictures -y
             ;;
-        "10") #Celestia
+        "8") #Celestia
             wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh ; chmod +x Celestia*
             ./Celestia*.sh ; rm Celestia* ;
             ;;
-        "11") #Avogadro
+        "9") #Avogadro
             apt install avogadro -y
             ;;
-        "12") #Scratch 1.4
+        "10") #Scratch 1.4
             apt install scratch -y
             ;;   
-        "13") #Scratch 2 (intervention nécessaire de la part de l'utilisateur)
-            wget https://scratch.mit.edu/scratchr2/static/sa/Scratch-455.air ; chmod +x Scratch* #nb: il y a la 456 mais elle semble poser problème
-            wget https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/adobe-air.sh ; chmod +x adobe-air.sh
-            ./adobe-air.sh ; rm adobe-air.sh
-            Adobe\ AIR\ Application\ Installer #choisir manuellement le fichier "Scratch-455.air"
-            ;;
-        "14") #mBlock (voir plus tard pour un raccourci dans le menu des applications et non dans le dossier de l'utilisateur)
+        "11") #mBlock (voir plus tard pour un raccourci dans le menu des applications et non dans le dossier de l'utilisateur)
             wget https://mblockdev.blob.core.chinacloudapi.cn/mblock-src/mBlock.deb
             dpkg -i mBlock.deb ; apt install -fy ; rm mBlock.deb
             # Méthode alternative :
@@ -1302,7 +1287,7 @@ do
             #tar zxvf mBlock-4.0.0-linux-4.0.0.tar.gz -C /opt/
             #ln -s /opt/mBlock/mblock /home/$SUDO_USER/raccourci_mblock
             ;;
-        "15") #AlgoIDE 
+        "12") #AlgoIDE 
             wget http://www.algoid.net/downloads/AlgoIDE-release.jar
             chmod +x AlgoIDE-release.jar && mv AlgoIDE-release.jar /home/$SUDO_USER/
             ;;           
@@ -1360,9 +1345,8 @@ do
             apt install keepassx -y
             ;; 
         "16") #Teamviewer
-            wget https://dl.tvcdn.de/download/linux/version_13x/teamviewer_13.0.5494_amd64.deb
-            dpkg -i teamviewer_13.0.5494_amd64.deb
-            apt install -fy
+            wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+            dpkg -i teamviewer* ; apt install -fy ; rm teamviewer*
             ;;   
         "17") #Cheese
             apt install cheese -y
