@@ -618,9 +618,8 @@ then
     echo -e "[15] Openshot ${vert}[Appimage]${neutre}"
     echo -e "[16] Owncloud Cli ${vert}[Appimage]${neutre}"
     echo -e "[17] Popcorntime ${vert}[Appimage]${neutre}"
-    echo -e "[18] Skype for Business ${vert}[Appimage]${neutre}"
-    echo -e "[19] Spotify web client ${vert}[Appimage]${neutre}"
-    echo -e "[20] Tulip ${vert}[Appimage]${neutre}"
+    echo -e "[18] Spotify web client ${vert}[Appimage]${neutre}"
+    echo -e "[19] Tulip ${vert}[Appimage]${neutre}"
     echo "*******************************************************"
     read -p "Choix appimage : " choixAppimage
     clear
@@ -1993,14 +1992,11 @@ do
             ;;     
         "17") #Popcorntime
             wget https://github.com/amilajack/popcorn-time-desktop/releases/download/v0.0.6/PopcornTime-0.0.6-x86_64.AppImage
-            ;;     
-        "18") #Skype for Business
-            wget https://tel.red/linux/sky-latest-x86_64.AppImage
-            ;;              
-        "19") #Spotify web client
+            ;;                  
+        "18") #Spotify web client
             wget https://github.com/Quacky2200/Spotify-Web-Player-for-Linux/releases/download/1.0.42/spotifywebplayer-1.0.42-x86_64.AppImage
             ;;      
-        "20") #Tulip
+        "19") #Tulip
             wget https://github.com/Tulip-Dev/tulip/releases/download/tulip_5_1_0/Tulip-5.1.0-x86_64.AppImage
             ;;                      
     esac
