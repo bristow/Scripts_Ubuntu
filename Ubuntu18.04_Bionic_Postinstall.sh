@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.21
+# version 0.1.22
 
 #  Copyleft 2018 Simbd
 #  
@@ -334,8 +334,8 @@ then
     echo "[8] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"
     echo "[9] [CHIMIE] Avogadro (éditeur/visualiseur avancé de molécules pour le calcul scientifique en chimie)"
     echo "[10] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
-    echo -e "[11] [TECHNO] mBlock ${rouge}[D!]${neutre}(environnement de programmation basé sur Scratch 2 pour Arduino"
-    echo -e "[12] [TECHNO] Algoid ${cyan}[M!]${neutre} (langage de programmation éducatif)"
+    echo -e "[11] [TECHNO] mBlock ${cyan}[M!]${neutre} (environnement de programmation basé sur Scratch 2 pour Arduino"
+    echo -e "[12] [TECHNO] Algoid [appli portable .jar] ${cyan}[M!]${neutre} (langage de programmation éducatif)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixScience
     clear
@@ -475,12 +475,12 @@ then
     echo "[7] JEdit (éditeur libre, multiplateforme et très personnalisable)"
     echo "[8] Anjuta (IDE simple pour C/C++, Java, JavaScript, Python et Vala)"
     echo "[9] Android Studio ${bleu}[Flatpak]${neutre} (IDE de Google spécialisé pour le développement d'application Android)"
-    echo "[10] Netbeans (IDE supportant plusieurs langages, surtout Java, avec de nombreux plugins)"
+    echo -e "[10] Netbeans vJavaSE ${rouge}[I!]${neutre} (IDE version pour language Java SE)"
     echo "[11] BlueFish (éditeur orienté développement web : HTML/PHP/CSS/...)"
     echo "[12] BlueGriffon (éditeur HTML/CSS avec aperçu du rendu en temps réel)"
     echo "[13] SciTE : Scintilla Text Editor (éditeur web avec une bonne coloration syntaxique)"
     echo -e "[14] Eclipse ${rouge}[I!]${neutre}${violet}[X!]${neutre}(Projet décliné en sous-projets de dev)"
-    echo -e "[15] PyCharm ${jaune}[Snap]${neutre} (IDE pour le langage Python, à lancer depuis le terminal la 1ère fois)"
+    echo -e "[15] PyCharm [version communautaire] ${jaune}[Snap]${neutre} (IDE pour le langage Python)"
     echo -e "[16] Visual Studio Code ${jaune}[Snap]${neutre} (développé par Microsoft, sous licence libre MIT)"
     echo -e "[17] Atom ${jaune}[Snap]${neutre} (éditeur sous licence libre qui supporte les plug-ins Node.js et implémente GitControl)"
     echo -e "[18] Brackets ${jaune}[Snap]${neutre} (éditeur opensource d'Adobe pour le web design et dev web HTML, CSS, JavaScript...)"
@@ -539,24 +539,21 @@ then
     echo -e "${vert}19/ Mode Extra : supplément paquet Snap :${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
-    echo -e "[2] VLC ${jaune}[Snap]${neutre}"
+    echo -e "[2] VLC ${orange}[dev/canal edge]${neutre} ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
     echo -e "[3] LibreOffice ${jaune}[Snap]${neutre}"
     echo -e "[4] Dino ${jaune}[Snap]${neutre}"
     echo -e "[5] Gimp ${jaune}[Snap]${neutre}"
     echo -e "[6] Instagraph ${jaune}[Snap]${neutre}"
     echo -e "[7] KeepassXC ${jaune}[Snap]${neutre}"
-    echo -e "[8] Ktube media downloader ${jaune}[Snap]${neutre}${rouge}[D!]${neutre}"
-    echo -e "[9] Warzone 2100 ${jaune}[Snap]${neutre}"
-    echo -e "[10] Asciinema ${orange}[isolation --classic]${neutre} ${jaune}[Snap]${neutre}"
-    echo -e "[11] Bitcoin ${jaune}[Snap]${neutre}"
-    echo -e "[12] Blender ${orange}[isolation --classic]${neutre} ${jaune}[Snap]${neutre}"
-    echo -e "[13] Electrum ${jaune}[Snap]${neutre}"
-    echo -e "[14] NextCloud client ${jaune}[Snap]${neutre}"
-    echo -e "[15] PyCharm édition Professionnelle ${violet}[X!]${neutre}${orange}[isolation --classic]${neutre} ${jaune}[Snap]${neutre}"
-    echo -e "[16] Quassel client ${jaune}[Snap]${neutre}"
-    echo -e "[17] Rube cube ${jaune}[Snap]${neutre}"
-    echo -e "[18] TermiusApp ${jaune}[Snap]${neutre}"
-    echo -e "[19] TicTacToe ${jaune}[Snap]${neutre}"
+    echo -e "[8] Warzone 2100 ${jaune}[Snap]${neutre}"
+    echo -e "[9] Blender ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
+    echo -e "[10] Electrum ${jaune}[Snap]${neutre}"
+    echo -e "[11] NextCloud client ${jaune}[Snap]${neutre}"
+    echo -e "[12] PyCharm édition Professionnelle ${violet}[X!]${neutre}${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
+    echo -e "[13] Quassel client ${jaune}[Snap]${neutre}"
+    echo -e "[14] Rube cube ${jaune}[Snap]${neutre}"
+    echo -e "[15] TermiusApp ${jaune}[Snap]${neutre}"
+    echo -e "[16] TicTacToe ${jaune}[Snap]${neutre}"
     echo "*******************************************************"
     read -p "Choix snappy : " choixSnap
     clear
@@ -1279,13 +1276,11 @@ do
         "10") #Scratch 1.4
             apt install scratch -y
             ;;   
-        "11") #mBlock (voir plus tard pour un raccourci dans le menu des applications et non dans le dossier de l'utilisateur)
-            wget https://mblockdev.blob.core.chinacloudapi.cn/mblock-src/mBlock.deb
-            dpkg -i mBlock.deb ; apt install -fy ; rm mBlock.deb
-            # Méthode alternative :
-            #wget https://github.com/Makeblock-official/mBlock/releases/download/V4.0.0-Linux/mBlock-4.0.0-linux-4.0.0.tar.gz
-            #tar zxvf mBlock-4.0.0-linux-4.0.0.tar.gz -C /opt/
-            #ln -s /opt/mBlock/mblock /home/$SUDO_USER/raccourci_mblock
+        "11") #mBlock 
+            apt install libgconf-2-4 -y
+            wget https://github.com/Makeblock-official/mBlock/releases/download/V4.0.0-Linux/mBlock-4.0.0-linux-4.0.0.tar.gz
+            tar zxvf mBlock*.tar.gz -C /opt/
+            ln -s /opt/mBlock/mblock /home/$SUDO_USER/raccourci_mblock
             ;;
         "12") #AlgoIDE 
             wget http://www.algoid.net/downloads/AlgoIDE-release.jar
@@ -1304,10 +1299,9 @@ do
         "3") #SimpleScreenRecorder
             apt install simplescreenrecorder -y
             ;;
-        "4") #OpenBroadcaster Software (dépot bionic pas encore activé donc artful utilisé en attendant)
-            echo "deb http://ppa.launchpad.net/obsproject/obs-studio/ubuntu artful main" >> /etc/apt/sources.list.d/openbroadcast-studio.list
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com BC7345F522079769F5BBE987EFC71127F425E228
-            apt update ; apt install ffmpeg obs-studio -y
+        "4") #OpenBroadcaster Software 
+            add-apt-repository -y ppa:obsproject/obs-studio ; apt update
+            apt install ffmpeg obs-studio -y
             ;;
         "5") #Glances
             apt install glances -y
@@ -1624,15 +1618,16 @@ do
         "9") #Android Studio (flatpak)
             flatpak install flathub com.google.AndroidStudio -y
             ;;
-        "10") #Netbeans
-            apt install netbeans -y
+        "10") #Netbeans JAVA SE #(version des dépots officiels ne fonctionne pas)
+            wget http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-javase-linux.sh
+            chmod +x netbeans* ; ./netbeans* ; rm netbeans*
             ;;         
         "11") #BlueFish
             apt install bluefish bluefish-plugins -y
             ;;
         "12") #BlueGriffon
-            wget http://bluegriffon.org/freshmeat/3.0/bluegriffon-3.0.Ubuntu16.04-x86_64.deb
-            dpkg -i bluegriffon-3.0.Ubuntu16.04-x86_64.deb ; apt install -fy
+            wget http://bluegriffon.org/freshmeat/3.0.1/bluegriffon-3.0.1.Ubuntu16.04-x86_64.deb
+            dpkg -i bluegriffon*.deb ; apt install -fy ; rm bluegriffon*
             ;;         
         "13") #SciTE
             apt install scite -y
@@ -1641,6 +1636,7 @@ do
             wget http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/oomph/epp/oxygen/R/eclipse-inst-linux64.tar.gz
             tar xvfz eclipse-inst-linux64.tar.gz ; chmod +x ./eclipse-installer/eclipse-inst
             ./eclipse-installer/eclipse-inst
+            rm -rf eclipse-installer ; rm eclipse-inst-linux64.tar.gz
             ;;           
         "15") #PyCharm
             snap install pycharm-community --classic
@@ -1769,7 +1765,7 @@ for snap in $choixSnap
 do
     case $snap in
         "2") #VLC version snap
-            snap install vlc
+            snap install vlc --edge --classic
             ;;
         "3") #LibreOffice version snap
             snap install libreoffice
@@ -1786,40 +1782,31 @@ do
         "7") #keepassXC
             snap install keepassxc
             ;;  
-        "8") #ktube media downloader
-            snap install ktube-media-downloader --classic
-            ;; 
-        "9") #warzone 2100 
+        "8") #warzone 2100 
             snap install warzone2100
-            ;; 
-        "10") #asciinema
-            snap install asciinema --classic
-            ;;      
-        "11") #bitcoin
-            snap install bitcoin
-            ;;
-        "12") #blender
+            ;;  
+        "9") #blender
             snap install blender --classic
             ;;  
-        "13") #electrum
+        "10") #electrum
             snap install electrum
             ;; 
-        "14") #nextcloud client
+        "11") #nextcloud client
             snap install nextcloudclient
             ;;      
-        "15") #pycharm pro
+        "12") #pycharm pro
             snap install pycharm-professional --classic
             ;;   
-        "16") #Quassel client
+        "13") #Quassel client
             snap install quasselclient-moon127
             ;;   
-        "17") #Rube cube
+        "14") #Rube cube
             snap install rubecube
             ;;            
-        "18") #TermiusApp
+        "15") #TermiusApp
             snap install termius-app
             ;;        
-        "19") #TicTacToe
+        "16") #TicTacToe
             snap install tic-tac-toe
             ;;              
     esac
