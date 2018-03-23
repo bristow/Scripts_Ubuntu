@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.20
+# version 0.1.21
 
 #  Copyleft 2018 Simbd
 #  
@@ -164,7 +164,7 @@ then
     echo -e "[17] Viber ${bleu}[Flatpak]${neutre} (logiciel de communication, surtout connu en application mobile)"
     echo -e "[18] Slack ${bleu}[Flatpak]${neutre} (plate-forme de communication collaborative propriétaire avec gestion de projets)"
     echo -e "[19] Signal ${bleu}[Flatpak]${neutre} (messagerie instantanée cryptée recommandée par Edward Snowden)"
-    echo -e "[20] Récupérer l'archive TeamSpeak ${cyan}[M!]${neutre} (équivalent à Mumble mais propriétaire)"
+    echo -e "[20] TeamSpeak ${cyan}[M!]${neutre} (équivalent à Mumble mais propriétaire)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 3 7 13 18) : " choixMessagerie
     clear
@@ -178,7 +178,7 @@ then
     echo "[3] Deluge (client BitTorrent basé sur Python et GTK+)"
     echo "[4] Rtorrent (client BitTorrent en ligne de commande donc très léger)"
     echo "[5] qBittorrent (client BitTorrent léger développé en C++ avec Qt)"
-    echo "[6] Bittorrent (client non-libre qui s'utilise depuis le terminal via btdownloadgui)"
+    echo "[6] Bittornado (client très simple qui permet de se connecter au réseau BitTorrent)"
     echo "[7] aMule (pour le réseau eDonkey2000, clone de Emule)"
     echo "[8] FrostWire (client multiplate-forme pour le réseau Gnutella)"
     echo "[9] Gtk-Gnutella (un autre client stable et léger avec pas mal d'options)"
@@ -188,7 +188,7 @@ then
     echo "[13] Nicotine+ (client P2P pour le réseau mono-source Soulseek)"
     echo -e "[14] Vuze ${jaune}[Snap]${neutre} (plate-forme commerciale d'Azureus avec BitTorrent)"
     echo -e "[15] Gydl ${bleu}[Flatpak]${neutre} (permet de télécharger des vidéos Youtube ou juste la piste audio)"
-    echo -e "[16] WebTorrent (permet le streamming de flux vidéo décentralisé via le protocole bittorrent)"
+    echo -e "[16] WebTorrent ${bleu}[Flatpak]${neutre} (permet le streamming de flux vidéo décentralisé via le protocole bittorrent)"
     echo -e "[17] WormHole (un outil en CLI permettant le transfert sécurisé à travers n'importe quel réseau)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3 4 15) : " choixTelechargement
@@ -371,12 +371,11 @@ then
     echo "[20] Pack d'appli en cyber-sécurité (aircrack-ng + John The Ripper[snap] + Nmap)"
     echo "[21] Gnome Enfs Manager (coffre-fort pour vos fichiers/dossiers)"
     echo -e "[22] Bleachbit ${rougesouligne}[D!]${neutre} (efface les fichiers inutiles/temporaires du système)"
-    echo -e "[23] VMWare Workstation Player ${rouge}[I!]${neutre}${violet}[X!]${neutre} (version gratuite mais propriétaire de VmWare)"
-    echo -e "[24] CoreBird (un client de bureau pour le réseau social Twitter)"
-    echo "[25] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
-    echo "[26] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
-    echo -e "[27] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
-    echo -e "[28] AnyDesk (assistance à distance comme teamviewer, natif linux)"
+    echo -e "[23] CoreBird (un client de bureau pour le réseau social Twitter)"
+    echo "[24] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
+    echo "[25] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
+    echo -e "[26] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
+    echo -e "[27] AnyDesk (assistance à distance comme teamviewer, natif linux)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixUtilitaire
     clear
@@ -480,7 +479,7 @@ then
     echo "[6] Code:Blocks (IDE spécialisé pour les langages C/C++)"
     echo "[7] JEdit (éditeur libre, multiplateforme et très personnalisable)"
     echo "[8] Anjuta (IDE simple pour C/C++, Java, JavaScript, Python et Vala)"
-    echo "[9] Android Studio (IDE de Google spécialisé pour le développement d'application Android)"
+    echo "[9] Android Studio ${bleu}[Flatpak]${neutre} (IDE de Google spécialisé pour le développement d'application Android)"
     echo "[10] Netbeans (IDE supportant plusieurs langages, surtout Java, avec de nombreux plugins)"
     echo "[11] BlueFish (éditeur orienté développement web : HTML/PHP/CSS/...)"
     echo "[12] BlueGriffon (éditeur HTML/CSS avec aperçu du rendu en temps réel)"
@@ -605,21 +604,20 @@ then
     echo -e "[2] Digikam ${vert}[Appimage]${neutre}"
     echo -e "[3] Freecad ${vert}[Appimage]${neutre}"
     echo -e "[4] Aidos Wallet ${vert}[Appimage]${neutre}"
-    echo -e "[5] Cerebro ${vert}[Appimage]${neutre}"
-    echo -e "[6] Chronos ${vert}[Appimage]${neutre}"
-    echo -e "[7] Crypter ${vert}[Appimage]${neutre}"
-    echo -e "[8] Jaxx ${vert}[Appimage]${neutre}"
-    echo -e "[9] Imagine ${vert}[Appimage]${neutre}"
-    echo -e "[10] Infinite Electron ${vert}[Appimage]${neutre}"
-    echo -e "[11] Kdenlive ${vert}[Appimage]${neutre}"
-    echo -e "[12] KDevelop ${vert}[Appimage]${neutre}"
-    echo -e "[13] MellowPlayer ${vert}[Appimage]${neutre}"
-    echo -e "[14] Nextcloud Cli ${vert}[Appimage]${neutre}"
-    echo -e "[15] Openshot ${vert}[Appimage]${neutre}"
-    echo -e "[16] Owncloud Cli ${vert}[Appimage]${neutre}"
-    echo -e "[17] Popcorntime ${vert}[Appimage]${neutre}"
-    echo -e "[18] Spotify web client ${vert}[Appimage]${neutre}"
-    echo -e "[19] Tulip ${vert}[Appimage]${neutre}"
+    echo -e "[5] Chronos ${vert}[Appimage]${neutre}"
+    echo -e "[6] Crypter ${vert}[Appimage]${neutre}"
+    echo -e "[7] Jaxx ${vert}[Appimage]${neutre}"
+    echo -e "[8] Imagine ${vert}[Appimage]${neutre}"
+    echo -e "[9] Infinite Electron ${vert}[Appimage]${neutre}"
+    echo -e "[10] Kdenlive ${vert}[Appimage]${neutre}"
+    echo -e "[11] KDevelop ${vert}[Appimage]${neutre}"
+    echo -e "[12] MellowPlayer ${vert}[Appimage]${neutre}"
+    echo -e "[13] Nextcloud Cli ${vert}[Appimage]${neutre}"
+    echo -e "[14] Openshot ${vert}[Appimage]${neutre}"
+    echo -e "[15] Owncloud Cli ${vert}[Appimage]${neutre}"
+    echo -e "[16] Popcorntime ${vert}[Appimage]${neutre}"
+    echo -e "[17] Spotify web client ${vert}[Appimage]${neutre}"
+    echo -e "[18] Tulip ${vert}[Appimage]${neutre}"
     echo "*******************************************************"
     read -p "Choix appimage : " choixAppimage
     clear
@@ -716,6 +714,8 @@ then
     apt install brasero adobe-flashplugin gnome-todo -y
 fi
 
+# Se placer dans le répertoire perso de l'utilisateur (nécessaire pour certains logiciels)
+cd /home/$SUDO_USER/
 
 ## Installation suivant les choix de l'utilisateur :
 
@@ -811,7 +811,7 @@ do
             apt install rekonq -y
             ;;
         "20") #Eolie via Flatpak
-            flatpak install --from https://flathub.org/repo/appstream/org.gnome.Eolie.flatpakref -y
+            flatpak install flathub org.gnome.Eolie -y
             ;;
         "21") #Beaker Browser (appimage)
             wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/beaker-browser-0.7.11-x86_64.AppImage
@@ -876,19 +876,19 @@ do
         "16") #telegram 
             apt install telegram-desktop -y
             ;;                 
-        "17") #viber
-            flatpak install --from https://flathub.org/repo/appstream/com.viber.Viber.flatpakref -y
+        "17") #viber (flatpak)
+            flatpak install flathub com.viber.Viber -y
             ;;               
         "18") #Slack (flatpak)
-            flatpak install --from https://flathub.org/repo/appstream/com.slack.Slack.flatpakref -y
+            flatpak install flathub com.slack.Slack -y
             ;;          
-
         "19") #signal (flatpak)
             flatpak install --from https://vrutkovs.github.io/flatpak-signal/signal.flatpakref -y
             ;;           
-        "20") #Récupération du script d'installation de teamspeak (à lancer manuellement par l'utilisateur)
-            wget http://dl.4players.de/ts/releases/3.1.6/TeamSpeak3-Client-linux_amd64-3.1.6.run ; chmod +x TeamSpeak* ; chown $SUDO_USER TeamSpeak*
-            mv TeamSpeak* /home/$SUDO_USER/
+        "20") #Récupération dossier teamspeak (script à l'intérieur à lancer manuellement par l'utilisateur)
+            wget http://nux87.free.fr/script-postinstall-ubuntu/archives/Teamspeak.tar.xz 
+            tar -xJf Teamspeak.tar.xz ; chown -R $SUDO_USER:$SUDO_USER Teamspeak 
+            rm -f Teamspeak.tar.xz
             ;; 
     esac
 done
@@ -909,8 +909,8 @@ do
         "5") #qBittorrent
             apt install qbittorrent -y
             ;;         
-        "6") #Bittorrent
-            apt install bittorrent bittorrent-gui -y
+        "6") #Bittornado
+            apt install bittornado bittornado-gui -y
             ;;                 
         "7") #aMule
             apt install amule -y
@@ -938,12 +938,11 @@ do
         "14") #Vuze
             snap install vuze-vs --classic
             ;;  
-        "15") #Gydl
-            flatpak install --from https://flathub.org/repo/appstream/com.github.JannikHv.Gydl.flatpakref -y
+        "15") #Gydl (flatpak)
+            flatpak install flathub com.github.JannikHv.Gydl -y
             ;;  
-        "16") #Webtorrent
-            wget https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.18.0/webtorrent-desktop_0.18.0-1_amd64.deb
-            dpkg -i webtorrent-desktop_0.18.0-1_amd64.deb ; apt install -fy ; rm webtorrent-desktop_0.18.0-1_amd64.deb
+        "16") #Webtorrent (flatpak)
+            flatpak install flathub io.webtorrent.WebTorrent -y
             ;;
         "17") #WormHole
             apt install wormhole -y
@@ -1003,8 +1002,8 @@ do
         "16") #Gnome Twitch
             apt install gnome-twitch -y
             ;;         
-        "17") #Lollypop 
-            flatpak install --from https://flathub.org/repo/appstream/org.gnome.Lollypop.flatpakref -y
+        "17") #Lollypop (flatpak)
+            flatpak install flathub org.gnome.Lollypop -y
             ;;             
         "18") #Spotify (snap)
             snap install spotify
@@ -1012,8 +1011,8 @@ do
         "19") #MuseScore 
             apt install musescore -y
             ;;    
-        "20") #Gradio (flatpak) // Paquet snappy existant mais semble poser problème
-            flatpak install --from https://flathub.org/repo/appstream/de.haeckerfelix.gradio.flatpakref -y
+        "20") #Gradio (flatpak)
+            flatpak install flathub de.haeckerfelix.gradio -y
             ;;  
         "21") #Molotov.tv (appimage)
             wget https://desktop-auto-upgrade.s3.amazonaws.com/linux/1.8.0/molotov
@@ -1071,8 +1070,8 @@ do
         "14") #DeVeDe 
             apt install devede -y
             ;;     
-        "15") #Peek (via Flatpak) // paquet snappy existant mais semble poser problème
-            flatpak install --from https://flathub.org/repo/appstream/com.uploadedlobster.peek.flatpakref -y
+        "15") #Peek (Flatpak) 
+            flatpak install flathub com.uploadedlobster.peek -y
             ;;  
         "16") #Avidemux (AppImage)
             wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/avidemux2.7.0.AppImage
@@ -1187,8 +1186,8 @@ do
         "15") #Flacon
             snap install flacon-tabetai
             ;;            
-        "16") #PulseEffects
-            flatpak install --from https://flathub.org/repo/appstream/com.github.wwmm.pulseeffects.flatpakref -y
+        "16") #PulseEffects (flatpak)
+            flatpak install flathub com.github.wwmm.pulseeffects -y
             ;;   
     esac
 done
@@ -1213,8 +1212,8 @@ do
         "5") #Freeplane
             apt install freeplane -y
             ;;
-        "6") #Feedreader
-            flatpak install --from https://flathub.org/repo/appstream/org.gnome.FeedReader.flatpakref -y
+        "6") #Feedreader (flatpak)
+            flatpak install flathub org.gnome.FeedReader -y
             ;;
         "7") #Geary
             apt install geary -y
@@ -1235,7 +1234,7 @@ do
             snap install mailspring
             ;; 
         "13") #Notes Up (Flatpak)
-            flatpak install --from https://flathub.org/repo/appstream/com.github.philip_scott.notes-up.flatpakref -y
+            flatpak install flathub com.github.philip_scott.notes-up -y
             ;;          
         "14") #Zim
             apt install zim -y
@@ -1244,11 +1243,11 @@ do
             wget http://ftp.fr.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb
             wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
             dpkg -i libpng12-0_1.2.50-2+deb8u3_amd64.deb ; dpkg -i wps-office_10.1.0.5707~a21_amd64.deb ; apt install -fy
+            rm -f lib*.deb ; rm -f wps-office*.deb ;
             ;;     
         "16") #Soft Maker Office (béta)
-            wget http://www.softmaker.net/down/softmaker-office-2018_924-01_amd64.deb
-            dpkg -i softmaker-office-2018_924-01_amd64.deb
-            rm -f softmaker-office-2018_924-01_amd64.deb
+            wget http://www.softmaker.net/down/softmaker-office-2018_928-01_amd64.deb
+            dpkg -i softmaker-office-*.deb ; apt install -fy ; rm -f softmaker-office-*
             ;;            
         "17") #OnlyOffice (Snap)
             snap install onlyoffice-desktopeditors --classic
@@ -1284,10 +1283,9 @@ do
             apt install stellarium -y
             ;;            
         "9") #Skychart
-            add-apt-repository 'deb http://www.ap-i.net/apt stable main' -y
-            add-apt-repository --remove 'deb-src http://www.ap-i.net/apt stable main' -y
-            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AA716FC2
-            apt update ; apt install --no-install-recommends skychart -y
+            add-apt-repository 'deb http://www.ap-i.net/apt stable main' -y ; add-apt-repository --remove 'deb-src http://www.ap-i.net/apt stable main' -y
+            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AA716FC2 apt update ; 
+            apt install --no-install-recommends skychart -y
             apt install skychart-data-stars skychart-data-dso skychart-data-pictures -y
             ;;
         "10") #Celestia
@@ -1346,15 +1344,11 @@ do
             apt install wine-stable -y
             ;;
         "8") #Oracle Java 8 (dépot xenial car celui de bionic pas encore activé)
-            add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" -y
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 7B2C3B0889BF5709A105D03AC2518248EEA14886
-            apt update
+            add-apt-repository -y ppa:webupd8team/java ; apt update 
             echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java8-installer -y
             ;;  
         "9") #Oracle Java 9 (dépot xenial car celui de bionic pas encore activé)
-            add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" -y
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 7B2C3B0889BF5709A105D03AC2518248EEA14886
-            apt update
+            add-apt-repository -y ppa:webupd8team/java ; apt update
             echo oracle-java9-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java9-installer -y
             ;;   
         "10") # OpenJDK 9
@@ -1393,36 +1387,28 @@ do
             apt install aircrack-ng nmap -y
             snap install john-the-ripper
             ;;  
-        "21") #Gnome Encfs Manager (dépot Xenial car Bionic pas encore actif)
-            add-apt-repository "deb http://ppa.launchpad.net/gencfsm/ppa/ubuntu xenial main" -y
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 6A0344470F68ADCA
-            apt update ; apt install gnome-encfs-manager -y
+        "21") #Gnome Encfs Manager
+            add-apt-repository -y ppa:gencfsm/ppa ; apt update ;
+            apt install gnome-encfs-manager -y
             ;;             
         "22") #Bleachbit
             apt install bleachbit -y
-            ;;    
-        "23") #VMWare Workstation Player 
-            #apt install gcc -y #<= vérifier si nécessaire sur MP
-            wget https://download3.vmware.com/software/player/file/VMware-Player-14.0.0-6661328.x86_64.bundle
-            chmod +x VMware-Player-14.0.0-6661328.x86_64.bundle
-            ./VMware-Player-12.5.7-5813279.x86_64.bundle
-            ;;              
-        "24") #Corebird
+            ;;           
+        "23") #Corebird
             apt install corebird -y
             ;; 
-        "25") #Wireshark
+        "24") #Wireshark
             debconf-set-selections <<< "wireshark-common/install-setuid true"
-            apt install wireshark -y
-            usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
+            apt install wireshark -y ; usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
             ;;   
-        "26") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
+        "25") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
             apt install vrms screenfetch asciinema ncdu screen rclone -y
             wget http://hoper.dnsalias.net/tdc/public/kclean.deb && dpkg -i kclean.deb ; apt install -fy ; rm kclean.deb
             ;; 
-        "27") #Synaptic
+        "26") #Synaptic
             apt install synaptic -y
             ;;  
-        "28") #AnyDesk
+        "27") #AnyDesk
             wget https://download.anydesk.com/linux/anydesk_2.9.5-1_amd64.deb
             dpkg -i anydesk* ; apt install -fy ; rm anydesk* ;
             ;;              
@@ -1476,11 +1462,11 @@ do
         "15") #Battle for Wesnoth
             apt install wesnoth -y
             ;;
-        "16") #Albion online
-            flatpak install --from https://flathub.org/repo/appstream/com.albiononline.AlbionOnline.flatpakref -y
+        "16") #Albion online (flatpak)
+            flatpak install flathub com.albiononline.AlbionOnline -y
             ;;            
-        "17") #Runscape
-            flatpak install --from https://flathub.org/repo/appstream/com.jagex.RuneScape.flatpakref -y   
+        "17") #Runscape (flatpak)
+            flatpak install flathub com.jagex.RuneScape -y   
             ;;
     esac
 done
@@ -1583,9 +1569,8 @@ do
             git clone https://github.com/numixproject/numix-icon-theme-circle.git ; mv -f numix-icon-theme-circle/* /usr/share/icons/ ; rm -r numix-icon-theme-circle
             ;;
         "3") #pack theme gtk 2
-            apt-add-repository ppa:tista/adapta -y ; apt update ; apt install adapta-gtk-theme -y
-            apt install blackbird-gtk-theme bluebird-gtk-theme greybird-gtk-theme -y
-            #ajouter a la suite : minwaita vanilla + plano + Popgtk
+            apt-add-repository ppa:tista/adapta -y ; apt update ; 
+            apt install adapta-gtk-theme blackbird-gtk-theme bluebird-gtk-theme greybird-gtk-theme -y
             ;;
         "4") #pack theme gtk 3
             apt install albatross-gtk-theme yuyo-gtk-theme human-theme gnome-theme-gilouche -y
@@ -1604,8 +1589,7 @@ do
             ;;  
         "9") #Mac OS X High Sierra (plusieurs versions)
             apt install gtk2-engines-pixbuf gtk2-engines-murrine -y
-            git clone https://github.com/B00merang-Project/macOS-Sierra.git ; git clone https://github.com/B00merang-Project/macOS-Sierra-Dark.git
-            mv -f macOS* /usr/share/themes/
+            git clone https://github.com/B00merang-Project/macOS-Sierra.git ; git clone https://github.com/B00merang-Project/macOS-Sierra-Dark.git ; mv -f macOS* /usr/share/themes/
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/Gnome-OSX-V-Space-Grey-1-3-1.tar.xz && wget http://nux87.free.fr/script-postinstall-ubuntu/theme/Gnome-OSX-V-Traditional-1-3-1.tar.xz   
             tar Jxvf Gnome-OSX-V-Space-Grey-1-3-1.tar.xz ; mv -f Gnome-OSX-V-Space-Grey-1-3-1 /usr/share/themes/ ; rm Gnome-OSX-V-Space-Grey-1-3-1.tar.xz
             tar Jxvf Gnome-OSX-V-Traditional-1-3-1.tar.xz ; mv -f Gnome-OSX-V-Traditional-1-3-1 /usr/share/themes/ ; rm Gnome-OSX-V-Traditional-1-3-1.tar.xz       
@@ -1663,10 +1647,8 @@ do
         "8") #Anjuta
             apt install anjuta anjuta-extras -y
             ;;
-        "9") #Android Studio (dépot Artful car Bionic pas actif)
-            add-apt-repository "deb http://ppa.launchpad.net/maarten-fonville/android-studio/ubuntu artful main" -y
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4DEA8909DC6A13A3
-            apt update ; apt install android-studio -y
+        "9") #Android Studio (flatpak)
+            flatpak install flathub com.google.AndroidStudio -y
             ;;
         "10") #Netbeans
             apt install netbeans -y
@@ -1676,16 +1658,14 @@ do
             ;;
         "12") #BlueGriffon
             wget http://bluegriffon.org/freshmeat/3.0/bluegriffon-3.0.Ubuntu16.04-x86_64.deb
-            dpkg -i bluegriffon-3.0.Ubuntu16.04-x86_64.deb
-            apt install -fy
+            dpkg -i bluegriffon-3.0.Ubuntu16.04-x86_64.deb ; apt install -fy
             ;;         
         "13") #SciTE
             apt install scite -y
             ;;  
-        "14") #Eclipse // version présent aussi dans dépot officiel mais obsolète
+        "14") #Eclipse
             wget http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/oomph/epp/oxygen/R/eclipse-inst-linux64.tar.gz
-            tar xvfz eclipse-inst-linux64.tar.gz
-            chmod +x ./eclipse-installer/eclipse-inst
+            tar xvfz eclipse-inst-linux64.tar.gz ; chmod +x ./eclipse-installer/eclipse-inst
             ./eclipse-installer/eclipse-inst
             ;;           
         "15") #PyCharm
@@ -1722,15 +1702,13 @@ do
         "5") #Postgresql
             apt install postgresql -y
             ;;
-        "6") #Retroportage PHP5 (dépot artful utilisé car bionic pas encore activé)
-            echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu artful main" > /etc/apt/sources.list.d/php-backport.list
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4F4EA0AAE5267A6C
-            apt update ; apt install php5.6 -y
+        "6") #Retroportage PHP5 
+            add-apt-repository -y ppa:ondrej/php ; apt update
+            apt install php5.6 -y
             ;;
         "7") #php7.2
-            echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu artful main" > /etc/apt/sources.list.d/php-backport.list
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4F4EA0AAE5267A6C
-            apt update ; apt install php7.2 -y
+            add-apt-repository -y ppa:ondrej/php ; apt update
+            apt install php7.2 -y
             ;;         
     esac
 done
@@ -1878,64 +1856,64 @@ for flatpak in $choixFlatpak
 do
     case $flatpak in
         "2") #0ad version flatpak
-            flatpak install --from https://flathub.org/repo/appstream/com.play0ad.zeroad.flatpakref -y
+            flatpak install flathub com.play0ad.zeroad -y
             ;;
         "3") #Audacity version flatpak
-            flatpak install --from https://flathub.org/repo/appstream/org.audacityteam.Audacity.flatpakref -y
+            flatpak install flathub org.audacityteam.Audacity -y
             ;;
         "4") #Battle Tanks
-            flatpak install --from https://flathub.org/repo/appstream/net.sourceforge.btanks.flatpakref -y
+            flatpak install flathub net.sourceforge.btanks -y
             ;;            
         "5") #Blender version flatpak
-            flatpak install --from https://flathub.org/repo/appstream/org.blender.Blender.flatpakref -y
+            flatpak install flathub org.blender.Blender -y
             ;;             
         "6") #Dolphin Emulator
-            flatpak install --from https://flathub.org/repo/appstream/org.DolphinEmu.dolphin-emu.flatpakref -y
+            flatpak install flathub org.DolphinEmu.dolphin-emu -y
             ;;             
         "7") #Extreme Tuxracer
-            flatpak install --from https://flathub.org/repo/appstream/net.sourceforge.ExtremeTuxRacer.flatpakref -y
+            flatpak install flathub net.sourceforge.ExtremeTuxRacer -y
             ;;                
         "8") #Frozen Bubble
-            flatpak install --from https://flathub.org/repo/appstream/org.frozen_bubble.frozen-bubble.flatpakref -y
+            flatpak install flathub org.frozen_bubble.frozen-bubble -y
             ;;                    
         "9") #Gnome MPV version flatpak
-            flatpak install --from https://flathub.org/repo/appstream/io.github.GnomeMpv.flatpakref -y
+            flatpak install flathub io.github.GnomeMpv -y
             ;;               
         "10") #GIMP version flatpak
-            flatpak install --from https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y
+            flatpak install flathub org.gimp.GIMP -y
             ;;                    
         "11") #Google Play Music Desktop Player
-            flatpak install --from https://flathub.org/repo/appstream/com.googleplaymusicdesktopplayer.GPMDP.flatpakref -y
+            flatpak install flathub com.googleplaymusicdesktopplayer.GPMDP -y
             ;;              
         "12") #Homebank
-            flatpak install --from https://flathub.org/repo/appstream/fr.free.Homebank.flatpakref -y
+            flatpak install flathub fr.free.Homebank -y
             ;;               
         "13") #LibreOffice version flatpak
-            flatpak install --from https://flathub.org/repo/appstream/org.libreoffice.LibreOffice.flatpakref -y
+            flatpak install flathub org.libreoffice.LibreOffice -y
             ;;         
         "14") #Minetest version flatpak
-            flatpak install --from https://flathub.org/repo/appstream/net.minetest.Minetest.flatpakref -y
+            flatpak install flathub net.minetest.Minetest -y
             ;;             
         "15") #Nextcloud
-            flatpak install --from https://flathub.org/repo/appstream/org.nextcloud.Nextcloud.flatpakref -y
+            flatpak install flathub org.nextcloud.Nextcloud -y
             ;;        
         "16") #Othman Quran Browser
-            flatpak install --from https://flathub.org/repo/appstream/com.github.ojubaorg.Othman.flatpakref -y
+            flatpak install flathub com.github.ojubaorg.Othman -y
             ;;  
         "17") #Password Calculator
-            flatpak install --from https://flathub.org/repo/appstream/com.bixense.PasswordCalculator.flatpakref -y
+            flatpak install flathub com.bixense.PasswordCalculator -y
             ;;             
         "18") #PPSSPP
-            flatpak install --from https://flathub.org/repo/appstream/org.ppsspp.PPSSPP.flatpakref -y
+            flatpak install flathub org.ppsspp.PPSSPP -y
             ;;              
         "19") #Riot
-            flatpak install --from https://flathub.org/repo/appstream/im.riot.Riot.flatpakref -y
+            flatpak install flathub im.riot.Riot -y
             ;;                             
         "20") #Teeworlds
-            flatpak install --from https://flathub.org/repo/appstream/com.teeworlds.Teeworlds.flatpakref -y
+            flatpak install flathub com.teeworlds.Teeworlds -y
             ;;       
         "21") #VLC version flatpak
-            flatpak install --from https://flathub.org/repo/appstream/org.videolan.VLC.flatpakref -y
+            flatpak install flathub org.videolan.VLC -y
             ;;
     esac
 done
@@ -1953,56 +1931,52 @@ do
             ;;
         "4") #Aidos Wallet
             wget https://github.com/AidosKuneen/aidos-wallet/releases/download/v1.2.7/Aidos-1.2.7-x86_64.AppImage
-            ;; 
-        "5") #Cerebro
-            wget https://github.com/KELiON/cerebro/releases/download/v0.3.1/cerebro-0.3.1-x86_64.AppImage
-            ;;             
-        "6") #Chronos
+            ;;           
+        "5") #Chronos
             wget https://github.com/web-pal/Chronos/releases/download/v2.2.1/Chronos-2.2.1-x86_64.AppImage
             ;;     
-        "7") #Crypter
+        "6") #Crypter
             wget https://github.com/HR/Crypter/releases/download/v3.1.0/Crypter-3.1.0-x86_64.AppImage
             ;;
-        "8") #Jaxx
+        "7") #Jaxx
             wget https://github.com/Jaxx-io/Jaxx/releases/download/v1.3.9/jaxx-1.3.9-x86_64.AppImage
             ;;            
-        "9") #Imagine
+        "8") #Imagine
             wget https://github.com/meowtec/Imagine/releases/download/v0.4.0/Imagine-0.4.0-x86_64.AppImage
             ;;     
-        "10") #Infinite Electron
+        "9") #Infinite Electron
             wget https://github.com/InfiniteLibrary/infinite-electron/releases/download/0.1.1/infinite-electron-0.1.1-x86_64.AppImage
             ;; 
-        "11") #Kdenlive version Appimage
+        "10") #Kdenlive version Appimage
             wget https://download.kde.org/unstable/kdenlive/16.12/linux/Kdenlive-16.12-rc-x86_64.AppImage
             ;;   
-        "12") #KDevelop
+        "11") #KDevelop
             wget https://download.kde.org/stable/kdevelop/5.2.0/bin/linux/KDevelop-5.2.0-x86_64.AppImage
             ;;     
-        "13") #MellowPlayer
+        "12") #MellowPlayer
             wget https://github.com/ColinDuquesnoy/MellowPlayer/releases/download/Continuous/MellowPlayer-x86_64.AppImage
             ;; 
-        "14") #Nextcloud version Appimage
+        "13") #Nextcloud version Appimage
             wget https://download.nextcloud.com/desktop/prereleases/Linux/Nextcloud-2.3.3-beta-x86_64.AppImage
             ;;    
-        "15") #Openshot version Appimage
-            wget http://github.com/OpenShot/openshot-qt/releases/download/v2.4.1/OpenShot-v2.4.1-x86_64.AppImage
+        "14") #Openshot version Appimage
+            wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/OpenShot-v2.4.1-x86_64.AppImage
             ;;  
-        "16") #Owncloud Client
+        "15") #Owncloud Client
             wget http://download.opensuse.org/repositories/home:/ocfreitag/AppImage/owncloud-client-latest-x86_64.AppImage
             ;;     
-        "17") #Popcorntime
+        "16") #Popcorntime
             wget https://github.com/amilajack/popcorn-time-desktop/releases/download/v0.0.6/PopcornTime-0.0.6-x86_64.AppImage
             ;;                  
-        "18") #Spotify web client
+        "17") #Spotify web client
             wget https://github.com/Quacky2200/Spotify-Web-Player-for-Linux/releases/download/1.0.42/spotifywebplayer-1.0.42-x86_64.AppImage
             ;;      
-        "19") #Tulip
+        "18") #Tulip
             wget https://github.com/Tulip-Dev/tulip/releases/download/tulip_5_1_0/Tulip-5.1.0-x86_64.AppImage
             ;;                      
     esac
 done
-    
-   
+       
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
 mkdir /home/$SUDO_USER/appimages ; rm *.deb ; mv *.AppImage /home/$SUDO_USER/appimages/
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
