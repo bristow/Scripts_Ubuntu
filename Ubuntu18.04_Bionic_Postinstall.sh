@@ -209,7 +209,7 @@ then
     echo "[8] QuodLibet (un lecteur audio très puissant avec liste de lecture basée sur les expressions rationnelles)"
     echo "[9] Audacious (lecteur complet pour les audiophiles avec beaucoup de plugins)"
     echo "[10] Guayadeque (lecteur audio et radio avec une interface agréable)"
-    echo "[11] Gnome Music (utilitaire de la fondation Gnome pour la gestion audio, assez basique)"
+    echo "[11] Gnome Music (utilitaire 'Musique' de la fondation Gnome pour la gestion audio, assez basique)"
     echo "[12] Gmusicbrowser (lecteur avec une interface très configurable)"
     echo "[13] Musique (un lecteur épuré)"
     echo "[14] Qmmp (dans le même style de Winamp pour les fans)"
@@ -234,7 +234,7 @@ then
     echo "[4] Libav-tools (fork de FFmpeg, outil en CLI pour la conversion via : avconv)"
     echo "[5] KDEnLive (éditeur vidéo non-linéaire pour monter sons et images avec effets spéciaux)"
     echo "[6] OpenShot Video Editor (une autre alternative comme éditeur vidéo, libre et écrit en Python)"
-    echo "[7] Pitivi (logiciel de montage basique avec une interface simple et intuitive)" 
+    echo "[7] Pitivi ${bleu}[Flatpak]${neutre} (logiciel de montage basique avec une interface simple et intuitive)" 
     echo "[8] Lives (dispose des fonctionnalités d'éditions vidéo/son classique, des filtres et multipiste"
     echo -e "[9] Flowblade ${violet}[X!]${neutre} (logiciel de montage vidéo multi-piste performant)"
     echo "[10] Cinelerra (montage non-linéaire sophistiqué, équivalent à Adobe première, Final Cut et Sony Vegas"
@@ -243,8 +243,7 @@ then
     echo "[13] MMG : MkvMergeGui (interface graphique pour l'outil mkmerge : création/manipulation fichier mkv)"
     echo "[14] DeVeDe (création de DVD/CD vidéos lisibles par des lecteurs de salon)"
     echo -e "[15] Peek ${bleu}[Flatpak]${neutre} (outil de création de Gif animé à partir d'une capture vidéo)"
-    echo -e "[16] Avidemux ${vert}[Appimage]${neutre}${rouge}[Ne semble pas fonctionner !]${neutre} (équivalent de 'VirtualDub' : coupe, filtre et ré-encodage)"
-    echo "[17] Shotcut (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
+    echo "[16] Shotcut (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixVideo
     clear
@@ -258,17 +257,16 @@ then
     echo "[3] Krita (outil d'édition et retouche d'images, orienté plutôt vers le dessin bitmap)"
     echo "[4] Pinta (graphisme simple équivalent à Paint.NET)"
     echo "[5] Pixeluvo (une autre alternative à Photoshop mais il reste propriétaire)"
-    echo "[6] Phatch (pour traiter des images par lot via des scripts prédéfinis)"
-    echo "[7] MyPaint (logiciel de peinture numérique développé en Python)"
-    echo "[8] Ufraw (logiciel de dérawtisation capable de lire/interpréter la plupart des formats RAW)"
-    echo "[9] Inkscape (logiciel spécialisé dans le dessin vectoriel, équivalent de 'Adobe Illustrator')"
-    echo "[10] Darktable (gestionnaire de photos libre sous forme de table lumineuse et chambre noir)"
-    echo "[11] Blender (suite libre de modélisation 3D, matériaux et textures, d'éclairage, d'animation...)"
-    echo "[12] K-3D (animation et modélisation polygonale et modélisation par courbes)"
-    echo "[13] SweetHome 3D (aménagement d'intérieur pour dessiner les plans d'une maison, placement des meubles...)"
-    echo "[14] LibreCAD (anciennement CADubuntu, DAO 2D pour modéliser des dessins techniques)"
-    echo -e "[15] Shutter ${violet}[X!]${neutre} (pour effectuer des captures d'écran + appliquer des modifications diverses)"
-    echo "[16] Frogr (utile pour ceux qui utilisent le service web 'Flickr')"
+    echo "[6] MyPaint (logiciel de peinture numérique développé en Python)"
+    echo "[7] Ufraw (logiciel de dérawtisation capable de lire/interpréter la plupart des formats RAW)"
+    echo "[8] Inkscape (logiciel spécialisé dans le dessin vectoriel, équivalent de 'Adobe Illustrator')"
+    echo "[9] Darktable (gestionnaire de photos libre sous forme de table lumineuse et chambre noir)"
+    echo "[10] Blender (suite libre de modélisation 3D, matériaux et textures, d'éclairage, d'animation...)"
+    echo "[11] K-3D (animation et modélisation polygonale et modélisation par courbes)"
+    echo "[12] SweetHome 3D (aménagement d'intérieur pour dessiner les plans d'une maison, placement des meubles...)"
+    echo "[13] LibreCAD (anciennement CADubuntu, DAO 2D pour modéliser des dessins techniques)"
+    echo -e "[14] Shutter ${violet}[X!]${neutre} (pour effectuer des captures d'écran + appliquer des modifications diverses)"
+    echo "[15] Frogr (utile pour ceux qui utilisent le service web 'Flickr')"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 4) : " choixGraphisme
     clear
@@ -280,7 +278,7 @@ then
     echo "[1] Aucun"
     echo "[2] Xcfa : X Convert File Audio (extraction cd audio, piste dvd, normalisation, création pochette)"
     echo "[3] Sound-Juicer (pour extraire les pistes audios d'un cd)"
-    echo "[4] Gnome Sound Recorder (pour enregistrer et lire du son, realisé par défaut avec OggVorbis)"
+    echo "[4] Gnome Sound Recorder ('enregistreur de son' pour Gnome)"
     echo "[5] Audacity (enregistrement et édition de son numérique)"
     echo "[6] MhWaveEdit (application libre d'enregistrement et d'édition audio complète distribuée sous GPL)"
     echo "[7] RipperX (une autre alternative pour extraire les cd de musique)"
@@ -709,7 +707,7 @@ then
     #internet
     apt install chromium-browser pidgin -y
     #multimédia
-    apt install vlc gnome-mpv pitivi gimp pinta -y
+    apt install vlc gnome-mpv gimp pinta -y
     #divers
     apt install brasero adobe-flashplugin gnome-todo -y
 fi
@@ -979,10 +977,9 @@ do
             apt install audacious audacious-plugins -y
             ;;        
         "10") #Guayadeque #(dépot pour Artful utilisé car Bionic pas encore activé mais fonctionnement validé)
-            echo "deb http://ppa.launchpad.net/anonbeat/guayadeque/ubuntu artful main" >> /etc/apt/sources.list.d/anonbeat-ubuntu-guayadeque-bionic.list
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 95FABEFB4499973B
-            apt update
-            apt install guayadeque -y
+            add-apt-repository -y "deb http://ppa.launchpad.net/anonbeat/guayadeque/ubuntu artful main"
+            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 71C004D5C1F0137ADBD5186195FABEFB4499973B
+            apt update ; apt install guayadeque -y
             ;;    
         "11") #gnome music
             apt install gnome-music -y
@@ -1015,7 +1012,7 @@ do
             flatpak install flathub de.haeckerfelix.gradio -y
             ;;  
         "21") #Molotov.tv (appimage)
-            wget https://desktop-auto-upgrade.s3.amazonaws.com/linux/1.8.0/molotov
+            wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov
             mv molotov molotov.AppImage && chmod +x molotov.AppImage
             ;; 
         "22") #gxine
@@ -1043,8 +1040,8 @@ do
         "6") #OpenShot Video Editor 
             apt install openshot-qt -y
             ;;
-        "7") #Pitivi
-            apt install pitivi -y
+        "7") #Pitivi (flatpak) #car la version via dpkg pose problème
+            flatpak install flathub org.pitivi.Pitivi -y
             ;;
         "8") #Lives
             apt install lives -y
@@ -1072,12 +1069,8 @@ do
             ;;     
         "15") #Peek (Flatpak) 
             flatpak install flathub com.uploadedlobster.peek -y
-            ;;  
-        "16") #Avidemux (AppImage)
-            wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/avidemux2.7.0.AppImage
-            chmod +x avidemux2.7.0.AppImage
             ;;    
-        "17") #Shotcut (PPA pour Bionic pas encore actif) // existe en snappy mais ne semble pas fonctionner
+        "16") #Shotcut (PPA pour Bionic pas encore actif) // existe en snappy mais ne semble pas fonctionner
             add-apt-repository "deb http://ppa.launchpad.net/haraldhv/shotcut/ubuntu zesty main" -y
             apt-key adv --recv-keys --keyserver keyserver.ubuntu.com D03D19F673FED66EBD64099959A9D327745898E3
             apt update ; apt install shotcut -y
@@ -1103,37 +1096,34 @@ do
             dpkg -i pixeluvo_1.6.0-2_amd64.deb
             apt install -fy
             ;;
-        "6") #Phatch
-            apt install phatch phatch-cli -y
-            ;;
-        "7") #MyPaint
+        "6") #MyPaint
             apt install mypaint mypaint-data-extras -y
             ;;         
-        "8") #Ufraw
+        "7") #Ufraw
             apt install ufraw ufraw-batch -y
             ;;            
-        "9") #Inkscape
+        "8") #Inkscape
             apt install inkscape -y
             ;;                    
-        "10") #Darktable
+        "9") #Darktable
             apt install darktable -y
             ;;          
-        "11") #Blender
+        "10") #Blender
             apt install blender -y
             ;;       
-        "12") #K-3D
+        "11") #K-3D
             apt install k3d -y
             ;;                         
-        "13") #SweetHome 3D
+        "12") #SweetHome 3D
             apt install sweethome3d -y
             ;;               
-        "14") #LibreCAD
+        "13") #LibreCAD
             apt install librecad -y
             ;;        
-        "15") #Shutter
+        "14") #Shutter
             apt install shutter -y
             ;;    
-        "16") #Frogr
+        "15") #Frogr
             apt install frogr -y
             ;;    
     esac
