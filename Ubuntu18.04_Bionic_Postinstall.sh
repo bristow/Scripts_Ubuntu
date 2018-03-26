@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.22
+# version 0.1.23
 
 #  Copyleft 2018 Simbd
 #  
@@ -663,9 +663,9 @@ then
     # Autres logiciels utiles
     apt install ubuntu-restricted-addons -y #ubuntu-restricted-extras
     # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
-    mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions && chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell/extensions
-    mkdir /home/$SUDO_USER/.themes && chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.themes
-    mkdir /home/$SUDO_USER/.icons && chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.icons
+    mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions 
+    mkdir /home/$SUDO_USER/.themes 
+    mkdir /home/$SUDO_USER/.icons 
     
     # Augmenter le temps maximum pour la capture vidéo à 10 minutes (600s) (par défaut c'était 30s)
     su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600"
@@ -1441,15 +1441,15 @@ done
 
 # Mode avancé : ne pas oublier d'ajouter plus tard une condition => Si mode avancé alors...
 
-# 14/ Extensions (a completer plus tard)
+# 14/ Extensions (extension en commentaire pas encore compatible avec GS 3.28)
 for extension in $choixExtension
 do
     case $extension in
-        "2") #User themes
+        "2") #User themes (v3.26)
             wget https://extensions.gnome.org/extension-data/user-theme%40gnome-shell-extensions.gcampax.github.com.v32.shell-extension.zip
             unzip user-theme@gnome-shell-extensions.gcampax.github.com.v32.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com
             ;;             
-        "3") #AlternateTab
+        "3") #AlternateTab (v3.26)
             wget https://extensions.gnome.org/extension-data/alternate-tab%40gnome-shell-extensions.gcampax.github.com.v36.shell-extension.zip
             unzip alternate-tab@gnome-shell-extensions.gcampax.github.com.v36.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/alternate-tab@gnome-shell-extensions.gcampax.github.com
             ;;
@@ -1457,15 +1457,17 @@ do
             apt install gnome-shell-extension-caffeine -y
             ;;
         "5") #DashToDock
-            wget https://extensions.gnome.org/extension-data/dash-to-dock%40micxgx.gmail.com.v61.shell-extension.zip
-            unzip dash-to-dock@micxgx.gmail.com.v61.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+            apt install gnome-shell-extension-dashtodock -y
+            # version manuel (v3.26)
+            #wget https://extensions.gnome.org/extension-data/dash-to-dock%40micxgx.gmail.com.v62.shell-extension.zip 
+            #unzip dash-to-dock@micxgx.gmail.com.v62.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
             ;;
         "6") #DashToPanel
             apt install gnome-shell-extension-dash-to-panel -y
             ;;
-        "7") #Clipboard Indicator
-            wget https://extensions.gnome.org/extension-data/clipboard-indicator%40tudmotu.com.v29.shell-extension.zip
-            unzip clipboard-indicator@tudmotu.com.v29.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
+        "7") #Clipboard Indicator (v3.26)
+            wget https://extensions.gnome.org/extension-data/clipboard-indicator%40tudmotu.com.v30.shell-extension.zip
+            unzip clipboard-indicator@tudmotu.com.v30.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
             ;;       
         "8") #Impatience
             apt install gnome-shell-extension-impatience -y
@@ -1482,11 +1484,11 @@ do
         "12") #Weather
             apt install gnome-shell-extension-weather -y
             ;;
-        "13") #Places status indicator
+        "13") #Places status indicator (v3.26)
             wget https://extensions.gnome.org/extension-data/places-menu%40gnome-shell-extensions.gcampax.github.com.v38.shell-extension.zip
             unzip places-menu@gnome-shell-extensions.gcampax.github.com.v38.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/places-menu@gnome-shell-extensions.gcampax.github.com
             ;;
-        "14") #Removable drive menu
+        "14") #Removable drive menu (v3.26)
             wget https://extensions.gnome.org/extension-data/drive-menu%40gnome-shell-extensions.gcampax.github.com.v35.shell-extension.zip
             unzip drive-menu@gnome-shell-extensions.gcampax.github.com.v35.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/drive-menu@gnome-shell-extensions.gcampax.github.com
             ;;
@@ -1502,11 +1504,11 @@ do
         "18") #Trash
             apt install gnome-shell-extension-trash -y
             ;;  
-        "19") #Window list
+        "19") #Window list (v3.26)
             wget https://extensions.gnome.org/extension-data/window-list%40gnome-shell-extensions.gcampax.github.com.v22.shell-extension.zip
             unzip window-list@gnome-shell-extensions.gcampax.github.com.v22.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/window-list@gnome-shell-extensions.gcampax.github.com
             ;;
-        "20") #Workspace indicator
+        "20") #Workspace indicator (v3.26)
             wget https://extensions.gnome.org/extension-data/workspace-indicator%40gnome-shell-extensions.gcampax.github.com.v34.shell-extension.zip
             unzip workspace-indicator@gnome-shell-extensions.gcampax.github.com.v34.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/workspace-indicator@gnome-shell-extensions.gcampax.github.com
             ;;
@@ -1516,13 +1518,13 @@ do
         "22") #Top Icon Plus
             apt install gnome-shell-extension-top-icons-plus -y
             ;;
-        "23") #Unite
-            wget https://extensions.gnome.org/extension-data/unite%40hardpixel.eu.v8.shell-extension.zip
-            unzip unite@hardpixel.eu.v8.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/unite@hardpixel.eu
+        "23") #Unite (v3.26)
+            wget https://extensions.gnome.org/extension-data/unite%40hardpixel.eu.v11.shell-extension.zip
+            unzip unite@hardpixel.eu.v11.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/unite@hardpixel.eu
             ;;  
-        "24") #AppFolders Management
-            wget https://extensions.gnome.org/extension-data/appfolders-manager%40maestroschan.fr.v11.shell-extension.zip
-            unzip appfolders-manager@maestroschan.fr.v11.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/appfolders-manager@maestroschan.fr          
+        "24") #AppFolders Management (v3.26)
+            wget https://extensions.gnome.org/extension-data/appfolders-manager%40maestroschan.fr.v12.shell-extension.zip
+            unzip appfolders-manager@maestroschan.fr.v12.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/appfolders-manager@maestroschan.fr          
             ;;    
     esac
 done
@@ -1939,6 +1941,14 @@ done
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
 mkdir /home/$SUDO_USER/appimages ; rm *.deb ; mv *.AppImage /home/$SUDO_USER/appimages/
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
+
+# Nettoyage extension (les zips téléchargés ne sont plus utiles)
+rm -f *@gnome-shell-extensions*.zip
+
+# Régler problème de permission des répertoires ajoutés manuellement
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.themes
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.icons
 
 # Maj
 apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y
