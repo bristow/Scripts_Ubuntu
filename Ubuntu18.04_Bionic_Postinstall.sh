@@ -29,6 +29,7 @@ bleu='\e[1;34m'
 violet='\e[1;35m'
 cyan='\e[1;36m'
 neutre='\e[0;m'
+clear
 
 # Contrôle de la configuration système (script correctement lancé + version 18.04 + gnome-shell présent)
 . /etc/lsb-release
