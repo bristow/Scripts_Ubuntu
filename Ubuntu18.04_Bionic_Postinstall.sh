@@ -657,7 +657,7 @@ fi
 if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
 then
     # logiciels utiles pour Gnome
-    apt install dconf-editor gnome-tweak-tool folder-color -y
+    apt install dconf-editor gnome-tweak-tool folder-color gnome-system-tools -y
     # Suppression de l'icone Amazon (présent uniquement sur la version de base)
     apt purge ubuntu-web-launchers -y
     # Autres logiciels utiles
