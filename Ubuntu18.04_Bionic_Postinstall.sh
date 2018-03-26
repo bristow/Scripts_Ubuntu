@@ -706,8 +706,8 @@ then
     apt install brasero adobe-flashplugin gnome-todo -y
 fi
 
-# Se placer dans le répertoire perso de l'utilisateur (nécessaire pour certains logiciels)
-cd /home/$SUDO_USER/
+# Création d'un répertoire pour le script et on se déplace dedans
+mkdir /home/$SUDO_USER/script_postinstall && cd /home/$SUDO_USER/script_postinstall/
 
 ## Installation suivant les choix de l'utilisateur :
 
@@ -1942,8 +1942,8 @@ done
 mkdir /home/$SUDO_USER/appimages ; rm *.deb ; mv *.AppImage /home/$SUDO_USER/appimages/
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
 
-# Nettoyage extension (les zips téléchargés ne sont plus utiles)
-rm -f *@gnome-shell-extensions*.zip
+# Nettoyage fichiers inutiles dans dossier script 
+rm -f *.zip ; rm -f *.tar.xz 
 
 # Régler problème de permission des répertoires ajoutés manuellement
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell
@@ -1952,8 +1952,8 @@ chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.icons
 
 # Maj
 apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y
-snap refresh ; #flatpak update -y 
-clear 
+snap refresh ; flatpak update -y 
+cd .. ; clear 
 
 echo "Pour prendre en compte tous les changements, il faut maintenant redémarrer !"
 read -p "Voulez-vous redémarrer immédiatement ? [o/N] " rep_reboot
