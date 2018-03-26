@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.23
+# version 0.1.24
 
 #  Copyleft 2018 Simbd
 #  
@@ -412,7 +412,7 @@ then
         echo -e "${jaune}14/ Des extensions pour gnome-shell à installer ? [mode avancé]${neutre}"
         echo "*******************************************************"
         echo "[1] Non, ne pas ajouter de nouvelles extensions"
-        echo "[2] User themes (pour charger des thèmes pour Gnome Shell à partir de votre répertoire perso)"
+        echo "[2] User themes [recommandé] (permet de charger des thèmes stockés dans votre répertoire perso)"
         echo "[3] AlternateTab (alternative au Alt+Tab issu du mode classique)"
         echo "[4] Caffeine (permet en 1 clic de désactiver temporairement les mises en veilles)"
         echo "[5] DashToDock (permet plus d'options pour les réglages du dock, celui d'Ubuntu étant basé dessus)"
@@ -446,17 +446,17 @@ then
     echo -e "${jaune}15/ Sélectionnez ce qui vous intéresse en terme de customisation [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Pas d'ajout"
-    echo "[2] Thème GTK : Arc + Numix"
-    echo "[3] Pack2 avec encore d'autres thèmes : Adapta + Greybird/Blackbird/Bluebird"
-    echo "[4] Pack3 de thèmes : albatross, Yuyo, human, gilouche"
+    echo "[2] Thèmes GTK pack1 : Arc + Numix"
+    echo "[3] Thèmes GTK pack2 : Adapta + Greybird/Blackbird/Bluebird"
+    echo "[4] Thèmes GTK pack3 : Albatross, Yuyo, Human, Gilouche, Materia"
     echo "[5] Pack d'icones 1 : Numix et Numix Circle, Breathe, Breeze, Elementary, Brave + supplément extra icone Gnome"
     echo "[6] Pack d'icones 2 : Dust, Humility, Garton, Gperfection2, Nuovo"
     echo "[7] Pack d'icones 3 : Human, Moblin, Oxygen, Suede, Yasis"
     echo "[8] Pack de curseurs : Breeze + Moblin + Oxygen/Oxygen-extra"
-    echo "[9] Mac OS X High Sierra - vLight+Dark (thème + icone + wallpaper)"
-    echo "[10] Windows 10 Thème (thème + icone)"
-    echo "[11] Unity8 Thème"
-    echo "[12] Icones Papirus utilisées notamment dans Solus (différentes variantes : Adapta, Nokto, Dark, Light...)"    
+    echo "[9] Thème complet Mac OS X High Sierra Light+Dark (thème+icone+wallpaper)"
+    echo "[10] Thème Windows 10 (thème+icone)"
+    echo "[11] Thème Unity 8"
+    echo "[12] Icones Papirus (Solus) avec différentes variantes : Adapta, Nokto, Dark, Light"    
     echo -e "[13] Spécifique Gnome-Shell : Remettre GDM avec thème gris ${rouge}=> Attention : ajoute la session Vanilla en dépendance !${neutre}"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 5) : " choixCustom
@@ -1456,11 +1456,10 @@ do
         "4") #Caffeine
             apt install gnome-shell-extension-caffeine -y
             ;;
-        "5") #DashToDock
-            apt install gnome-shell-extension-dashtodock -y
-            # version manuel (v3.26)
-            #wget https://extensions.gnome.org/extension-data/dash-to-dock%40micxgx.gmail.com.v62.shell-extension.zip 
-            #unzip dash-to-dock@micxgx.gmail.com.v62.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+        "5") #DashToDock (v3.26)
+            wget https://extensions.gnome.org/extension-data/dash-to-dock%40micxgx.gmail.com.v62.shell-extension.zip 
+            unzip dash-to-dock@micxgx.gmail.com.v62.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+            #apt install gnome-shell-extension-dashtodock -y (méthode d'install non choisi car fait buggé la session pour cette extension)
             ;;
         "6") #DashToPanel
             apt install gnome-shell-extension-dash-to-panel -y
@@ -1543,10 +1542,10 @@ do
             apt install adapta-gtk-theme blackbird-gtk-theme bluebird-gtk-theme greybird-gtk-theme -y
             ;;
         "4") #pack theme gtk 3
-            apt install albatross-gtk-theme yuyo-gtk-theme human-theme gnome-theme-gilouche -y
+            apt install albatross-gtk-theme yuyo-gtk-theme human-theme gnome-theme-gilouche materia-gtk-theme -y
             ;;
         "5") #pack icone 1
-            apt install numix-icon-theme breathe-icon-theme breeze-icon-theme elementary-icon-theme gnome-brave-icon-theme gnome-icon-theme-extras -y
+            apt install numix-icon-theme breathe-icon-theme breeze-icon-theme gnome-brave-icon-theme elementary-icon-theme -y
             ;;        
         "6") #pack icone 2
             apt install gnome-dust-icon-theme gnome-humility-icon-theme gnome-icon-theme-gartoon gnome-icon-theme-gperfection2 gnome-icon-theme-nuovo -y
@@ -1567,12 +1566,12 @@ do
             git clone https://github.com/keeferrourke/la-capitaine-icon-theme.git ; mv -f *capitaine* /usr/share/icons/
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/macOS.tar.xz ; tar Jxvf macOS.tar.xz ; mv macOS /usr/share/icons/ ; rm -r macOS*
             #Wallpaper officiel Mac OS X Sierra
-            wget http://wallpaperswide.com/download/macos_sierra_2-wallpaper-3554x1999.jpg -P /usr/share/backgrounds/
+            wget http://wallpaperswide.com/download/macos_sierra_2-wallpaper-3554x1999.jpg -P /home/$SUDO_USER/Images/
             ;;
         "10") #Windows 10
             git clone https://github.com/B00merang-Project/Windows-10.git ; mv -f Windo* /usr/share/themes/
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/windows10-icons_1.2_all.deb && dpkg -i windows10-icons_1.2_all.deb
-            wget https://framapic.org/Nd6hGtEOEJhM/LtmYwl16WjyC.jpg && mv LtmYwl16WjyC.jpg /usr/share/backgrounds/windows10.jpg
+            wget https://framapic.org/Nd6hGtEOEJhM/LtmYwl16WjyC.jpg && mv LtmYwl16WjyC.jpg /home/$SUDO_USER/Images/windows10.jpg
             ;;
         "11") #Unity 8
             git clone https://github.com/B00merang-Project/Unity8.git ; mv -f Unit* /usr/share/themes/
