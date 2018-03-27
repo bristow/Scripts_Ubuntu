@@ -417,7 +417,7 @@ then
         echo -e "${jaune}14/ Des extensions pour gnome-shell à installer ? [mode avancé]${neutre}"
         echo "*******************************************************"
         echo "[1] Non, ne pas ajouter de nouvelles extensions"
-        echo "[2] User themes ${vert}[recommandé]${neutre} (permet de charger des thèmes stockés dans votre répertoire perso)"
+        echo -e "[2] User themes ${vert}[recommandé]${neutre} (permet de charger des thèmes stockés dans votre répertoire perso)"
         echo "[3] AlternateTab (alternative au Alt+Tab issu du mode classique)"
         echo "[4] Caffeine (permet en 1 clic de désactiver temporairement les mises en veilles)"
         echo "[5] DashToDock (permet plus d'options pour les réglages du dock, celui d'Ubuntu étant basé dessus)"
