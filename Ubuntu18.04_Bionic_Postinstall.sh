@@ -212,18 +212,18 @@ then
     echo "[7] Clementine (lecteur audio avec gestion des pochettes, genres musicaux...)"
     echo "[8] QuodLibet (un lecteur audio très puissant avec liste de lecture basée sur les expressions rationnelles)"
     echo "[9] Audacious (lecteur complet pour les audiophiles avec beaucoup de plugins)"
-    echo -e "[10] Guayadeque ${gris}[PPA]${neutre} (lecteur audio et radio avec une interface agréable)"
-    echo "[11] Gnome Music (utilitaire 'Musique' de la fondation Gnome pour la gestion audio, assez basique)"
-    echo "[12] Gmusicbrowser (lecteur avec une interface très configurable)"
-    echo "[13] Musique (un lecteur épuré)"
-    echo "[14] Qmmp (dans le même style de Winamp pour les fans)"
-    echo "[15] Xmms2+Gxmms2 (un autre lecteur audio dans le style de Winamp)"
-    echo "[16] Gnome Twitch (pour visionner les flux vidéo du site Twitch depuis votre bureau sans utiliser de navigateur)"
-    echo -e "[17] Lollypop ${bleu}[Flatpak]${neutre} (lecteur de musique adapté à Gnome avec des fonctions très avancées)"
-    echo -e "[18] Spotify ${jaune}[Snap]${neutre} (permet d'accéder gratuitement et légalement à de la musique en ligne)"
-    echo -e "[19] MuseScore (l'éditeur de partitions de musique le plus utilisé au monde !)"
-    echo -e "[20] GRadio ${bleu}[Flatpak]${neutre} (application Gnome pour écouter la radio, plus de 1 000 références rien qu'en France !)"
-    echo -e "[21] Molotov.TV ${vert}[Appimage]${neutre} (service français de distribution de chaînes de TV)"
+    echo "[10] Gnome Music (utilitaire 'Musique' de la fondation Gnome pour la gestion audio, assez basique)"
+    echo "[11] Gmusicbrowser (lecteur avec une interface très configurable)"
+    echo "[12] Musique (un lecteur épuré)"
+    echo "[13] Qmmp (dans le même style de Winamp pour les fans)"
+    echo "[14] Xmms2+Gxmms2 (un autre lecteur audio dans le style de Winamp)"
+    echo "[15] Gnome Twitch (pour visionner les flux vidéo du site Twitch depuis votre bureau sans utiliser de navigateur)"
+    echo -e "[16] Lollypop ${bleu}[Flatpak]${neutre} (lecteur de musique adapté à Gnome avec des fonctions très avancées)"
+    echo -e "[17] Spotify ${jaune}[Snap]${neutre} (permet d'accéder gratuitement et légalement à de la musique en ligne)"
+    echo -e "[18] MuseScore (l'éditeur de partitions de musique le plus utilisé au monde !)"
+    echo -e "[19] GRadio ${bleu}[Flatpak]${neutre} (application Gnome pour écouter la radio, plus de 1 000 références rien qu'en France !)"
+    echo -e "[20] Molotov.TV ${vert}[Appimage]${neutre} (service français de distribution de chaînes de TV)"
+    #echo -e "[100] Guayadeque ${gris}[PPA]${neutre} (lecteur audio et radio avec une interface agréable)" #ppa pas encore actif
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3) : " choixMultimedia
     clear
@@ -480,16 +480,15 @@ then
     echo "[7] JEdit (éditeur libre, multiplateforme et très personnalisable)"
     echo "[8] Anjuta (IDE simple pour C/C++, Java, JavaScript, Python et Vala)"
     echo "[9] Android Studio ${bleu}[Flatpak]${neutre} (IDE de Google spécialisé pour le développement d'application Android)"
-    echo -e "[10] Netbeans vJavaSE ${rouge}[I!]${neutre} (IDE version pour language Java SE)"
-    echo "[11] BlueFish (éditeur orienté développement web : HTML/PHP/CSS/...)"
-    echo "[12] BlueGriffon (éditeur HTML/CSS avec aperçu du rendu en temps réel)"
-    echo "[13] SciTE : Scintilla Text Editor (éditeur web avec une bonne coloration syntaxique)"
-    echo -e "[14] Eclipse ${rouge}[I!]${neutre}${violet}[X!]${neutre}(Projet décliné en sous-projets de dev)"
-    echo -e "[15] PyCharm [version communautaire] ${jaune}[Snap]${neutre} (IDE pour le langage Python)"
-    echo -e "[16] Visual Studio Code ${jaune}[Snap]${neutre} (développé par Microsoft, sous licence libre MIT)"
-    echo -e "[17] Atom ${jaune}[Snap]${neutre} (éditeur sous licence libre qui supporte les plug-ins Node.js et implémente GitControl)"
-    echo -e "[18] Brackets ${jaune}[Snap]${neutre} (éditeur opensource d'Adobe pour le web design et dev web HTML, CSS, JavaScript...)"
-    echo -e "[19] IntelliJ Idea ${jaune}[Snap]${neutre} (IDE Java commercial de JetBrains, plutôt conçu pour Java)"
+    echo "[10] BlueFish (éditeur orienté développement web : HTML/PHP/CSS/...)"
+    echo "[11] BlueGriffon (éditeur HTML/CSS avec aperçu du rendu en temps réel)"
+    echo "[12] SciTE : Scintilla Text Editor (éditeur web avec une bonne coloration syntaxique)"
+    echo -e "[13] Eclipse ${rouge}[I!]${neutre}${violet}[X!]${neutre}(Projet décliné en sous-projets de dev)"
+    echo -e "[14] PyCharm [version communautaire] ${jaune}[Snap]${neutre} (IDE pour le langage Python)"
+    echo -e "[15] Visual Studio Code ${jaune}[Snap]${neutre} (développé par Microsoft, sous licence libre MIT)"
+    echo -e "[16] Atom ${jaune}[Snap]${neutre} (éditeur sous licence libre qui supporte les plug-ins Node.js et implémente GitControl)"
+    echo -e "[17] Brackets ${jaune}[Snap]${neutre} (éditeur opensource d'Adobe pour le web design et dev web HTML, CSS, JavaScript...)"
+    echo -e "[18] IntelliJ Idea ${jaune}[Snap]${neutre} (IDE Java commercial de JetBrains, plutôt conçu pour Java)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 4 5) : " choixDev
     clear
@@ -545,11 +544,11 @@ then
     echo "[1] Non"
     echo -e "[2] LibreOffice ${gris}[PPA]${neutre} : dernière version stable possible via ppa générique (sinon gelé en 6.0)" 
     echo -e "[3] VirtualBox ${gris}[DepExt]${neutre} : dernière version stable possible via dépot Oracle (sinon gelé en 5.2)"
-    echo -e "[4] Firefox version avancé - canal Edge via Snap ${jaune}[Snap]${neutre} (généralement en béta)"
+    echo -e "[4] Firefox - dernière version stable alternative via Snap ${jaune}[Snap]${neutre}"
     echo -e "[5] VLC : dernière version stable possible via Snap canal stable ${jaune}[Snap]${neutre} (sinon gelé en 3.0)"
     echo -e "[6] VLC : dernière version la plus avancé possible via snap canal edge ${jaune}[Snap]${neutre} (non-cumulable avec snap/stable)"
-    echo -e "[7] OpenShot : dernière version stable possible ${gris}[PPA]${neutre} (sinon gelé en 2.4)"
-    echo -e "[8] Blender : dernière version stable possible ${gris}[PPA]${neutre}"
+    echo -e "[7] Blender : dernière version stable possible ${gris}[PPA]${neutre}"
+    #echo -e "[100] OpenShot : dernière version stable possible ${gris}[PPA]${neutre} (sinon gelé en 2.4)" ## PPA off actuellement
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixBackport
     clear
@@ -780,10 +779,9 @@ do
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/vivaldi.deb
             dpkg -i vivaldi* ; apt install -fy ; apt upgrade vivaldi-stable -y ; rm vivaldi.deb
             ;;
-        "9") #opera (Intervention nécessaire pendant l'installation)
-            add-apt-repository -y 'deb https://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)'
-            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A5C7FF72 ; apt update ;
-            apt install -Vy opera-stable
+        "9") #opera (maj automatiquement via dépot opéra ajouté par le deb)
+            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/opera.deb
+            wpkg -i opera* ; apt install -fy ; rm opera*
             ;;
         "10") #Palemoon
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/palemoon.deb
@@ -990,48 +988,47 @@ do
         "9") #audacious
             apt install audacious audacious-plugins -y
             ;;        
-        "10") #Guayadeque #(dépot pour Artful utilisé car Bionic pas encore activé mais fonctionnement validé)
-            add-apt-repository -y "deb http://ppa.launchpad.net/anonbeat/guayadeque/ubuntu artful main"
-            apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 71C004D5C1F0137ADBD5186195FABEFB4499973B
-            apt update ; apt install guayadeque -y
-            ;;    
-        "11") #gnome music
+        "10") #gnome music
             apt install gnome-music -y
             ;;       
-        "12") #gmusicbrowser
+        "11") #gmusicbrowser
             apt install gmusicbrowser -y
             ;;                         
-        "13") #musique
+        "12") #musique
             apt install musique -y
             ;;               
-        "14") #qmmp
+        "13") #qmmp
             apt install qmmp -y
             ;;               
-        "15") #xmms2 + plugins
+        "14") #xmms2 + plugins
             apt install xmms2 xmms2-plugin-all gxmms2 -y
             ;;              
-        "16") #Gnome Twitch
+        "15") #Gnome Twitch
             apt install gnome-twitch -y
             ;;         
-        "17") #Lollypop (flatpak)
+        "16") #Lollypop (flatpak)
             flatpak install flathub org.gnome.Lollypop -y
             ;;             
-        "18") #Spotify (snap)
+        "17") #Spotify (snap)
             snap install spotify
             ;;     
-        "19") #MuseScore 
+        "18") #MuseScore 
             apt install musescore -y
             ;;    
-        "20") #Gradio (flatpak)
+        "19") #Gradio (flatpak)
             flatpak install flathub de.haeckerfelix.gradio -y
             ;;  
-        "21") #Molotov.tv (appimage)
+        "20") #Molotov.tv (appimage)
             wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov
             mv molotov molotov.AppImage && chmod +x molotov.AppImage
             ;; 
-        "22") #gxine
+        "21") #gxine
             apt install gxine  -y
             ;;  
+        #"100") #Guayadeque #PPA bionic pas encore actif
+            #add-apt-repository -y ppa:anonbeat/guayadeque ; apt update
+            #apt install guayadeque -y
+            #;;
     esac
 done
 
@@ -1642,40 +1639,36 @@ do
             ;;
         "9") #Android Studio (flatpak)
             flatpak install flathub com.google.AndroidStudio -y
-            ;;
-        "10") #Netbeans JAVA SE #(version des dépots officiels ne fonctionne pas)
-            wget http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-javase-linux.sh
-            chmod +x netbeans* ; ./netbeans* ; rm netbeans*
-            ;;         
-        "11") #BlueFish
+            ;;       
+        "10") #BlueFish
             apt install bluefish bluefish-plugins -y
             ;;
-        "12") #BlueGriffon
+        "11") #BlueGriffon
             wget http://bluegriffon.org/freshmeat/3.0.1/bluegriffon-3.0.1.Ubuntu16.04-x86_64.deb
             dpkg -i bluegriffon*.deb ; apt install -fy ; rm bluegriffon*
             ;;         
-        "13") #SciTE
+        "12") #SciTE
             apt install scite -y
             ;;  
-        "14") #Eclipse
+        "13") #Eclipse
             wget http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/oomph/epp/oxygen/R/eclipse-inst-linux64.tar.gz
             tar xvfz eclipse-inst-linux64.tar.gz ; chmod +x ./eclipse-installer/eclipse-inst
             ./eclipse-installer/eclipse-inst
             rm -rf eclipse-installer ; rm eclipse-inst-linux64.tar.gz
             ;;           
-        "15") #PyCharm
+        "14") #PyCharm
             snap install pycharm-community --classic
             ;;
-        "16") #Visual Studio Code
+        "15") #Visual Studio Code
             snap install vscode --classic
             ;;
-        "17") #Atom
+        "16") #Atom
             snap install atom --classic
             ;;
-        "18") #Brackets
+        "17") #Brackets
             snap install brackets --classic
             ;;      
-        "19") #IntelliJ Idea
+        "18") #IntelliJ Idea
             snap install intellij-idea-community --classic 
             ;;            
     esac
@@ -1796,8 +1789,8 @@ do
             echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list
             apt update ; apt install -y virtualbox-5.2
             ;;
-        "4") #Firefox Snap Edge
-            snap install firefox --edge --classic
+        "4") #Firefox Snap stable
+            snap install firefox --classic
             ;;
         "5") #VLC Snap stable
             snap install vlc --classic
@@ -1805,14 +1798,14 @@ do
         "6") #VLC Snap edge
             snap install vlc --edge --classic 
             ;;   
-        "7") #Openshot ppa
-            add-apt-repository -y ppa:openshot.developers/ppa ; apt update ; apt upgrade -y
-            apt install -y openshot-qt 
-            ;;   
-        "8") #Blender ppa
+        "7") #Blender ppa
             add-apt-repository -y ppa:thomas-schiex/blender ; apt update
             apt install -y blender
-            ;;              
+            ;;   
+        #"100") #Openshot ppa (ppa off)
+        #    add-apt-repository -y ppa:openshot.developers/ppa ; apt update ; apt upgrade -y
+        #    apt install -y openshot-qt 
+        #    ;;               
     esac
 done
 
