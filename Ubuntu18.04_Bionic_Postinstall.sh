@@ -1990,12 +1990,14 @@ do
             ;;                      
     esac
 done
-       
+
+cd /home/$SUDO_USER/script_postinstall/
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
 mkdir /home/$SUDO_USER/appimages ; mv *.AppImage /home/$SUDO_USER/appimages/
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
 
 # Nettoyage fichiers/archives inutiles dans dossier script 
+
 rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
 
 # Régler problème de permission des répertoires ajoutés manuellement
