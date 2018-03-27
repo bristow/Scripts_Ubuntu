@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.24
+# version 0.1.25
 
 #  Copyleft 2018 Simbd
 #  
@@ -82,17 +82,17 @@ echo -e "${vert}Astuce 1: Mettez votre terminal en plein écran pour un affichag
 echo "*******************************************************"
 echo -e "${bleu}1/ Mode de lancement du script :${neutre}"
 echo "*******************************************************"
-echo -e "[0] Mode ${gris}novice${neutre} (lancement automatique sans question, le script installera des logiciels intéressants pour les novices)"
-echo -e "[1] Mode ${bleu}standard${neutre} (choix par défaut, pose diverses questions simples, recommandé pour la plupart des utilisateurs)"
-echo -e "[2] Mode ${jaune}avancé${neutre} (comme standard mais avec des questions supplémentaires : programmation, optimisation, extension...)"
-echo -e "[3] Mode ${vert}extra${neutre} (comme avancé mais avec un supplément snap/flatpak/appimages proposé à la fin)"
+echo -e "[0] Mode ${gris}Automatique${neutre} (Aucune question posée, le script installera quelques logiciels. Plutôt pour les novices)"
+echo -e "[1] Mode ${bleu}Manuel niveau 1${neutre} (choix par défaut : pose diverses questions simples, recommandé pour la plupart des utilisateurs)"
+echo -e "[2] Mode ${jaune}Manuel niveau 2${neutre} (Des choix supplémentaires notamment en terme de logiciel de dev, des extensions, optimisation système)"
+echo -e "[3] Mode ${vert}Manuel niveau 3${neutre} (En plus du niveau2 propose un large choix supplémentaire de snap/flatpak/appimages + choix backportage)"
 echo "*******************************************************"
 read -p "Répondre par le chiffre correspondant (exemple : 1) : " choixMode
 clear
 
 while [ "$choixMode" != "0" ] && [ "$choixMode" != "1" ] && [ "$choixMode" != "2" ] && [ "$choixMode" != "3" ]
 do
-    read -p "Désolé, je ne comprend pas votre réponse, les seuls choix possibles sont 0 (novice), 1 (standard), 2 (avancé), 3 (extra) : " choixMode
+    read -p "Désolé, je ne comprend pas votre réponse, les seuls choix possibles sont 0 (Automatique), 1 (Manuel niv1), 2 (Manuel niv2), 3 (Manuel niv3) : " choixMode
     clear
 done
 
@@ -121,21 +121,21 @@ then
     echo -e "${bleu}3/ Quel(s) navigateur(s) vous intéresse(nt) ? (plusieurs choix possibles)${neutre}"
     echo "*******************************************************"
     echo "[1] Pas de navigateur supplémentaire : rester sur la version classique de Firefox (stable)"
-    echo "[2] Firefox Béta ${gris}[PPA]${neutre} (n+1 : 1 version d'avance, remplace la version classique)"
-    echo "[3] Firefox ESR ${gris}[PPA]${neutre} (version plutôt orientée entreprise/organisation)"
+    echo -e "[2] Firefox Béta ${gris}[PPA]${neutre} (n+1 : 1 version d'avance, remplace la version classique)"
+    echo -e "[3] Firefox ESR ${gris}[PPA]${neutre} (version plutôt orientée entreprise/organisation)"
     echo -e "[4] Firefox Developer Edition ${bleu}[Flatpak]${neutre} (version alternative incluant des outils de développement, généralement n+1/n+2)"
     echo -e "[5] Firefox Nightly ${bleu}[Flatpak]${neutre} (toute dernière build construite, n+2/n+3, ${rouge}potentiellement instable !${neutre})"
     echo "[6] Chromium (la version libre/opensource de Chrome)"
-    echo "[7] Google Chrome ${gris}[DepExt]${neutre}(le célèbre navigateur de Google mais il est propriétaire !)"
-    echo "[8] Vivaldi ${gris}[DepExt]${neutre} (un navigateur propriétaire avec une interface sobre assez particulière)"
-    echo "[9] Opera ${gris}[DepExt]${neutre} (navigateur norvégien, propriétaire, basé sur Chromium)"
-    echo "[10] PaleMoon ${gris}[DepExt]${neutre} (un navigateur plutôt récent, libre & performant)"
-    echo "[11] WaterFox ${gris}[DepExt]${neutre} (un fork de Firefox compatible avec les anciennes extensions)"
+    echo -e "[7] Google Chrome ${gris}[DepExt]${neutre}(le célèbre navigateur de Google mais il est propriétaire !)"
+    echo -e "[8] Vivaldi ${gris}[DepExt]${neutre} (un navigateur propriétaire avec une interface sobre assez particulière)"
+    echo -e "[9] Opera ${gris}[DepExt]${neutre} (navigateur norvégien, propriétaire, basé sur Chromium)"
+    echo -e "[10] PaleMoon ${gris}[DepExt]${neutre} (un navigateur plutôt récent, libre & performant)"
+    echo -e "[11] WaterFox ${gris}[DepExt]${neutre} (un fork de Firefox compatible avec les anciennes extensions)"
     echo "[12] Tor Browser (pour naviguer dans l'anonymat avec le réseau tor : basé sur Firefox ESR)"
     echo "[13] Gnome Web/Epiphany (navigateur de la fondation Gnome s'intégrant bien avec cet environnement)"
-    echo "[14] Midori ${gris}[DepExt]${neutre} (libre & léger mais un peu obsolète maintenant...)"
+    echo -e "[14] Midori ${gris}[DepExt]${neutre} (libre & léger mais un peu obsolète maintenant...)"
     echo "[15] Falkon [QupZilla] (une alternative libre et légère utilisant Webkit)"   
-    echo "[16] Min ${gris}[DepExt]${neutre} (un navigateur minimaliste et donc très léger)"   
+    echo -e "[16] Min ${gris}[DepExt]${neutre} (un navigateur minimaliste et donc très léger)"   
     echo "[17] Dillo (navigateur capable de tourner sur des ordinosaures)"
     echo "[18] Lynx (navigateur 100% en ligne de commande, pratique depuis une console SSH)"
     echo -e "[19] Rekonq (navigateur web conçu surtout pour KDE)"
@@ -152,15 +152,15 @@ then
     echo "[1] Aucun"
     echo "[2] Empathy (messagerie instantanée adaptée à Gnome, multi-protocole)"
     echo "[3] Pidgin (une alternative à Empathy avec l'avantage d'être multiplateforme)"
-    echo "[4] Jitsi ${gris}[DepExt]${neutre} (anciennement 'SIP Communicator' surtout orienté VoIP)"
+    echo -e "[4] Jitsi ${gris}[DepExt]${neutre} (anciennement 'SIP Communicator' surtout orienté VoIP)"
     echo "[5] Psi (multiplateforme, libre et surtout conçu pour le protocole XMPP cad Jabber)"
     echo "[6] Gajim (un autre client Jabber utilisant GTK+)"
-    echo "[7] Skype ${gris}[DepExt]${neutre} (logiciel propriétaire de téléphonie, vidéophonie et clavardage très connue)"
+    echo -e "[7] Skype ${gris}[DepExt]${neutre} (logiciel propriétaire de téléphonie, vidéophonie et clavardage très connue)"
     echo "[8] Ekiga (anciennement 'Gnome Meeting', logiciel de visioconférence/VoIP)"
     echo "[9] Linphone (visioconférence utilisant le protocole SIP)"
     echo "[10] Ring (anciennement 'SFLphone', logiciel très performant pour la téléphonie IP)"
     echo "[11] Mumble (logiciel libre connue chez les gameurs pour les conversations audios à plusieurs)"
-    echo "[12] Wire ${gris}[DepExt]${neutre} (un autre client de messagerie instantanée chiffrée créé par Wire Swiss)"
+    echo -e "[12] Wire ${gris}[DepExt]${neutre} (un autre client de messagerie instantanée chiffrée créé par Wire Swiss)"
     echo "[13] Hexchat (client IRC, fork de xchat)"
     echo "[14] Polari (client IRC pour Gnome)"
     echo -e "[15] Discord ${jaune}[Snap]${neutre} (logiciel propriétaire multiplateforme pour communiquer à plusieurs, pour les gameurs)"
@@ -212,7 +212,7 @@ then
     echo "[7] Clementine (lecteur audio avec gestion des pochettes, genres musicaux...)"
     echo "[8] QuodLibet (un lecteur audio très puissant avec liste de lecture basée sur les expressions rationnelles)"
     echo "[9] Audacious (lecteur complet pour les audiophiles avec beaucoup de plugins)"
-    echo "[10] Guayadeque ${gris}[PPA]${neutre} (lecteur audio et radio avec une interface agréable)"
+    echo -e "[10] Guayadeque ${gris}[PPA]${neutre} (lecteur audio et radio avec une interface agréable)"
     echo "[11] Gnome Music (utilitaire 'Musique' de la fondation Gnome pour la gestion audio, assez basique)"
     echo "[12] Gmusicbrowser (lecteur avec une interface très configurable)"
     echo "[13] Musique (un lecteur épuré)"
@@ -241,13 +241,13 @@ then
     echo "[7] Pitivi ${bleu}[Flatpak]${neutre} (logiciel de montage basique avec une interface simple et intuitive)" 
     echo "[8] Lives (dispose des fonctionnalités d'éditions vidéo/son classique, des filtres et multipiste"
     echo -e "[9] Flowblade ${violet}[X!]${neutre} (logiciel de montage vidéo multi-piste performant)"
-    echo "[10] Cinelerra ${gris}[PPA]${neutre} (montage non-linéaire sophistiqué, équivalent à Adobe première, Final Cut et Sony Vegas"
-    echo "[11] Natron ${gris}[DepExt]${neutre} (programme de post-prod destiné au compositing et aux effets spéciaux)"
+    echo -e "[10] Cinelerra ${gris}[PPA]${neutre} (montage non-linéaire sophistiqué, équivalent à Adobe première, Final Cut et Sony Vegas"
+    echo -e "[11] Natron ${gris}[DepExt]${neutre} (programme de post-prod destiné au compositing et aux effets spéciaux)"
     echo "[12] Mencoder (s'utilise en ligne de commande : encodage de fichiers vidéos)"
     echo "[13] MMG : MkvMergeGui (interface graphique pour l'outil mkmerge : création/manipulation fichier mkv)"
     echo "[14] DeVeDe (création de DVD/CD vidéos lisibles par des lecteurs de salon)"
     echo -e "[15] Peek ${bleu}[Flatpak]${neutre} (outil de création de Gif animé à partir d'une capture vidéo)"
-    echo "[16] Shotcut ${gris}[PPA]${neutre} (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
+    echo -e "[16] Shotcut ${gris}[PPA]${neutre} (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixVideo
     clear
@@ -260,7 +260,7 @@ then
     echo "[2] Gimp (montage photo avancé, équivalent à 'Adobe Photoshop')"
     echo "[3] Krita (outil d'édition et retouche d'images, orienté plutôt vers le dessin bitmap)"
     echo "[4] Pinta (graphisme simple équivalent à Paint.NET)"
-    echo "[5] Pixeluvo ${gris}[DepExt]${neutre} (une autre alternative à Photoshop mais il reste propriétaire)"
+    echo -e "[5] Pixeluvo ${gris}[DepExt]${neutre} (une autre alternative à Photoshop mais il reste propriétaire)"
     echo "[6] MyPaint (logiciel de peinture numérique développé en Python)"
     echo "[7] Ufraw (logiciel de dérawtisation capable de lire/interpréter la plupart des formats RAW)"
     echo "[8] Inkscape (logiciel spécialisé dans le dessin vectoriel, équivalent de 'Adobe Illustrator')"
@@ -306,7 +306,7 @@ then
     echo "[1] Aucun supplément (par défaut : Evince pour pdf, LibreOffice en bureautique, Thunderbird pour les mails)"
     echo "[2] LibreOffice avec Supplément : ajout du module 'Base' + extensions utiles (templates, modèles de documents, clipboard...)"
     echo "[3] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
-    echo "[4] Suite Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applications d'édition avancées de chaînes éditoriales)"
+    echo -e "[4] Suite Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applications d'édition avancées de chaînes éditoriales)"
     echo "[5] Freeplane (création de cartes heuristiques (Mind Map) avec des diagrammes représentant les connexions sémantiques)"
     echo -e "[6] FeedReader ${bleu}[Flatpak]${neutre} (agrégateur RSS moderne pour consulter vos fils d'informations RSS)"
     echo "[7] Geary (logiciel de messagerie, alternative à Thunderbird et bien intégré à Gnome)"
@@ -317,8 +317,8 @@ then
     echo -e "[12] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
     echo -e "[13] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
     echo "[14] Zim (wiki en local avec une collection de pages et de marqueurs)"
-    echo "[15] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
-    echo "[16] SoftMaker Office béta ${gris}[DepExt]${neutre} (suite bureautique alternative propriétaire & payante mais compatible linux)"
+    echo -e "[15] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
+    echo -e "[16] SoftMaker Office béta ${gris}[DepExt]${neutre} (suite bureautique alternative propriétaire & payante mais compatible linux)"
     echo -e "[17] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixBureautique
@@ -329,12 +329,12 @@ then
     echo -e "${bleu}11/ Des logiciels de science ou pour l'éducation ?${neutre}"
     echo "*******************************************************"
     echo "[1] Pas d'ajout"
-    echo "[2] [GEO] Google Earth Pro ${gris}[DepExt]${neutre} (globe terrestre de Google pour explorer la planète)"
+    echo -e "[2] [GEO] Google Earth Pro ${gris}[DepExt]${neutre} (globe terrestre de Google pour explorer la planète)"
     echo "[3] [GEO] Extension OooHg pour LibreOffice (ajoute 1600 cartes de géographie)"
     echo "[4] [MATH] GeoGebra (géométrie dynamique pour manipuler des objets avec un ensemble de fonctions algébriques)"
     echo "[5] [MATH] Algobox (logiciel libre d'aide à l'élaboration/exécution d'algorithmes en mathématique)"
     echo "[6] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
-    echo "[7] [ASTRO] SkyChart ${gris}[DepExt]${neutre} (cartographie céleste très complète avec un catalogue riche)"
+    echo -e "[7] [ASTRO] SkyChart ${gris}[DepExt]${neutre} (cartographie céleste très complète avec un catalogue riche)"
     echo "[8] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"
     echo "[9] [CHIMIE] Avogadro (éditeur/visualiseur avancé de molécules pour le calcul scientifique en chimie)"
     echo "[10] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
@@ -351,12 +351,12 @@ then
     echo "[1] Aucun"
     echo -e "[2] Kazam ${violet}[X!]${neutre} (capture vidéo de votre bureau)"
     echo "[3] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
-    echo "[4] OBS : OpenBroadcasterSoftware ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
+    echo -e "[4] OBS : OpenBroadcasterSoftware ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
     echo "[5] Glances (afficher l'état des ressources systèmes en temps réel, comme htop mais plus complet)"
     echo "[6] Brasero (logiciel de gravure de cd/dvd)" 
     echo "[7] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
-    echo "[8] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
-    echo "[9] Oracle Java 9 ${gris}[PPA]${neutre} (nouvelle version de Java)"
+    echo -e "[8] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
+    echo -e "[9] Oracle Java 9 ${gris}[PPA]${neutre} (nouvelle version de Java)"
     echo "[10] OpenJDK v9 (JRE) (implémentation libre de l'ancienne version de Java)"
     echo "[11] OpenJDK v10 (JRE) (implémentation libre de la version actuelle de Java)"
     echo "[12] OpenJDK v11 (JRE) (implémentation libre de la prochaine version de Java)"   
@@ -368,7 +368,7 @@ then
     echo "[18] Gnome Recipes (pour les gourmets : appli Gnome spécialisée dans les recettes de cuisine)"
     echo -e "[19] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
     echo "[20] Pack d'appli en cyber-sécurité (aircrack-ng + John The Ripper[snap] + Nmap)"
-    echo "[21] Gnome Enfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
+    echo -e "[21] Gnome Enfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
     echo -e "[22] Bleachbit ${rougesouligne}[D!]${neutre} (efface les fichiers inutiles/temporaires du système)"
     echo -e "[23] CoreBird (un client de bureau pour le réseau social Twitter)"
     echo "[24] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
@@ -451,7 +451,7 @@ then
     echo "*******************************************************"
     echo "[1] Pas d'ajout"
     echo "[2] Thèmes GTK pack1 : Arc + Numix"
-    echo "[3] Thèmes GTK pack2 ${gris}[PPA]${neutre} : Adapta + Greybird/Blackbird/Bluebird"
+    echo -e "[3] Thèmes GTK pack2 ${gris}[PPA]${neutre} : Adapta + Greybird/Blackbird/Bluebird"
     echo "[4] Thèmes GTK pack3 : Albatross, Yuyo, Human, Gilouche, Materia"
     echo "[5] Pack d'icones 1 : Numix et Numix Circle, Breathe, Breeze, Elementary, Brave + supplément extra icone Gnome"
     echo "[6] Pack d'icones 2 : Dust, Humility, Garton, Gperfection2, Nuovo"
@@ -474,7 +474,7 @@ then
     echo "[2] Gvim (interface graphique pour Vim)"
     echo "[3] Emacs (le couteau suisse des éditeurs de texte, il fait tout mais il est complexe)"
     echo "[4] Geany (IDE rapide et simple utilisant GTK2 supportant de nombreux langages)"
-    echo "[5] Sublime Text (logiciel développé en C++ et Python prenant en charge 44 langages de programmation)"
+    echo -e "[5] Sublime Text ${gris}[DepExt]${neutre} (logiciel développé en C++ et Python prenant en charge 44 langages de programmation)"
     echo "[6] Code:Blocks (IDE spécialisé pour les langages C/C++)"
     echo "[7] JEdit (éditeur libre, multiplateforme et très personnalisable)"
     echo "[8] Anjuta (IDE simple pour C/C++, Java, JavaScript, Python et Vala)"
@@ -502,8 +502,8 @@ then
     echo "[3] Serveur LAMP (pour faire un serveur web avec votre PC : Apache + MariaDB + PHP)"
     echo "[4] Serveur FTP avec ProFTPd (stockage de fichier sur votre machine via FTP)"
     echo "[5] Serveur BDD PostgreSQL (pour installer une base de donnée PostgreSQL)"
-    echo "[6] PHP5.6 (rétroportage de l'ancienne version)"
-    echo "[7] PHP7.2 (dernière version stable de PHP)"
+    echo -e "[6] PHP5.6 ${gris}[PPA]${neutre} (rétroportage de l'ancienne version)"
+    echo -e "[7] PHP7.2 ${gris}[PPA]${neutre} (dernière version stable de PHP)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixServeur
     clear
@@ -537,10 +537,26 @@ fi
 # Mode Extra
 if [ "$choixMode" = "3" ] 
 then
-    # Question 19 : Snap
+    # Question 19 : Choix backportage
+    echo "*******************************************************"
+    echo -e "${jaune}19/ Des logiciels à backporter ? [mode extra]${neutre}"
+    echo "*******************************************************"
+    echo "[1] Non"
+    echo -e "[2] LibreOffice ${gris}[PPA]${neutre} : dernière version stable possible via ppa générique (sinon gelé en 6.0)" 
+    echo -e "[3] VirtualBox ${gris}[DepExt]${neutre} : dernière version stable possible via dépot Oracle (sinon gelé en 5.2)"
+    echo -e "[4] Firefox version avancé - canal Edge via Snap ${jaune}[Snap]${neutre} (généralement en béta)"
+    echo -e "[5] VLC : dernière version stable possible via Snap canal stable ${jaune}[Snap]${neutre} (sinon gelé en 3.0)"
+    echo -e "[6] VLC : dernière version la plus avancé possible via snap canal edge ${jaune}[Snap]${neutre} (non-cumulable avec snap/stable)"
+    echo -e "[7] OpenShot : dernière version stable possible ${gris}[PPA]${neutre} (sinon gelé en 2.4)"
+    echo -e "[8] Blender : dernière version stable possible ${gris}[PPA]${neutre}"
+    echo "*******************************************************"
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixBackport
+    clear
+
+    # Question 20 : Snap
     echo -e "${vert}Astuce 7: Les paquets Snappy, flatpak et Appimages sont indépendants les uns des autres, ainsi, vous pouvez avoir un même logiciel en plusieurs exemplaires dans des versions différentes${neutre}"
     echo "*******************************************************"
-    echo -e "${vert}19/ Mode Extra : supplément paquet Snap :${neutre}"
+    echo -e "${vert}20/ Mode Extra : supplément paquet Snap :${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
     echo -e "[2] VLC ${orange}[dev/canal edge]${neutre} ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
@@ -562,9 +578,9 @@ then
     read -p "Choix snappy : " choixSnap
     clear
              
-    # Question 20 : Flatpak
+    # Question 21 : Flatpak
     echo "*******************************************************"
-    echo -e "${vert}20/ Mode Extra : supplément paquet Flatpak :${neutre}"
+    echo -e "${vert}21/ Mode Extra : supplément paquet Flatpak :${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
     echo -e "[2] 0ad ${bleu}[Flatpak]${neutre}"
@@ -591,10 +607,10 @@ then
     read -p "Choix flatpak : " choixFlatpak
     clear
             
-    # Question 21 : Appimages
+    # Question 22 : Appimages
     echo -e "${vert}Astuce 8: Vos AppImages seront disponibles dans un dossier 'appimage' dans votre dossier perso, pour lancer une application : ./nomdulogiciel.AppImage (les droits d'éxécutions seront déjà attribués)${neutre}"
     echo "*******************************************************"
-    echo -e "${vert}21/ Mode Extra : récupération Appimages:${neutre}"
+    echo -e "${vert}22/ Mode Extra : récupération Appimages:${neutre}"
     echo "*******************************************************"
     echo "[1] Aucune"
     echo -e "[2] Digikam ${vert}[Appimage]${neutre}"
@@ -1763,7 +1779,39 @@ do
     esac
 done
 
-# Question 19 : Extra Snap
+# Question 19 : Backportage
+for backport in $choixBackport
+do
+    case $backport in
+        "2") #LibreOffice fresh
+            add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y ; 
+            apt install libreoffice libreoffice-l10n-fr -y
+            ;;
+        "3") #Virtualbox (oracle)
+            wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+            echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list
+            apt update ; apt install -y virtualbox-5.2
+        "4") #Firefox Snap Edge
+            snap install firefox --edge --classic
+            ;;
+        "5") #VLC Snap stable
+            snap install vlc --classic
+            ;;  
+        "6") #VLC Snap edge
+            snap install vlc --edge --classic 
+            ;;   
+        "7") #Openshot ppa
+            add-apt-repository -y ppa:openshot.developers/ppa ; apt update ; apt upgrade -y
+            apt install -y openshot-qt 
+            ;;   
+        "8") #Blender ppa
+            add-apt-repository -y ppa:thomas-schiex/blender ; apt update
+            apt install -y blender
+            ;;              
+    esac
+done
+
+# Question 20 : Extra Snap
 for snap in $choixSnap
 do
     case $snap in
@@ -1815,7 +1863,7 @@ do
     esac
 done        
     
-# Question 20 : Extra Flatpak
+# Question 21 : Extra Flatpak
 for flatpak in $choixFlatpak
 do
     case $flatpak in
@@ -1882,7 +1930,7 @@ do
     esac
 done
 
-# Question 21 : Extra Appimages
+# Question 22 : Extra Appimages
 for appimage in $choixAppimage
 do
     case $appimage in
@@ -1942,11 +1990,11 @@ do
 done
        
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
-mkdir /home/$SUDO_USER/appimages ; rm *.deb ; mv *.AppImage /home/$SUDO_USER/appimages/
+mkdir /home/$SUDO_USER/appimages ; mv *.AppImage /home/$SUDO_USER/appimages/
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
 
-# Nettoyage fichiers inutiles dans dossier script 
-rm -f *.zip ; rm -f *.tar.xz 
+# Nettoyage fichiers/archives inutiles dans dossier script 
+rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
 
 # Régler problème de permission des répertoires ajoutés manuellement
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell
