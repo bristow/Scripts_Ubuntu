@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.0
+# version 1.0.1
 
 #  Copyleft 2018 Simbd
 #  
