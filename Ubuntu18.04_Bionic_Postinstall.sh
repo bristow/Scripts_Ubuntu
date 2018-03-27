@@ -1795,6 +1795,7 @@ do
             wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
             echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list
             apt update ; apt install -y virtualbox-5.2
+            ;;
         "4") #Firefox Snap Edge
             snap install firefox --edge --classic
             ;;
