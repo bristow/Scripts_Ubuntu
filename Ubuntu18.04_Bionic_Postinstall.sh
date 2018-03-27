@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 0.1.25
+# version 1.0.0
 
 #  Copyleft 2018 Simbd
 #  
@@ -78,7 +78,7 @@ echo -e "#########################################################\n"
 
 ## Mode normal
 # Question 1 : sélection du mode de lancement du script
-echo -e "${vert}Astuce 1: Mettez votre terminal en plein écran pour un affichage plus agréable (conseillé)${neutre}"
+echo -e "${vert}Conseil: Mettez votre terminal en plein écran pour un affichage plus agréable${neutre}"
 echo "*******************************************************"
 echo -e "${bleu}1/ Mode de lancement du script :${neutre}"
 echo "*******************************************************"
@@ -87,7 +87,7 @@ echo -e "[1] Mode ${bleu}Manuel niveau 1${neutre} (choix par défaut : pose dive
 echo -e "[2] Mode ${jaune}Manuel niveau 2${neutre} (Des choix supplémentaires notamment en terme de logiciel de dev, des extensions, optimisation système)"
 echo -e "[3] Mode ${vert}Manuel niveau 3${neutre} (En plus du niveau2 propose un large choix supplémentaire de snap/flatpak/appimages + choix backportage)"
 echo "*******************************************************"
-read -p "Répondre par le chiffre correspondant (exemple : 1) : " choixMode
+read -p "Répondre par le chiffre correspondant (par défaut: 1) : " choixMode
 clear
 
 while [ "$choixMode" != "0" ] && [ "$choixMode" != "1" ] && [ "$choixMode" != "2" ] && [ "$choixMode" != "3" ]
@@ -375,6 +375,7 @@ then
     echo "[25] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
     echo -e "[26] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
     echo -e "[27] AnyDesk ${gris}[DepExt]${neutre} (assistance à distance comme teamviewer, natif linux)"
+    echo -e "[28] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixUtilitaire
     clear
@@ -1399,7 +1400,11 @@ do
         "27") #AnyDesk
             wget https://download.anydesk.com/linux/anydesk_2.9.5-1_amd64.deb
             dpkg -i anydesk* ; apt install -fy ; rm anydesk* ;
-            ;;              
+            ;;    
+        "28") #VeraCrypt
+            add-apt-repository -y ppa:unit193/encryption ; apt update
+            apt install -y veracrypt
+            ;;               
     esac
 done
 
