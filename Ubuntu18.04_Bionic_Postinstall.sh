@@ -560,21 +560,20 @@ then
     echo -e "${vert}20/ Mode Extra : supplément paquet Snap :${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
-    echo -e "[2] VLC ${orange}[dev/canal edge]${neutre} ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
-    echo -e "[3] LibreOffice ${jaune}[Snap]${neutre}"
-    echo -e "[4] Dino ${jaune}[Snap]${neutre}"
-    echo -e "[5] Gimp ${jaune}[Snap]${neutre}"
-    echo -e "[6] Instagraph ${jaune}[Snap]${neutre}"
-    echo -e "[7] KeepassXC ${jaune}[Snap]${neutre}"
-    echo -e "[8] Warzone 2100 ${jaune}[Snap]${neutre}"
-    echo -e "[9] Blender ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
-    echo -e "[10] Electrum ${jaune}[Snap]${neutre}"
-    echo -e "[11] NextCloud client ${jaune}[Snap]${neutre}"
-    echo -e "[12] PyCharm édition Professionnelle ${violet}[X!]${neutre}${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
-    echo -e "[13] Quassel client ${jaune}[Snap]${neutre}"
-    echo -e "[14] Rube cube ${jaune}[Snap]${neutre}"
-    echo -e "[15] TermiusApp ${jaune}[Snap]${neutre}"
-    echo -e "[16] TicTacToe ${jaune}[Snap]${neutre}"
+    echo -e "[2] LibreOffice ${jaune}[Snap]${neutre}"
+    echo -e "[3] Dino ${jaune}[Snap]${neutre}"
+    echo -e "[4] Gimp ${jaune}[Snap]${neutre}"
+    echo -e "[5] Instagraph ${jaune}[Snap]${neutre}"
+    echo -e "[6] KeepassXC ${jaune}[Snap]${neutre}"
+    echo -e "[7] Warzone 2100 ${jaune}[Snap]${neutre}"
+    echo -e "[8] Blender ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
+    echo -e "[9] Electrum ${jaune}[Snap]${neutre}"
+    echo -e "[10] NextCloud client ${jaune}[Snap]${neutre}"
+    echo -e "[11] PyCharm édition Professionnelle ${violet}[X!]${neutre}${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
+    echo -e "[12] Quassel client ${jaune}[Snap]${neutre}"
+    echo -e "[13] Rube cube ${jaune}[Snap]${neutre}"
+    echo -e "[14] TermiusApp ${jaune}[Snap]${neutre}"
+    echo -e "[15] TicTacToe ${jaune}[Snap]${neutre}"
     echo "*******************************************************"
     read -p "Choix snappy : " choixSnap
     clear
@@ -1820,49 +1819,46 @@ done
 for snap in $choixSnap
 do
     case $snap in
-        "2") #VLC version snap
-            snap install vlc --edge --classic
-            ;;
-        "3") #LibreOffice version snap
+        "2") #LibreOffice version snap
             snap install libreoffice
             ;;                       
-        "4") #dino
+        "3") #dino
             snap install dino
             ;;   
-        "5") #gimp version snap
+        "4") #gimp version snap
             snap install gimp
             ;;    
-        "6") #instagraph
+        "5") #instagraph
             snap install instagraph
             ;;  
-        "7") #keepassXC
+        "6") #keepassXC
             snap install keepassxc
             ;;  
-        "8") #warzone 2100 
+        "7") #warzone 2100 
             snap install warzone2100
             ;;  
-        "9") #blender
+        "8") #blender
             snap install blender --classic
             ;;  
-        "10") #electrum
+        "9") #electrum
             snap install electrum
             ;; 
-        "11") #nextcloud client
+        "10") #nextcloud client
             snap install nextcloudclient
             ;;      
-        "12") #pycharm pro
+        "11") #pycharm pro
             snap install pycharm-professional --classic
             ;;   
-        "13") #Quassel client
+        "12") #Quassel client
             snap install quasselclient-moon127
             ;;   
-        "14") #Rube cube
+        "13") #Rube cube
             snap install rubecube
             ;;            
-        "15") #TermiusApp
+        "14") #TermiusApp
             snap install termius-app
             ;;        
-        "16") #TicTacToe
+        "15") #TicTacToe
             snap install tic-tac-toe
             ;;              
     esac
