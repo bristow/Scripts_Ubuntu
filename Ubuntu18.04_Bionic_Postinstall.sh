@@ -48,7 +48,7 @@ then
             clear
             echo -e "${vert}NB : Comme vous utilisez une variante et non la version de base d'Ubuntu, 2 questions spécifiques à Gnome seront ignorés${neutre}"
             echo "*******************************************************"
-            echo -e "${bleu}0/Vous utilisez actuellement une variante, merci de préciser laquelle (support 64 bits uniquement!) :${neutre}"
+            echo -e "${bleu}0/Vous utilisez actuellement une variante, merci de préciser laquelle (il est recommandé d'être en 64 bits) :${neutre}"
             echo "*******************************************************"
             echo -e "${jaune}[1] Xubuntu 18.04 x64 (Xfce)${neutre}"
             echo -e "${violet}[2] Ubuntu Mate 18.04 x64 (Mate)${neutre}"
