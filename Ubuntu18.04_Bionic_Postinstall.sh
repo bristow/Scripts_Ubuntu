@@ -530,7 +530,7 @@ then
     echo "[1] Non"
     echo "[2] Optimisation Swap : swapiness à 5% (swap utilisé uniquement si plus de 95% de ram utilisée)"
     echo "[3] Désactiver complètement le swap (utile si vous avez un SSD et 8 Go de ram ou plus)"
-    echo "[4] Activer TLP avec Powertop (économie d'énergie pour pc portable)"
+    echo "[4] Activer TLP (économie d'énergie pour pc portable)"
     echo "[5] Installer le microcode propriétaire Intel (pour cpu intel uniquement !)"
     echo "[6] Gnome Shell : Ajouter une commande 'fraude' pour la session Wayland (ex : fraude synaptic)"
     echo "[7] Gnome Shell : Désactiver l'userlist de GDM (utile en entreprise intégrée à un domaine)"
@@ -1729,7 +1729,7 @@ do
             rm /swapfile #supprime le fichier swap qui n'est plus utile
             sed -i -e '/.swapfile*/d' /etc/fstab #ligne swap retiré de fstab
             ;;
-        "4") #Activer TLP + install Powertop (Attention : TLP installe postfix en dépendance)
+        "4") #Activer TLP 
             apt install --no-install-recommends tlp tlp-rdw -y
             systemctl enable tlp ; systemctl enable tlp-sleep
             ;;
