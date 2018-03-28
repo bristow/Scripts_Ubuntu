@@ -33,6 +33,8 @@ clear
 
 # Contrôle de la configuration système (script correctement lancé + version 18.04 + gnome-shell présent)
 . /etc/lsb-release
+archi=$(uname -i)  #création d'une variable contenant l'architecture si elle est 32 ou 64 bits pour vérification
+
 if [ "$UID" -ne "0" ]
 then
     echo -e "${rouge}Ce script doit se lancer avec les droits d'administrateur : sudo ./script.sh${neutre}"
@@ -56,6 +58,19 @@ then
             read -p "Répondre par le chiffre correspondant (exemple : 1) : " distrib
 fi
 clear
+
+# Vérification de l'architecture
+if [ "$archi" != "x86_64" ]
+then
+    echo -e "${rouge}ATTENTION : vous n'êtes pas sous une architecture 64 bits actuellement ! Ce script est testé uniquement pour la version 64 bits. Beaucoup de logiciels ne seront installés qu'en 64 bits (dans ce cas ils ne pourront pas s'installer), néammoins la plupart devraient pouvoir s'installer en 32 bits${neutre}"
+    echo "===================="
+    read -p "Si vous voulez quand même poursuivre si vous êtes en 32 bits, écrivez : poursuivre : " poursuite
+    if [ "$poursuite" != "poursuivre" ]
+    then
+        exit
+    fi
+fi
+
 ########################
 echo "Ok, vous avez correctement lancé le script, passons aux questions..."
 echo -e "#########################################################"
@@ -1262,8 +1277,8 @@ do
     case $science in
         "2") #Google Earth
             wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
-            dpkg -i google-earth-pro-stable_current_amd64.deb
-            apt install -fy
+            dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy
+            sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth* #permet d'ignorer le 32bits sinon erreur lors d'un apt update
             ;;
         "3") #extension LO oooHG
             apt install ooohg -y
