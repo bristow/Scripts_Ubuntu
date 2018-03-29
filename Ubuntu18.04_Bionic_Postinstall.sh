@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.1
+# version 1.0.2
 
 #  Copyleft 2018 Simbd
 #  
@@ -156,6 +156,8 @@ then
     echo -e "[19] Rekonq (navigateur web conçu surtout pour KDE)"
     echo -e "[20] Eolie ${bleu}[Flatpak]${neutre} (une autre alternative pour Gnome)"
     echo -e "[21] Beaker ${vert}[Appimage]${neutre} (Navigateur opensource qui permet de surfer en P2P)"
+    echo -e "[22] Brave ${jaune}[Snap]${neutre} (Navigateur avec protection pour la vie privée avec blocage des pisteurs)"
+    echo -e "[23] SRWare Iron (Dérivé de Chromium avec des améliorations sur la confidentialité des données)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants séparés d'un espace (exemple : 6 10 16) : " choixNavigateur
     clear
@@ -841,7 +843,13 @@ do
         "21") #Beaker Browser (appimage)
             wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/beaker-browser-0.7.11-x86_64.AppImage
             chmod +x beaker*
-            ;;            
+            ;;  
+        "22") #Brave (snap)
+            snap install brave
+            ;;              
+        "23") #SRWare Iron
+            wget http://www.srware.net/downloads/iron64.deb ; dpkg -i iron64.deb ; apt install -fy ; rm iron64.deb
+            ;;                    
     esac
 done
 
@@ -1999,19 +2007,22 @@ do
     esac
 done
 
-cd /home/$SUDO_USER/script_postinstall/
+
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
 mkdir /home/$SUDO_USER/appimages ; mv *.AppImage /home/$SUDO_USER/appimages/
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
 
 # Nettoyage fichiers/archives inutiles dans dossier script 
-
+cd /home/$SUDO_USER/script_postinstall/
 rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
 
-# Régler problème de permission des répertoires ajoutés manuellement
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.themes
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.icons
+# Régler problème de permission des répertoires ajoutés manuellement pour Gnome Shell
+if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
+then
+    chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell
+    chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.themes
+    chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.icons
+fi
 
 # Maj
 apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y
