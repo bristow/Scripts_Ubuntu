@@ -82,7 +82,6 @@ echo -e "${gris}[PPA]${neutre} = Utilisation d'un PPA pour l'installation du log
 echo -e "${gris}[DepExt]${neutre} = Utilisation d'un dépot externe (autre que PPA) pour l'installation du logiciel"
 echo -e "${rouge}[I!]${neutre} => Intervention nécessaire : installation pas totalement automatisé (par ex : valider contrat de licence)"
 echo -e "${rouge}[D!]${neutre} => Dangereux : le logiciel est potentiellement instable, déconseillé aux novices !"
-echo -e "${rouge}[HS!]${neutre} => Logiciel HS : ne fonctionne pas actuellement, un correctif sera ajouté plus tard"
 echo -e "${violet}[X!]${neutre} => Xorg uniquement : logiciel ok en session Xorg (par défaut) mais pas en session Wayland (choix alternatif sous Gnome)"
 echo -e "${cyan}[M!]${neutre} => Manuel : pas de raccourci, il faudra aller vous même dans le dossier et le lancer manuellement, parfois en CLI"
 
@@ -139,7 +138,7 @@ then
     echo -e "[2] Firefox Béta ${gris}[PPA]${neutre} (n+1 : 1 version d'avance, remplace la version classique)"
     echo -e "[3] Firefox ESR ${gris}[PPA]${neutre} (version plutôt orientée entreprise/organisation)"
     echo -e "[4] Firefox Developer Edition ${bleu}[Flatpak]${neutre} (version alternative incluant des outils de développement, généralement n+1/n+2)"
-    echo -e "[5] Firefox Nightly ${bleu}[Flatpak]${neutre} (toute dernière build construite, n+2/n+3, ${rouge}potentiellement instable !${neutre})"
+    echo -e "[5] Firefox Nightly ${bleu}[Flatpak]${neutre} (toute dernière build en dev, n+2/n+3)"
     echo "[6] Chromium (la version libre/opensource de Chrome)"
     echo -e "[7] Google Chrome ${gris}[DepExt]${neutre}(le célèbre navigateur de Google mais il est propriétaire !)"
     echo -e "[8] Vivaldi ${gris}[DepExt]${neutre} (un navigateur propriétaire avec une interface sobre assez particulière)"
@@ -334,7 +333,7 @@ then
     echo -e "[13] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
     echo "[14] Zim (wiki en local avec une collection de pages et de marqueurs)"
     echo -e "[15] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
-    echo -e "[16] SoftMaker Office béta ${gris}[DepExt]${neutre} (suite bureautique alternative propriétaire & payante mais compatible linux)"
+    echo -e "[16] SoftMaker Office béta ${gris}[DepExt]${neutre} ${rouge}[D!]${neutre} (suite bureautique alternative propriétaire & payante mais compatible linux)"
     echo -e "[17] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixBureautique
@@ -385,7 +384,7 @@ then
     echo -e "[19] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
     echo "[20] Pack d'appli en cyber-sécurité (aircrack-ng + John The Ripper[snap] + Nmap)"
     echo -e "[21] Gnome Enfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
-    echo -e "[22] Bleachbit ${rougesouligne}[D!]${neutre} (efface les fichiers inutiles/temporaires du système)"
+    echo -e "[22] Bleachbit ${rouge}[D!]${neutre} (efface les fichiers inutiles/temporaires du système)"
     echo -e "[23] CoreBird (un client de bureau pour le réseau social Twitter)"
     echo "[24] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
     echo "[25] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
@@ -1261,7 +1260,7 @@ do
             #wget http://ftp.fr.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb ; wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
             # problème de bande passante donc 1 serveur altnatif :
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/wps032018.deb ; wget http://nux87.free.fr/script-postinstall-ubuntu/deb/libpng.deb
-            dpkg -i libpng12-0_1.2.50-2+deb8u3_amd64.deb ; dpkg -i wps-office_10.1.0.5707~a21_amd64.deb ; apt install -fy ; rm *.deb ;
+            dpkg -i libpng* ; dpkg -i wps* ; apt install -fy ; rm *.deb ;
             ;;     
         "16") #Soft Maker Office (béta)
             wget http://www.softmaker.net/down/softmaker-office-2018_928-01_amd64.deb
