@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.2
+# version 1.0.3
 
 #  Copyleft 2018 Simbd
 #  
@@ -153,11 +153,10 @@ then
     echo -e "[16] Min ${gris}[DepExt]${neutre} (un navigateur minimaliste et donc très léger)"   
     echo "[17] Dillo (navigateur capable de tourner sur des ordinosaures)"
     echo "[18] Lynx (navigateur 100% en ligne de commande, pratique depuis une console SSH)"
-    echo -e "[19] Rekonq (navigateur web conçu surtout pour KDE)"
-    echo -e "[20] Eolie ${bleu}[Flatpak]${neutre} (une autre alternative pour Gnome)"
-    echo -e "[21] Beaker ${vert}[Appimage]${neutre} (Navigateur opensource qui permet de surfer en P2P)"
-    echo -e "[22] Brave ${jaune}[Snap]${neutre} (Navigateur avec protection pour la vie privée avec blocage des pisteurs)"
-    echo -e "[23] SRWare Iron (Dérivé de Chromium avec des améliorations sur la confidentialité des données)"
+    echo -e "[19] Eolie ${bleu}[Flatpak]${neutre} (une autre alternative pour Gnome)"
+    echo -e "[20] Beaker ${vert}[Appimage]${neutre} (Navigateur opensource qui permet de surfer en P2P)"
+    echo -e "[21] Brave ${jaune}[Snap]${neutre} (Navigateur avec protection pour la vie privée avec blocage des pisteurs)"
+    echo -e "[22] SRWare Iron (Dérivé de Chromium avec des améliorations sur la confidentialité des données)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants séparés d'un espace (exemple : 6 10 16) : " choixNavigateur
     clear
@@ -240,7 +239,7 @@ then
     echo -e "[18] MuseScore (l'éditeur de partitions de musique le plus utilisé au monde !)"
     echo -e "[19] GRadio ${bleu}[Flatpak]${neutre} (application Gnome pour écouter la radio, plus de 1 000 références rien qu'en France !)"
     echo -e "[20] Molotov.TV ${vert}[Appimage]${neutre} (service français de distribution de chaînes de TV)"
-    #echo -e "[100] Guayadeque ${gris}[PPA]${neutre} (lecteur audio et radio avec une interface agréable)" #ppa pas encore actif
+    echo -e "[21] Guayadeque ${gris}[PPA]${neutre} (lecteur audio et radio avec une interface agréable)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3) : " choixMultimedia
     clear
@@ -581,7 +580,7 @@ then
     echo -e "[4] Gimp ${jaune}[Snap]${neutre}"
     echo -e "[5] Instagraph ${jaune}[Snap]${neutre}"
     echo -e "[6] KeepassXC ${jaune}[Snap]${neutre}"
-    echo -e "[7] Warzone 2100 ${jaune}[Snap]${neutre}"
+    echo -e "[7] Skype ${jaune}[Snap]${neutre}"
     echo -e "[8] Blender ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
     echo -e "[9] Electrum ${jaune}[Snap]${neutre}"
     echo -e "[10] NextCloud client ${jaune}[Snap]${neutre}"
@@ -590,6 +589,7 @@ then
     echo -e "[13] Rube cube ${jaune}[Snap]${neutre}"
     echo -e "[14] TermiusApp ${jaune}[Snap]${neutre}"
     echo -e "[15] TicTacToe ${jaune}[Snap]${neutre}"
+    echo -e "[16] Shotcut ${jaune}[Snsnapap]${neutre}"    
     echo "*******************************************************"
     read -p "Choix snappy : " choixSnap
     clear
@@ -601,7 +601,7 @@ then
     echo "[1] Aucun"
     echo -e "[2] 0ad ${bleu}[Flatpak]${neutre}"
     echo -e "[3] Audacity ${bleu}[Flatpak]${neutre}"
-    echo -e "[4] Battle Tanks ${bleu}[Flatpak]${neutre}"
+    echo -e "[4] Skype ${bleu}[Flatpak]${neutre}"
     echo -e "[5] Blender ${bleu}[Flatpak]${neutre}"
     echo -e "[6] Dolphin Emulator ${bleu}[Flatpak]${neutre}"
     echo -e "[7] Extreme Tuxracer ${bleu}[Flatpak]${neutre}"
@@ -613,9 +613,9 @@ then
     echo -e "[13] LibreOffice ${bleu}[Flatpak]${neutre}"
     echo -e "[14] Minetest ${bleu}[Flatpak]${neutre}"
     echo -e "[15] Nextcloud cli ${bleu}[Flatpak]${neutre}"
-    echo -e "[16] Othman Quran Browser ${bleu}[Flatpak]${neutre}"
+    echo -e "[16] Discord ${bleu}[Flatpak]${neutre}"
     echo -e "[17] Password Calculator ${bleu}[Flatpak]${neutre}"
-    echo -e "[18] PPSSPP ${bleu}[Flatpak]${neutre}"
+    echo -e "[18] Kdenlive ${bleu}[Flatpak]${neutre}"
     echo -e "[19] Riot ${bleu}[Flatpak]${neutre}"
     echo -e "[20] Teeworlds ${bleu}[Flatpak]${neutre}"
     echo -e "[21] VLC ${bleu}[Flatpak]${neutre}"
@@ -798,7 +798,7 @@ do
             ;;
         "9") #opera (maj automatiquement via dépot opéra ajouté par le deb)
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/opera.deb
-            wpkg -i opera* ; apt install -fy ; rm opera*
+            dpkg -i opera* ; apt install -fy ; rm opera*
             ;;
         "10") #Palemoon
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/palemoon.deb
@@ -831,23 +831,20 @@ do
         "17") #Dillo
             apt install dillo -y
             ;;
-        "18") #Lynx
+        "18") #Lynx (cli)
             apt install lynx -y
             ;;
-        "19") #Rekonq
-            apt install rekonq -y
-            ;;
-        "20") #Eolie via Flatpak
+        "19") #Eolie via Flatpak
             flatpak install flathub org.gnome.Eolie -y
             ;;
-        "21") #Beaker Browser (appimage)
+        "20") #Beaker Browser (appimage)
             wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/beaker-browser-0.7.11-x86_64.AppImage
             chmod +x beaker*
             ;;  
-        "22") #Brave (snap)
+        "21") #Brave (snap)
             snap install brave
             ;;              
-        "23") #SRWare Iron
+        "22") #SRWare Iron
             wget http://www.srware.net/downloads/iron64.deb ; dpkg -i iron64.deb ; apt install -fy ; rm iron64.deb
             ;;                    
     esac
@@ -978,7 +975,7 @@ do
             flatpak install flathub io.webtorrent.WebTorrent -y
             ;;
         "17") #WormHole
-            apt install wormhole -y
+            apt install magic-wormhole -y
             ;;            
     esac
 done
@@ -1045,13 +1042,10 @@ do
             wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov
             mv molotov molotov.AppImage && chmod +x molotov.AppImage
             ;; 
-        "21") #gxine
-            apt install gxine  -y
-            ;;  
-        #"100") #Guayadeque #PPA bionic pas encore actif
-            #add-apt-repository -y ppa:anonbeat/guayadeque ; apt update
-            #apt install guayadeque -y
-            #;;
+        "21") #Guayadeque
+            add-apt-repository -y ppa:anonbeat/guayadeque ; apt update
+            apt install guayadeque -y
+            ;;
     esac
 done
 
@@ -1188,7 +1182,7 @@ do
         "8") #LMMS
             apt install lmms -y
             ;;           
-        "9") #MiXX
+        "9") #Mixxx
             apt install mixxx -y
             ;;        
         "10") #Rosegarden
@@ -1851,8 +1845,8 @@ do
         "6") #keepassXC
             snap install keepassxc
             ;;  
-        "7") #warzone 2100 
-            snap install warzone2100
+        "7") #Skype version snap
+            snap install skype --classic
             ;;  
         "8") #blender
             snap install blender --classic
@@ -1878,6 +1872,9 @@ do
         "15") #TicTacToe
             snap install tic-tac-toe
             ;;              
+        "16") #Shotcut
+            snap install shotcut --classic
+            ;;               
     esac
 done        
     
@@ -1891,8 +1888,8 @@ do
         "3") #Audacity version flatpak
             flatpak install flathub org.audacityteam.Audacity -y
             ;;
-        "4") #Battle Tanks
-            flatpak install flathub net.sourceforge.btanks -y
+        "4") #Skype version flatpak
+            flatpak install flathub com.skype.Client -y
             ;;            
         "5") #Blender version flatpak
             flatpak install flathub org.blender.Blender -y
@@ -1927,14 +1924,14 @@ do
         "15") #Nextcloud
             flatpak install flathub org.nextcloud.Nextcloud -y
             ;;        
-        "16") #Othman Quran Browser
+        "16") #Discord
             flatpak install flathub com.github.ojubaorg.Othman -y
             ;;  
         "17") #Password Calculator
             flatpak install flathub com.bixense.PasswordCalculator -y
             ;;             
-        "18") #PPSSPP
-            flatpak install flathub org.ppsspp.PPSSPP -y
+        "18") #Kdenlive
+            flatpak install flathub org.kde.kdenlive -y
             ;;              
         "19") #Riot
             flatpak install flathub im.riot.Riot -y
