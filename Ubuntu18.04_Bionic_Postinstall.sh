@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.3
+# version 1.0.4
 
 #  Copyleft 2018 Simbd
 #  
@@ -349,12 +349,11 @@ then
     echo "[4] [MATH] GeoGebra (géométrie dynamique pour manipuler des objets avec un ensemble de fonctions algébriques)"
     echo "[5] [MATH] Algobox (logiciel libre d'aide à l'élaboration/exécution d'algorithmes en mathématique)"
     echo "[6] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
-    echo -e "[7] [ASTRO] SkyChart ${gris}[DepExt]${neutre} (cartographie céleste très complète avec un catalogue riche)"
-    echo "[8] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"
-    echo "[9] [CHIMIE] Avogadro (éditeur/visualiseur avancé de molécules pour le calcul scientifique en chimie)"
-    echo "[10] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
-    echo -e "[11] [TECHNO] mBlock ${cyan}[M!]${neutre} (environnement de programmation basé sur Scratch 2 pour Arduino"
-    echo -e "[12] [TECHNO] Algoid [appli portable .jar] ${cyan}[M!]${neutre} (langage de programmation éducatif)"
+    echo "[7] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"
+    echo "[8] [CHIMIE] Avogadro (éditeur/visualiseur avancé de molécules pour le calcul scientifique en chimie)"
+    echo "[9] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
+    echo -e "[10] [TECHNO] mBlock ${cyan}[M!]${neutre} (environnement de programmation basé sur Scratch 2 pour Arduino"
+    echo -e "[11] [TECHNO] Algoid [appli portable .jar] ${cyan}[M!]${neutre} (langage de programmation éducatif)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixScience
     clear
@@ -1220,11 +1219,10 @@ do
         "3") #PDFMod
             apt install pdfmod -y 
             ;;
-        "4") #Scenari (dépot pas encore actif pour 18.04)
+        "4") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
             echo "deb https://download.scenari.org/deb xenial main" > /etc/apt/sources.list.d/scenari.list
             wget -O- https://download.scenari.org/deb/scenari.asc | apt-key add -
-            apt update
-            apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
+            apt update ; apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
             ;;
         "5") #Freeplane
             apt install freeplane -y
@@ -1293,29 +1291,23 @@ do
         "6") #Stellarium
             apt install stellarium -y
             ;;            
-        "7") #Skychart
-            add-apt-repository 'deb http://www.ap-i.net/apt stable main' -y ; add-apt-repository --remove 'deb-src http://www.ap-i.net/apt stable main' -y
-            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AA716FC2 apt update ; 
-            apt install --no-install-recommends skychart -y
-            apt install skychart-data-stars skychart-data-dso skychart-data-pictures -y
-            ;;
-        "8") #Celestia
+        "7") #Celestia
             wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh ; chmod +x Celestia*
             ./Celestia*.sh ; rm Celestia* ;
             ;;
-        "9") #Avogadro
+        "8") #Avogadro
             apt install avogadro -y
             ;;
-        "10") #Scratch 1.4
+        "9") #Scratch 1.4
             apt install scratch -y
             ;;   
-        "11") #mBlock 
+        "10") #mBlock 
             apt install libgconf-2-4 -y
             wget https://github.com/Makeblock-official/mBlock/releases/download/V4.0.0-Linux/mBlock-4.0.0-linux-4.0.0.tar.gz
             tar zxvf mBlock*.tar.gz -C /opt/
             ln -s /opt/mBlock/mblock /home/$SUDO_USER/raccourci_mblock
             ;;
-        "12") #AlgoIDE 
+        "11") #AlgoIDE 
             wget http://www.algoid.net/downloads/AlgoIDE-release.jar
             chmod +x AlgoIDE-release.jar && mv AlgoIDE-release.jar /home/$SUDO_USER/
             ;;           
@@ -1517,7 +1509,7 @@ do
         "11") #Multi monitors
             apt install gnome-shell-extension-multi-monitors -y
             ;;
-        "12") #Weather
+        "12") #openWeather
             apt install gnome-shell-extension-weather -y
             ;;
         "13") #Places status indicator (v3.26)
@@ -2009,7 +2001,6 @@ mkdir /home/$SUDO_USER/appimages ; mv *.AppImage /home/$SUDO_USER/appimages/
 chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
 
 # Nettoyage fichiers/archives inutiles dans dossier script 
-cd /home/$SUDO_USER/script_postinstall/
 rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
 
 # Régler problème de permission des répertoires ajoutés manuellement pour Gnome Shell
