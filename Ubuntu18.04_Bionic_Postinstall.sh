@@ -2003,10 +2003,10 @@ chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$S
 # Nettoyage fichiers/archives inutiles dans dossier script 
 rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
 
-# Régler problème de permission des répertoires ajoutés manuellement pour Gnome Shell
+# S'assurer d'être propriétaire de ses dossiers et sous-dossiers
 if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
 then
-    chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local/share/gnome-shell
+    chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local
     chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.themes
     chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.icons
 fi
