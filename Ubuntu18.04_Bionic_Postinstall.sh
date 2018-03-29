@@ -798,7 +798,7 @@ do
             ;;
         "9") #opera (maj automatiquement via dépot opéra ajouté par le deb)
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/opera.deb
-            dpkg -i opera* ; apt install -fy ; rm opera*
+            dpkg -i opera* ; apt install -fy ; rm opera* ; apt update ; apt upgrade -y #en cas de maj d'opéra
             ;;
         "10") #Palemoon
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/palemoon.deb
@@ -1258,10 +1258,10 @@ do
             apt install zim -y
             ;;                         
         "15") #WPS Office
-            wget http://ftp.fr.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb
-            wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
-            dpkg -i libpng12-0_1.2.50-2+deb8u3_amd64.deb ; dpkg -i wps-office_10.1.0.5707~a21_amd64.deb ; apt install -fy
-            rm -f lib*.deb ; rm -f wps-office*.deb ;
+            #wget http://ftp.fr.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb ; wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
+            # problème de bande passante donc 1 serveur altnatif :
+            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/wps032018.deb ; wget http://nux87.free.fr/script-postinstall-ubuntu/deb/libpng.deb
+            dpkg -i libpng12-0_1.2.50-2+deb8u3_amd64.deb ; dpkg -i wps-office_10.1.0.5707~a21_amd64.deb ; apt install -fy ; rm *.deb ;
             ;;     
         "16") #Soft Maker Office (béta)
             wget http://www.softmaker.net/down/softmaker-office-2018_928-01_amd64.deb
