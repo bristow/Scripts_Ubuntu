@@ -455,6 +455,7 @@ then
         echo "[22] Top Icons Plus (permet d'afficher un icone de notification pour les applis en haut à droite)"
         echo "[23] Unite (retire la décoration des fenêtres pour gagner de l'espace, pour un style proche du shell Unity)"
         echo "[24] AppFolders Management (permet de classer les applis dans des dossiers)"
+        echo "[25] Dockilus (Ajoute les signets sur le clique droit de l'icone Nautilus dans le dock comme sous Unity)"
         echo "*******************************************************"
         read -p "Répondre par le ou les chiffres correspondants (exemple : 2) : " choixExtension
         clear
