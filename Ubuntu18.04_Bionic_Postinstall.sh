@@ -333,8 +333,9 @@ then
     echo -e "[13] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
     echo "[14] Zim (wiki en local avec une collection de pages et de marqueurs)"
     echo -e "[15] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
-    echo -e "[16] SoftMaker Office béta ${gris}[DepExt]${neutre} ${rouge}[D!]${neutre} (suite bureautique alternative propriétaire & payante mais compatible linux)"
-    echo -e "[17] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
+    echo -e "[16] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
+    # Choix supplémentaire caché mais possible (car pose problème) :
+    # [500] => Soft Maker Office Béta #peux faire planter l'installation du script avec ce logiciel (déconseillé)
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixBureautique
     clear
@@ -1260,14 +1261,15 @@ do
             # problème de bande passante donc 1 serveur altnatif :
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/wps032018.deb ; wget http://nux87.free.fr/script-postinstall-ubuntu/deb/libpng.deb
             dpkg -i libpng* ; dpkg -i wps* ; apt install -fy ; rm *.deb ;
-            ;;     
-        "16") #Soft Maker Office (béta)
+            ;;             
+        "16") #OnlyOffice (Snap)
+            snap install onlyoffice-desktopeditors --classic
+            ;;
+        # Entrées cachés car potentiellement risqué :
+        "500") #Soft Maker Office Béta ## Peux faire planter l'installation pendant le script 
             wget http://www.softmaker.net/down/softmaker-office-2018_928-01_amd64.deb
             dpkg -i softmaker-office-*.deb ; apt install -fy ; rm -f softmaker-office-*
-            ;;            
-        "17") #OnlyOffice (Snap)
-            snap install onlyoffice-desktopeditors --classic
-            ;;                
+            ;;    
     esac
 done
 
@@ -1855,7 +1857,7 @@ do
             snap install electrum
             ;; 
         "10") #nextcloud client
-            snap install nextcloudclient
+            snap install nextcloud-client
             ;;      
         "11") #pycharm pro
             snap install pycharm-professional --classic
@@ -1925,7 +1927,7 @@ do
             flatpak install flathub org.nextcloud.Nextcloud -y
             ;;        
         "16") #Discord
-            flatpak install flathub com.github.ojubaorg.Othman -y
+            flatpak install flathub com.discordapp.Discord -y
             ;;  
         "17") #Password Calculator
             flatpak install flathub com.bixense.PasswordCalculator -y
