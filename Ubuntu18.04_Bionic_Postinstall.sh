@@ -1558,8 +1558,8 @@ do
             unzip appfolders-manager@maestroschan.fr.v12.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/appfolders-manager@maestroschan.fr          
             ;;    
         "25") #Dockilus
-            wget https://framagit.org/abakkk/Dockilus/repository/master/archive.zip
-            unzip archive.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/dockilus@framagit.org
+            wget https://framagit.org/abakkk/Dockilus/repository/master/archive.zip ; unzip archive.zip ; rm archive.zip
+            mv Dockilus* /home/$SUDO_USER/.local/share/gnome-shell/extensions/dockilus@framagit.org
             ;;
     esac
 done
