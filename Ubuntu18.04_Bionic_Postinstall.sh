@@ -1307,8 +1307,8 @@ do
         "10") #mBlock 
             apt install libgconf-2-4 -y
             wget https://github.com/Makeblock-official/mBlock/releases/download/V4.0.0-Linux/mBlock-4.0.0-linux-4.0.0.tar.gz
-            tar zxvf mBlock*.tar.gz -C /opt/
-            ln -s /opt/mBlock/mblock /home/$SUDO_USER/raccourci_mblock
+            tar zxvf mBlock*.tar.gz -C /opt/ ; chown -R $SUDO_USER:$SUDO_USER /opt/mBlock
+            ln -s /opt/mBlock/mblock /home/$SUDO_USER/raccourci_mblock ; rm mBlock*.tar.gz
             ;;
         "11") #AlgoIDE 
             wget http://www.algoid.net/downloads/AlgoIDE-release.jar
