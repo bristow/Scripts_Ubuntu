@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.4
+# version 1.0.5
 
 #  Copyleft 2018 Simbd
 #  
@@ -465,18 +465,19 @@ then
     echo -e "${jaune}15/ Sélectionnez ce qui vous intéresse en terme de customisation [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Pas d'ajout"
-    echo "[2] Thèmes GTK pack1 : Arc + Numix"
-    echo -e "[3] Thèmes GTK pack2 ${gris}[PPA]${neutre} : Adapta + Greybird/Blackbird/Bluebird"
-    echo "[4] Thèmes GTK pack3 : Albatross, Yuyo, Human, Gilouche, Materia"
-    echo "[5] Pack d'icones 1 : Numix et Numix Circle, Breathe, Breeze, Elementary, Brave + supplément extra icone Gnome"
-    echo "[6] Pack d'icones 2 : Dust, Humility, Garton, Gperfection2, Nuovo"
-    echo "[7] Pack d'icones 3 : Human, Moblin, Oxygen, Suede, Yasis"
-    echo "[8] Pack de curseurs : Breeze + Moblin + Oxygen/Oxygen-extra"
-    echo "[9] Thème complet Mac OS X High Sierra Light+Dark (thème+icone+wallpaper)"
-    echo "[10] Thème Windows 10 (thème+icone)"
-    echo "[11] Thème Unity 8"
-    echo "[12] Icones Papirus (Solus) avec différentes variantes : Adapta, Nokto, Dark, Light"    
-    echo -e "[13] Spécifique Gnome-Shell : Remettre GDM avec thème gris ${rouge}=> Attention : ajoute la session Vanilla en dépendance !${neutre}"
+    echo -e "[2] Installer Communitheme ${gris}[PPA]${neutre} : le thème GTK + icon Suru + sound theme"
+    echo "[3] Thèmes GTK pack1 : Arc + Numix"
+    echo -e "[4] Thèmes GTK pack2 ${gris}[PPA]${neutre} : Adapta + Greybird/Blackbird/Bluebird"
+    echo "[5] Thèmes GTK pack3 : Albatross, Yuyo, Human, Gilouche, Materia"
+    echo "[6] Pack d'icones 1 : Numix et Numix Circle, Breathe, Breeze, Elementary, Brave + supplément extra icone Gnome"
+    echo "[7] Pack d'icones 2 : Dust, Humility, Garton, Gperfection2, Nuovo"
+    echo "[8] Pack d'icones 3 : Human, Moblin, Oxygen, Suede, Yasis"
+    echo "[9] Pack de curseurs : Breeze + Moblin + Oxygen/Oxygen-extra"
+    echo "[10] Thème complet Mac OS X High Sierra Light+Dark (thème+icone+wallpaper)"
+    echo "[11] Thème Windows 10 (thème+icone)"
+    echo "[12] Thème Unity 8"
+    echo "[13] Icones Papirus (Solus) avec différentes variantes : Adapta, Nokto, Dark, Light"    
+    echo -e "[14] Visuel GDM avec thème gris [Pour Gnome-Shell uniquement] ${rouge}=> Attention : ajoute la session Vanilla en dépendance !${neutre}"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 5) : " choixCustom
     clear
@@ -1554,6 +1555,10 @@ do
             wget https://extensions.gnome.org/extension-data/appfolders-manager%40maestroschan.fr.v12.shell-extension.zip
             unzip appfolders-manager@maestroschan.fr.v12.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/appfolders-manager@maestroschan.fr          
             ;;    
+        "25") #Dockilus
+            wget https://framagit.org/abakkk/Dockilus/repository/master/archive.zip
+            unzip archive.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/dockilus@framagit.org
+            ;;
     esac
 done
 
@@ -1561,31 +1566,35 @@ done
 for custom in $choixCustom
 do
     case $custom in
-        "2") #pack theme gtk 1
+        "2") #Communitheme
+            add-apt-repository -y ppa:communitheme/ppa ; apt update
+            apt install gnome-shell-communitheme gtk-communitheme suru-icon-theme communitheme-sounds -y
+            ;;    
+        "3") #pack theme gtk 1
             apt install arc-theme numix-blue-gtk-theme numix-gtk-theme silicon-theme -y
             #Numix Circle
             git clone https://github.com/numixproject/numix-icon-theme-circle.git ; mv -f numix-icon-theme-circle/* /usr/share/icons/ ; rm -r numix-icon-theme-circle
             ;;
-        "3") #pack theme gtk 2
+        "4") #pack theme gtk 2
             apt-add-repository ppa:tista/adapta -y ; apt update ; 
             apt install adapta-gtk-theme blackbird-gtk-theme bluebird-gtk-theme greybird-gtk-theme -y
             ;;
-        "4") #pack theme gtk 3
+        "5") #pack theme gtk 3
             apt install albatross-gtk-theme yuyo-gtk-theme human-theme gnome-theme-gilouche materia-gtk-theme -y
             ;;
-        "5") #pack icone 1
+        "6") #pack icone 1
             apt install numix-icon-theme breathe-icon-theme breeze-icon-theme gnome-brave-icon-theme elementary-icon-theme -y
             ;;        
-        "6") #pack icone 2
+        "7") #pack icone 2
             apt install gnome-dust-icon-theme gnome-humility-icon-theme gnome-icon-theme-gartoon gnome-icon-theme-gperfection2 gnome-icon-theme-nuovo -y
             ;;  
-        "7") #pack icone 3
+        "8") #pack icone 3
             apt install human-icon-theme moblin-icon-theme oxygen-icon-theme gnome-icon-theme-suede gnome-icon-theme-yasis -y
             ;;   
-        "8") #pack curseur
+        "9") #pack curseur
             apt install breeze-cursor-theme moblin-cursor-theme oxygen-cursor-theme -y
             ;;  
-        "9") #Mac OS X High Sierra (plusieurs versions)
+        "10") #Mac OS X High Sierra (plusieurs versions)
             apt install gtk2-engines-pixbuf gtk2-engines-murrine -y
             git clone https://github.com/B00merang-Project/macOS-Sierra.git ; git clone https://github.com/B00merang-Project/macOS-Sierra-Dark.git ; mv -f macOS* /usr/share/themes/
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/Gnome-OSX-V-Space-Grey-1-3-1.tar.xz && wget http://nux87.free.fr/script-postinstall-ubuntu/theme/Gnome-OSX-V-Traditional-1-3-1.tar.xz   
@@ -1597,19 +1606,19 @@ do
             #Wallpaper officiel Mac OS X Sierra
             wget http://wallpaperswide.com/download/macos_sierra_2-wallpaper-3554x1999.jpg -P /home/$SUDO_USER/Images/
             ;;
-        "10") #Windows 10
+        "11") #Windows 10
             git clone https://github.com/B00merang-Project/Windows-10.git ; mv -f Windo* /usr/share/themes/
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/windows10-icons_1.2_all.deb && dpkg -i windows10-icons_1.2_all.deb
             wget https://framapic.org/Nd6hGtEOEJhM/LtmYwl16WjyC.jpg && mv LtmYwl16WjyC.jpg /home/$SUDO_USER/Images/windows10.jpg
             ;;
-        "11") #Unity 8
+        "12") #Unity 8
             git clone https://github.com/B00merang-Project/Unity8.git ; mv -f Unit* /usr/share/themes/
             ;;
-        "12") #Icone Papirus
+        "13") #Icone Papirus
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/papirus-icon-theme-20171124.tar.xz ; tar Jxvf papirus-icon-theme-20171124.tar.xz
             mv *Papirus* /usr/share/icons/
             ;;  
-        "13") #thème gris GDM (changement effectif seulement si la session vanilla est installé)
+        "14") #thème gris GDM (changement effectif seulement si la session vanilla est installé)
             apt install gnome-session -y # session vanilla nécessaire pour le changement du thème (sinon ne s'applique pas)
             mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu_old.css
             mv /usr/share/gnome-shell/theme/gnome-shell.css /usr/share/gnome-shell/theme/ubuntu.css
@@ -2003,18 +2012,14 @@ chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$S
 # Nettoyage fichiers/archives inutiles dans dossier script 
 rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
 
-# S'assurer d'être propriétaire de ses dossiers et sous-dossiers
-if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
-then
-    chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local
-    chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.themes
-    chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.icons
-fi
+# S'assurer d'être propriétaire de ses dossiers et sous-dossiers (les dossiers .themes et .icons ne seront pas forcément présent)
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.themes
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.icons
+clear
 
-# Maj
-apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y
-snap refresh ; flatpak update -y 
-cd .. ; clear 
+# Maj/Nettoyage
+apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y ; snap refresh ; flatpak update -y ; cd .. ; clear 
 
 echo "Pour prendre en compte tous les changements, il faut maintenant redémarrer !"
 read -p "Voulez-vous redémarrer immédiatement ? [o/N] " rep_reboot
