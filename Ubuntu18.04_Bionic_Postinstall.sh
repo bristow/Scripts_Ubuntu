@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.5
+# version 1.0.6
 
 #  Copyleft 2018 Simbd
 #  
@@ -367,7 +367,7 @@ then
     echo -e "[2] Kazam ${violet}[X!]${neutre} (capture vidéo de votre bureau)"
     echo "[3] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
     echo -e "[4] OBS : OpenBroadcasterSoftware ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
-    echo "[5] Glances (afficher l'état des ressources systèmes en temps réel, comme htop mais plus complet)"
+    echo -e "[5] MultiSystem ${gris}[DepExt]${neutre} Utilitaire permettant de créer une clé usb bootable avec plusieurs OS"
     echo "[6] Brasero (logiciel de gravure de cd/dvd)" 
     echo "[7] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
     echo -e "[8] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
@@ -384,7 +384,7 @@ then
     echo -e "[19] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
     echo "[20] Pack d'appli en cyber-sécurité (aircrack-ng + John The Ripper[snap] + Nmap)"
     echo -e "[21] Gnome Enfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
-    echo -e "[22] Bleachbit ${rouge}[D!]${neutre} (efface les fichiers inutiles/temporaires du système)"
+    echo -e "[22] PlayOnLinux (pour installer/utiliser facilement des applis Windows via Wine)"
     echo -e "[23] CoreBird (un client de bureau pour le réseau social Twitter)"
     echo "[24] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
     echo "[25] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
@@ -1332,8 +1332,10 @@ do
             add-apt-repository -y ppa:obsproject/obs-studio ; apt update
             apt install ffmpeg obs-studio -y
             ;;
-        "5") #Glances
-            apt install glances -y
+        "5") #MultiSystem
+            wget -q http://liveusb.info/multisystem/depot/multisystem.asc -O- | apt-key add -
+            add-apt-repository -y 'deb http://liveusb.info/multisystem/depot all main'
+            apt update ; apt install multisystem -y
             ;;
         "6") #Brasero
             apt install brasero brasero-cdrkit nautilus-extension-brasero -y
@@ -1388,8 +1390,8 @@ do
             add-apt-repository -y ppa:gencfsm/ppa ; apt update ;
             apt install gnome-encfs-manager -y
             ;;             
-        "22") #Bleachbit
-            apt install bleachbit -y
+        "22") #PlayOnLinux
+            apt install playonlinux -y
             ;;           
         "23") #Corebird
             apt install corebird -y
