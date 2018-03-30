@@ -561,10 +561,10 @@ then
     echo "[1] Non"
     echo -e "[2] LibreOffice ${gris}[PPA]${neutre} : dernière version stable possible via ppa générique (sinon gelé en 6.0)" 
     echo -e "[3] VirtualBox ${gris}[DepExt]${neutre} : dernière version stable possible via dépot Oracle (sinon gelé en 5.2)"
-    echo -e "[4] Firefox - dernière version stable alternative via Snap ${jaune}[Snap]${neutre}"
-    echo -e "[5] VLC : dernière version stable possible via Snap canal stable ${jaune}[Snap]${neutre} (sinon gelé en 3.0)"
-    echo -e "[6] VLC : dernière version la plus avancé possible via snap canal edge ${jaune}[Snap]${neutre} (non-cumulable avec snap/stable)"
-    echo -e "[7] Blender : dernière version stable possible ${gris}[PPA]${neutre}"
+    echo -e "[4] Firefox ${jaune}[Snap]${neutre} dernière version stable alternative via Snap"
+    echo -e "[5] VLC ${jaune}[Snap]${neutre} dernière version stable possible via Snap canal stable (sinon gelé en 3.0)"
+    echo -e "[6] VLC ${jaune}[Snap]${neutre} dernière version la plus avancé possible via snap canal edge (non-cumulable avec snap/stable)"
+    echo -e "[7] Blender ${gris}[PPA]${neutre} dernière version stable possible"
     #echo -e "[100] OpenShot : dernière version stable possible ${gris}[PPA]${neutre} (sinon gelé en 2.4)" ## PPA off actuellement
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixBackport
