@@ -318,22 +318,23 @@ then
     echo "*******************************************************"
     echo -e "${bleu}10/ Quel(s) logiciel(s) de bureautique/courrier souhaitez-vous ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Aucun supplément (par défaut : Evince pour pdf, LibreOffice en bureautique, Thunderbird pour les mails)"
-    echo "[2] LibreOffice avec Supplément : ajout du module 'Base' + extensions utiles (templates, modèles de documents, clipboard...)"
-    echo "[3] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
-    echo -e "[4] Suite Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applications d'édition avancées de chaînes éditoriales)"
-    echo "[5] Freeplane (création de cartes heuristiques (Mind Map) avec des diagrammes représentant les connexions sémantiques)"
-    echo -e "[6] FeedReader ${bleu}[Flatpak]${neutre} (agrégateur RSS moderne pour consulter vos fils d'informations RSS)"
-    echo "[7] Geary (logiciel de messagerie, alternative à Thunderbird et bien intégré à Gnome)"
-    echo "[8] Gnome Office (pack contenant Abiword, Gnumeric, Dia, Planner, Glabels, Glom, Tomboy et Gnucash)"
-    echo "[9] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
-    echo "[10] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
-    echo "[11] Gnome Evolution (logiciel de type groupware et courrielleur, facile à utiliser)"
-    echo -e "[12] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
-    echo -e "[13] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
-    echo "[14] Zim (wiki en local avec une collection de pages et de marqueurs)"
-    echo -e "[15] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
-    echo -e "[16] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
+    echo "[1] Aucun supplément"
+    echo "[2] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
+    echo "[3] LibreOffice {branche 6.0} suite bureautique libre de 'The Document Foundation' (normalement déjà installé)"
+    echo "[4] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
+    echo -e "[5] Suite Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applications d'édition avancées de chaînes éditoriales)"
+    echo "[6] Freeplane (création de cartes heuristiques (Mind Map) avec des diagrammes représentant les connexions sémantiques)"
+    echo -e "[7] FeedReader ${bleu}[Flatpak]${neutre} (agrégateur RSS moderne pour consulter vos fils d'informations RSS)"
+    echo "[8] Geary (logiciel de messagerie, alternative à Thunderbird et bien intégré à Gnome)"
+    echo "[9] Gnome Office (pack contenant Abiword, Gnumeric, Dia, Planner, Glabels, Glom, Tomboy et Gnucash)"
+    echo "[10] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
+    echo "[11] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
+    echo "[12] Gnome Evolution (logiciel de type groupware et courrielleur, facile à utiliser)"
+    echo -e "[13] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
+    echo -e "[14] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
+    echo "[15] Zim (wiki en local avec une collection de pages et de marqueurs)"
+    echo -e "[16] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
+    echo -e "[17] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
     # Choix supplémentaire caché mais possible (car pose problème) :
     # [500] => Soft Maker Office Béta #peux faire planter l'installation du script avec ce logiciel (déconseillé)
     echo "*******************************************************"
@@ -675,9 +676,6 @@ apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-uti
 # Codecs utiles
 apt install x264 x265 -y
 
-#Police d'écriture Microsoft (serveur parfois très lent)
-echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
-
 #optimisation
 apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus rapidement dans nautilus
 
@@ -694,14 +692,11 @@ if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
 then
     # logiciels utiles pour Gnome
     apt install dconf-editor gnome-tweak-tool folder-color gnome-system-tools -y
+    apt install ubuntu-restricted-addons -y
     # Suppression de l'icone Amazon (présent uniquement sur la version de base)
     apt purge ubuntu-web-launchers -y
-    # Autres logiciels utiles
-    apt install ubuntu-restricted-addons -y #ubuntu-restricted-extras
     # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
-    mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions 
-    mkdir /home/$SUDO_USER/.themes 
-    mkdir /home/$SUDO_USER/.icons 
+    mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions /home/$SUDO_USER/.themes /home/$SUDO_USER/.icons
     
     # Augmenter le temps maximum pour la capture vidéo à 10 minutes (600s) (par défaut c'était 30s)
     su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600"
@@ -710,7 +705,7 @@ fi
 # Spécifique Xubuntu/Xfce 18.04
 if [ "$distrib" = "1" ]
 then
-    apt install xfce4 gtk3-engines-xfce xfce4-goodies xfwm4-themes xubuntu-restricted-addons xubuntu-restricted-extras -y 
+    apt install xfce4 gtk3-engines-xfce xfce4-goodies xfwm4-themes xubuntu-restricted-addons -y 
 fi
 ###################################################
 # Spécifique Ubuntu Mate/Mate 18.04
@@ -722,7 +717,7 @@ fi
 # Spécifique Lubuntu/Lxde/Lxqt 18.04
 if [ "$distrib" = "3" ]
 then
-    apt install lubuntu-restricted-addons lubuntu-restricted-extras -y
+    apt install lubuntu-restricted-addons -y
 fi
 ###################################################
 # Spécifique Kubuntu/Kde 18.04
@@ -1214,55 +1209,57 @@ done
 for bureautique in $choixBureautique
 do
     case $bureautique in
-        "2") #Complément LibreOffice
-            apt install libreoffice libreoffice-style-breeze libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifrm libreoffice-wiki-publisher -y
-            apt install libreoffice-templates openclipart-libreoffice -y
+        "2") #Police d'écriture Microsoft
+            echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
             ;;
-        "3") #PDFMod
+        "3") #LibreOffice
+            apt install libreoffice libreoffice-style-breeze libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifrm libreoffice-templates -y
+            ;;
+        "4") #PDFMod
             apt install pdfmod -y 
             ;;
-        "4") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
+        "5") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
             echo "deb https://download.scenari.org/deb xenial main" > /etc/apt/sources.list.d/scenari.list
             wget -O- https://download.scenari.org/deb/scenari.asc | apt-key add -
             apt update ; apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
             ;;
-        "5") #Freeplane
+        "6") #Freeplane
             apt install freeplane -y
             ;;
-        "6") #Feedreader (flatpak)
+        "7") #Feedreader (flatpak)
             flatpak install flathub org.gnome.FeedReader -y
             ;;
-        "7") #Geary
+        "8") #Geary
             apt install geary -y
             ;;        
-        "8") #Gnome Office
+        "9") #Gnome Office
             apt install abiword gnumeric dia planner glabels glom tomboy gnucash -y
             ;; 
-        "9") #Wordgrinder
+        "10") #Wordgrinder
             apt install wordgrinder wordgrinder-x11 -y
             ;;            
-        "10") #Latex
+        "11") #Latex
             apt install texlive texlive-lang-french texworks -y
             ;; 
-        "11") #Gnome Evolution
+        "12") #Gnome Evolution
             apt install evolution -y
             ;;  
-        "12") #MailSpring (Snap)
+        "13") #MailSpring (Snap)
             snap install mailspring
             ;; 
-        "13") #Notes Up (Flatpak)
+        "14") #Notes Up (Flatpak)
             flatpak install flathub com.github.philip_scott.notes-up -y
             ;;          
-        "14") #Zim
+        "15") #Zim
             apt install zim -y
             ;;                         
-        "15") #WPS Office
+        "16") #WPS Office
             #wget http://ftp.fr.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb ; wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
             # problème de bande passante donc 1 serveur altnatif :
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/wps032018.deb ; wget http://nux87.free.fr/script-postinstall-ubuntu/deb/libpng.deb
             dpkg -i libpng* ; dpkg -i wps* ; apt install -fy ; rm *.deb ;
             ;;             
-        "16") #OnlyOffice (Snap)
+        "17") #OnlyOffice (Snap)
             snap install onlyoffice-desktopeditors --classic
             ;;
         # Entrées cachés car potentiellement risqué :
@@ -2007,8 +2004,8 @@ done
 
 
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
-mkdir /home/$SUDO_USER/appimages ; mv *.AppImage /home/$SUDO_USER/appimages/
-chmod -R +x /home/$SUDO_USER/appimages ; chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages/ ; chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/script_postinstall
+mkdir ../appimages ; mv *.AppImage ../appimages/ ; chmod -R +x ../appimages 
+chown -R $SUDO_USER:$SUDO_USER ../appimages ../script_postinstall ../icons ../themes
 
 # Nettoyage fichiers/archives inutiles dans dossier script 
 rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
