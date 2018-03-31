@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.6
+# version 1.0.7
 
 #  Copyleft 2018 Simbd
 #  
@@ -85,7 +85,7 @@ echo -e "${rouge}[D!]${neutre} => Dangereux : le logiciel est potentiellement in
 echo -e "${violet}[X!]${neutre} => Xorg uniquement : logiciel ok en session Xorg (par défaut) mais pas en session Wayland (choix alternatif sous Gnome)"
 echo -e "${cyan}[M!]${neutre} => Manuel : pas de raccourci, il faudra aller vous même dans le dossier et le lancer manuellement, parfois en CLI"
 
-echo -e "Si rien de précisé => Installation classique depuis les dépots officiels ou PPA"
+echo -e "Si rien de précisé => Installation classique depuis les dépots officiels ou avec un .deb récupéré"
 echo -e "#########################################################\n"    
 
 ### Section interactive avec les questions
@@ -2018,11 +2018,11 @@ chmod -R +x /home/$SUDO_USER/appimages
 rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
 
 # S'assurer d'être propriétaire dans les différents sous-dossiers de son ~ (sinon flatpak et dbus en root et bloque la session)
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER
+#chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER
 clear
 
 # Maj/Nettoyage
-apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y ; snap refresh ; flatpak update -y ; cd .. ; clear 
+apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y ; cd .. ; clear 
 
 echo "Pour prendre en compte tous les changements, il faut maintenant redémarrer !"
 read -p "Voulez-vous redémarrer immédiatement ? [o/N] " rep_reboot
