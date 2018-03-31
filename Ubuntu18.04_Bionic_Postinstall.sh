@@ -384,13 +384,12 @@ then
     echo -e "[19] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
     echo "[20] Pack d'appli en cyber-sécurité (aircrack-ng + John The Ripper[snap] + Nmap)"
     echo -e "[21] Gnome Enfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
-    echo -e "[22] PlayOnLinux (pour installer/utiliser facilement des applis Windows via Wine)"
-    echo -e "[23] CoreBird (un client de bureau pour le réseau social Twitter)"
-    echo "[24] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
-    echo "[25] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
-    echo -e "[26] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
-    echo -e "[27] AnyDesk ${gris}[DepExt]${neutre} (assistance à distance comme teamviewer, natif linux)"
-    echo -e "[28] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
+    echo -e "[22] CoreBird (un client de bureau pour le réseau social Twitter)"
+    echo "[23] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
+    echo "[24] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
+    echo -e "[25] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
+    echo -e "[26] AnyDesk ${gris}[DepExt]${neutre} (assistance à distance comme teamviewer, natif linux)"
+    echo -e "[27] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixUtilitaire
     clear
@@ -1390,28 +1389,25 @@ do
             add-apt-repository -y ppa:gencfsm/ppa ; apt update ;
             apt install gnome-encfs-manager -y
             ;;             
-        "22") #PlayOnLinux
-            apt install playonlinux -y
-            ;;           
-        "23") #Corebird
+        "22") #Corebird
             apt install corebird -y
             ;; 
-        "24") #Wireshark
+        "23") #Wireshark
             debconf-set-selections <<< "wireshark-common/install-setuid true"
             apt install wireshark -y ; usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
             ;;   
-        "25") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
+        "24") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
             apt install vrms screenfetch asciinema ncdu screen rclone -y
             wget http://hoper.dnsalias.net/tdc/public/kclean.deb && dpkg -i kclean.deb ; apt install -fy ; rm kclean.deb
             ;; 
-        "26") #Synaptic
+        "25") #Synaptic
             apt install synaptic -y
             ;;  
-        "27") #AnyDesk
+        "26") #AnyDesk
             wget https://download.anydesk.com/linux/anydesk_2.9.5-1_amd64.deb
             dpkg -i anydesk* ; apt install -fy ; rm anydesk* ;
             ;;    
-        "28") #VeraCrypt
+        "27") #VeraCrypt
             add-apt-repository -y ppa:unit193/encryption ; apt update
             apt install -y veracrypt
             ;;               
@@ -2012,17 +2008,14 @@ done
 
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
 mkdir /home/$SUDO_USER/appimages ; mv *.AppImage /home/$SUDO_USER/appimages/
-chmod -R +x /home/$SUDO_USER/appimages
+chmod -R +x /home/$SUDO_USER/appimages ; chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages/ ; chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/script_postinstall
 
 # Nettoyage fichiers/archives inutiles dans dossier script 
 rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
-
-# S'assurer d'être propriétaire dans les différents sous-dossiers de son ~ (sinon flatpak et dbus en root et bloque la session)
-#chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER
 clear
 
 # Maj/Nettoyage
-apt update ; apt autoremove --purge -y ; apt clean ; apt full-upgrade -y ; cd .. ; clear 
+apt update ; apt autoremove --purge -y ; apt clean ; cd .. ; clear 
 
 echo "Pour prendre en compte tous les changements, il faut maintenant redémarrer !"
 read -p "Voulez-vous redémarrer immédiatement ? [o/N] " rep_reboot
