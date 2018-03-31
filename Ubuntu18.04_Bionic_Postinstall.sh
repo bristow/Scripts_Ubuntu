@@ -2012,15 +2012,13 @@ done
 
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
 mkdir /home/$SUDO_USER/appimages ; mv *.AppImage /home/$SUDO_USER/appimages/
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/appimages ; chmod -R +x /home/$SUDO_USER/appimages
+chmod -R +x /home/$SUDO_USER/appimages
 
 # Nettoyage fichiers/archives inutiles dans dossier script 
 rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
 
-# S'assurer d'être propriétaire de ses dossiers et sous-dossiers (les dossiers .themes et .icons ne seront pas forcément présent)
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.local
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.themes
-chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.icons
+# S'assurer d'être propriétaire dans les différents sous-dossiers de son ~ (sinon flatpak et dbus en root et bloque la session)
+chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER
 clear
 
 # Maj/Nettoyage
