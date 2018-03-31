@@ -2005,7 +2005,7 @@ done
 
 # Suppression des deb téléchargés par le script (plus nécessaire) et rangement des AppImages
 mkdir ../appimages ; mv *.AppImage ../appimages/ ; chmod -R +x ../appimages 
-chown -R $SUDO_USER:$SUDO_USER ../appimages ../script_postinstall ../icons ../themes
+chown -R $SUDO_USER:$SUDO_USER ../appimages ../script_postinstall ../.icons ../.themes
 
 # Nettoyage fichiers/archives inutiles dans dossier script 
 rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
