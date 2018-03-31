@@ -1213,7 +1213,7 @@ do
             echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
             ;;
         "3") #LibreOffice
-            apt install libreoffice libreoffice-style-breeze libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifrm libreoffice-templates -y
+            apt install libreoffice libreoffice-style-breeze libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-templates -y
             ;;
         "4") #PDFMod
             apt install pdfmod -y 
