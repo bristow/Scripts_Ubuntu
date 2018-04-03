@@ -134,28 +134,28 @@ then
     echo "*******************************************************"
     echo -e "${bleu}3/ Quel(s) navigateur(s) vous intéresse(nt) ? (plusieurs choix possibles)${neutre}"
     echo "*******************************************************"
-    echo "[1] Pas de navigateur supplémentaire : rester sur la version classique de Firefox (stable)"
-    echo -e "[2] Firefox Béta ${gris}[PPA]${neutre} (n+1 : 1 version d'avance, remplace la version classique)"
-    echo -e "[3] Firefox ESR ${gris}[PPA]${neutre} (version plutôt orientée entreprise/organisation)"
-    echo -e "[4] Firefox Developer Edition ${bleu}[Flatpak]${neutre} (version alternative incluant des outils de développement, généralement n+1/n+2)"
-    echo -e "[5] Firefox Nightly ${bleu}[Flatpak]${neutre} (toute dernière build en dev, n+2/n+3)"
-    echo "[6] Chromium (la version libre/opensource de Chrome)"
-    echo -e "[7] Google Chrome ${gris}[DepExt]${neutre}(le célèbre navigateur de Google mais il est propriétaire !)"
-    echo -e "[8] Vivaldi ${gris}[DepExt]${neutre} (un navigateur propriétaire avec une interface sobre assez particulière)"
-    echo -e "[9] Opera ${gris}[DepExt]${neutre} (navigateur norvégien, propriétaire, basé sur Chromium)"
-    echo -e "[10] PaleMoon ${gris}[DepExt]${neutre} (un navigateur plutôt récent, libre & performant)"
-    echo -e "[11] WaterFox ${gris}[DepExt]${neutre} (un fork de Firefox compatible avec les anciennes extensions)"
-    echo "[12] Tor Browser (pour naviguer dans l'anonymat avec le réseau tor : basé sur Firefox ESR)"
-    echo "[13] Gnome Web/Epiphany (navigateur de la fondation Gnome s'intégrant bien avec cet environnement)"
-    echo -e "[14] Midori ${gris}[DepExt]${neutre} (libre & léger mais un peu obsolète maintenant...)"
-    echo "[15] Falkon [QupZilla] (une alternative libre et légère utilisant Webkit)"   
-    echo -e "[16] Min ${gris}[DepExt]${neutre} (un navigateur minimaliste et donc très léger)"   
-    echo "[17] Dillo (navigateur capable de tourner sur des ordinosaures)"
-    echo "[18] Lynx (navigateur 100% en ligne de commande, pratique depuis une console SSH)"
-    echo -e "[19] Eolie ${bleu}[Flatpak]${neutre} (une autre alternative pour Gnome)"
-    echo -e "[20] Beaker ${vert}[Appimage]${neutre} (Navigateur opensource qui permet de surfer en P2P)"
-    echo -e "[21] Brave ${jaune}[Snap]${neutre} (Navigateur avec protection pour la vie privée avec blocage des pisteurs)"
-    echo -e "[22] SRWare Iron (Dérivé de Chromium avec des améliorations sur la confidentialité des données)"
+    echo "[1] Pas de navigateur supplémentaire (Firefox stable, version classique, par défaut)"
+    echo -e "[2] Beaker ${vert}[Appimage]${neutre} (Navigateur opensource qui permet de surfer en P2P)"
+    echo -e "[3] Brave ${jaune}[Snap]${neutre} (Navigateur avec protection pour la vie privée avec blocage des pisteurs)"
+    echo "[4] Chromium (la version libre/opensource de Chrome)"
+    echo "[5] Dillo (navigateur capable de tourner sur des ordinosaures)"
+    echo -e "[6] Eolie ${bleu}[Flatpak]${neutre} (une autre alternative pour Gnome)"
+    echo "[7] Falkon [QupZilla] (une alternative libre et légère utilisant Webkit)"   
+    echo -e "[8] Firefox Béta ${gris}[PPA]${neutre} (n+1 : 1 version d'avance, remplace la version classique)"
+    echo -e "[9] Firefox Developer Edition ${bleu}[Flatpak]${neutre} (version alternative incluant des outils de développement, généralement n+1/n+2)"
+    echo -e "[10] Firefox ESR ${gris}[PPA]${neutre} (version plutôt orientée entreprise/organisation)"
+    echo -e "[11] Firefox Nightly ${bleu}[Flatpak]${neutre} (toute dernière build en dev, n+2/n+3)" 
+    echo "[12] Gnome Web/Epiphany (navigateur de la fondation Gnome s'intégrant bien avec cet environnement)"
+    echo -e "[13] Google Chrome ${gris}[DepExt]${neutre}(le célèbre navigateur de Google mais il est propriétaire !)"
+    echo "[14] Lynx (navigateur 100% en ligne de commande, pratique depuis une console SSH)"
+    echo -e "[15] Midori ${gris}[DepExt]${neutre} (libre & léger mais un peu obsolète maintenant...)"
+    echo -e "[16] Min ${gris}[DepExt]${neutre} (un navigateur minimaliste et donc très léger)" 
+    echo -e "[17] Opera ${gris}[DepExt]${neutre} (navigateur norvégien, propriétaire, basé sur Chromium)"
+    echo -e "[18] PaleMoon ${gris}[DepExt]${neutre} (un navigateur plutôt récent, libre & performant)"
+    echo -e "[19] SRWare Iron (Dérivé de Chromium avec des améliorations sur la confidentialité des données)"
+    echo "[20] Tor Browser (pour naviguer dans l'anonymat avec le réseau tor : basé sur Firefox ESR)"
+    echo -e "[21] Vivaldi ${gris}[DepExt]${neutre} (un navigateur propriétaire avec une interface sobre assez particulière)"
+    echo -e "[22] WaterFox ${gris}[DepExt]${neutre} (un fork de Firefox compatible avec les anciennes extensions)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants séparés d'un espace (exemple : 6 10 16) : " choixNavigateur
     clear
@@ -673,6 +673,9 @@ flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 # Autres outils utiles
 apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
 
+# Logiciels utiles normalement déjà installés (dans le cas ou ça ne serai pas le cas, notamment sur certaines variantes)
+apt install firefox firefox-locale-fr
+
 # Codecs utiles
 apt install x264 x265 -y
 
@@ -765,83 +768,83 @@ done
 for navigateur in $choixNavigateur
 do
     case $navigateur in
-        "2") #firefox béta 
+        "1") #Beaker Browser (appimage)
+            wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/beaker-browser-0.7.11-x86_64.AppImage
+            chmod +x beaker*
+            ;;    
+        "2") #Brave (snap)
+            snap install brave
+            ;;              
+        "3") #chromium
+            apt install chromium-browser -y    
+            ;;   
+        "4") #Dillo
+            apt install dillo -y
+            ;;     
+        "5") #Eolie via Flatpak
+            flatpak install flathub org.gnome.Eolie -y
+            ;;            
+        "6") #Falkon/Qupzilla
+            apt install qupzilla -y
+            ;;            
+        "7") #firefox béta 
             add-apt-repository ppa:mozillateam/firefox-next -y 
             apt update ; apt upgrade -y
             ;;
-        "3") #firefox esr
+        "8") #firefox developper edition 
+            flatpak install --from https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxDevEdition.flatpakref -y
+            ;;               
+        "9") #firefox esr
             add-apt-repository ppa:mozillateam/ppa -y 
             apt update ; apt install firefox-esr firefox-esr-locale-fr -y
             ;;
-        "4") #firefox developper edition 
-            flatpak install --from https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxDevEdition.flatpakref -y
-            ;;
-        "5") #firefox nightly
+        "10") #firefox nightly
             flatpak install --from https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref -y
             ;;
-        "6") #chromium
-            apt install chromium-browser -y    
-            ;;
-        "7") #chrome
+        "11") #Google Chrome
             wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
             sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
             apt update ; apt install google-chrome-stable -y
             ;;
-        "8") #vivaldi x64 (sera toujours à jour bien qu'une version précise soit téléchargé : dépot ajouté par le deb)
-            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/vivaldi.deb
-            dpkg -i vivaldi* ; apt install -fy ; apt upgrade vivaldi-stable -y ; rm vivaldi.deb
-            ;;
-        "9") #opera (maj automatiquement via dépot opéra ajouté par le deb)
-            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/opera.deb
-            dpkg -i opera* ; apt install -fy ; rm opera* ; apt update ; apt upgrade -y #en cas de maj d'opéra
-            ;;
-        "10") #Palemoon
-            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/palemoon.deb
-            dpkg -i palemoon.deb ; apt install -fy ; rm -f palemoon*
-            ;; 
-        "11") #Waterfox
-            echo "deb https://dl.bintray.com/hawkeye116477/waterfox-deb release main" >> /etc/apt/sources.list.d/waterfox.list
-            curl https://bintray.com/user/downloadSubjectPublicKey?username=hawkeye116477 | apt-key add - 
-            apt update
-            apt install waterfox waterfox-locale-fr -y
-            ;;                       
-        "12") #Tor browser
-            apt install torbrowser-launcher -y
-            ;;
-        "13") #epiphany
+        "12") #Google Web/epiphany
             apt install epiphany-browser -y
-            ;;
+            ;;  
+        "13") #Lynx (cli)
+            apt install lynx -y
+            ;;            
         "14") #midori
             wget http://midori-browser.org/downloads/midori_0.5.11-0_amd64_.deb
             dpkg -i midori_0.5.11-0_amd64_.deb
             apt install -fy
-            ;;
-        "15") #Falkon/Qupzilla
-            apt install qupzilla -y
-            ;;
-        "16") #Min
+            ;;      
+        "15") #Min
             wget https://github.com/minbrowser/min/releases/download/v1.7.1/min_1.7.1_amd64.deb
             dpkg -i min*.deb ; apt install -fy ; rm -f Min*
+            ;;            
+        "16") #Opera (maj automatiquement via dépot opéra ajouté par le deb)
+            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/opera.deb
+            dpkg -i opera* ; apt install -fy ; rm opera* ; apt update ; apt upgrade -y #en cas de maj d'opéra
             ;;
-        "17") #Dillo
-            apt install dillo -y
-            ;;
-        "18") #Lynx (cli)
-            apt install lynx -y
-            ;;
-        "19") #Eolie via Flatpak
-            flatpak install flathub org.gnome.Eolie -y
-            ;;
-        "20") #Beaker Browser (appimage)
-            wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/beaker-browser-0.7.11-x86_64.AppImage
-            chmod +x beaker*
+        "17") #Palemoon
+            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/palemoon.deb
+            dpkg -i palemoon.deb ; apt install -fy ; rm -f palemoon*
             ;;  
-        "21") #Brave (snap)
-            snap install brave
-            ;;              
-        "22") #SRWare Iron
+        "18") #SRWare Iron
             wget http://www.srware.net/downloads/iron64.deb ; dpkg -i iron64.deb ; apt install -fy ; rm iron64.deb
-            ;;                    
+            ;;             
+        "19") #Tor browser
+            apt install torbrowser-launcher -y
+            ;;            
+        "20") #Vivaldi x64 (sera toujours à jour bien qu'une version précise soit téléchargé : dépot ajouté par le deb)
+            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/vivaldi.deb
+            dpkg -i vivaldi* ; apt install -fy ; apt upgrade vivaldi-stable -y ; rm vivaldi.deb
+            ;;
+        "21") #Waterfox
+            echo "deb https://dl.bintray.com/hawkeye116477/waterfox-deb release main" >> /etc/apt/sources.list.d/waterfox.list
+            curl https://bintray.com/user/downloadSubjectPublicKey?username=hawkeye116477 | apt-key add - 
+            apt update
+            apt install waterfox waterfox-locale-fr -y
+            ;;                                    
     esac
 done
 
