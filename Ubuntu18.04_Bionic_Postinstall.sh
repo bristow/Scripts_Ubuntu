@@ -1575,20 +1575,8 @@ do
             ;;  
         "7") #pack icone 3
             apt install human-icon-theme moblin-icon-theme oxygen-icon-theme gnome-icon-theme-suede gnome-icon-theme-yasis -y
-            ;;            
-        "8") #pack theme gtk 1
-            apt install arc-theme numix-blue-gtk-theme numix-gtk-theme silicon-theme -y
-            #Numix Circle
-            git clone https://github.com/numixproject/numix-icon-theme-circle.git ; mv -f numix-icon-theme-circle/* /usr/share/icons/ ; rm -r numix-icon-theme-circle
-            ;;
-        "9") #pack theme gtk 2
-            apt-add-repository ppa:tista/adapta -y ; apt update ; 
-            apt install adapta-gtk-theme blackbird-gtk-theme bluebird-gtk-theme greybird-gtk-theme -y
-            ;;
-        "10") #pack theme gtk 3
-            apt install albatross-gtk-theme yuyo-gtk-theme human-theme gnome-theme-gilouche materia-gtk-theme -y
-            ;; 
-        "11") #theme Mac OS X High Sierra (plusieurs versions)
+            ;;    
+        "8") #theme Mac OS X High Sierra (plusieurs versions)
             apt install gtk2-engines-pixbuf gtk2-engines-murrine -y
             git clone https://github.com/B00merang-Project/macOS-Sierra.git ; git clone https://github.com/B00merang-Project/macOS-Sierra-Dark.git ; mv -f macOS* /usr/share/themes/
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/Gnome-OSX-V-Space-Grey-1-3-1.tar.xz && wget http://nux87.free.fr/script-postinstall-ubuntu/theme/Gnome-OSX-V-Traditional-1-3-1.tar.xz   
@@ -1599,15 +1587,27 @@ do
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/macOS.tar.xz ; tar Jxvf macOS.tar.xz ; mv macOS /usr/share/icons/ ; rm -r macOS*
             #Wallpaper officiel Mac OS X Sierra
             wget http://wallpaperswide.com/download/macos_sierra_2-wallpaper-3554x1999.jpg -P /home/$SUDO_USER/Images/
-            ;;   
-        "12") #Unity 8
+            ;;  
+        "9") #Unity 8
             git clone https://github.com/B00merang-Project/Unity8.git ; mv -f Unit* /usr/share/themes/
-            ;;
-        "13") #theme Windows 10
+            ;;         
+        "10") #theme Windows 10
             git clone https://github.com/B00merang-Project/Windows-10.git ; mv -f Windo* /usr/share/themes/
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/windows10-icons_1.2_all.deb && dpkg -i windows10-icons_1.2_all.deb
             wget https://framapic.org/Nd6hGtEOEJhM/LtmYwl16WjyC.jpg && mv LtmYwl16WjyC.jpg /home/$SUDO_USER/Images/windows10.jpg
+            ;;            
+        "11") #pack theme gtk 1
+            apt install arc-theme numix-blue-gtk-theme numix-gtk-theme silicon-theme -y
+            #Numix Circle
+            git clone https://github.com/numixproject/numix-icon-theme-circle.git ; mv -f numix-icon-theme-circle/* /usr/share/icons/ ; rm -r numix-icon-theme-circle
             ;;
+        "12") #pack theme gtk 2
+            apt-add-repository ppa:tista/adapta -y ; apt update ; 
+            apt install adapta-gtk-theme blackbird-gtk-theme bluebird-gtk-theme greybird-gtk-theme -y
+            ;;
+        "13") #pack theme gtk 3
+            apt install albatross-gtk-theme yuyo-gtk-theme human-theme gnome-theme-gilouche materia-gtk-theme -y
+            ;; 
         "14") #visuel gris GDM (changement effectif seulement si la session vanilla est installé)
             apt install gnome-session -y # session vanilla nécessaire pour le changement du thème (sinon ne s'applique pas)
             mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu_old.css
@@ -1685,26 +1685,26 @@ done
 for srv in $choixServeur
 do
     case $srv in
-        "2") #openssh-server
-            apt install openssh-server -y
-            ;;
-        "3") #lamp
-            apt install apache2 php mariadb-server libapache2-mod-php php-mysql -y
-            ;;
-        "4") #PHP5 
+        "2") #PHP5 
             add-apt-repository -y ppa:ondrej/php ; apt update
             apt install php5.6 -y
             ;;
-        "5") #php7.2
+        "3") #php7.2
             add-apt-repository -y ppa:ondrej/php ; apt update
             apt install php7.2 -y
-            ;;              
-        "6") #Postgresql
+            ;;               
+        "4") #Postgresql
             apt install postgresql -y
             ;;            
-        "7") #proftpd
+        "5") #proftpd
             apt install proftpd -y
-            ;;     
+            ;;  
+        "6") #lamp
+            apt install apache2 php mariadb-server libapache2-mod-php php-mysql -y
+            ;;            
+        "7") #openssh-server
+            apt install openssh-server -y
+            ;;            
     esac
 done
 
@@ -1712,30 +1712,35 @@ done
 for optimisation in $choixOptimisation
 do
     case $optimisation in
-        "2") #Swapiness 95% +cache pressure 50
-            echo vm.swappiness=5 | tee /etc/sysctl.d/99-swappiness.conf
-            sysctl -p /etc/sysctl.d/99-swappiness.conf
+        "2") #Nouvelle commande raccourci Maj totale
+            echo "alias maj='sudo apt update && sudo apt autoremove --purge -y && sudo apt full-upgrade -y && sudo apt clean && sudo snap refresh && sudo flatpak update -y ; clear'" >> /home/$SUDO_USER/.bashrc
+            su $SUDO_USER -c "source ~/.bashrc"
+            ;;    
+        "3") #Support ExFat
+            apt install exfat-utils exfat-fuse -y    
             ;;
-        "3") #Désactiver swap
+        "4") #Support HFS
+            apt install hfsprogs hfsutils hfsplus -y
+            ;;    
+        "5") #Interdire l'accès des autres utilisateurs au dossier perso de l'utilisateur principal
+            chmod -R o-rwx /home/$SUDO_USER
+            ;;       
+        "6") #Désactiver swap
             swapoff /swapfile #désactive l'utilisation du fichier swap
             rm /swapfile #supprime le fichier swap qui n'est plus utile
             sed -i -e '/.swapfile*/d' /etc/fstab #ligne swap retiré de fstab
-            ;;
-        "4") #TLP 
-            apt install --no-install-recommends tlp tlp-rdw -y
-            systemctl enable tlp ; systemctl enable tlp-sleep
-            ;;
-        "5") #Microcode Intel
-            apt install intel-microcode -y
-            ;;
-        "6") #Mode fraude Wayland (proposé par Christophe C sur Ubuntu-fr.org)
+            ;;    
+        "7") #Minimisation fenêtre sur l'icone du dock (pour dashtodock uniquement)
+            su $SUDO_USER -c "gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'"
+            ;;    
+        "8") #Mode fraude Wayland (proposé par Christophe C sur Ubuntu-fr.org)
             echo "#FONCTION POUR CONTOURNER WAYLAND
             fraude(){ 
                 xhost + && sudo \$1 && xhost -
                 }" >> /home/$SUDO_USER/.bashrc
             su $SUDO_USER -c "source ~/.bashrc"
-            ;;
-        "7") #Désactiver userlist GDM
+            ;;            
+        "9") #Désactiver userlist GDM
             echo "user-db:user
             system-db:gdm
             file-db:/usr/share/gdm/greeter-dconf-defaults" > /etc/dconf/profile/gdm
@@ -1744,42 +1749,37 @@ do
             # Do not show the user list
             disable-user-list=true" > /etc/dconf/db/gdm.d/00-login-screen
             dconf update
+            ;;            
+        "10") #Pour utiliser carte nvidia/pilote nouveau pour un jeu
+            apt install switcheroo-control -y    
             ;;
-        "8") #Support ExFat
-            apt install exfat-utils exfat-fuse -y    
-            ;;
-        "9") #Support HFS
-            apt install hfsprogs hfsutils hfsplus -y
-            ;;
-        "10") #Nouvelle commande raccourci Maj totale
-            echo "alias maj='sudo apt update && sudo apt autoremove --purge -y && sudo apt full-upgrade -y && sudo apt clean && sudo snap refresh && sudo flatpak update -y ; clear'" >> /home/$SUDO_USER/.bashrc
-            su $SUDO_USER -c "source ~/.bashrc"
-            ;;
-        "11") #Grub réduction temps d'attente + suppression test ram dans grub
-            sed -ri 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/g' /etc/default/grub
-            mkdir /boot/old ; mv /boot/memtest86* /boot/old/
-            update-grub
-            ;;
+        "11") #Microcode Intel
+            apt install intel-microcode -y
+            ;;    
         "12") #Lecture DVD Commerciaux
             apt install libdvdcss2 libdvd-pkg -y
             dpkg-reconfigure libdvd-pkg
+            ;;  
+        "13") #Grub réduction temps d'attente + suppression test ram dans grub
+            sed -ri 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/g' /etc/default/grub
+            mkdir /boot/old ; mv /boot/memtest86* /boot/old/
+            update-grub
+            ;;                
+        "14") #Swapiness 95% +cache pressure 50
+            echo vm.swappiness=5 | tee /etc/sysctl.d/99-swappiness.conf
+            sysctl -p /etc/sysctl.d/99-swappiness.conf
             ;;
-        "13") #Support imprimante HP
-            apt install hplip hplip-doc hplip-gui sane sane-utils -y
-            ;;   
-        "14") #Minimisation fenêtre sur l'icone du dock (pour dashtodock uniquement)
-            su $SUDO_USER -c "gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'"
-            ;;
-        "15") #Interdire l'accès des autres utilisateurs au dossier perso de l'utilisateur principal
-            chmod -R o-rwx /home/$SUDO_USER
-            ;;            
-        "16") #Pour utiliser carte nvidia/pilote nouveau pour un jeu
-            apt install switcheroo-control -y
-            ;; 
-        "17") #Retirer paquet snappy et réinstaller les logiciels de manière classique
+        "15") #Retirer paquet snappy et réinstaller les logiciels de manière classique
             snap remove gnome-calculator gnome-characters gnome-logs gnome-system-monitor
             apt install -y gnome-calculator gnome-characters gnome-logs gnome-system-monitor
+            ;;  
+        "16") #Support imprimante HP
+            apt install hplip hplip-doc hplip-gui sane sane-utils -y
             ;;               
+        "17") #TLP 
+            apt install --no-install-recommends tlp tlp-rdw -y
+            systemctl enable tlp ; systemctl enable tlp-sleep
+            ;;
     esac
 done
 
@@ -1820,51 +1820,51 @@ done
 for snap in $choixSnap
 do
     case $snap in
-        "2") #LibreOffice version snap
-            snap install libreoffice
-            ;;                       
+        "2") #blender
+            snap install blender --classic
+            ;;              
         "3") #dino
             snap install dino
             ;;   
-        "4") #gimp version snap
+        "4") #electrum
+            snap install electrum
+            ;;             
+        "5") #gimp version snap
             snap install gimp
             ;;    
-        "5") #instagraph
+        "6") #instagraph
             snap install instagraph
             ;;  
-        "6") #keepassXC
+        "7") #keepassXC
             snap install keepassxc
             ;;  
-        "7") #Skype version snap
-            snap install skype --classic
-            ;;  
-        "8") #blender
-            snap install blender --classic
-            ;;  
-        "9") #electrum
-            snap install electrum
-            ;; 
-        "10") #nextcloud client
+        "8") #LibreOffice version snap
+            snap install libreoffice
+            ;;     
+        "9") #nextcloud client
             snap install nextcloud-client
             ;;      
-        "11") #pycharm pro
+        "10") #pycharm pro
             snap install pycharm-professional --classic
             ;;   
-        "12") #Quassel client
+        "11") #Quassel client
             snap install quasselclient-moon127
             ;;   
-        "13") #Rube cube
+        "12") #Rube cube
             snap install rubecube
-            ;;            
-        "14") #TermiusApp
-            snap install termius-app
-            ;;        
-        "15") #TicTacToe
-            snap install tic-tac-toe
-            ;;              
-        "16") #Shotcut
+            ;;   
+        "13") #Shotcut
             snap install shotcut --classic
             ;;               
+        "14") #Skype version snap
+            snap install skype --classic
+            ;;   
+        "15") #TermiusApp
+            snap install termius-app
+            ;;        
+        "16") #TicTacToe
+            snap install tic-tac-toe
+            ;;                   
     esac
 done        
     
@@ -1877,13 +1877,13 @@ do
             ;;
         "3") #Audacity version flatpak
             flatpak install flathub org.audacityteam.Audacity -y
-            ;;
-        "4") #Skype version flatpak
-            flatpak install flathub com.skype.Client -y
-            ;;            
-        "5") #Blender version flatpak
+            ;;          
+        "4") #Blender version flatpak
             flatpak install flathub org.blender.Blender -y
-            ;;             
+            ;;  
+        "5") #Discord
+            flatpak install flathub com.discordapp.Discord -y
+            ;;              
         "6") #Dolphin Emulator
             flatpak install flathub org.DolphinEmu.dolphin-emu -y
             ;;             
@@ -1892,40 +1892,40 @@ do
             ;;                
         "8") #Frozen Bubble
             flatpak install flathub org.frozen_bubble.frozen-bubble -y
-            ;;                    
-        "9") #Gnome MPV version flatpak
-            flatpak install flathub io.github.GnomeMpv -y
-            ;;               
-        "10") #GIMP version flatpak
+            ;;     
+        "9") #GIMP version flatpak
             flatpak install flathub org.gimp.GIMP -y
-            ;;                    
+            ;;              
+        "10") #Gnome MPV version flatpak
+            flatpak install flathub io.github.GnomeMpv -y
+            ;;                   
         "11") #Google Play Music Desktop Player
             flatpak install flathub com.googleplaymusicdesktopplayer.GPMDP -y
             ;;              
         "12") #Homebank
             flatpak install flathub fr.free.Homebank -y
+            ;;     
+        "13") #Kdenlive
+            flatpak install flathub org.kde.kdenlive -y
             ;;               
-        "13") #LibreOffice version flatpak
+        "14") #LibreOffice version flatpak
             flatpak install flathub org.libreoffice.LibreOffice -y
             ;;         
-        "14") #Minetest version flatpak
+        "15") #Minetest version flatpak
             flatpak install flathub net.minetest.Minetest -y
             ;;             
-        "15") #Nextcloud
+        "16") #Nextcloud
             flatpak install flathub org.nextcloud.Nextcloud -y
             ;;        
-        "16") #Discord
-            flatpak install flathub com.discordapp.Discord -y
-            ;;  
         "17") #Password Calculator
             flatpak install flathub com.bixense.PasswordCalculator -y
             ;;             
-        "18") #Kdenlive
-            flatpak install flathub org.kde.kdenlive -y
-            ;;              
-        "19") #Riot
+        "18") #Riot
             flatpak install flathub im.riot.Riot -y
-            ;;                             
+            ;;        
+        "19") #Skype version flatpak
+            flatpak install flathub com.skype.Client -y
+            ;;              
         "20") #Teeworlds
             flatpak install flathub com.teeworlds.Teeworlds -y
             ;;       
@@ -1939,31 +1939,31 @@ done
 for appimage in $choixAppimage
 do
     case $appimage in
-        "2") #Digikam
+        "2") #Aidos Wallet
+            wget https://github.com/AidosKuneen/aidos-wallet/releases/download/v1.2.7/Aidos-1.2.7-x86_64.AppImage
+            ;;  
+        "3") #Chronos
+            wget https://github.com/web-pal/Chronos/releases/download/v2.2.1/Chronos-2.2.1-x86_64.AppImage
+            ;;     
+        "4") #Crypter
+            wget https://github.com/HR/Crypter/releases/download/v3.1.0/Crypter-3.1.0-x86_64.AppImage
+            ;;            
+        "5") #Digikam
             wget https://download.kde.org/stable/digikam/digikam-5.5.0-01-x86-64.appimage
             mv digikam-5.5.0-01-x86-64.appimage digikam-5.5.0-01-x86-64.AppImage
             ;;
-        "3") #Freecad
+        "6") #Freecad
             wget https://github.com/FreeCAD/FreeCAD/releases/download/0.16.6712/FreeCAD-0.16.6712.glibc2.17-x86_64.AppImage
-            ;;
-        "4") #Aidos Wallet
-            wget https://github.com/AidosKuneen/aidos-wallet/releases/download/v1.2.7/Aidos-1.2.7-x86_64.AppImage
-            ;;           
-        "5") #Chronos
-            wget https://github.com/web-pal/Chronos/releases/download/v2.2.1/Chronos-2.2.1-x86_64.AppImage
-            ;;     
-        "6") #Crypter
-            wget https://github.com/HR/Crypter/releases/download/v3.1.0/Crypter-3.1.0-x86_64.AppImage
-            ;;
-        "7") #Jaxx
-            wget https://github.com/Jaxx-io/Jaxx/releases/download/v1.3.9/jaxx-1.3.9-x86_64.AppImage
             ;;            
-        "8") #Imagine
+        "7") #Imagine
             wget https://github.com/meowtec/Imagine/releases/download/v0.4.0/Imagine-0.4.0-x86_64.AppImage
             ;;     
-        "9") #Infinite Electron
+        "8") #Infinite Electron
             wget https://github.com/InfiniteLibrary/infinite-electron/releases/download/0.1.1/infinite-electron-0.1.1-x86_64.AppImage
             ;; 
+        "9") #Jaxx
+            wget https://github.com/Jaxx-io/Jaxx/releases/download/v1.3.9/jaxx-1.3.9-x86_64.AppImage
+            ;;              
         "10") #Kdenlive version Appimage
             wget https://download.kde.org/unstable/kdenlive/16.12/linux/Kdenlive-16.12-rc-x86_64.AppImage
             ;;   
