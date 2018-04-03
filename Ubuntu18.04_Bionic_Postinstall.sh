@@ -224,13 +224,13 @@ then
     echo "[4] Clementine (lecteur audio avec gestion des pochettes, genres musicaux...)"
     echo -e "[5] DragonPlayer (lecteur vidéo pour l'environnement Kde)" 
     echo "[6] Gmusicbrowser (lecteur avec une interface très configurable)"
-    echo "[7] Gnome Music (utilitaire 'Musique' de la fondation Gnome pour la gestion audio, assez basique)"
-    echo "[8] Gnome Twitch (pour visionner les flux vidéo du site Twitch depuis votre bureau sans utiliser de navigateur)"
-    echo -e "[9] GRadio ${bleu}[Flatpak]${neutre} (application Gnome pour écouter la radio, plus de 1 000 références rien qu'en France !)"
-    echo -e "[10] Guayadeque ${gris}[PPA]${neutre} (lecteur audio et radio avec une interface agréable)"
-    echo -e "[11] Lollypop ${bleu}[Flatpak]${neutre} (lecteur de musique adapté à Gnome avec des fonctions très avancées)"
-    echo -e "[12] Molotov.TV ${vert}[Appimage]${neutre} (service français de distribution de chaînes de TV)"
-    echo "[13] MPV/Gnome MPV (léger et puissant, capable de lire de nombreux formats)" 
+    echo "[7] Gnome MPV (Interface graphique GTK+ au lecteur mpv, léger, capable de lire de nombreux formats)" 
+    echo "[8] Gnome Music (utilitaire 'Musique' de la fondation Gnome pour la gestion audio, assez basique)"
+    echo "[9] Gnome Twitch (pour visionner les flux vidéo du site Twitch depuis votre bureau sans utiliser de navigateur)"
+    echo -e "[10] GRadio ${bleu}[Flatpak]${neutre} (application Gnome pour écouter la radio, plus de 1 000 références rien qu'en France !)"
+    echo -e "[11] Guayadeque ${gris}[PPA]${neutre} (lecteur audio et radio avec une interface agréable)"
+    echo -e "[12] Lollypop ${bleu}[Flatpak]${neutre} (lecteur de musique adapté à Gnome avec des fonctions très avancées)"
+    echo -e "[13] Molotov.TV ${vert}[Appimage]${neutre} (service français de distribution de chaînes de TV)"
     echo -e "[14] MuseScore (l'éditeur de partitions de musique le plus utilisé au monde !)"
     echo "[15] Musique (un lecteur épuré)"
     echo "[16] Qmmp (dans le même style de Winamp pour les fans)"
@@ -801,14 +801,14 @@ do
         "11") #firefox nightly
             flatpak install --from https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref -y
             ;;
-        "12") #Google Chrome
+        "12") #Gnome Web/epiphany
+            apt install epiphany-browser -y
+            ;;              
+        "13") #Google Chrome
             wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
             sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
             apt update ; apt install google-chrome-stable -y
             ;;
-        "13") #Google Web/epiphany
-            apt install epiphany-browser -y
-            ;;  
         "14") #Lynx (cli)
             apt install lynx -y
             ;;            
