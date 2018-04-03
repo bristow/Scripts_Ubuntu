@@ -768,78 +768,78 @@ done
 for navigateur in $choixNavigateur
 do
     case $navigateur in
-        "1") #Beaker Browser (appimage)
+        "2") #Beaker Browser (appimage)
             wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/beaker-browser-0.7.11-x86_64.AppImage
             chmod +x beaker*
             ;;    
-        "2") #Brave (snap)
+        "3") #Brave (snap)
             snap install brave
             ;;              
-        "3") #chromium
+        "4") #chromium
             apt install chromium-browser -y    
             ;;   
-        "4") #Dillo
+        "5") #Dillo
             apt install dillo -y
             ;;     
-        "5") #Eolie via Flatpak
+        "6") #Eolie via Flatpak
             flatpak install flathub org.gnome.Eolie -y
             ;;            
-        "6") #Falkon/Qupzilla
+        "7") #Falkon/Qupzilla
             apt install qupzilla -y
             ;;            
-        "7") #firefox béta 
+        "8") #firefox béta 
             add-apt-repository ppa:mozillateam/firefox-next -y 
             apt update ; apt upgrade -y
             ;;
-        "8") #firefox developper edition 
+        "9") #firefox developper edition 
             flatpak install --from https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxDevEdition.flatpakref -y
             ;;               
-        "9") #firefox esr
+        "10") #firefox esr
             add-apt-repository ppa:mozillateam/ppa -y 
             apt update ; apt install firefox-esr firefox-esr-locale-fr -y
             ;;
-        "10") #firefox nightly
+        "11") #firefox nightly
             flatpak install --from https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref -y
             ;;
-        "11") #Google Chrome
+        "12") #Google Chrome
             wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
             sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
             apt update ; apt install google-chrome-stable -y
             ;;
-        "12") #Google Web/epiphany
+        "13") #Google Web/epiphany
             apt install epiphany-browser -y
             ;;  
-        "13") #Lynx (cli)
+        "14") #Lynx (cli)
             apt install lynx -y
             ;;            
-        "14") #midori
+        "15") #midori
             wget http://midori-browser.org/downloads/midori_0.5.11-0_amd64_.deb
             dpkg -i midori_0.5.11-0_amd64_.deb
             apt install -fy
             ;;      
-        "15") #Min
+        "16") #Min
             wget https://github.com/minbrowser/min/releases/download/v1.7.1/min_1.7.1_amd64.deb
             dpkg -i min*.deb ; apt install -fy ; rm -f Min*
             ;;            
-        "16") #Opera (maj automatiquement via dépot opéra ajouté par le deb)
+        "17") #Opera (maj automatiquement via dépot opéra ajouté par le deb)
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/opera.deb
             dpkg -i opera* ; apt install -fy ; rm opera* ; apt update ; apt upgrade -y #en cas de maj d'opéra
             ;;
-        "17") #Palemoon
+        "18") #Palemoon
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/palemoon.deb
             dpkg -i palemoon.deb ; apt install -fy ; rm -f palemoon*
             ;;  
-        "18") #SRWare Iron
+        "19") #SRWare Iron
             wget http://www.srware.net/downloads/iron64.deb ; dpkg -i iron64.deb ; apt install -fy ; rm iron64.deb
             ;;             
-        "19") #Tor browser
+        "20") #Tor browser
             apt install torbrowser-launcher -y
             ;;            
-        "20") #Vivaldi x64 (sera toujours à jour bien qu'une version précise soit téléchargé : dépot ajouté par le deb)
+        "21") #Vivaldi x64 (sera toujours à jour bien qu'une version précise soit téléchargé : dépot ajouté par le deb)
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/vivaldi.deb
             dpkg -i vivaldi* ; apt install -fy ; apt upgrade vivaldi-stable -y ; rm vivaldi.deb
             ;;
-        "21") #Waterfox
+        "22") #Waterfox
             echo "deb https://dl.bintray.com/hawkeye116477/waterfox-deb release main" >> /etc/apt/sources.list.d/waterfox.list
             curl https://bintray.com/user/downloadSubjectPublicKey?username=hawkeye116477 | apt-key add - 
             apt update
