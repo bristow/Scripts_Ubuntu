@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.8
+# version 1.0.9
 
 #  Copyleft 2018 Simbd
 #  
@@ -429,30 +429,30 @@ then
         echo -e "${jaune}14/ Des extensions pour gnome-shell à installer ? [mode avancé]${neutre}"
         echo "*******************************************************"
         echo "[1] Non, ne pas ajouter de nouvelles extensions"
-        echo -e "[2] User themes ${vert}[recommandé]${neutre} (permet de charger des thèmes stockés dans votre répertoire perso)"
-        echo "[3] AlternateTab (alternative au Alt+Tab issu du mode classique)"
+        echo "[2] AlternateTab (alternative au Alt+Tab issu du mode classique)"
+        echo "[3] AppFolders Management (permet de classer les applis dans des dossiers)"
         echo "[4] Caffeine (permet en 1 clic de désactiver temporairement les mises en veilles)"
-        echo "[5] DashToDock (permet plus d'options pour les réglages du dock, celui d'Ubuntu étant basé dessus)"
-        echo "[6] DashToPanel (un dock alternatif conçu pour remplacer le panel de Gnome, se place en bas ou en haut)"
-        echo "[7] Clipboard Indicator (permet de conserver du contenu copié/collé facilement accessible depuis le panel)"
-        echo "[8] Impatience (permet d'augmenter la vitesse d'affichage des animations de Gnome Shell)"
-        echo "[9] Log Out Button (ajouter un bouton de déconnexion pour gagner 1 clic en moins pour cette action)"
-        echo "[10] Media Player Indicator (ajouter un indicateur pour le contrôle du lecteur multimédia)"
-        echo "[11] Multi monitors add on (ajoute au panel un icone pour gérer rapidement les écrans)"
-        echo "[12] Openweather (pour avoir la météo directement sur votre bureau)"
-        echo "[13] Places status indicator (permet d'ajouter un raccourci vers les dossiers utiles dans le panel)"
-        echo "[14] Removable drive menu (raccourci pour démonter rapidement les clés usb/support externe)"
-        echo "[15] Shortcuts (permet d'afficher un popup avec la liste des raccourcis possibles)"
-        echo "[16] Suspend button (ajout d'un bouton pour activer l'hibernation)"
-        echo "[17] Taskbar (permet d'ajouter des raccourcis d'applis directement sur le panel en haut)"
-        echo "[18] Trash (ajoute un raccourci vers la corbeille dans le panel en haut)"
-        echo "[19] Window list (affiche la liste des fenêtres en bas du bureau, comme à l'époque sous Gnome 2)"
-        echo "[20] Workspace indicator (affiche dans le panel en haut dans quel espace de travail vous êtes)"
-        echo "[21] System-monitor (moniteur de ressources visible directement depuis le bureau)"
-        echo "[22] Top Icons Plus (permet d'afficher un icone de notification pour les applis en haut à droite)"
-        echo "[23] Unite (retire la décoration des fenêtres pour gagner de l'espace, pour un style proche du shell Unity)"
-        echo "[24] AppFolders Management (permet de classer les applis dans des dossiers)"
-        echo "[25] Dockilus (Ajoute les signets sur le clique droit de l'icone Nautilus dans le dock comme sous Unity)"
+        echo "[5] Clipboard Indicator (permet de conserver du contenu copié/collé facilement accessible depuis le panel)"        
+        echo "[6] DashToDock (permet plus d'options pour les réglages du dock, celui d'Ubuntu étant basé dessus)"
+        echo "[7] DashToPanel (un dock alternatif conçu pour remplacer le panel de Gnome, se place en bas ou en haut)"
+        echo "[8] Dockilus (Ajoute les signets sur le clique droit de l'icone Nautilus dans le dock comme sous Unity)"
+        echo "[9] Impatience (permet d'augmenter la vitesse d'affichage des animations de Gnome Shell)"
+        echo "[10] Log Out Button (ajouter un bouton de déconnexion pour gagner 1 clic en moins pour cette action)"
+        echo "[11] Media Player Indicator (ajouter un indicateur pour le contrôle du lecteur multimédia)"
+        echo "[12] Multi monitors add on (ajoute au panel un icone pour gérer rapidement les écrans)"
+        echo "[13] Openweather (pour avoir la météo directement sur votre bureau)"
+        echo "[14] Places status indicator (permet d'ajouter un raccourci vers les dossiers utiles dans le panel)"
+        echo "[15] Removable drive menu (raccourci pour démonter rapidement les clés usb/support externe)"
+        echo "[16] Shortcuts (permet d'afficher un popup avec la liste des raccourcis possibles)"
+        echo "[17] Suspend button (ajout d'un bouton pour activer l'hibernation)"
+        echo "[18] System-monitor (moniteur de ressources visible directement depuis le bureau)"        
+        echo "[19] Taskbar (permet d'ajouter des raccourcis d'applis directement sur le panel en haut)"
+        echo "[20] Top Icons Plus (permet d'afficher un icone de notification pour les applis en haut à droite)"
+        echo "[21] Trash (ajoute un raccourci vers la corbeille dans le panel en haut)"
+        echo "[22] Unite (retire la décoration des fenêtres pour gagner de l'espace, pour un style proche du shell Unity)"
+        echo -e "[23] User themes ${vert}[recommandé]${neutre} (permet de charger des thèmes stockés dans votre répertoire perso)"
+        echo "[24] Window list (affiche la liste des fenêtres en bas du bureau, comme à l'époque sous Gnome 2)"
+        echo "[25] Workspace indicator (affiche dans le panel en haut dans quel espace de travail vous êtes)"
         echo "*******************************************************"
         read -p "Répondre par le ou les chiffres correspondants (exemple : 2) : " choixExtension
         clear
@@ -464,19 +464,19 @@ then
     echo -e "${jaune}15/ Sélectionnez ce qui vous intéresse en terme de customisation [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Pas d'ajout"
-    echo -e "[2] Installer Communitheme ${gris}[PPA]${neutre} : le thème GTK + icon Suru + sound theme"
-    echo "[3] Thèmes GTK pack1 : Arc + Numix"
-    echo -e "[4] Thèmes GTK pack2 ${gris}[PPA]${neutre} : Adapta + Greybird/Blackbird/Bluebird"
-    echo "[5] Thèmes GTK pack3 : Albatross, Yuyo, Human, Gilouche, Materia"
-    echo "[6] Pack d'icones 1 : Numix et Numix Circle, Breathe, Breeze, Elementary, Brave + supplément extra icone Gnome"
-    echo "[7] Pack d'icones 2 : Dust, Humility, Garton, Gperfection2, Nuovo"
-    echo "[8] Pack d'icones 3 : Human, Moblin, Oxygen, Suede, Yasis"
-    echo "[9] Pack de curseurs : Breeze + Moblin + Oxygen/Oxygen-extra"
-    echo "[10] Thème complet Mac OS X High Sierra Light+Dark (thème+icone+wallpaper)"
-    echo "[11] Thème Windows 10 (thème+icone)"
-    echo "[12] Thème Unity 8"
-    echo "[13] Icones Papirus (Solus) avec différentes variantes : Adapta, Nokto, Dark, Light"    
-    echo -e "[14] Visuel GDM avec thème gris [Pour Gnome-Shell uniquement] ${rouge}=> Attention : ajoute la session Vanilla en dépendance !${neutre}"
+    echo -e "[2] Communitheme ${gris}[PPA]${neutre} : le thème GTK + icon Suru + sound theme"
+    echo "[3] Icones Papirus (Solus) avec différentes variantes : Adapta, Nokto, Dark, Light"   
+    echo "[4] Pack de curseurs : Breeze + Moblin + Oxygen/Oxygen-extra"    
+    echo "[5] Pack d'icones 1 : Numix et Numix Circle, Breathe, Breeze, Elementary, Brave + supplément extra icone Gnome"
+    echo "[6] Pack d'icones 2 : Dust, Humility, Garton, Gperfection2, Nuovo"
+    echo "[7] Pack d'icones 3 : Human, Moblin, Oxygen, Suede, Yasis"
+    echo "[8] Thème complet Mac OS X High Sierra Light+Dark (thème+icone+wallpaper)"
+    echo "[9] Thème Unity 8"    
+    echo "[10] Thème Windows 10 (thème+icone)"
+    echo "[11] Thèmes GTK pack1 : Arc + Numix"
+    echo -e "[12] Thèmes GTK pack2 ${gris}[PPA]${neutre} : Adapta + Greybird/Blackbird/Bluebird"
+    echo "[13] Thèmes GTK pack3 : Albatross, Yuyo, Human, Gilouche, Materia"
+    echo -e "[14] Visuel GDM avec thème gris [Pour G.S uniquement!] ${rouge}=> Attention : ajoute la session Vanilla en dépendance !${neutre}"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 5) : " choixCustom
     clear
@@ -486,23 +486,23 @@ then
     echo -e "${jaune}16/ Quel(s) éditeur(s) de texte et logiciel(s) de développement voulez-vous ? [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun (en dehors de Vim et Gedit)"
-    echo "[2] Gvim (interface graphique pour Vim)"
-    echo "[3] Emacs (le couteau suisse des éditeurs de texte, il fait tout mais il est complexe)"
-    echo "[4] Geany (IDE rapide et simple utilisant GTK2 supportant de nombreux langages)"
-    echo -e "[5] Sublime Text ${gris}[DepExt]${neutre} (logiciel développé en C++ et Python prenant en charge 44 langages de programmation)"
-    echo "[6] Code:Blocks (IDE spécialisé pour les langages C/C++)"
-    echo "[7] JEdit (éditeur libre, multiplateforme et très personnalisable)"
-    echo "[8] Anjuta (IDE simple pour C/C++, Java, JavaScript, Python et Vala)"
-    echo -e "[9] Android Studio ${bleu}[Flatpak]${neutre} (IDE de Google spécialisé pour le développement d'application Android)"
-    echo "[10] BlueFish (éditeur orienté développement web : HTML/PHP/CSS/...)"
-    echo "[11] BlueGriffon (éditeur HTML/CSS avec aperçu du rendu en temps réel)"
-    echo "[12] SciTE : Scintilla Text Editor (éditeur web avec une bonne coloration syntaxique)"
-    echo -e "[13] Eclipse ${rouge}[I!]${neutre}${violet}[X!]${neutre}(Projet décliné en sous-projets de dev)"
-    echo -e "[14] PyCharm [version communautaire] ${jaune}[Snap]${neutre} (IDE pour le langage Python)"
-    echo -e "[15] Visual Studio Code ${jaune}[Snap]${neutre} (développé par Microsoft, sous licence libre MIT)"
-    echo -e "[16] Atom ${jaune}[Snap]${neutre} (éditeur sous licence libre qui supporte les plug-ins Node.js et implémente GitControl)"
-    echo -e "[17] Brackets ${jaune}[Snap]${neutre} (éditeur opensource d'Adobe pour le web design et dev web HTML, CSS, JavaScript...)"
-    echo -e "[18] IntelliJ Idea ${jaune}[Snap]${neutre} (IDE Java commercial de JetBrains, plutôt conçu pour Java)"
+    echo -e "[2] Android Studio ${bleu}[Flatpak]${neutre} (IDE de Google spécialisé pour le développement d'application Android)"    
+    echo "[3] Anjuta (IDE simple pour C/C++, Java, JavaScript, Python et Vala)"  
+    echo -e "[4] Atom ${jaune}[Snap]${neutre} (éditeur sous licence libre qui supporte les plug-ins Node.js et implémente GitControl)"
+    echo "[5] BlueFish (éditeur orienté développement web : HTML/PHP/CSS/...)"
+    echo "[6] BlueGriffon (éditeur HTML/CSS avec aperçu du rendu en temps réel)"    
+    echo -e "[7] Brackets ${jaune}[Snap]${neutre} (éditeur opensource d'Adobe pour le web design et dev web HTML, CSS, JavaScript...)"    
+    echo "[8] Code:Blocks (IDE spécialisé pour les langages C/C++)"    
+    echo -e "[9] Eclipse ${rouge}[I!]${neutre}${violet}[X!]${neutre}(Projet décliné en sous-projets de dev)"    
+    echo "[10] Emacs (le couteau suisse des éditeurs de texte, il fait tout mais il est complexe)"
+    echo "[11] Geany (IDE rapide et simple utilisant GTK2 supportant de nombreux langages)"
+    echo "[12] Gvim (interface graphique pour Vim)"
+    echo -e "[13] IntelliJ Idea ${jaune}[Snap]${neutre} (IDE Java commercial de JetBrains, plutôt conçu pour Java)"    
+    echo "[14] JEdit (éditeur libre, multiplateforme et très personnalisable)"
+    echo -e "[15] PyCharm [version communautaire] ${jaune}[Snap]${neutre} (IDE pour le langage Python)"
+    echo "[16] SciTE : Scintilla Text Editor (éditeur web avec une bonne coloration syntaxique)"
+    echo -e "[17] Sublime Text ${gris}[DepExt]${neutre} (logiciel développé en C++ et Python prenant en charge 44 langages de programmation)"
+    echo -e "[18] Visual Studio Code ${jaune}[Snap]${neutre} (développé par Microsoft, sous licence libre MIT)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 4 5) : " choixDev
     clear
@@ -512,12 +512,12 @@ then
     echo -e "${jaune}17/ Des fonctions serveurs à activer ? [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Pas de service à activer"
-    echo "[2] Serveur SSH (pour contrôler votre PC à distance via SSH)"
-    echo "[3] Serveur LAMP (pour faire un serveur web avec votre PC : Apache + MariaDB + PHP)"
-    echo "[4] Serveur FTP avec ProFTPd (stockage de fichier sur votre machine via FTP)"
-    echo "[5] Serveur BDD PostgreSQL (pour installer une base de donnée PostgreSQL)"
-    echo -e "[6] PHP5.6 ${gris}[PPA]${neutre} (rétroportage de l'ancienne version)"
-    echo -e "[7] PHP7.2 ${gris}[PPA]${neutre} (dernière version stable de PHP)"
+    echo -e "[2] PHP5.6 ${gris}[PPA]${neutre} (rétroportage de l'ancienne version)"
+    echo -e "[3] PHP7.2 ${gris}[PPA]${neutre} (dernière version stable de PHP)"
+    echo "[4] Serveur BDD PostgreSQL (pour installer une base de donnée PostgreSQL)"
+    echo "[5] Serveur FTP avec ProFTPd (stockage de fichier sur votre machine via FTP)"   
+    echo "[6] Serveur LAMP (pour faire un serveur web avec votre PC : Apache + MariaDB + PHP)"    
+    echo "[7] Serveur SSH (pour contrôler votre PC à distance via SSH)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixServeur
     clear
@@ -527,22 +527,22 @@ then
     echo -e "${jaune}18/ Des optimisations supplémentaires à activer ? [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Non"
-    echo "[2] Optimisation Swap : swapiness à 5% (swap utilisé uniquement si plus de 95% de ram utilisée)"
-    echo "[3] Désactiver complètement le swap (utile si vous avez un SSD et 8 Go de ram ou plus)"
-    echo "[4] Activer TLP (économie d'énergie pour pc portable)"
-    echo "[5] Installer le microcode propriétaire Intel (pour cpu intel uniquement !)"
-    echo "[6] Gnome Shell : Ajouter une commande 'fraude' pour la session Wayland (ex : fraude synaptic)"
-    echo "[7] Gnome Shell : Désactiver l'userlist de GDM (utile en entreprise intégrée à un domaine)"
-    echo "[8] Ajouter le support pour le système de fichier exFat de Microsoft"
-    echo "[9] Ajouter le support pour le système de fichier HFS d'Apple"
-    echo "[10] Ajout d'une nouvelle commande 'maj' qui met tout à jour d'un coup (maj apt + purge + maj snap + maj flatpak)"
-    echo "[11] Optimisation Grub : réduire le temps d'attente (si multiboot) de 10 à 2 secondes + retirer le test de RAM dans grub"
+    echo "[2] Ajout d'une commande 'maj' qui met tout à jour (maj apt + purge + maj snap + maj flatpak)"
+    echo "[3] Ajouter le support pour le système de fichier exFat de Microsoft"
+    echo "[4] Ajouter le support pour le système de fichier HFS d'Apple"
+    echo "[5] Augmenter la sécurité de votre compte : empêcher l'accès à votre dossier perso aux autres utilisateurs"
+    echo "[6] Désactiver complètement le swap (utile si vous avez un SSD et 8 Go de ram ou plus)" 
+    echo -e "[7] Gnome Shell : Activer la minimisation de fenêtre sur les icones pour DashToDock ${cyan}(DtD doit être installé)${neutre}"
+    echo "[8] Gnome Shell : Ajouter une commande 'fraude' pour la session Wayland (ex : fraude synaptic)"
+    echo "[9] Gnome Shell : Désactiver l'userlist de GDM (utile en entreprise intégrée à un domaine)"
+    echo "[10] Installation de switcheroo-control : permet d'utiliser la carte dédié avec le pilote opensource" 
+    echo "[11] Installer le microcode Intel propriétaire (pour cpu intel uniquement)"    
     echo -e "[12] Lecture DVD commerciaux protégés par CSS (Content Scrambling System) ${rouge}[I!]${neutre}"
-    echo "[13] Support imprimantes HP (hplip + sane + hplip-gui)"
-    echo -e "[14] Gnome Shell/DtD : Activer la minimisation de fenêtre ${cyan}(DashToDock doit être installé !)${neutre}"
-    echo "[15] Augmenter la sécurité de votre compte : empêcher l'accès à votre dossier perso aux autres utilisateurs"
-    echo "[16] Installation de switcheroo-control : permet d'utiliser la carte dédié avec le pilote opensource" 
-    echo "[17] Retirer les paquets snappy pré-installés et réinstaller les paquets concernés par apt"
+    echo "[13] Optimisation Grub : réduire le temps d'attente (si multiboot) de 10 à 2 secondes + retirer le test de RAM dans grub"
+    echo "[14] Optimisation Swap : swapiness à 5% (swap utilisé uniquement si plus de 95% de ram utilisée)"
+    echo "[15] Retirer les paquets snappy pré-installés et réinstaller les paquets concernés par apt"
+    echo "[16] Support imprimantes HP (hplip + sane + hplip-gui)"
+    echo "[17] TLP (économie d'énergie pour pc portable)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3 7) : " choixOptimisation
     clear
@@ -573,21 +573,21 @@ then
     echo -e "${vert}20/ Mode Extra : supplément paquet Snap :${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
-    echo -e "[2] LibreOffice ${jaune}[Snap]${neutre}"
+    echo -e "[2] Blender ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
     echo -e "[3] Dino ${jaune}[Snap]${neutre}"
-    echo -e "[4] Gimp ${jaune}[Snap]${neutre}"
-    echo -e "[5] Instagraph ${jaune}[Snap]${neutre}"
-    echo -e "[6] KeepassXC ${jaune}[Snap]${neutre}"
-    echo -e "[7] Skype ${jaune}[Snap]${neutre}"
-    echo -e "[8] Blender ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
-    echo -e "[9] Electrum ${jaune}[Snap]${neutre}"
-    echo -e "[10] NextCloud client ${jaune}[Snap]${neutre}"
-    echo -e "[11] PyCharm édition Professionnelle ${violet}[X!]${neutre}${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
-    echo -e "[12] Quassel client ${jaune}[Snap]${neutre}"
-    echo -e "[13] Rube cube ${jaune}[Snap]${neutre}"
-    echo -e "[14] TermiusApp ${jaune}[Snap]${neutre}"
-    echo -e "[15] TicTacToe ${jaune}[Snap]${neutre}"
-    echo -e "[16] Shotcut ${jaune}[Snsnapap]${neutre}"    
+    echo -e "[4] Electrum ${jaune}[Snap]${neutre}"
+    echo -e "[5] Gimp ${jaune}[Snap]${neutre}"
+    echo -e "[6] Instagraph ${jaune}[Snap]${neutre}"
+    echo -e "[7] KeepassXC ${jaune}[Snap]${neutre}"
+    echo -e "[8] LibreOffice ${jaune}[Snap]${neutre}"
+    echo -e "[9] NextCloud client ${jaune}[Snap]${neutre}"
+    echo -e "[10] PyCharm édition Professionnelle ${violet}[X!]${neutre}${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
+    echo -e "[11] Quassel client ${jaune}[Snap]${neutre}"
+    echo -e "[12] Rube cube ${jaune}[Snap]${neutre}"
+    echo -e "[13] Shotcut ${jaune}[Snsnapap]${neutre}"   
+    echo -e "[14] Skype ${jaune}[Snap]${neutre}"
+    echo -e "[15] TermiusApp ${jaune}[Snap]${neutre}"
+    echo -e "[16] TicTacToe ${jaune}[Snap]${neutre}"
     echo "*******************************************************"
     read -p "Choix snappy : " choixSnap
     clear
@@ -599,24 +599,24 @@ then
     echo "[1] Aucun"
     echo -e "[2] 0ad ${bleu}[Flatpak]${neutre}"
     echo -e "[3] Audacity ${bleu}[Flatpak]${neutre}"
-    echo -e "[4] Skype ${bleu}[Flatpak]${neutre}"
-    echo -e "[5] Blender ${bleu}[Flatpak]${neutre}"
+    echo -e "[4] Blender ${bleu}[Flatpak]${neutre}"  
+    echo -e "[5] Discord ${bleu}[Flatpak]${neutre}"
     echo -e "[6] Dolphin Emulator ${bleu}[Flatpak]${neutre}"
     echo -e "[7] Extreme Tuxracer ${bleu}[Flatpak]${neutre}"
     echo -e "[8] Frozen Bubble ${bleu}[Flatpak]${neutre}"
-    echo -e "[9] Gnome MPV ${bleu}[Flatpak]${neutre}"
-    echo -e "[10] Gimp ${bleu}[Flatpak]${neutre}"
+    echo -e "[9] Gimp ${bleu}[Flatpak]${neutre}"    
+    echo -e "[10] Gnome MPV ${bleu}[Flatpak]${neutre}"
     echo -e "[11] Google Play Music Desktop Player ${bleu}[Flatpak]${neutre}"
     echo -e "[12] Homebank ${bleu}[Flatpak]${neutre}"
-    echo -e "[13] LibreOffice ${bleu}[Flatpak]${neutre}"
-    echo -e "[14] Minetest ${bleu}[Flatpak]${neutre}"
-    echo -e "[15] Nextcloud cli ${bleu}[Flatpak]${neutre}"
-    echo -e "[16] Discord ${bleu}[Flatpak]${neutre}"
+    echo -e "[13] Kdenlive ${bleu}[Flatpak]${neutre}"
+    echo -e "[14] LibreOffice ${bleu}[Flatpak]${neutre}"
+    echo -e "[15] Minetest ${bleu}[Flatpak]${neutre}"
+    echo -e "[16] Nextcloud cli ${bleu}[Flatpak]${neutre}"  
     echo -e "[17] Password Calculator ${bleu}[Flatpak]${neutre}"
-    echo -e "[18] Kdenlive ${bleu}[Flatpak]${neutre}"
-    echo -e "[19] Riot ${bleu}[Flatpak]${neutre}"
-    echo -e "[20] Teeworlds ${bleu}[Flatpak]${neutre}"
-    echo -e "[21] VLC ${bleu}[Flatpak]${neutre}"
+    echo -e "[18] Riot ${bleu}[Flatpak]${neutre}"
+    echo -e "[19] Skype ${bleu}[Flatpak]${neutre}"
+    echo -e "[20] Teeworlds ${bleu}[Flatpak]${neutre}" 
+    echo -e "[21] VLC ${bleu}[Flatpak]${neutre}"    
     echo "*******************************************************"
     read -p "Choix flatpak : " choixFlatpak
     clear
@@ -627,14 +627,14 @@ then
     echo -e "${vert}22/ Mode Extra : récupération Appimages:${neutre}"
     echo "*******************************************************"
     echo "[1] Aucune"
-    echo -e "[2] Digikam ${vert}[Appimage]${neutre}"
-    echo -e "[3] Freecad ${vert}[Appimage]${neutre}"
-    echo -e "[4] Aidos Wallet ${vert}[Appimage]${neutre}"
-    echo -e "[5] Chronos ${vert}[Appimage]${neutre}"
-    echo -e "[6] Crypter ${vert}[Appimage]${neutre}"
-    echo -e "[7] Jaxx ${vert}[Appimage]${neutre}"
-    echo -e "[8] Imagine ${vert}[Appimage]${neutre}"
-    echo -e "[9] Infinite Electron ${vert}[Appimage]${neutre}"
+    echo -e "[2] Aidos Wallet ${vert}[Appimage]${neutre}"
+    echo -e "[3] Chronos ${vert}[Appimage]${neutre}"
+    echo -e "[4] Crypter ${vert}[Appimage]${neutre}"
+    echo -e "[5] Digikam ${vert}[Appimage]${neutre}"
+    echo -e "[6] Freecad ${vert}[Appimage]${neutre}"
+    echo -e "[7] Imagine ${vert}[Appimage]${neutre}"
+    echo -e "[8] Infinite Electron ${vert}[Appimage]${neutre}"
+    echo -e "[9] Jaxx ${vert}[Appimage]${neutre}"
     echo -e "[10] Kdenlive ${vert}[Appimage]${neutre}"
     echo -e "[11] KDevelop ${vert}[Appimage]${neutre}"
     echo -e "[12] MellowPlayer ${vert}[Appimage]${neutre}"
@@ -1458,96 +1458,97 @@ do
     esac
 done
 
-# Mode avancé : ne pas oublier d'ajouter plus tard une condition => Si mode avancé alors...
+# Mode avancé
 
 # 14/ Extensions (extension en commentaire pas encore compatible avec GS 3.28)
 for extension in $choixExtension
 do
     case $extension in
-        "2") #User themes (v3.26)
-            wget https://extensions.gnome.org/extension-data/user-theme%40gnome-shell-extensions.gcampax.github.com.v32.shell-extension.zip
-            unzip user-theme@gnome-shell-extensions.gcampax.github.com.v32.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com
-            ;;             
-        "3") #AlternateTab (v3.26)
+           
+        "2") #AlternateTab (v3.26)
             wget https://extensions.gnome.org/extension-data/alternate-tab%40gnome-shell-extensions.gcampax.github.com.v36.shell-extension.zip
             unzip alternate-tab@gnome-shell-extensions.gcampax.github.com.v36.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/alternate-tab@gnome-shell-extensions.gcampax.github.com
             ;;
+        "3") #AppFolders Management (v3.26)
+            wget https://extensions.gnome.org/extension-data/appfolders-manager%40maestroschan.fr.v12.shell-extension.zip
+            unzip appfolders-manager@maestroschan.fr.v12.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/appfolders-manager@maestroschan.fr          
+            ;;                
         "4") #Caffeine
             apt install gnome-shell-extension-caffeine -y
             ;;
-        "5") #DashToDock (v3.26)
+        "5") #Clipboard Indicator (v3.26)
+            wget https://extensions.gnome.org/extension-data/clipboard-indicator%40tudmotu.com.v30.shell-extension.zip
+            unzip clipboard-indicator@tudmotu.com.v30.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
+            ;;                
+        "6") #DashToDock (v3.26)
             wget https://extensions.gnome.org/extension-data/dash-to-dock%40micxgx.gmail.com.v62.shell-extension.zip 
             unzip dash-to-dock@micxgx.gmail.com.v62.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
             #apt install gnome-shell-extension-dashtodock -y (méthode d'install non choisi car fait buggé la session pour cette extension)
             ;;
-        "6") #DashToPanel
+        "7") #DashToPanel
             apt install gnome-shell-extension-dash-to-panel -y
-            ;;
-        "7") #Clipboard Indicator (v3.26)
-            wget https://extensions.gnome.org/extension-data/clipboard-indicator%40tudmotu.com.v30.shell-extension.zip
-            unzip clipboard-indicator@tudmotu.com.v30.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
-            ;;       
-        "8") #Impatience
+            ;; 
+        "8") #Dockilus
+            wget https://framagit.org/abakkk/Dockilus/repository/master/archive.zip ; unzip archive.zip ; rm archive.zip
+            mv Dockilus* /home/$SUDO_USER/.local/share/gnome-shell/extensions/dockilus@framagit.org
+            ;;            
+        "9") #Impatience
             apt install gnome-shell-extension-impatience -y
             ;;
-        "9") #Logout button
+        "10") #Logout button
             apt install gnome-shell-extension-log-out-button -y
             ;; 
-        "10") #Media Player Indicator
+        "11") #Media Player Indicator
             apt install gnome-shell-extension-mediaplayer -y
             ;;
-        "11") #Multi monitors
+        "12") #Multi monitors
             apt install gnome-shell-extension-multi-monitors -y
             ;;
-        "12") #openWeather
+        "13") #openWeather
             apt install gnome-shell-extension-weather -y
             ;;
-        "13") #Places status indicator (v3.26)
+        "14") #Places status indicator (v3.26)
             wget https://extensions.gnome.org/extension-data/places-menu%40gnome-shell-extensions.gcampax.github.com.v38.shell-extension.zip
             unzip places-menu@gnome-shell-extensions.gcampax.github.com.v38.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/places-menu@gnome-shell-extensions.gcampax.github.com
             ;;
-        "14") #Removable drive menu (v3.26)
+        "15") #Removable drive menu (v3.26)
             wget https://extensions.gnome.org/extension-data/drive-menu%40gnome-shell-extensions.gcampax.github.com.v35.shell-extension.zip
             unzip drive-menu@gnome-shell-extensions.gcampax.github.com.v35.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/drive-menu@gnome-shell-extensions.gcampax.github.com
             ;;
-        "15") #Shortcuts
+        "16") #Shortcuts
             apt install gnome-shell-extension-shortcuts -y
             ;;
-        "16") #Suspend button
+        "17") #Suspend button
             apt install gnome-shell-extension-suspend-button -y
-            ;;         
-        "17") #Taskbar
+            ;;     
+        "18") #System-monitor
+            apt install gnome-shell-extension-system-monitor -y
+            ;;              
+        "19") #Taskbar
             apt install gnome-shell-extension-taskbar -y
             ;;
-        "18") #Trash
+        "20") #Top Icon Plus
+            apt install gnome-shell-extension-top-icons-plus -y
+            ;;            
+        "21") #Trash
             apt install gnome-shell-extension-trash -y
-            ;;  
-        "19") #Window list (v3.26)
+            ;; 
+        "22") #Unite (v3.26)
+            wget https://extensions.gnome.org/extension-data/unite%40hardpixel.eu.v11.shell-extension.zip
+            unzip unite@hardpixel.eu.v11.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/unite@hardpixel.eu
+            ;;              
+        "23") #User themes (v3.26)
+            wget https://extensions.gnome.org/extension-data/user-theme%40gnome-shell-extensions.gcampax.github.com.v32.shell-extension.zip
+            unzip user-theme@gnome-shell-extensions.gcampax.github.com.v32.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com
+            ;;              
+        "24") #Window list (v3.26)
             wget https://extensions.gnome.org/extension-data/window-list%40gnome-shell-extensions.gcampax.github.com.v22.shell-extension.zip
             unzip window-list@gnome-shell-extensions.gcampax.github.com.v22.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/window-list@gnome-shell-extensions.gcampax.github.com
             ;;
-        "20") #Workspace indicator (v3.26)
+        "25") #Workspace indicator (v3.26)
             wget https://extensions.gnome.org/extension-data/workspace-indicator%40gnome-shell-extensions.gcampax.github.com.v34.shell-extension.zip
             unzip workspace-indicator@gnome-shell-extensions.gcampax.github.com.v34.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/workspace-indicator@gnome-shell-extensions.gcampax.github.com
-            ;;
-        "21") #System-monitor
-            apt install gnome-shell-extension-system-monitor -y
-            ;;         
-        "22") #Top Icon Plus
-            apt install gnome-shell-extension-top-icons-plus -y
-            ;;
-        "23") #Unite (v3.26)
-            wget https://extensions.gnome.org/extension-data/unite%40hardpixel.eu.v11.shell-extension.zip
-            unzip unite@hardpixel.eu.v11.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/unite@hardpixel.eu
-            ;;  
-        "24") #AppFolders Management (v3.26)
-            wget https://extensions.gnome.org/extension-data/appfolders-manager%40maestroschan.fr.v12.shell-extension.zip
-            unzip appfolders-manager@maestroschan.fr.v12.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/appfolders-manager@maestroschan.fr          
-            ;;    
-        "25") #Dockilus
-            wget https://framagit.org/abakkk/Dockilus/repository/master/archive.zip ; unzip archive.zip ; rm archive.zip
-            mv Dockilus* /home/$SUDO_USER/.local/share/gnome-shell/extensions/dockilus@framagit.org
-            ;;
+            ;; 
     esac
 done
 
@@ -1558,32 +1559,36 @@ do
         "2") #Communitheme
             add-apt-repository -y ppa:communitheme/ppa ; apt update
             apt install gnome-shell-communitheme gtk-communitheme suru-icon-theme communitheme-sounds -y
-            ;;    
-        "3") #pack theme gtk 1
+            ;;   
+        "3") #Icone Papirus
+            wget http://nux87.free.fr/script-postinstall-ubuntu/theme/papirus-icon-theme-20171124.tar.xz ; tar Jxvf papirus-icon-theme-20171124.tar.xz
+            mv *Papirus* /usr/share/icons/
+            ;;             
+        "4") #pack curseur
+            apt install breeze-cursor-theme moblin-cursor-theme oxygen-cursor-theme -y
+            ;;              
+        "5") #pack icone 1
+            apt install numix-icon-theme breathe-icon-theme breeze-icon-theme gnome-brave-icon-theme elementary-icon-theme -y
+            ;;        
+        "6") #pack icone 2
+            apt install gnome-dust-icon-theme gnome-humility-icon-theme gnome-icon-theme-gartoon gnome-icon-theme-gperfection2 gnome-icon-theme-nuovo -y
+            ;;  
+        "7") #pack icone 3
+            apt install human-icon-theme moblin-icon-theme oxygen-icon-theme gnome-icon-theme-suede gnome-icon-theme-yasis -y
+            ;;            
+        "8") #pack theme gtk 1
             apt install arc-theme numix-blue-gtk-theme numix-gtk-theme silicon-theme -y
             #Numix Circle
             git clone https://github.com/numixproject/numix-icon-theme-circle.git ; mv -f numix-icon-theme-circle/* /usr/share/icons/ ; rm -r numix-icon-theme-circle
             ;;
-        "4") #pack theme gtk 2
+        "9") #pack theme gtk 2
             apt-add-repository ppa:tista/adapta -y ; apt update ; 
             apt install adapta-gtk-theme blackbird-gtk-theme bluebird-gtk-theme greybird-gtk-theme -y
             ;;
-        "5") #pack theme gtk 3
+        "10") #pack theme gtk 3
             apt install albatross-gtk-theme yuyo-gtk-theme human-theme gnome-theme-gilouche materia-gtk-theme -y
-            ;;
-        "6") #pack icone 1
-            apt install numix-icon-theme breathe-icon-theme breeze-icon-theme gnome-brave-icon-theme elementary-icon-theme -y
-            ;;        
-        "7") #pack icone 2
-            apt install gnome-dust-icon-theme gnome-humility-icon-theme gnome-icon-theme-gartoon gnome-icon-theme-gperfection2 gnome-icon-theme-nuovo -y
-            ;;  
-        "8") #pack icone 3
-            apt install human-icon-theme moblin-icon-theme oxygen-icon-theme gnome-icon-theme-suede gnome-icon-theme-yasis -y
-            ;;   
-        "9") #pack curseur
-            apt install breeze-cursor-theme moblin-cursor-theme oxygen-cursor-theme -y
-            ;;  
-        "10") #Mac OS X High Sierra (plusieurs versions)
+            ;; 
+        "11") #theme Mac OS X High Sierra (plusieurs versions)
             apt install gtk2-engines-pixbuf gtk2-engines-murrine -y
             git clone https://github.com/B00merang-Project/macOS-Sierra.git ; git clone https://github.com/B00merang-Project/macOS-Sierra-Dark.git ; mv -f macOS* /usr/share/themes/
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/Gnome-OSX-V-Space-Grey-1-3-1.tar.xz && wget http://nux87.free.fr/script-postinstall-ubuntu/theme/Gnome-OSX-V-Traditional-1-3-1.tar.xz   
@@ -1594,20 +1599,16 @@ do
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/macOS.tar.xz ; tar Jxvf macOS.tar.xz ; mv macOS /usr/share/icons/ ; rm -r macOS*
             #Wallpaper officiel Mac OS X Sierra
             wget http://wallpaperswide.com/download/macos_sierra_2-wallpaper-3554x1999.jpg -P /home/$SUDO_USER/Images/
+            ;;   
+        "12") #Unity 8
+            git clone https://github.com/B00merang-Project/Unity8.git ; mv -f Unit* /usr/share/themes/
             ;;
-        "11") #Windows 10
+        "13") #theme Windows 10
             git clone https://github.com/B00merang-Project/Windows-10.git ; mv -f Windo* /usr/share/themes/
             wget http://nux87.free.fr/script-postinstall-ubuntu/theme/windows10-icons_1.2_all.deb && dpkg -i windows10-icons_1.2_all.deb
             wget https://framapic.org/Nd6hGtEOEJhM/LtmYwl16WjyC.jpg && mv LtmYwl16WjyC.jpg /home/$SUDO_USER/Images/windows10.jpg
             ;;
-        "12") #Unity 8
-            git clone https://github.com/B00merang-Project/Unity8.git ; mv -f Unit* /usr/share/themes/
-            ;;
-        "13") #Icone Papirus
-            wget http://nux87.free.fr/script-postinstall-ubuntu/theme/papirus-icon-theme-20171124.tar.xz ; tar Jxvf papirus-icon-theme-20171124.tar.xz
-            mv *Papirus* /usr/share/icons/
-            ;;  
-        "14") #thème gris GDM (changement effectif seulement si la session vanilla est installé)
+        "14") #visuel gris GDM (changement effectif seulement si la session vanilla est installé)
             apt install gnome-session -y # session vanilla nécessaire pour le changement du thème (sinon ne s'applique pas)
             mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu_old.css
             mv /usr/share/gnome-shell/theme/gnome-shell.css /usr/share/gnome-shell/theme/ubuntu.css
@@ -1619,64 +1620,64 @@ done
 for dev in $choixDev
 do
     case $dev in
-        "2") #Gvim
+        "2") #Android Studio (flatpak)
+            flatpak install flathub com.google.AndroidStudio -y
+            ;;       
+        "3") #Anjuta
+            apt install anjuta anjuta-extras -y
+            ;;
+        "4") #Atom
+            snap install atom --classic
+            ;;            
+        "5") #BlueFish
+            apt install bluefish bluefish-plugins -y
+            ;; 
+        "6") #BlueGriffon
+            wget http://bluegriffon.org/freshmeat/3.0.1/bluegriffon-3.0.1.Ubuntu16.04-x86_64.deb
+            dpkg -i bluegriffon*.deb ; apt install -fy ; rm bluegriffon*
+            ;;      
+        "7") #Brackets
+            snap install brackets --classic
+            ;;             
+        "8") #Code:Blocks
+            apt install codeblocks codeblocks-contrib -y
+            ;;  
+        "9") #Eclipse
+            wget http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/oomph/epp/oxygen/R/eclipse-inst-linux64.tar.gz
+            tar xvfz eclipse-inst-linux64.tar.gz ; chmod +x ./eclipse-installer/eclipse-inst
+            ./eclipse-installer/eclipse-inst
+            rm -rf eclipse-installer ; rm eclipse-inst-linux64.tar.gz
+            ;;              
+        "10") #Emacs
+            apt install emacs -y
+            ;; 
+        "11") #Geany (verifier les extensions)
+            apt install geany geany-plugins geany-plugin-* -y
+            ;;            
+        "12") #Gvim
             apt install vim-gtk3 -y
             ;;
-        "3") #Emacs
-            apt install emacs -y
-            ;;
-        "4") #Geany (verifier les extensions)
-            apt install geany geany-plugins geany-plugin-* -y
-            ;;
-        "5") #Sublime Text
+        "13") #IntelliJ Idea
+            snap install intellij-idea-community --classic 
+            ;;              
+        "14") #JEdit
+            apt install jedit -y
+            ;;    
+        "15") #PyCharm
+            snap install pycharm-community --classic
+            ;;            
+        "16") #SciTE
+            apt install scite -y
+            ;;              
+        "17") #Sublime Text
             wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
             apt install apt-transport-https -y
             echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
             apt update ; apt install sublime-text -y
             ;;
-        "6") #Code:Blocks
-            apt install codeblocks codeblocks-contrib -y
-            ;;           
-        "7") #JEdit
-            apt install jedit -y
-            ;;
-        "8") #Anjuta
-            apt install anjuta anjuta-extras -y
-            ;;
-        "9") #Android Studio (flatpak)
-            flatpak install flathub com.google.AndroidStudio -y
-            ;;       
-        "10") #BlueFish
-            apt install bluefish bluefish-plugins -y
-            ;;
-        "11") #BlueGriffon
-            wget http://bluegriffon.org/freshmeat/3.0.1/bluegriffon-3.0.1.Ubuntu16.04-x86_64.deb
-            dpkg -i bluegriffon*.deb ; apt install -fy ; rm bluegriffon*
-            ;;         
-        "12") #SciTE
-            apt install scite -y
-            ;;  
-        "13") #Eclipse
-            wget http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/oomph/epp/oxygen/R/eclipse-inst-linux64.tar.gz
-            tar xvfz eclipse-inst-linux64.tar.gz ; chmod +x ./eclipse-installer/eclipse-inst
-            ./eclipse-installer/eclipse-inst
-            rm -rf eclipse-installer ; rm eclipse-inst-linux64.tar.gz
-            ;;           
-        "14") #PyCharm
-            snap install pycharm-community --classic
-            ;;
-        "15") #Visual Studio Code
+        "18") #Visual Studio Code
             snap install vscode --classic
-            ;;
-        "16") #Atom
-            snap install atom --classic
-            ;;
-        "17") #Brackets
-            snap install brackets --classic
-            ;;      
-        "18") #IntelliJ Idea
-            snap install intellij-idea-community --classic 
-            ;;            
+            ;;     
     esac
 done
 
@@ -1687,23 +1688,23 @@ do
         "2") #openssh-server
             apt install openssh-server -y
             ;;
-        "3") #apache+mariadb+php
+        "3") #lamp
             apt install apache2 php mariadb-server libapache2-mod-php php-mysql -y
             ;;
-        "4") #proftpd
-            apt install proftpd -y
-            ;;
-        "5") #Postgresql
-            apt install postgresql -y
-            ;;
-        "6") #Retroportage PHP5 
+        "4") #PHP5 
             add-apt-repository -y ppa:ondrej/php ; apt update
             apt install php5.6 -y
             ;;
-        "7") #php7.2
+        "5") #php7.2
             add-apt-repository -y ppa:ondrej/php ; apt update
             apt install php7.2 -y
-            ;;         
+            ;;              
+        "6") #Postgresql
+            apt install postgresql -y
+            ;;            
+        "7") #proftpd
+            apt install proftpd -y
+            ;;     
     esac
 done
 
@@ -1720,7 +1721,7 @@ do
             rm /swapfile #supprime le fichier swap qui n'est plus utile
             sed -i -e '/.swapfile*/d' /etc/fstab #ligne swap retiré de fstab
             ;;
-        "4") #Activer TLP 
+        "4") #TLP 
             apt install --no-install-recommends tlp tlp-rdw -y
             systemctl enable tlp ; systemctl enable tlp-sleep
             ;;
