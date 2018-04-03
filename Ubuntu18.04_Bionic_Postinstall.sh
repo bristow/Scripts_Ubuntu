@@ -295,21 +295,21 @@ then
     echo -e "${bleu}9/ Quel(s) logiciel(s) pour l'encodage/réglage ou traitement audio voulez-vous ?${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
-    echo "[2] Xcfa : X Convert File Audio (extraction cd audio, piste dvd, normalisation, création pochette)"
-    echo "[3] Sound-Juicer (pour extraire les pistes audios d'un cd)"
-    echo "[4] Gnome Sound Recorder ('enregistreur de son' pour Gnome)"
-    echo "[5] Audacity (enregistrement et édition de son numérique)"
-    echo "[6] MhWaveEdit (application libre d'enregistrement et d'édition audio complète distribuée sous GPL)"
-    echo "[7] RipperX (une autre alternative pour extraire les cd de musique)"
+    echo "[2] Ardour (station de travail audio numérique avec enregistrement multipiste et mixage)"
+    echo "[3] Audacity (enregistrement et édition de son numérique)"
+    echo -e "[4] Flacon ${jaune}[Snap]${neutre} (pour extraire les pistes d'un gros fichier audio)"
+    echo "[5] Gnome Sound Recorder ('enregistreur de son' pour Gnome)"
+    echo "[6] Hydrogen (synthétiseur de boite à rythme basé sur les patterns avec connexion possible d'un séquenceur externe)"
+    echo "[7] Lame (outil d'encodage en CLI pour le format MP3, par exemple pour convertir un Wav en Mp3)"
     echo "[8] LMMS : Let's Make Music (station audio opensource crée par des musiciens pour les musiciens)"
-    echo "[9] Mixxx (logiciel pour Dj pour le mixage de musique)"
-    echo "[10] Rosegarden (création musicale avec édition des partitions et peut s'interfacer avec des instruments)"
+    echo "[9] MhWaveEdit (application libre d'enregistrement et d'édition audio complète distribuée sous GPL)"
+    echo "[10] Mixxx (logiciel pour Dj pour le mixage de musique)"
     echo "[11] Pavucontrol (outil graphique de contrôle des volumes audio entrée/sortie pour Pulseaudio)"
-    echo "[12] Lame (outil d'encodage en CLI pour le format MP3, par exemple pour convertir un Wav en Mp3)"
-    echo "[13] Hydrogen (synthétiseur de boite à rythme basé sur les patterns avec connexion possible d'un séquenceur externe)"
-    echo -e "[14] Ardour (station de travail audio numérique avec enregistrement multipiste et mixage)"
-    echo -e "[15] Flacon ${jaune}[Snap]${neutre} (pour extraire les pistes d'un gros fichier audio)"
-    echo -e "[16] PulseEffects ${bleu}[Flatpak]${neutre} (interface puissante GTK pour faire plein de réglages/effets sur le son)"
+    echo -e "[12] PulseEffects ${bleu}[Flatpak]${neutre} (interface puissante GTK pour faire plein de réglages/effets sur le son)"
+    echo "[13] RipperX (une autre alternative pour extraire les cd de musique)"
+    echo "[14] Rosegarden (création musicale avec édition des partitions et peut s'interfacer avec des instruments)"
+    echo "[15] Sound-Juicer (pour extraire les pistes audios d'un cd)"
+    echo "[16] Xcfa : X Convert File Audio (extraction cd audio, piste dvd, normalisation, création pochette)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 4) : " choixAudio
     clear
@@ -319,22 +319,22 @@ then
     echo -e "${bleu}10/ Quel(s) logiciel(s) de bureautique/courrier souhaitez-vous ?${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun supplément"
-    echo "[2] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
-    echo "[3] LibreOffice {branche 6.0} suite bureautique libre de 'The Document Foundation' (normalement déjà installé)"
-    echo "[4] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
-    echo -e "[5] Suite Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applications d'édition avancées de chaînes éditoriales)"
-    echo "[6] Freeplane (création de cartes heuristiques (Mind Map) avec des diagrammes représentant les connexions sémantiques)"
-    echo -e "[7] FeedReader ${bleu}[Flatpak]${neutre} (agrégateur RSS moderne pour consulter vos fils d'informations RSS)"
-    echo "[8] Geary (logiciel de messagerie, alternative à Thunderbird et bien intégré à Gnome)"
-    echo "[9] Gnome Office (pack contenant Abiword, Gnumeric, Dia, Planner, Glabels, Glom, Tomboy et Gnucash)"
-    echo "[10] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
-    echo "[11] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
-    echo "[12] Gnome Evolution (logiciel de type groupware et courrielleur, facile à utiliser)"
-    echo -e "[13] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
-    echo -e "[14] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
-    echo "[15] Zim (wiki en local avec une collection de pages et de marqueurs)"
+    echo -e "[2] FeedReader ${bleu}[Flatpak]${neutre} (agrégateur RSS moderne pour consulter vos fils d'informations RSS)"
+    echo "[3] Freeplane (création de cartes heuristiques (Mind Map) avec des diagrammes représentant les connexions sémantiques)"
+    echo "[4] Geary (logiciel de messagerie, alternative à Thunderbird et bien intégré à Gnome)"
+    echo "[5] Gnome Evolution (logiciel de type groupware et courrielleur, facile à utiliser)"
+    echo "[6] Gnome Office (pack contenant Abiword, Gnumeric, Dia, Planner, Glabels, Glom, Tomboy et Gnucash)"
+    echo "[7] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
+    echo "[8] LibreOffice {branche 6.0} suite bureautique libre (normalement déjà installé de base)"
+    echo -e "[9] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
+    echo -e "[10] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
+    echo -e "[11] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
+    echo "[12] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
+    echo "[13] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
+    echo -e "[14] Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applis d'édition avancées de chaînes éditoriales)"
+    echo "[15] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
     echo -e "[16] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
-    echo -e "[17] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
+    echo "[17] Zim (wiki en local avec une collection de pages et de marqueurs)"
     # Choix supplémentaire caché mais possible (car pose problème) :
     # [500] => Soft Maker Office Béta #peux faire planter l'installation du script avec ce logiciel (déconseillé)
     echo "*******************************************************"
@@ -346,16 +346,16 @@ then
     echo -e "${bleu}11/ Des logiciels de science ou pour l'éducation ?${neutre}"
     echo "*******************************************************"
     echo "[1] Pas d'ajout"
-    echo -e "[2] [GEO] Google Earth Pro ${gris}[DepExt]${neutre} (globe terrestre de Google pour explorer la planète)"
-    echo "[3] [GEO] Extension OooHg pour LibreOffice (ajoute 1600 cartes de géographie)"
-    echo "[4] [MATH] GeoGebra (géométrie dynamique pour manipuler des objets avec un ensemble de fonctions algébriques)"
-    echo "[5] [MATH] Algobox (logiciel libre d'aide à l'élaboration/exécution d'algorithmes en mathématique)"
-    echo "[6] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
-    echo "[7] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"
-    echo "[8] [CHIMIE] Avogadro (éditeur/visualiseur avancé de molécules pour le calcul scientifique en chimie)"
-    echo "[9] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
-    echo -e "[10] [TECHNO] mBlock ${cyan}[M!]${neutre} (environnement de programmation basé sur Scratch 2 pour Arduino"
-    echo -e "[11] [TECHNO] Algoid [appli portable .jar] ${cyan}[M!]${neutre} (langage de programmation éducatif)"
+    echo "[2] [MATH] Algobox (logiciel libre d'aide à l'élaboration/exécution d'algorithmes en mathématique)"  
+    echo -e "[3] [TECHNO] Algoid [appli portable .jar] ${cyan}[M!]${neutre} (langage de programmation éducatif)"
+    echo "[4] [CHIMIE] Avogadro (éditeur/visualiseur avancé de molécules pour le calcul scientifique en chimie)"
+    echo "[5] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"    
+    echo "[6] [MATH] GeoGebra (géométrie dynamique pour manipuler des objets avec un ensemble de fonctions algébriques)"
+    echo -e "[7] [GEO] Google Earth Pro ${gris}[DepExt]${neutre} (globe terrestre de Google pour explorer la planète)"
+    echo -e "[8] [TECHNO] mBlock ${cyan}[M!]${neutre} (environnement de programmation basé sur Scratch 2 pour Arduino"
+    echo "[9] [GEO] OooHg : extension pour LibreOffice qui ajoute 1600 cartes de géographie"
+    echo "[10] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
+    echo "[11] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixScience
     clear
@@ -364,33 +364,30 @@ then
     echo "*******************************************************"
     echo -e "${bleu}12/ Quel(s) utilitaire(s) supplémentaire(s) voulez-vous ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Aucun"
-    echo -e "[2] Kazam ${violet}[X!]${neutre} (capture vidéo de votre bureau)"
-    echo "[3] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
-    echo -e "[4] OBS : OpenBroadcasterSoftware ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
-    echo -e "[5] MultiSystem ${gris}[DepExt]${neutre} Utilitaire permettant de créer une clé usb bootable avec plusieurs OS"
-    echo "[6] Brasero (logiciel de gravure de cd/dvd)" 
-    echo "[7] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
-    echo -e "[8] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
-    echo -e "[9] Oracle Java 9 ${gris}[PPA]${neutre} (nouvelle version de Java)"
-    echo "[10] OpenJDK v9 (JRE) (implémentation libre de l'ancienne version de Java)"
-    echo "[11] OpenJDK v10 (JRE) (implémentation libre de la version actuelle de Java)"
-    echo "[12] OpenJDK v11 (JRE) (implémentation libre de la prochaine version de Java)"   
-    echo "[13] Installer FlashPlayer (via le dépot partenaire)"
-    echo "[14] VirtualBox (virtualisation de système Windows/Mac/Linux/Bsd)"
-    echo "[15] KeePassX2 (centralise la gestion de vos mots de passe personnels, protégé par un master password)"
-    echo -e "[16] TeamViewer ${gris}[DepExt]${neutre}${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
-    echo "[17] Cheese (outil pour prendre des photos/vidéos à partir d'une webcam)"
-    echo "[18] Gnome Recipes (pour les gourmets : appli Gnome spécialisée dans les recettes de cuisine)"
-    echo -e "[19] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
-    echo "[20] Pack d'appli en cyber-sécurité (aircrack-ng + John The Ripper[snap] + Nmap)"
-    echo -e "[21] Gnome Enfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
-    echo -e "[22] CoreBird (un client de bureau pour le réseau social Twitter)"
-    echo "[23] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"
-    echo "[24] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
-    echo -e "[25] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
-    echo -e "[26] AnyDesk ${gris}[DepExt]${neutre} (assistance à distance comme teamviewer, natif linux)"
-    echo -e "[27] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
+    echo "[1] Aucun supplément"
+    echo -e "[2] AnyDesk ${gris}[DepExt]${neutre} (assistance à distance comme teamviewer, natif linux)"
+    echo "[3] Brasero (logiciel de gravure de cd/dvd)"  
+    echo "[4] Cheese (outil pour prendre des photos/vidéos à partir d'une webcam)"
+    echo -e "[5] CoreBird (un client de bureau pour le réseau social Twitter)"
+    echo "[6] Flash Player (Adobe) : permet de lire des vidéos qui utiliseraient encore Flash sans support HTML5"
+    echo -e "[7] Gnome Enfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
+    echo "[8] Gnome Recipes (pour les gourmets : appli Gnome spécialisée dans les recettes de cuisine)"
+    echo -e "[9] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
+    echo -e "[10] Kazam ${violet}[X!]${neutre} (capture vidéo de votre bureau)"
+    echo "[11] KeePassX 2 (centralise la gestion de vos mots de passe personnels, protégé par un master password)"
+    echo -e "[12] MultiSystem ${gris}[DepExt]${neutre} Utilitaire permettant de créer une clé usb bootable avec plusieurs OS"
+    echo -e "[13] OpenBroadcaster Software (OBS) ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
+    echo -e "[14] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
+    echo -e "[15] Oracle Java 9 ${gris}[PPA]${neutre} (nouvelle version de Java)"
+    echo "[16] Pack d'applis en cyber-sécurité (aircrack-ng + nmap + John The Ripper[snap])"
+    echo "[17] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
+    echo "[18] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
+    echo -e "[19] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
+    echo -e "[20] TeamViewer ${gris}[DepExt]${neutre}${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
+    echo -e "[21] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
+    echo "[22] VirtualBox (virtualisation de système Windows/Mac/Linux/Bsd)"
+    echo "[23] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
+    echo "[24] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"    
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixUtilitaire
     clear
@@ -1159,52 +1156,52 @@ done
 for audio in $choixAudio
 do
     case $audio in
-        "2") #Xcfa
-            apt install xcfa -y
-            ;;
-        "3") #SoundJuicer
-            apt install sound-juicer -y
-            ;;
-        "4") #Gnome Sound Recorder
-            apt install gnome-sound-recorder -y
-            ;;
-        "5") #Audacity
-            apt install audacity -y
-            ;;
-        "6") #MhWaveEdit
-            apt install mhwaveedit -y
-            ;;         
-        "7") #RipperX
-            apt install ripperx -y
-            ;;                     
-        "8") #LMMS
-            apt install lmms -y
-            ;;           
-        "9") #Mixxx
-            apt install mixxx -y
-            ;;        
-        "10") #Rosegarden
-            apt install rosegarden -y
-            ;;           
-        "11") #Pavucontrol
-            apt install pavucontrol -y
-            ;;   
-        "12") #lame
-            apt install lame -y
-            ;;
-        "13") #Hydrogen
-            apt install hydrogen -y
-            ;;            
-        "14") #Ardour
+        "2") #Ardour
             debconf-set-selections <<< "jackd/tweak_rt_limits false"
             apt install ardour -y
-            ;;                
-        "15") #Flacon
+            ;;       
+        "3") #Audacity
+            apt install audacity -y
+            ;;    
+        "4") #Flacon
             snap install flacon-tabetai
+            ;;         
+        "5") #Gnome Sound Recorder
+            apt install gnome-sound-recorder -y
+            ;;  
+        "6") #Hydrogen
+            apt install hydrogen -y
+            ;;                 
+        "7") #Lame
+            apt install lame -y
             ;;            
-        "16") #PulseEffects (flatpak)
-            flatpak install flathub com.github.wwmm.pulseeffects -y
+        "8") #LMMS
+            apt install lmms -y
+            ;;             
+        "9") #MhWaveEdit
+            apt install mhwaveedit -y
+            ;;    
+        "10") #Mixxx
+            apt install mixxx -y
             ;;   
+        "11") #Pavucontrol
+            apt install pavucontrol -y
+            ;; 
+        "12") #PulseEffects (flatpak)
+            flatpak install flathub com.github.wwmm.pulseeffects -y
+            ;;               
+        "13") #RipperX
+            apt install ripperx -y
+            ;;   
+        "14") #Rosegarden
+            apt install rosegarden -y
+            ;;              
+        "15") #SoundJuicer
+            apt install sound-juicer -y
+            ;;            
+        "16") #Xcfa
+            apt install xcfa -y
+            ;;
     esac
 done
 
@@ -1212,59 +1209,59 @@ done
 for bureautique in $choixBureautique
 do
     case $bureautique in
-        "2") #Police d'écriture Microsoft
+        "2") #Feedreader (flatpak)
+            flatpak install flathub org.gnome.FeedReader -y
+            ;;    
+        "3") #Freeplane
+            apt install freeplane -y
+            ;;    
+        "4") #Geary
+            apt install geary -y
+            ;;   
+        "5") #Gnome Evolution
+            apt install evolution -y
+            ;;              
+        "6") #Gnome Office
+            apt install abiword gnumeric dia planner glabels glom tomboy gnucash -y
+            ;; 
+        "7") #Latex
+            apt install texlive texlive-lang-french texworks -y
+            ;;             
+        "8") #LibreOffice
+            apt install libreoffice libreoffice-style-breeze libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-templates -y
+            ;;    
+        "9") #MailSpring (Snap)
+            snap install mailspring
+            ;;    
+        "10") #Notes Up (Flatpak)
+            flatpak install flathub com.github.philip_scott.notes-up -y
+            ;;  
+        "11") #OnlyOffice (Snap)
+            snap install onlyoffice-desktopeditors --classic
+            ;;            
+        "12") #PDFMod
+            apt install pdfmod -y 
+            ;;    
+        "13") #Police d'écriture Microsoft
             echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
             ;;
-        "3") #LibreOffice
-            apt install libreoffice libreoffice-style-breeze libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-templates -y
-            ;;
-        "4") #PDFMod
-            apt install pdfmod -y 
-            ;;
-        "5") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
+        "14") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
             echo "deb https://download.scenari.org/deb xenial main" > /etc/apt/sources.list.d/scenari.list
             wget -O- https://download.scenari.org/deb/scenari.asc | apt-key add -
             apt update ; apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
             ;;
-        "6") #Freeplane
-            apt install freeplane -y
-            ;;
-        "7") #Feedreader (flatpak)
-            flatpak install flathub org.gnome.FeedReader -y
-            ;;
-        "8") #Geary
-            apt install geary -y
-            ;;        
-        "9") #Gnome Office
-            apt install abiword gnumeric dia planner glabels glom tomboy gnucash -y
-            ;; 
-        "10") #Wordgrinder
+        "15") #Wordgrinder
             apt install wordgrinder wordgrinder-x11 -y
             ;;            
-        "11") #Latex
-            apt install texlive texlive-lang-french texworks -y
-            ;; 
-        "12") #Gnome Evolution
-            apt install evolution -y
-            ;;  
-        "13") #MailSpring (Snap)
-            snap install mailspring
-            ;; 
-        "14") #Notes Up (Flatpak)
-            flatpak install flathub com.github.philip_scott.notes-up -y
-            ;;          
-        "15") #Zim
-            apt install zim -y
-            ;;                         
         "16") #WPS Office
             #wget http://ftp.fr.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb ; wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
             # problème de bande passante donc 1 serveur altnatif :
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/wps032018.deb ; wget http://nux87.free.fr/script-postinstall-ubuntu/deb/libpng.deb
             dpkg -i libpng* ; dpkg -i wps* ; apt install -fy ; rm *.deb ;
-            ;;             
-        "17") #OnlyOffice (Snap)
-            snap install onlyoffice-desktopeditors --classic
-            ;;
+            ;;  
+        "17") #Zim
+            apt install zim -y
+            ;;                            
         # Entrées cachés car potentiellement risqué :
         "500") #Soft Maker Office Béta ## Peux faire planter l'installation pendant le script 
             wget http://www.softmaker.net/down/softmaker-office-2018_928-01_amd64.deb
@@ -1277,43 +1274,43 @@ done
 for science in $choixScience
 do
     case $science in
-        "2") #Google Earth
+        "2") #Algobox
+            apt install algobox -y
+            ;;   
+        "3") #AlgoIDE 
+            wget http://www.algoid.net/downloads/AlgoIDE-release.jar
+            chmod +x AlgoIDE-release.jar && mv AlgoIDE-release.jar /home/$SUDO_USER/
+            ;;                 
+        "4") #Avogadro
+            apt install avogadro -y
+            ;;   
+        "5") #Celestia
+            wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh ; chmod +x Celestia*
+            ./Celestia*.sh ; rm Celestia* ;
+            ;;            
+        "6") #Geogebra
+            apt install geogebra -y
+            ;;            
+        "7") #Google Earth
             wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
             dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy
             sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth* #permet d'ignorer le 32bits sinon erreur lors d'un apt update
             ;;
-        "3") #extension LO oooHG
-            apt install ooohg -y
-            ;;
-        "4") #Geogebra
-            apt install geogebra -y
-            ;;
-        "5") #Algobox
-            apt install algobox -y
-            ;;
-        "6") #Stellarium
-            apt install stellarium -y
-            ;;            
-        "7") #Celestia
-            wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh ; chmod +x Celestia*
-            ./Celestia*.sh ; rm Celestia* ;
-            ;;
-        "8") #Avogadro
-            apt install avogadro -y
-            ;;
-        "9") #Scratch 1.4
-            apt install scratch -y
-            ;;   
-        "10") #mBlock 
+        "8") #mBlock 
             apt install libgconf-2-4 -y
             wget https://github.com/Makeblock-official/mBlock/releases/download/V4.0.0-Linux/mBlock-4.0.0-linux-4.0.0.tar.gz
             tar zxvf mBlock*.tar.gz -C /opt/ ; chown -R $SUDO_USER:$SUDO_USER /opt/mBlock
             ln -s /opt/mBlock/mblock /home/$SUDO_USER/raccourci_mblock ; rm mBlock*.tar.gz
+            ;;            
+        "9") #oooHG - extension LO 
+            apt install ooohg -y
             ;;
-        "11") #AlgoIDE 
-            wget http://www.algoid.net/downloads/AlgoIDE-release.jar
-            chmod +x AlgoIDE-release.jar && mv AlgoIDE-release.jar /home/$SUDO_USER/
-            ;;           
+        "10") #Scratch 1.4
+            apt install scratch -y
+            ;;  
+        "11") #Stellarium
+            apt install stellarium -y
+            ;;            
     esac
 done
 
@@ -1321,96 +1318,87 @@ done
 for utilitaire in $choixUtilitaire
 do
     case $utilitaire in
-        "2") #Kazam
-            apt install kazam -y
-            ;;
-        "3") #SimpleScreenRecorder
-            apt install simplescreenrecorder -y
-            ;;
-        "4") #OpenBroadcaster Software 
-            add-apt-repository -y ppa:obsproject/obs-studio ; apt update
-            apt install ffmpeg obs-studio -y
-            ;;
-        "5") #MultiSystem
-            wget -q http://liveusb.info/multisystem/depot/multisystem.asc -O- | apt-key add -
-            add-apt-repository -y 'deb http://liveusb.info/multisystem/depot all main'
-            apt update ; apt install multisystem -y
-            ;;
-        "6") #Brasero
+        "2") #AnyDesk
+            wget https://download.anydesk.com/linux/anydesk_2.9.5-1_amd64.deb
+            dpkg -i anydesk* ; apt install -fy ; rm anydesk* ;
+            ;;        
+        "3") #Brasero
             apt install brasero brasero-cdrkit nautilus-extension-brasero -y
-            ;;
-        "7") #Wine 
-            apt install wine-stable -y
-            ;;
-        "8") #Oracle Java 8 (dépot xenial car celui de bionic pas encore activé)
-            add-apt-repository -y ppa:webupd8team/java ; apt update 
-            echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java8-installer -y
             ;;  
-        "9") #Oracle Java 9 (dépot xenial car celui de bionic pas encore activé)
-            add-apt-repository -y ppa:webupd8team/java ; apt update
-            echo oracle-java9-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java9-installer -y
-            ;;   
-        "10") # OpenJDK 9
-            apt install openjdk-9-jre -y
-            ;; 
-        "11") # OpenJDK 10
-            apt install openjdk-10-jre -y
-            ;;          
-        "12") # OpenJDK 11
-            apt install openjdk-11-jre -y
-            ;;                 
-        "13") #FlashPlayer (avec dépot partenaire)
-            apt install adobe-flashplugin -y
-            ;;
-        "14") #VirtualBox
-            apt install virtualbox -y
-            ;;            
-        "15") #KeepassX2
-            apt install keepassx -y
-            ;; 
-        "16") #Teamviewer
-            wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-            dpkg -i teamviewer* ; apt install -fy ; rm teamviewer*
-            ;;   
-        "17") #Cheese
+        "4") #Cheese
             apt install cheese -y
-            ;; 
-        "18") #Gnome Recipes
-            apt install gnome-recipes -y
-            ;;   
-        "19") #Gufw
-            apt install gufw -y
             ;;  
-        "20") #Pack cyber-sécurité
-            apt install aircrack-ng nmap -y
-            snap install john-the-ripper
-            ;;  
-        "21") #Gnome Encfs Manager
+        "5") #Corebird
+            apt install corebird -y
+            ;;             
+        "6") #FlashPlayer (avec dépot partenaire)
+            apt install adobe-flashplugin -y
+            ;;    
+        "7") #Gnome Encfs Manager
             add-apt-repository -y ppa:gencfsm/ppa ; apt update ;
             apt install gnome-encfs-manager -y
             ;;             
-        "22") #Corebird
-            apt install corebird -y
-            ;; 
-        "23") #Wireshark
-            debconf-set-selections <<< "wireshark-common/install-setuid true"
-            apt install wireshark -y ; usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
+        "8") #Gnome Recipes
+            apt install gnome-recipes -y
             ;;   
-        "24") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
-            apt install vrms screenfetch asciinema ncdu screen rclone -y
-            wget http://hoper.dnsalias.net/tdc/public/kclean.deb && dpkg -i kclean.deb ; apt install -fy ; rm kclean.deb
-            ;; 
-        "25") #Synaptic
-            apt install synaptic -y
+        "9") #Gufw
+            apt install gufw -y
+            ;;              
+        "10") #Kazam
+            apt install kazam -y
+            ;;
+        "11") #KeepassX2
+            apt install keepassx -y
+            ;;             
+        "12") #MultiSystem
+            wget -q http://liveusb.info/multisystem/depot/multisystem.asc -O- | apt-key add -
+            add-apt-repository -y 'deb http://liveusb.info/multisystem/depot all main'
+            apt update ; apt install multisystem -y
+            ;;            
+        "13") #OpenBroadcaster Software 
+            add-apt-repository -y ppa:obsproject/obs-studio ; apt update
+            apt install ffmpeg obs-studio -y
             ;;  
-        "26") #AnyDesk
-            wget https://download.anydesk.com/linux/anydesk_2.9.5-1_amd64.deb
-            dpkg -i anydesk* ; apt install -fy ; rm anydesk* ;
-            ;;    
-        "27") #VeraCrypt
+        "14") #Oracle Java 8 (dépot xenial car celui de bionic pas encore activé)
+            add-apt-repository -y ppa:webupd8team/java ; apt update 
+            echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java8-installer -y
+            ;;  
+        "15") #Oracle Java 9 (dépot xenial car celui de bionic pas encore activé)
+            add-apt-repository -y ppa:webupd8team/java ; apt update
+            echo oracle-java9-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java9-installer -y
+            ;;  
+        "16") #Pack cyber-sécurité
+            apt install aircrack-ng nmap -y
+            snap install john-the-ripper
+            ;;       
+        "17") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
+            apt install vrms screenfetch asciinema ncdu screen rclone -y
+            wget http://hoper.dnsalias.net/tdc/public/kclean.deb && dpkg -i kclean.deb ; apt install -fy ; rm kclean.deb 
+            ;; 
+        "18") #SimpleScreenRecorder
+            apt install simplescreenrecorder -y
+            ;;
+        "19") #Synaptic
+            apt install synaptic -y
+            ;;              
+        "20") #Teamviewer
+            wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+            dpkg -i teamviewer* ; apt install -fy ; rm teamviewer*
+            ;; 
+        "21") #VeraCrypt
             add-apt-repository -y ppa:unit193/encryption ; apt update
             apt install -y veracrypt
             ;;               
+        "22") #VirtualBox
+            apt install virtualbox -y
+            ;;  
+        "23") #Wine 
+            apt install wine-stable -y
+            ;;
+        "24") #Wireshark
+            debconf-set-selections <<< "wireshark-common/install-setuid true"
+            apt install wireshark -y ; usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
+            ;;         
     esac
 done
 
