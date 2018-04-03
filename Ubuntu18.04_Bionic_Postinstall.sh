@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.7
+# version 1.0.8
 
 #  Copyleft 2018 Simbd
 #  
@@ -247,22 +247,22 @@ then
     echo "*******************************************************"
     echo -e "${bleu}7/ Souhaitez-vous un logiciel de montage/encodage vidéo ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Non merci (aucun n'est installé par défaut)"
-    echo "[2] Handbrake (transcodage de n'importe quel fichier vidéo)"
-    echo "[3] WinFF (encodage vidéo rapide dans différents formats)"
-    echo "[4] Libav-tools (fork de FFmpeg, outil en CLI pour la conversion via : avconv)"
-    echo "[5] KDEnLive (éditeur vidéo non-linéaire pour monter sons et images avec effets spéciaux)"
-    echo "[6] OpenShot Video Editor (une autre alternative comme éditeur vidéo, libre et écrit en Python)"
-    echo -e "[7] Pitivi ${bleu}[Flatpak]${neutre} (logiciel de montage basique avec une interface simple et intuitive)" 
+    echo "[1] Non, aucun ajout"
+    echo -e "[2] Cinelerra ${gris}[PPA]${neutre} (montage non-linéaire sophistiqué, équivalent à Adobe première, Final Cut et Sony Vegas"
+    echo "[3] DeVeDe (création de DVD/CD vidéos lisibles par des lecteurs de salon)"
+    echo -e "[4] Flowblade ${violet}[X!]${neutre} (logiciel de montage vidéo multi-piste performant)"
+    echo "[5] Handbrake (transcodage de n'importe quel fichier vidéo)"
+    echo "[6] KDEnLive (éditeur vidéo non-linéaire pour monter sons et images avec effets spéciaux)"        
+    echo "[7] Libav-tools (fork de FFmpeg, outil en CLI pour la conversion via : avconv)"
     echo "[8] Lives (dispose des fonctionnalités d'éditions vidéo/son classique, des filtres et multipiste"
-    echo -e "[9] Flowblade ${violet}[X!]${neutre} (logiciel de montage vidéo multi-piste performant)"
-    echo -e "[10] Cinelerra ${gris}[PPA]${neutre} (montage non-linéaire sophistiqué, équivalent à Adobe première, Final Cut et Sony Vegas"
-    echo -e "[11] Natron ${gris}[DepExt]${neutre} (programme de post-prod destiné au compositing et aux effets spéciaux)"
-    echo "[12] Mencoder (s'utilise en ligne de commande : encodage de fichiers vidéos)"
-    echo "[13] MMG : MkvMergeGui (interface graphique pour l'outil mkmerge : création/manipulation fichier mkv)"
-    echo "[14] DeVeDe (création de DVD/CD vidéos lisibles par des lecteurs de salon)"
-    echo -e "[15] Peek ${bleu}[Flatpak]${neutre} (outil de création de Gif animé à partir d'une capture vidéo)"
-    echo -e "[16] Shotcut ${gris}[PPA]${neutre} (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
+    echo "[9] Mencoder (s'utilise en ligne de commande : encodage de fichiers vidéos)"    
+    echo "[10] MMG : MkvMergeGui (interface graphique pour l'outil mkmerge : création/manipulation fichier mkv)"    
+    echo -e "[11] Natron ${gris}[DepExt]${neutre} (programme de post-prod destiné au compositing et aux effets spéciaux)"    
+    echo "[12] OpenShot Video Editor (une autre alternative comme éditeur vidéo, libre et écrit en Python)"    
+    echo -e "[13] Peek ${bleu}[Flatpak]${neutre} (outil de création de Gif animé à partir d'une capture vidéo)"
+    echo -e "[14] Pitivi ${bleu}[Flatpak]${neutre} (logiciel de montage basique avec une interface simple et intuitive)"    
+    echo -e "[15] Shotcut ${gris}[PPA]${neutre} (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
+    echo "[16] WinFF (encodage vidéo rapide dans différents formats)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixVideo
     clear
@@ -271,21 +271,21 @@ then
     echo "*******************************************************"
     echo -e "${bleu}8/ Quel(s) logiciel(s) de montage photo ou modélisation 3D voulez-vous ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Aucun (pas de logiciel par défaut)"
-    echo "[2] Gimp (montage photo avancé, équivalent à 'Adobe Photoshop')"
-    echo "[3] Krita (outil d'édition et retouche d'images, orienté plutôt vers le dessin bitmap)"
-    echo "[4] Pinta (graphisme simple équivalent à Paint.NET)"
-    echo -e "[5] Pixeluvo ${gris}[DepExt]${neutre} (une autre alternative à Photoshop mais il reste propriétaire)"
-    echo "[6] MyPaint (logiciel de peinture numérique développé en Python)"
-    echo "[7] Ufraw (logiciel de dérawtisation capable de lire/interpréter la plupart des formats RAW)"
-    echo "[8] Inkscape (logiciel spécialisé dans le dessin vectoriel, équivalent de 'Adobe Illustrator')"
-    echo "[9] Darktable (gestionnaire de photos libre sous forme de table lumineuse et chambre noir)"
-    echo "[10] Blender (suite libre de modélisation 3D, matériaux et textures, d'éclairage, d'animation...)"
-    echo "[11] K-3D (animation et modélisation polygonale et modélisation par courbes)"
-    echo "[12] SweetHome 3D (aménagement d'intérieur pour dessiner les plans d'une maison, placement des meubles...)"
-    echo "[13] LibreCAD (anciennement CADubuntu, DAO 2D pour modéliser des dessins techniques)"
-    echo -e "[14] Shutter ${violet}[X!]${neutre} (pour effectuer des captures d'écran + appliquer des modifications diverses)"
-    echo "[15] Frogr (utile pour ceux qui utilisent le service web 'Flickr')"
+    echo "[1] Aucun ajout"
+    echo "[2] Blender (suite libre de modélisation 3D, matériaux et textures, d'éclairage, d'animation...)"
+    echo "[3] Darktable (gestionnaire de photos libre sous forme de table lumineuse et chambre noir)"
+    echo "[4] Frogr (utile pour ceux qui utilisent le service web 'Flickr')"
+    echo "[5] Gimp (montage photo avancé, équivalent à 'Adobe Photoshop')"
+    echo "[6] Inkscape (logiciel spécialisé dans le dessin vectoriel, équivalent de 'Adobe Illustrator')"
+    echo "[7] K-3D (animation et modélisation polygonale et modélisation par courbes)"
+    echo "[8] Krita (outil d'édition et retouche d'images, orienté plutôt vers le dessin bitmap)"
+    echo "[9] LibreCAD (anciennement CADubuntu, DAO 2D pour modéliser des dessins techniques)"
+    echo "[10] MyPaint (logiciel de peinture numérique développé en Python)"
+    echo "[11] Pinta (graphisme simple équivalent à Paint.NET)"
+    echo -e "[12] Pixeluvo ${gris}[DepExt]${neutre} (une autre alternative à Photoshop mais il reste propriétaire)"
+    echo -e "[13] Shutter ${violet}[X!]${neutre} (pour effectuer des captures d'écran + appliquer des modifications diverses)"
+    echo "[14] SweetHome 3D (aménagement d'intérieur pour dessiner les plans d'une maison, placement des meubles...)"
+    echo "[15] Ufraw (logiciel de dérawtisation capable de lire/interpréter la plupart des formats RAW)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 4) : " choixGraphisme
     clear
@@ -1051,56 +1051,56 @@ done
 for video in $choixVideo
 do
     case $video in
-        "2") #Handbrake
+        "2") #Cinelerra
+            add-apt-repository ppa:cinelerra-ppa/ppa -y
+            apt update ; apt install cinelerra-cv -y
+            ;;    
+        "3") #DeVeDe 
+            apt install devede -y
+            ;;              
+        "4") #Flowblade
+            apt install flowblade -y
+            ;;      
+        "5") #Handbrake
             apt install handbrake -y
             ;;
-        "3") #WinFF
-            apt install winff winff-doc winff-qt -y
-            ;;
-        "4") #Libav-tools
-            apt install libav-tools -y
-            ;;
-        "5") #KDEnLive
+        "6") #KDEnLive
             apt install kdenlive breeze-icon-theme -y
-            ;;
-        "6") #OpenShot Video Editor 
-            apt install openshot-qt -y
-            ;;
-        "7") #Pitivi (flatpak) #car la version via dpkg pose problème
-            flatpak install flathub org.pitivi.Pitivi -y
+            ;;            
+        "7") #Libav-tools
+            apt install libav-tools -y
             ;;
         "8") #Lives
             apt install lives -y
-            ;;            
-        "9") #Flowblade
-            apt install flowblade -y
-            ;;           
-        "10") #Cinelerra
-            add-apt-repository ppa:cinelerra-ppa/ppa -y
-            apt update ; apt install cinelerra-cv -y
-            ;;        
+            ;;    
+        "9") #Mencoder
+            apt install mencoder -y
+            ;;  
+        "10") #MMG MkvMergeGui
+            apt install mkvtoolnix mkvtoolnix-gui -y
+            ;;             
         "11") #Natron
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/natron_2.3.3_amd64.deb
             dpkg -i natron_2.3.3_amd64.deb
             apt install -fy
-            ;;                                   
-        "12") #Mencoder
-            apt install mencoder -y
             ;;               
-        "13") #MMG MkvMergeGui
-            apt install mkvtoolnix mkvtoolnix-gui -y
-            ;;              
-        "14") #DeVeDe 
-            apt install devede -y
-            ;;     
-        "15") #Peek (Flatpak) 
+        "12") #OpenShot Video Editor 
+            apt install openshot-qt -y
+            ;;
+        "13") #Peek (Flatpak) 
             flatpak install flathub com.uploadedlobster.peek -y
-            ;;    
-        "16") #Shotcut (PPA pour Bionic pas encore actif) // existe en snappy mais ne semble pas fonctionner
+            ;;              
+        "14") #Pitivi (flatpak) #car la version via dpkg pose problème
+            flatpak install flathub org.pitivi.Pitivi -y
+            ;;
+        "15") #Shotcut (PPA pour Bionic pas encore actif) // existe en snappy mais ne semble pas fonctionner
             add-apt-repository "deb http://ppa.launchpad.net/haraldhv/shotcut/ubuntu zesty main" -y
             apt-key adv --recv-keys --keyserver keyserver.ubuntu.com D03D19F673FED66EBD64099959A9D327745898E3
             apt update ; apt install shotcut -y
-            ;;              
+            ;;    
+        "16") #WinFF
+            apt install winff winff-doc winff-qt -y
+            ;;            
     esac
 done
 
@@ -1108,50 +1108,50 @@ done
 for graphisme in $choixGraphisme
 do
     case $graphisme in
-        "2") #Gimp
+        "2") #Blender
+            apt install blender -y
+            ;;       
+        "3") #Darktable
+            apt install darktable -y
+            ;;      
+        "4") #Frogr
+            apt install frogr -y
+            ;;              
+        "5") #Gimp
             apt install gimp gimp-help-fr gimp-plugin-registry gimp-ufraw gimp-data-extras -y
             ;;
-        "3") #Krita
+        "6") #Inkscape
+            apt install inkscape -y
+            ;;     
+        "7") #K-3D
+            apt install k3d -y
+            ;;              
+        "8") #Krita
             apt install krita krita-l10n -y
             ;;
-        "4") #Pinta
+        "9") #LibreCAD
+            apt install librecad -y
+            ;;               
+        "10") #MyPaint
+            apt install mypaint mypaint-data-extras -y
+            ;;              
+        "11") #Pinta
             apt install pinta -y
             ;;
-        "5") #Pixeluvo
+        "12") #Pixeluvo
             wget http://www.pixeluvo.com/downloads/pixeluvo_1.6.0-2_amd64.deb
             dpkg -i pixeluvo_1.6.0-2_amd64.deb
             apt install -fy
-            ;;
-        "6") #MyPaint
-            apt install mypaint mypaint-data-extras -y
-            ;;         
-        "7") #Ufraw
-            apt install ufraw ufraw-batch -y
-            ;;            
-        "8") #Inkscape
-            apt install inkscape -y
-            ;;                    
-        "9") #Darktable
-            apt install darktable -y
-            ;;          
-        "10") #Blender
-            apt install blender -y
-            ;;       
-        "11") #K-3D
-            apt install k3d -y
-            ;;                         
-        "12") #SweetHome 3D
+            ;; 
+        "13") #Shutter
+            apt install shutter -y
+            ;;              
+        "14") #SweetHome 3D
             apt install sweethome3d -y
             ;;               
-        "13") #LibreCAD
-            apt install librecad -y
-            ;;        
-        "14") #Shutter
-            apt install shutter -y
-            ;;    
-        "15") #Frogr
-            apt install frogr -y
-            ;;    
+        "15") #Ufraw
+            apt install ufraw ufraw-batch -y
+            ;;              
     esac
 done
 
