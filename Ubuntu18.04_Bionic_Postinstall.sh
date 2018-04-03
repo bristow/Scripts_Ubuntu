@@ -164,49 +164,49 @@ then
     echo "*******************************************************"
     echo -e "${bleu}4/ Quel(s) logiciel(s) de messagerie instantanée/tchat/VoIP/visio souhaitez-vous ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Aucun"
-    echo "[2] Empathy (messagerie instantanée adaptée à Gnome, multi-protocole)"
-    echo "[3] Pidgin (une alternative à Empathy avec l'avantage d'être multiplateforme)"
-    echo -e "[4] Jitsi ${gris}[DepExt]${neutre} (anciennement 'SIP Communicator' surtout orienté VoIP)"
-    echo "[5] Psi (multiplateforme, libre et surtout conçu pour le protocole XMPP cad Jabber)"
-    echo "[6] Gajim (un autre client Jabber utilisant GTK+)"
-    echo -e "[7] Skype ${gris}[DepExt]${neutre} (logiciel propriétaire de téléphonie, vidéophonie et clavardage très connue)"
-    echo "[8] Ekiga (anciennement 'Gnome Meeting', logiciel de visioconférence/VoIP)"
-    echo "[9] Linphone (visioconférence utilisant le protocole SIP)"
-    echo "[10] Ring (anciennement 'SFLphone', logiciel très performant pour la téléphonie IP)"
-    echo "[11] Mumble (logiciel libre connue chez les gameurs pour les conversations audios à plusieurs)"
-    echo -e "[12] Wire ${gris}[DepExt]${neutre} (un autre client de messagerie instantanée chiffrée créé par Wire Swiss)"
-    echo "[13] Hexchat (client IRC, fork de xchat)"
-    echo "[14] Polari (client IRC pour Gnome)"
-    echo -e "[15] Discord ${jaune}[Snap]${neutre} (logiciel propriétaire multiplateforme pour communiquer à plusieurs, pour les gameurs)"
-    echo -e "[16] Telegram (appli de messagerie basée sur le cloud avec du chiffrage)"
-    echo -e "[17] Viber ${bleu}[Flatpak]${neutre} (logiciel de communication, surtout connu en application mobile)"
-    echo -e "[18] Slack ${bleu}[Flatpak]${neutre} (plate-forme de communication collaborative propriétaire avec gestion de projets)"
-    echo -e "[19] Signal ${bleu}[Flatpak]${neutre} (messagerie instantanée cryptée recommandée par Edward Snowden)"
-    echo -e "[20] TeamSpeak ${cyan}[M!]${neutre} (équivalent à Mumble mais propriétaire)"
+    echo "[1] Aucun supplément"
+    echo -e "[2] Discord ${jaune}[Snap]${neutre} (logiciel propriétaire multiplateforme pour communiquer à plusieurs, pour les gameurs)"
+    echo "[3] Ekiga (anciennement 'Gnome Meeting', logiciel de visioconférence/VoIP)"
+    echo "[4] Empathy (messagerie instantanée adaptée à Gnome, multi-protocole)"
+    echo "[5] Gajim (un autre client Jabber utilisant GTK+)"
+    echo "[6] Hexchat (client IRC, fork de xchat)"
+    echo -e "[7] Jitsi ${gris}[DepExt]${neutre} (anciennement 'SIP Communicator' surtout orienté VoIP)"
+    echo "[8] Linphone (visioconférence utilisant le protocole SIP)"
+    echo "[9] Mumble (logiciel libre connue chez les gameurs pour les conversations audios à plusieurs)"
+    echo "[10] Pidgin (une alternative à Empathy avec l'avantage d'être multiplateforme)"
+    echo "[11] Polari (client IRC pour Gnome)"
+    echo "[12] Psi (multiplateforme, libre et surtout conçu pour le protocole XMPP cad Jabber)"
+    echo "[13] Ring (anciennement 'SFLphone', logiciel très performant pour la téléphonie IP)"
+    echo -e "[14] Signal ${bleu}[Flatpak]${neutre} (messagerie instantanée cryptée recommandée par Edward Snowden)"
+    echo -e "[15] Skype ${gris}[DepExt]${neutre} (logiciel propriétaire de téléphonie, vidéophonie et clavardage très connue)"
+    echo -e "[16] Slack ${bleu}[Flatpak]${neutre} (plate-forme de communication collaborative propriétaire avec gestion de projets)"
+    echo -e "[17] TeamSpeak ${cyan}[M!]${neutre} (équivalent à Mumble mais propriétaire)"
+    echo -e "[18] Telegram (appli de messagerie basée sur le cloud avec du chiffrage)"
+    echo -e "[19] Viber ${bleu}[Flatpak]${neutre} (logiciel de communication, surtout connu en application mobile)"
+    echo -e "[20] Wire ${gris}[DepExt]${neutre} (un autre client de messagerie instantanée chiffrée créé par Wire Swiss)" 
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 3 7 13 18) : " choixMessagerie
     clear
 
     # Question 5 : Download/Upload
     echo "*******************************************************"
-    echo -e "${bleu}5/ Quel(s) logiciel(s) de téléchargement/copie voulez-vous ?${neutre}"
+    echo -e "${bleu}5/ Quel(s) logiciel(s) de téléchargement/torrent/copie voulez-vous ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Pas de supplément (Transmission installé par défaut sur la version de base)"
-    echo "[2] FileZilla (logiciel très répandu utilisé pour les transferts FTP ou SFTP)"
-    echo "[3] Deluge (client BitTorrent basé sur Python et GTK+)"
-    echo "[4] Rtorrent (client BitTorrent en ligne de commande donc très léger)"
-    echo "[5] qBittorrent (client BitTorrent léger développé en C++ avec Qt)"
-    echo "[6] Bittornado (client très simple qui permet de se connecter au réseau BitTorrent)"
-    echo "[7] aMule (pour le réseau eDonkey2000, clone de Emule)"
-    echo -e "[8] FrostWire ${gris}[DepExt]${neutre} (client multiplate-forme pour le réseau Gnutella)"
+    echo "[1] Pas de supplément (Transmission par défaut)"
+    echo "[2] aMule (pour le réseau eDonkey2000, clone de Emule)"
+    echo "[3] Bittornado (client très simple qui permet de se connecter au réseau BitTorrent)"
+    echo "[4] Deluge (client BitTorrent basé sur Python et GTK+)"
+    echo "[5] EiskaltDC++ (stable et en français, pour le réseau DirectConnect)"
+    echo "[6] FileZilla (logiciel très répandu utilisé pour les transferts FTP ou SFTP)"
+    echo -e "[7] FrostWire ${gris}[DepExt]${neutre} (client multiplate-forme pour le réseau Gnutella)"
+    echo "[8] Grsync (une interface graphique pour l'outil rsync)"
     echo "[9] Gtk-Gnutella (un autre client stable et léger avec pas mal d'options)"
-    echo "[10] EiskaltDC++ (stable et en français, pour le réseau DirectConnect)"
-    echo "[11] Grsync (une interface graphique pour l'outil rsync)"
-    echo "[12] SubDownloader (téléchargement de sous-titre)"
-    echo "[13] Nicotine+ (client P2P pour le réseau mono-source Soulseek)"
-    echo -e "[14] Vuze ${jaune}[Snap]${neutre} (plate-forme commerciale d'Azureus avec BitTorrent)"
-    echo -e "[15] Gydl ${bleu}[Flatpak]${neutre} (permet de télécharger des vidéos Youtube ou juste la piste audio)"
+    echo -e "[10] Gydl ${bleu}[Flatpak]${neutre} (permet de télécharger des vidéos Youtube ou juste la piste audio)"
+    echo "[11] Nicotine+ (client P2P pour le réseau mono-source Soulseek)"
+    echo "[12] qBittorrent (client BitTorrent léger développé en C++ avec Qt)"    
+    echo "[13] Rtorrent (client BitTorrent en ligne de commande donc très léger)"
+    echo "[14] SubDownloader (téléchargement de sous-titre)"
+    echo -e "[15] Vuze ${jaune}[Snap]${neutre} (plate-forme commerciale d'Azureus avec BitTorrent)"
     echo -e "[16] WebTorrent ${bleu}[Flatpak]${neutre} (permet le streamming de flux vidéo décentralisé via le protocole bittorrent)"
     echo -e "[17] WormHole (un outil en CLI permettant le transfert sécurisé à travers n'importe quel réseau)"
     echo "*******************************************************"
@@ -218,27 +218,27 @@ then
     echo "*******************************************************"
     echo -e "${bleu}6/ Quel(s) logiciel(s) de lecture audio/vidéo (ou de stream) voulez-vous ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Aucun, rester avec les choix par défaut (Totem pour la vidéo, Rhythmbox pour la musique)"
-    echo "[2] VLC VideoLan (le couteau suisse de la vidéo, très complet !)"
-    echo "[3] MPV/Gnome MPV (léger et puissant, capable de lire de nombreux formats)" #(semble instable dans une VM)
-    echo "[4] SmPlayer (lecteur basé sur mplayer avec une interface utilisant Qt)"
+    echo "[1] Aucun supplément (normalement par défaut : Totem pour la vidéo, Rhythmbox pour la musique)"
+    echo "[2] Audacious (lecteur complet pour les audiophiles avec beaucoup de plugins)"
+    echo "[3] Banshee (lecteur audio assez complet équivalent à Rhythmbox)"
+    echo "[4] Clementine (lecteur audio avec gestion des pochettes, genres musicaux...)"
     echo -e "[5] DragonPlayer (lecteur vidéo pour l'environnement Kde)" 
-    echo "[6] Banshee (lecteur audio assez complet équivalent à Rhythmbox)"
-    echo "[7] Clementine (lecteur audio avec gestion des pochettes, genres musicaux...)"
-    echo "[8] QuodLibet (un lecteur audio très puissant avec liste de lecture basée sur les expressions rationnelles)"
-    echo "[9] Audacious (lecteur complet pour les audiophiles avec beaucoup de plugins)"
-    echo "[10] Gnome Music (utilitaire 'Musique' de la fondation Gnome pour la gestion audio, assez basique)"
-    echo "[11] Gmusicbrowser (lecteur avec une interface très configurable)"
-    echo "[12] Musique (un lecteur épuré)"
-    echo "[13] Qmmp (dans le même style de Winamp pour les fans)"
-    echo "[14] Xmms2+Gxmms2 (un autre lecteur audio dans le style de Winamp)"
-    echo "[15] Gnome Twitch (pour visionner les flux vidéo du site Twitch depuis votre bureau sans utiliser de navigateur)"
-    echo -e "[16] Lollypop ${bleu}[Flatpak]${neutre} (lecteur de musique adapté à Gnome avec des fonctions très avancées)"
-    echo -e "[17] Spotify ${jaune}[Snap]${neutre} (permet d'accéder gratuitement et légalement à de la musique en ligne)"
-    echo -e "[18] MuseScore (l'éditeur de partitions de musique le plus utilisé au monde !)"
-    echo -e "[19] GRadio ${bleu}[Flatpak]${neutre} (application Gnome pour écouter la radio, plus de 1 000 références rien qu'en France !)"
-    echo -e "[20] Molotov.TV ${vert}[Appimage]${neutre} (service français de distribution de chaînes de TV)"
-    echo -e "[21] Guayadeque ${gris}[PPA]${neutre} (lecteur audio et radio avec une interface agréable)"
+    echo "[6] Gmusicbrowser (lecteur avec une interface très configurable)"
+    echo "[7] Gnome Music (utilitaire 'Musique' de la fondation Gnome pour la gestion audio, assez basique)"
+    echo "[8] Gnome Twitch (pour visionner les flux vidéo du site Twitch depuis votre bureau sans utiliser de navigateur)"
+    echo -e "[9] GRadio ${bleu}[Flatpak]${neutre} (application Gnome pour écouter la radio, plus de 1 000 références rien qu'en France !)"
+    echo -e "[10] Guayadeque ${gris}[PPA]${neutre} (lecteur audio et radio avec une interface agréable)"
+    echo -e "[11] Lollypop ${bleu}[Flatpak]${neutre} (lecteur de musique adapté à Gnome avec des fonctions très avancées)"
+    echo -e "[12] Molotov.TV ${vert}[Appimage]${neutre} (service français de distribution de chaînes de TV)"
+    echo "[13] MPV/Gnome MPV (léger et puissant, capable de lire de nombreux formats)" 
+    echo -e "[14] MuseScore (l'éditeur de partitions de musique le plus utilisé au monde !)"
+    echo "[15] Musique (un lecteur épuré)"
+    echo "[16] Qmmp (dans le même style de Winamp pour les fans)"
+    echo "[17] QuodLibet (un lecteur audio très puissant avec liste de lecture basée sur les expressions rationnelles)"
+    echo "[18] SmPlayer (lecteur basé sur mplayer avec une interface utilisant Qt)"
+    echo -e "[19] Spotify ${jaune}[Snap]${neutre} (permet d'accéder gratuitement et légalement à de la musique en ligne)"
+    echo "[20] VLC VideoLan (le couteau suisse de la vidéo, très complet !)"
+    echo "[21] Xmms2+Gxmms2 (un autre lecteur audio dans le style de Winamp)" 
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3) : " choixMultimedia
     clear
@@ -674,7 +674,7 @@ flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
 
 # Logiciels utiles normalement déjà installés (dans le cas ou ça ne serai pas le cas, notamment sur certaines variantes)
-apt install firefox firefox-locale-fr
+apt install firefox firefox-locale-fr transmission-gtk
 
 # Codecs utiles
 apt install x264 x265 -y
@@ -852,72 +852,72 @@ done
 for messagerie in $choixMessagerie
 do
     case $messagerie in
-        "2") #empathy
+        "2") #discord (via snap)
+            apt install snapd-xdg-open -y
+            snap install discord
+            ;;    
+        "3") #ekiga
+            apt install ekiga -y
+            ;;      
+        "4") #empathy
             apt install empathy -y
             ;;
-        "3") #pidgin
-            apt install pidgin pidgin-plugin-pack -y
-            ;;
-        "4") #jitsi
+        "5") #gajim
+            apt install gajim -y
+            ;;   
+        "6") #hexchat
+            apt install hexchat hexchat-plugins -y
+            ;;                
+        "7") #jitsi
             wget -qO - https://download.jitsi.org/jitsi-key.gpg.key | apt-key add -   
             sh -c "echo 'deb https://download.jitsi.org stable/' > /etc/apt/sources.list.d/jitsi-stable.list"   
             apt update ; apt install jitsi -y   
+            ;;   
+        "8") #linphone
+            apt install linphone -y
+            ;;    
+        "9") #mumble
+            apt install mumble -y
+            ;;                
+        "10") #pidgin
+            apt install pidgin pidgin-plugin-pack -y
             ;;
-        "5") #psi
+        "11") #Polari
+            apt install polari -y
+            ;;                  
+        "12") #psi
             apt install psi -y
-            ;;         
-        "6") #gajim
-            apt install gajim -y
-            ;;
-        "7") #skype
+            ;;  
+        "13") #ring
+            apt install ring -y
+            ;;  
+        "14") #signal (flatpak)
+            flatpak install --from https://vrutkovs.github.io/flatpak-signal/signal.flatpakref -y
+            ;;               
+        "15") #skype
             wget https://repo.skype.com/latest/skypeforlinux-64.deb
             dpkg -i skypeforlinux-64.deb
             apt install -fy
-            ;;            
-        "8") #ekiga
-            apt install ekiga -y
-            ;;           
-        "9") #linphone
-            apt install linphone -y
-            ;;           
-        "10") #ring
-            apt install ring -y
-            ;;        
-        "11") #mumble
-            apt install mumble -y
-            ;;    
-        "12") #wire
+            ;;   
+        "16") #Slack (flatpak)
+            flatpak install flathub com.slack.Slack -y
+            ;;     
+        "17") #Teamspeak (script à l'intérieur à lancer manuellement par l'utilisateur)
+            wget http://nux87.free.fr/script-postinstall-ubuntu/archives/Teamspeak.tar.xz 
+            tar -xJf Teamspeak.tar.xz ; chown -R $SUDO_USER:$SUDO_USER Teamspeak 
+            rm -f Teamspeak.tar.xz
+            ;;             
+        "18") #telegram 
+            apt install telegram-desktop -y
+            ;;  
+        "19") #viber (flatpak)
+            flatpak install flathub com.viber.Viber -y
+            ;;               
+        "20") #wire
             apt-key adv --fetch-keys http://wire-app.wire.com/linux/releases.key
             echo "deb https://wire-app.wire.com/linux/debian stable main" | tee /etc/apt/sources.list.d/wire-desktop.list
             apt update ; apt install apt-transport-https wire-desktop -y
             ;;               
-        "13") #hexchat
-            apt install hexchat hexchat-plugins -y
-            ;;       
-        "14") #Polari
-            apt install polari -y
-            ;;                       
-        "15") #discord (via snap)
-            apt install snapd-xdg-open -y
-            snap install discord
-            ;;
-        "16") #telegram 
-            apt install telegram-desktop -y
-            ;;                 
-        "17") #viber (flatpak)
-            flatpak install flathub com.viber.Viber -y
-            ;;               
-        "18") #Slack (flatpak)
-            flatpak install flathub com.slack.Slack -y
-            ;;          
-        "19") #signal (flatpak)
-            flatpak install --from https://vrutkovs.github.io/flatpak-signal/signal.flatpakref -y
-            ;;           
-        "20") #Récupération dossier teamspeak (script à l'intérieur à lancer manuellement par l'utilisateur)
-            wget http://nux87.free.fr/script-postinstall-ubuntu/archives/Teamspeak.tar.xz 
-            tar -xJf Teamspeak.tar.xz ; chown -R $SUDO_USER:$SUDO_USER Teamspeak 
-            rm -f Teamspeak.tar.xz
-            ;; 
     esac
 done
 
@@ -925,49 +925,49 @@ done
 for download in $choixTelechargement
 do
     case $download in
-        "2") #filezilla
+        "2") #aMule
+            apt install amule -y
+            ;;      
+        "3") #Bittornado
+            apt install bittornado bittornado-gui -y
+            ;;      
+        "4") #Deluge
+            apt install deluge -y
+            ;;    
+        "5") #EiskaltDC++
+            apt install eiskaltdcpp eiskaltdcpp-gtk3 -y
+            ;;             
+        "6") #filezilla
             apt install filezilla -y
             ;;
-        "3") #Deluge
-            apt install deluge -y
-            ;;
-        "4") #Rtorrent
-            apt install rtorrent screen -y
-            ;;
-        "5") #qBittorrent
-            apt install qbittorrent -y
-            ;;         
-        "6") #Bittornado
-            apt install bittornado bittornado-gui -y
-            ;;                 
-        "7") #aMule
-            apt install amule -y
-            ;;           
-        "8") #FrostWire
+        "7") #FrostWire
             wget https://netcologne.dl.sourceforge.net/project/frostwire/FrostWire%206.x/6.5.9-build-246/frostwire-6.5.9.all.deb
             dpkg -i frostwire-6.5.9.all.deb
             apt install -fy
-            ;;        
+            ;;  
+        "8") #Grsync
+            apt install grsync -y
+            ;;              
         "9") #Gtk-Gnutella
             apt install gtk-gnutella -y
-            ;;    
-        "10") #EiskaltDC++
-            apt install eiskaltdcpp eiskaltdcpp-gtk3 -y
-            ;;                                          
-        "11") #Grsync
-            apt install grsync -y
+            ;;       
+        "10") #Gydl (flatpak)
+            flatpak install flathub com.github.JannikHv.Gydl -y
+            ;;              
+        "11") #Nicotine+ 
+            apt install nicotine -y
             ;;               
-        "12") #SubDownloader
+        "12") #qBittorrent
+            apt install qbittorrent -y
+            ;;  
+        "13") #Rtorrent
+            apt install rtorrent screen -y
+            ;;
+        "14") #SubDownloader
             apt install subdownloader -y
             ;;              
-        "13") #Nicotine+ 
-            apt install nicotine -y
-            ;;  
-        "14") #Vuze
+        "15") #Vuze
             snap install vuze-vs --classic
-            ;;  
-        "15") #Gydl (flatpak)
-            flatpak install flathub com.github.JannikHv.Gydl -y
             ;;  
         "16") #Webtorrent (flatpak)
             flatpak install flathub io.webtorrent.WebTorrent -y
@@ -982,68 +982,68 @@ done
 for multimedia in $choixMultimedia
 do
     case $multimedia in
-        "2") #VLC
-            apt install vlc vlc-plugin-vlsub vlc-plugin-visualization -y
-            ;;
-        "3") #Gnome MPV
-            apt install gnome-mpv -y
-            ;;
-        "4") #SmPlayer
-            apt install smplayer smplayer-l10n smplayer-themes -y
-            ;;       
+        "2") #audacious
+            apt install audacious audacious-plugins -y
+            ;;  
+        "3") #Banshee
+            apt install banshee -y
+            ;;  
+        "4") #Clementine
+            apt install clementine -y
+            ;;              
         "5") #dragonplayer
             apt install dragonplayer -y
-            ;;
-        "6") #Banshee
-            apt install banshee -y
-            ;;            
-        "7") #Clementine
-            apt install clementine -y
-            ;;           
-        "8") #QuodLibet
-            apt install quodlibet -y
-            ;;           
-        "9") #audacious
-            apt install audacious audacious-plugins -y
-            ;;        
-        "10") #gnome music
-            apt install gnome-music -y
-            ;;       
-        "11") #gmusicbrowser
-            apt install gmusicbrowser -y
-            ;;                         
-        "12") #musique
-            apt install musique -y
-            ;;               
-        "13") #qmmp
-            apt install qmmp -y
-            ;;               
-        "14") #xmms2 + plugins
-            apt install xmms2 xmms2-plugin-all gxmms2 -y
-            ;;              
-        "15") #Gnome Twitch
-            apt install gnome-twitch -y
-            ;;         
-        "16") #Lollypop (flatpak)
-            flatpak install flathub org.gnome.Lollypop -y
-            ;;             
-        "17") #Spotify (snap)
-            snap install spotify
-            ;;     
-        "18") #MuseScore 
-            apt install musescore -y
             ;;    
-        "19") #Gradio (flatpak)
-            flatpak install flathub de.haeckerfelix.gradio -y
+        "6") #gmusicbrowser
+            apt install gmusicbrowser -y
+            ;;              
+        "7") #Gnome MPV
+            apt install gnome-mpv -y
+            ;;
+        "8") #gnome music
+            apt install gnome-music -y
             ;;  
-        "20") #Molotov.tv (appimage)
-            wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov
-            mv molotov molotov.AppImage && chmod +x molotov.AppImage
+        "9") #Gnome Twitch
+            apt install gnome-twitch -y
+            ;;   
+        "10") #Gradio (flatpak)
+            flatpak install flathub de.haeckerfelix.gradio -y
             ;; 
-        "21") #Guayadeque
+        "11") #Guayadeque
             add-apt-repository -y ppa:anonbeat/guayadeque ; apt update
             apt install guayadeque -y
-            ;;
+            ;;            
+        "12") #Lollypop (flatpak)
+            flatpak install flathub org.gnome.Lollypop -y
+            ;;  
+        "13") #Molotov.tv (appimage)
+            wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov
+            mv molotov molotov.AppImage && chmod +x molotov.AppImage
+            ;;             
+        "14") #MuseScore 
+            apt install musescore -y
+            ;;               
+        "15") #musique
+            apt install musique -y
+            ;; 
+        "16") #qmmp
+            apt install qmmp -y
+            ;;             
+        "17") #QuodLibet
+            apt install quodlibet -y
+            ;;                
+        "18") #SmPlayer
+            apt install smplayer smplayer-l10n smplayer-themes -y
+            ;;    
+        "19") #Spotify (snap)
+            snap install spotify
+            ;;              
+        "20") #VLC
+            apt install vlc vlc-plugin-vlsub vlc-plugin-visualization -y
+            ;;    
+        "21") #xmms2 + plugins
+            apt install xmms2 xmms2-plugin-all gxmms2 -y
+            ;;             
     esac
 done
 
