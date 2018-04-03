@@ -397,22 +397,22 @@ then
     echo -e "${bleu}13/ Quel(s) jeux-vidéo(s) (ou applis liées aux jeux) voulez-vous installer ?${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun, je ne suis pas un gamer"
-    echo "[2] Steam (plateforme de distribution de jeux. Permet notamment d'installer Dota2, TF2, CS, TR...)"
-    echo "[3] PlayOnLinux (permet de faire tourner des jeux Windows via Wine avec des réglages pré-établis)"
-    echo "[4] Minecraft (un des plus célèbres jeux sandbox, jeu propriétaire et payant)"
-    echo "[5] Minetest (un clone de Minecraft mais libre/opensource et totalement gratuit)"
-    echo "[6] OpenArena (un clone libre du célèbre jeu 'Quake')"
-    echo "[7] 0ad: Empires Ascendant (jeu de stratégie en temps réel (RTS))"
-    echo "[8] FlightGear (simulateur de vol)"
-    echo "[9] SuperTux (clone de Super Mario mais avec un pingouin)"
-    echo "[10] SuperTuxKart (clone de Super Mario Kart)"
-    echo "[11] Assault Cube (clone de Counter Strike)"
-    echo "[12] Gnome Games (pack d'une dizaine de mini-jeux pour Gnome)"
-    echo "[13] Megaglest (RTS 3d dans un monde fantastique avec 2 factions qui s'affrontent : la magie et la technologie)"
-    echo "[14] Pingus (clone de Lemmings, vous devrez aider des manchots un peu idiots à traverser des obstacles)"
-    echo -e "[15] Battle for Wesnoth (stratégie, le joueur doit se battre pour retrouver sa place dans le royaume)"
-    echo -e "[16] Albion Online ${bleu}[Flatpak]${neutre} (MMORPG avec système de quête et donjons)"
-    echo -e "[17] RuneScape ${bleu}[Flatpak]${neutre} (reconnu MMORPG gratuit le plus populaire au monde avec plus de 15 millions de comptes F2P)"
+    echo "[2] 0ad: Empires Ascendant (jeu de stratégie en temps réel RTS)" 
+    echo -e "[3] Albion Online ${bleu}[Flatpak]${neutre} (MMORPG avec système de quête et donjons)"    
+    echo "[4] Assault Cube (clone de Counter Strike)" 
+    echo -e "[5] Battle for Wesnoth (stratégie, le joueur doit se battre pour retrouver sa place dans le royaume)"    
+    echo "[6] FlightGear (simulateur de vol)"
+    echo "[7] Gnome Games (pack d'une dizaine de mini-jeux pour Gnome)"
+    echo "[8] Megaglest (RTS 3d dans un monde fantastique avec 2 factions qui s'affrontent : la magie et la technologie)"    
+    echo "[9] Minecraft (un des plus célèbres jeux sandbox, jeu propriétaire et payant)"
+    echo "[10] Minetest (un clone de Minecraft mais libre/opensource et totalement gratuit)"
+    echo "[11] OpenArena (un clone libre du célèbre jeu 'Quake')"   
+    echo "[12] Pingus (clone de Lemmings, vous devrez aider des manchots un peu idiots à traverser des obstacles)"    
+    echo "[13] PlayOnLinux (permet de faire tourner des jeux Windows via Wine avec des réglages pré-établis)"    
+    echo -e "[14] RuneScape ${bleu}[Flatpak]${neutre} (reconnu MMORPG gratuit le plus populaire au monde avec plus de 15 millions de comptes F2P)"
+    echo "[15] Steam (plateforme de distribution de jeux. Permet notamment d'installer Dota2, TF2, CS, TR...)"
+    echo "[16] SuperTux (clone de Super Mario mais avec un pingouin)"
+    echo "[17] SuperTuxKart (clone de Super Mario Kart)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3) : " choixGaming
     clear
@@ -1406,55 +1406,55 @@ done
 for gaming in $choixGaming
 do
     case $gaming in
-        "2") #Steam
-            apt install steam -y
-            ;;
-        "3") #PlayOnLinux
-            apt install playonlinux -y
-            ;;
-        "4") #Minecraft 
+        "2") #0ad: Empires Ascendant 
+            apt install 0ad -y
+            ;;    
+        "3") #Albion online (flatpak)
+            flatpak install flathub com.albiononline.AlbionOnline -y
+            ;;                  
+        "4") #Assault Cube
+            apt install assaultcube -y
+            ;;     
+        "5") #Battle for Wesnoth
+            apt install wesnoth -y
+            ;;            
+        "6") #FlightGear
+            apt install flightgear -y
+            ;;       
+        "7") #Gnome Games 
+            apt install gnome-games gnome-games-app -y
+            ;;     
+        "8") #Megaglest
+            apt install megaglest -y
+            ;;            
+        "9") #Minecraft 
             wget http://packages.linuxmint.com/pool/import/m/minecraft-installer/minecraft-installer_0.1+r12~ubuntu16.04.1_amd64.deb
             dpkg -i minecraft-installer_0.1+r12~ubuntu16.04.1_amd64.deb ; apt install -fy
             ;;
-        "5") #Minetest 
+        "10") #Minetest 
             apt install minetest minetest-mod-nether -y
-            ;;
-        "6") #OpenArena
+            ;; 
+        "11") #OpenArena
             apt install openarena -y
+            ;;    
+        "12") #Pingus
+            apt install pingus -y            
+            ;;            
+        "13") #PlayOnLinux
+            apt install playonlinux -y
+            ;;    
+        "14") #Runscape (flatpak)
+            flatpak install flathub com.jagex.RuneScape -y   
+            ;;            
+        "15") #Steam
+            apt install steam -y
             ;;
-        "7") #0ad: Empires Ascendant (ou via flatpak)
-            apt install 0ad -y
-            ;;     
-        "8") #FlightGear
-            apt install flightgear -y
-            ;;
-        "9") #SuperTux
+        "16") #SuperTux
             apt install supertux -y
             ;;            
-        "10") #SuperTuxKart
+        "17") #SuperTuxKart
             apt install supertuxkart -y
             ;;   
-        "11") #Assault Cube
-            apt install assaultcube -y
-            ;;               
-        "12") #Gnome Games 
-            apt install gnome-games gnome-games-app -y
-            ;;  
-        "13") #Megaglest
-            apt install megaglest -y
-            ;;
-        "14") #Pingus
-            apt install pingus -y            
-            ;;
-        "15") #Battle for Wesnoth
-            apt install wesnoth -y
-            ;;
-        "16") #Albion online (flatpak)
-            flatpak install flathub com.albiononline.AlbionOnline -y
-            ;;            
-        "17") #Runscape (flatpak)
-            flatpak install flathub com.jagex.RuneScape -y   
-            ;;
     esac
 done
 
