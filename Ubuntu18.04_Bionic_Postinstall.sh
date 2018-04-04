@@ -99,7 +99,7 @@ echo "*******************************************************"
 echo -e "[0] Mode ${gris}Automatique${neutre} (Aucune question posée, le script installera quelques logiciels. Plutôt pour les novices)"
 echo -e "[1] Mode ${bleu}Manuel niveau 1${neutre} (choix par défaut : pose diverses questions simples, recommandé pour la plupart des utilisateurs)"
 echo -e "[2] Mode ${jaune}Manuel niveau 2${neutre} (Des choix supplémentaires notamment en terme de logiciel de dev, des extensions, optimisation système)"
-echo -e "[3] Mode ${vert}Manuel niveau 3${neutre} (En plus du niveau2 propose un large choix supplémentaire de snap/flatpak/appimages + choix backportage)"
+echo -e "[3] Mode ${vert}Manuel niveau 3${neutre} (En plus du niveau2 propose un large choix supplémentaire de snap/flatpak/appimages)"
 echo "*******************************************************"
 read -p "Répondre par le chiffre correspondant (par défaut: 1) : " choixMode
 clear
@@ -1960,8 +1960,8 @@ do
     esac
 done
 
-
 # Rangement des AppImage et vérification du bon propriétaire de certains dossiers.
+cd /home/$SUDO_USER/script_postinstall/
 mkdir ../appimages ; mv *.AppImage ../appimages/ ; chmod -R +x ../appimages 
 chown -R $SUDO_USER:$SUDO_USER ../appimages ../script_postinstall ../.icons ../.themes ../.local
 
