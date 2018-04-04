@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.9
+# version 1.0.10
 
 #  Copyleft 2018 Simbd
 #  
@@ -237,8 +237,9 @@ then
     echo "[17] QuodLibet (un lecteur audio très puissant avec liste de lecture basée sur les expressions rationnelles)"
     echo "[18] SmPlayer (lecteur basé sur mplayer avec une interface utilisant Qt)"
     echo -e "[19] Spotify ${jaune}[Snap]${neutre} (permet d'accéder gratuitement et légalement à de la musique en ligne)"
-    echo "[20] VLC VideoLan (le couteau suisse de la vidéo, très complet !)"
-    echo "[21] Xmms2+Gxmms2 (un autre lecteur audio dans le style de Winamp)" 
+    echo -e "[20] VLC VideoLan {branche 3.0} ${vert}[Recommandé]${neutre} (le couteau suisse de la vidéo, très complet !)"
+    echo -e "[21] VLC VideoLan backporté ${jaune}[Snap]${neutre} dernière version en développement - branche Edge (4.0...)"    
+    echo "[22] Xmms2+Gxmms2 (un autre lecteur audio dans le style de Winamp)" 
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3) : " choixMultimedia
     clear
@@ -275,7 +276,7 @@ then
     echo "[2] Blender (suite libre de modélisation 3D, matériaux et textures, d'éclairage, d'animation...)"
     echo "[3] Darktable (gestionnaire de photos libre sous forme de table lumineuse et chambre noir)"
     echo "[4] Frogr (utile pour ceux qui utilisent le service web 'Flickr')"
-    echo "[5] Gimp (montage photo avancé, équivalent à 'Adobe Photoshop')"
+    echo -e "[5] Gimp ${vert}[Recommandé]${neutre} (montage photo avancé, équivalent à 'Adobe Photoshop')"
     echo "[6] Inkscape (logiciel spécialisé dans le dessin vectoriel, équivalent de 'Adobe Illustrator')"
     echo "[7] K-3D (animation et modélisation polygonale et modélisation par courbes)"
     echo "[8] Krita (outil d'édition et retouche d'images, orienté plutôt vers le dessin bitmap)"
@@ -325,16 +326,17 @@ then
     echo "[5] Gnome Evolution (logiciel de type groupware et courrielleur, facile à utiliser)"
     echo "[6] Gnome Office (pack contenant Abiword, Gnumeric, Dia, Planner, Glabels, Glom, Tomboy et Gnucash)"
     echo "[7] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
-    echo "[8] LibreOffice {branche 6.0} suite bureautique libre (normalement déjà installé de base)"
-    echo -e "[9] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
-    echo -e "[10] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
-    echo -e "[11] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
-    echo "[12] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
-    echo "[13] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
-    echo -e "[14] Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applis d'édition avancées de chaînes éditoriales)"
-    echo "[15] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
-    echo -e "[16] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
-    echo "[17] Zim (wiki en local avec une collection de pages et de marqueurs)"
+    echo -e "[8] LibreOffice {branche gelé en 6.0} ${vert}[Recommandé]${neutre} suite bureautique libre (normalement déjà installé de base)"
+    echo -e "[9] LibreOffice Fresh (backporté) ${gris}[PPA]${neutre} {dernière version stable possible, changement de branche possible !} "    
+    echo -e "[10] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
+    echo -e "[11] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
+    echo -e "[12] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
+    echo "[13] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
+    echo "[14] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
+    echo -e "[15] Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applis d'édition avancées de chaînes éditoriales)"
+    echo "[16] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
+    echo -e "[17] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
+    echo "[18] Zim (wiki en local avec une collection de pages et de marqueurs)"
     # Choix supplémentaire caché mais possible (car pose problème) :
     # [500] => Soft Maker Office Béta #peux faire planter l'installation du script avec ce logiciel (déconseillé)
     echo "*******************************************************"
@@ -385,9 +387,10 @@ then
     echo -e "[19] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
     echo -e "[20] TeamViewer ${gris}[DepExt]${neutre}${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
     echo -e "[21] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
-    echo "[22] VirtualBox (virtualisation de système Windows/Mac/Linux/Bsd)"
-    echo "[23] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
-    echo "[24] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"    
+    echo "[22] VirtualBox {branche 5.2} (virtualisation de système Windows/Mac/Linux/Bsd)"
+    echo -e "[23] VirtualBox backporté ${gris}[DepExt]${neutre} dernière version stable possible depuis dépot d'Oracle"    
+    echo "[24] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
+    echo "[25] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"    
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixUtilitaire
     clear
@@ -450,7 +453,7 @@ then
         echo "[20] Top Icons Plus (permet d'afficher un icone de notification pour les applis en haut à droite)"
         echo "[21] Trash (ajoute un raccourci vers la corbeille dans le panel en haut)"
         echo "[22] Unite (retire la décoration des fenêtres pour gagner de l'espace, pour un style proche du shell Unity)"
-        echo -e "[23] User themes ${vert}[recommandé]${neutre} (permet de charger des thèmes stockés dans votre répertoire perso)"
+        echo -e "[23] User themes ${vert}[Recommandé]${neutre} (permet de charger des thèmes stockés dans votre répertoire perso)"
         echo "[24] Window list (affiche la liste des fenêtres en bas du bureau, comme à l'époque sous Gnome 2)"
         echo "[25] Workspace indicator (affiche dans le panel en haut dans quel espace de travail vous êtes)"
         echo "*******************************************************"
@@ -551,26 +554,10 @@ fi
 # Mode Extra
 if [ "$choixMode" = "3" ] 
 then
-    # Question 19 : Choix backportage
-    echo "*******************************************************"
-    echo -e "${jaune}19/ Des logiciels à backporter ? [mode extra]${neutre}"
-    echo "*******************************************************"
-    echo "[1] Non"
-    echo -e "[2] LibreOffice ${gris}[PPA]${neutre} : dernière version stable possible via ppa générique (sinon gelé en 6.0)" 
-    echo -e "[3] VirtualBox ${gris}[DepExt]${neutre} : dernière version stable possible via dépot Oracle (sinon gelé en 5.2)"
-    echo -e "[4] Firefox ${jaune}[Snap]${neutre} dernière version stable alternative via Snap"
-    echo -e "[5] VLC ${jaune}[Snap]${neutre} dernière version stable possible via Snap canal stable (sinon gelé en 3.0)"
-    echo -e "[6] VLC ${jaune}[Snap]${neutre} dernière version la plus avancé possible via snap canal edge (non-cumulable avec snap/stable)"
-    echo -e "[7] Blender ${gris}[PPA]${neutre} dernière version stable possible"
-    #echo -e "[100] OpenShot : dernière version stable possible ${gris}[PPA]${neutre} (sinon gelé en 2.4)" ## PPA off actuellement
-    echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixBackport
-    clear
-
-    # Question 20 : Snap
+    # Question 19 : Snap
     echo -e "${vert}Astuce 7: Les paquets Snappy, flatpak et Appimages sont indépendants les uns des autres, ainsi, vous pouvez avoir un même logiciel en plusieurs exemplaires dans des versions différentes${neutre}"
     echo "*******************************************************"
-    echo -e "${vert}20/ Mode Extra : supplément paquet Snap :${neutre}"
+    echo -e "${vert}19/ Mode Extra : supplément paquet Snap :${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
     echo -e "[2] Blender ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
@@ -592,9 +579,9 @@ then
     read -p "Choix snappy : " choixSnap
     clear
              
-    # Question 21 : Flatpak
+    # Question 20 : Flatpak
     echo "*******************************************************"
-    echo -e "${vert}21/ Mode Extra : supplément paquet Flatpak :${neutre}"
+    echo -e "${vert}20/ Mode Extra : supplément paquet Flatpak :${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
     echo -e "[2] 0ad ${bleu}[Flatpak]${neutre}"
@@ -621,10 +608,10 @@ then
     read -p "Choix flatpak : " choixFlatpak
     clear
             
-    # Question 22 : Appimages
+    # Question 21 : Appimages
     echo -e "${vert}Astuce 8: Vos AppImages seront disponibles dans un dossier 'appimage' dans votre dossier perso, pour lancer une application : ./nomdulogiciel.AppImage (les droits d'éxécutions seront déjà attribués)${neutre}"
     echo "*******************************************************"
-    echo -e "${vert}22/ Mode Extra : récupération Appimages:${neutre}"
+    echo -e "${vert}21/ Mode Extra : récupération Appimages:${neutre}"
     echo "*******************************************************"
     echo "[1] Aucune"
     echo -e "[2] Aidos Wallet ${vert}[Appimage]${neutre}"
@@ -1038,7 +1025,10 @@ do
         "20") #VLC
             apt install vlc vlc-plugin-vlsub vlc-plugin-visualization -y
             ;;    
-        "21") #xmms2 + plugins
+        "21") #VLC dev - Snap edge
+            snap install vlc --edge --classic 
+            ;;               
+        "22") #xmms2 + plugins
             apt install xmms2 xmms2-plugin-all gxmms2 -y
             ;;             
     esac
@@ -1228,38 +1218,42 @@ do
             apt install texlive texlive-lang-french texworks -y
             ;;             
         "8") #LibreOffice
-            apt install libreoffice libreoffice-style-breeze libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-templates -y
+            apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-templates -y
             ;;    
-        "9") #MailSpring (Snap)
+        "9") #LibreOffice fresh (PPA)
+            add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y  
+            apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-templates -y
+            ;;            
+        "10") #MailSpring (Snap)
             snap install mailspring
             ;;    
-        "10") #Notes Up (Flatpak)
+        "11") #Notes Up (Flatpak)
             flatpak install flathub com.github.philip_scott.notes-up -y
             ;;  
-        "11") #OnlyOffice (Snap)
+        "12") #OnlyOffice (Snap)
             snap install onlyoffice-desktopeditors --classic
             ;;            
-        "12") #PDFMod
+        "13") #PDFMod
             apt install pdfmod -y 
             ;;    
-        "13") #Police d'écriture Microsoft
+        "14") #Police d'écriture Microsoft
             echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
             ;;
-        "14") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
+        "15") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
             echo "deb https://download.scenari.org/deb xenial main" > /etc/apt/sources.list.d/scenari.list
             wget -O- https://download.scenari.org/deb/scenari.asc | apt-key add -
             apt update ; apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
             ;;
-        "15") #Wordgrinder
+        "16") #Wordgrinder
             apt install wordgrinder wordgrinder-x11 -y
             ;;            
-        "16") #WPS Office
+        "17") #WPS Office
             #wget http://ftp.fr.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb ; wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
             # problème de bande passante donc 1 serveur altnatif :
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/wps032018.deb ; wget http://nux87.free.fr/script-postinstall-ubuntu/deb/libpng.deb
             dpkg -i libpng* ; dpkg -i wps* ; apt install -fy ; rm *.deb ;
             ;;  
-        "17") #Zim
+        "18") #Zim
             apt install zim -y
             ;;                            
         # Entrées cachés car potentiellement risqué :
@@ -1392,10 +1386,15 @@ do
         "22") #VirtualBox
             apt install virtualbox -y
             ;;  
-        "23") #Wine 
+        "23") #Virtualbox dernière stable possible (oracle)
+            wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+            echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list
+            apt update ; apt install -y virtualbox-5.2
+            ;;            
+        "24") #Wine 
             apt install wine-stable -y
             ;;
-        "24") #Wireshark
+        "25") #Wireshark
             debconf-set-selections <<< "wireshark-common/install-setuid true"
             apt install wireshark -y ; usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
             ;;         
@@ -1783,40 +1782,7 @@ do
     esac
 done
 
-# Question 19 : Backportage
-for backport in $choixBackport
-do
-    case $backport in
-        "2") #LibreOffice fresh
-            add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y ; 
-            apt install libreoffice libreoffice-l10n-fr -y
-            ;;
-        "3") #Virtualbox (oracle)
-            wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-            echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list
-            apt update ; apt install -y virtualbox-5.2
-            ;;
-        "4") #Firefox Snap stable
-            snap install firefox --classic
-            ;;
-        "5") #VLC Snap stable
-            snap install vlc --classic
-            ;;  
-        "6") #VLC Snap edge
-            snap install vlc --edge --classic 
-            ;;   
-        "7") #Blender ppa
-            add-apt-repository -y ppa:thomas-schiex/blender ; apt update
-            apt install -y blender
-            ;;   
-        #"100") #Openshot ppa (ppa off)
-        #    add-apt-repository -y ppa:openshot.developers/ppa ; apt update ; apt upgrade -y
-        #    apt install -y openshot-qt 
-        #    ;;               
-    esac
-done
-
-# Question 20 : Extra Snap
+# Question 19 : Extra Snap
 for snap in $choixSnap
 do
     case $snap in
@@ -1868,7 +1834,7 @@ do
     esac
 done        
     
-# Question 21 : Extra Flatpak
+# Question 20 : Extra Flatpak
 for flatpak in $choixFlatpak
 do
     case $flatpak in
@@ -1935,7 +1901,7 @@ do
     esac
 done
 
-# Question 22 : Extra Appimages
+# Question 21 : Extra Appimages
 for appimage in $choixAppimage
 do
     case $appimage in
