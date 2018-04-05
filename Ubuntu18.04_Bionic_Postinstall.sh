@@ -1969,8 +1969,9 @@ cd /home/$SUDO_USER/script_postinstall/
 mkdir ../appimages ; mv *.AppImage ../appimages/ ; chmod -R +x ../appimages 
 chown -R $SUDO_USER:$SUDO_USER ../appimages ../script_postinstall ../.icons ../.themes ../.local
 
-# Nettoyage fichiers/archives inutiles dans dossier script 
-rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb 
+# Nettoyage fichiers/dossiers inutiles qui étaient utilisés par le script
+rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb ; 
+cd .. && rm -rf /home/$SUDO_USER/script_postinstall
 clear
 
 # Maj/Nettoyage
