@@ -259,7 +259,7 @@ then
     echo "[9] Mencoder (s'utilise en ligne de commande : encodage de fichiers vidéos)"    
     echo "[10] MMG : MkvMergeGui (interface graphique pour l'outil mkmerge : création/manipulation fichier mkv)"    
     echo -e "[11] Natron ${gris}[DepExt]${neutre} (programme de post-prod destiné au compositing et aux effets spéciaux)"    
-    echo "[12] OpenShot Video Editor (une autre alternative comme éditeur vidéo, libre et écrit en Python)"    
+    echo "[12] OpenShot Video Editor (éditeur vidéo, libre et écrit en Python. Blender est installé en dépendance)"    
     echo -e "[13] Peek ${bleu}[Flatpak]${neutre} (outil de création de Gif animé à partir d'une capture vidéo)"
     echo -e "[14] Pitivi ${bleu}[Flatpak]${neutre} (logiciel de montage basique avec une interface simple et intuitive)"    
     echo -e "[15] Shotcut ${gris}[PPA]${neutre} (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
