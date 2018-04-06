@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.11
+# version 1.0.12
 
 #  Copyleft 2018 Simbd
 #  
@@ -371,26 +371,28 @@ then
     echo "[3] Brasero (logiciel de gravure de cd/dvd)"  
     echo "[4] Cheese (outil pour prendre des photos/vidéos à partir d'une webcam)"
     echo -e "[5] CoreBird (un client de bureau pour le réseau social Twitter)"
-    echo "[6] Flash Player (Adobe) : permet de lire des vidéos qui utiliseraient encore Flash sans support HTML5"
-    echo -e "[7] Gnome Enfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
-    echo "[8] Gnome Recipes (pour les gourmets : appli Gnome spécialisée dans les recettes de cuisine)"
-    echo -e "[9] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
-    echo -e "[10] Kazam ${violet}[X!]${neutre} (capture vidéo de votre bureau)"
-    echo "[11] KeePassX 2 (centralise la gestion de vos mots de passe personnels, protégé par un master password)"
-    echo -e "[12] MultiSystem ${gris}[DepExt]${neutre} Utilitaire permettant de créer une clé usb bootable avec plusieurs OS"
-    echo -e "[13] OpenBroadcaster Software (OBS) ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
-    echo -e "[14] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
-    echo -e "[15] Oracle Java 9 ${gris}[PPA]${neutre} (nouvelle version de Java)"
-    echo "[16] Pack d'applis en cyber-sécurité (aircrack-ng + nmap + John The Ripper[snap])"
-    echo "[17] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
-    echo "[18] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
-    echo -e "[19] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
-    echo -e "[20] TeamViewer ${gris}[DepExt]${neutre}${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
-    echo -e "[21] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
-    echo "[22] VirtualBox {branche 5.2} (virtualisation de système Windows/Mac/Linux/Bsd)"
-    echo -e "[23] VirtualBox backporté ${gris}[DepExt]${neutre} dernière version stable possible depuis dépot d'Oracle"    
-    echo "[24] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
-    echo "[25] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"    
+    echo -e "[6] Diodon (Gestionnaire de presse-papiers GTK+)"
+    echo "[7] Flash Player (Adobe) : permet de lire des vidéos qui utiliseraient encore Flash sans support HTML5"
+    echo -e "[8] Gnome Encfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
+    echo "[9] Gnome Recipes (Application Gnome spécialisée dans les recettes de cuisine)"
+    echo -e "[10] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
+    echo -e "[11] Kazam ${violet}[X!]${neutre} (capture vidéo de votre bureau)"
+    echo "[12] KeePassX 2 (centralise la gestion de vos mots de passe personnels, protégé par un master password)"
+    echo -e "[13] MultiSystem ${gris}[DepExt]${neutre} Utilitaire permettant de créer une clé usb bootable avec plusieurs OS"
+    echo -e "[14] OpenBroadcaster Software (OBS) ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
+    echo -e "[15] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
+    echo -e "[16] Oracle Java 9 ${gris}[PPA]${neutre} (nouvelle version de Java)"
+    echo "[17] Pack d'applis en cyber-sécurité (aircrack-ng + nmap + John The Ripper[snap])"
+    echo "[18] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
+    echo "[19] RedShift (Ajuste la température de couleur de l'écran, fonction déjà incluse dans Gnome avec le mode nuit)"    
+    echo "[20] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
+    echo -e "[21] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
+    echo -e "[22] TeamViewer ${gris}[DepExt]${neutre}${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
+    echo -e "[23] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
+    echo "[24] VirtualBox {branche 5.2} (virtualisation de système Windows/Mac/Linux/Bsd)"
+    echo -e "[25] VirtualBox backporté ${gris}[DepExt]${neutre} dernière version stable possible depuis dépot d'Oracle"    
+    echo "[26] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
+    echo "[27] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"    
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixUtilitaire
     clear
@@ -1325,77 +1327,83 @@ do
             ;;  
         "5") #Corebird
             apt install corebird -y
-            ;;             
-        "6") #FlashPlayer (avec dépot partenaire)
+            ;;  
+        "6") #Diodon
+            apt install diodon -y
+            ;;              
+        "7") #FlashPlayer (avec dépot partenaire)
             apt install adobe-flashplugin -y
             ;;    
-        "7") #Gnome Encfs Manager
+        "8") #Gnome Encfs Manager
             add-apt-repository -y ppa:gencfsm/ppa ; apt update ;
             apt install gnome-encfs-manager -y
             ;;             
-        "8") #Gnome Recipes
+        "9") #Gnome Recipes
             apt install gnome-recipes -y
             ;;   
-        "9") #Gufw
+        "10") #Gufw
             apt install gufw -y
             ;;              
-        "10") #Kazam
+        "11") #Kazam
             apt install kazam -y
             ;;
-        "11") #KeepassX2
+        "12") #KeepassX2
             apt install keepassx -y
             ;;             
-        "12") #MultiSystem
+        "13") #MultiSystem
             wget -q http://liveusb.info/multisystem/depot/multisystem.asc -O- | apt-key add -
             add-apt-repository -y 'deb http://liveusb.info/multisystem/depot all main'
             apt update ; apt install multisystem -y
             ;;            
-        "13") #OpenBroadcaster Software 
+        "14") #OpenBroadcaster Software 
             add-apt-repository -y ppa:obsproject/obs-studio ; apt update
             apt install ffmpeg obs-studio -y
             ;;  
-        "14") #Oracle Java 8 (dépot xenial car celui de bionic pas encore activé)
+        "15") #Oracle Java 8 (dépot xenial car celui de bionic pas encore activé)
             add-apt-repository -y ppa:webupd8team/java ; apt update 
             echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java8-installer -y
             ;;  
-        "15") #Oracle Java 9 (dépot xenial car celui de bionic pas encore activé)
+        "16") #Oracle Java 9 (dépot xenial car celui de bionic pas encore activé)
             add-apt-repository -y ppa:webupd8team/java ; apt update
             echo oracle-java9-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java9-installer -y
             ;;  
-        "16") #Pack cyber-sécurité
+        "17") #Pack cyber-sécurité
             apt install aircrack-ng nmap -y
             snap install john-the-ripper
             ;;       
-        "17") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
+        "18") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
             apt install vrms screenfetch asciinema ncdu screen rclone -y
             wget http://hoper.dnsalias.net/tdc/public/kclean.deb && dpkg -i kclean.deb ; apt install -fy ; rm kclean.deb 
             ;; 
-        "18") #SimpleScreenRecorder
+        "19") #Redshift  (à configurer par l'utilisateur lui même)
+            apt install redshift-gtk -y
+            ;;             
+        "20") #SimpleScreenRecorder
             apt install simplescreenrecorder -y
             ;;
-        "19") #Synaptic
+        "21") #Synaptic
             apt install synaptic -y
             ;;              
-        "20") #Teamviewer
+        "22") #Teamviewer
             wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
             dpkg -i teamviewer* ; apt install -fy ; rm teamviewer*
             ;; 
-        "21") #VeraCrypt
+        "23") #VeraCrypt
             add-apt-repository -y ppa:unit193/encryption ; apt update
             apt install -y veracrypt
             ;;               
-        "22") #VirtualBox
+        "24") #VirtualBox
             apt install virtualbox -y
             ;;  
-        "23") #Virtualbox dernière stable possible (oracle)
+        "25") #Virtualbox dernière stable possible (oracle)
             wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
             echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list
             apt update ; apt install -y virtualbox-5.2
             ;;            
-        "24") #Wine 
+        "26") #Wine 
             apt install wine-stable -y
             ;;
-        "25") #Wireshark
+        "27") #Wireshark
             debconf-set-selections <<< "wireshark-common/install-setuid true"
             apt install wireshark -y ; usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
             ;;         
