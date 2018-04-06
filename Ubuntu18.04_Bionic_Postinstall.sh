@@ -130,7 +130,7 @@ then
     fi
     
     # Question 3 : Navigateur web 
-    echo -e "${vert}Astuce 3: à partir de cette question, vous pouvez faire plusieurs choix, il suffit d'indiquer chaque chiffre séparé d'un espace, par exemple : 2 4 12 19${neutre}"
+    echo -e "${vert}Astuce 3: vous pouvez faire plusieurs choix, il suffit d'indiquer chaque chiffre séparé d'un espace, par exemple : 2 4 12 19${neutre}"
     echo "*******************************************************"
     echo -e "${bleu}3/ Quel(s) navigateur(s) vous intéresse(nt) ? (plusieurs choix possibles)${neutre}"
     echo "*******************************************************"
