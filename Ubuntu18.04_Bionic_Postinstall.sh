@@ -1075,7 +1075,7 @@ do
             apt install -fy
             ;;               
         "12") #OpenShot Video Editor 
-            apt install openshot-qt -y
+            apt install --no-install-recommends openshot-qt -y
             ;;
         "13") #Peek (Flatpak) 
             flatpak install flathub com.uploadedlobster.peek -y
