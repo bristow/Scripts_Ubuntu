@@ -54,7 +54,26 @@ Pour avoir des infos sur un paquet snappy, par exemple VLC :
 ```bash 
   snap info vlc
 ```  
+
+Pour mettre à jour l'ensemble de vos paquets snaps :
+```bash 
+  sudo snap refresh
+```  
+
 [Flatpak] => cette fois-ci le logiciel sera installé avec Flatpak (une alternative aux snaps), c'est une méthode d'installation encore peu connue des Ubunteros pour 2 raisons : flatpak n'est pas installé par défaut et il n'est présent dans les dépots officiels que depuis les versions récentes (sous la 16.04 il fallait ajouter un PPA par exemple).
+
+Pour voir les paquets flatpak installés :
+```bash 
+  flatpak list
+```  
+Pour mettre à jour l'ensemble de vos paquets flatpak :
+```bash 
+  sudo flatpak update -y
+```  
+(A noté que dans la partie optimisation, vous avez la possibilité d'avoir une commande "maj" qui met tout à jour d'un coup) c'est en faite un alias qui fait la même chose que :
+```bash 
+  sudo apt update && sudo apt full-upgrade -y ; sudo apt autoremove --purge -y ; sudo snap refresh ; sudo flatpak update -y
+```  
 
 [AppImage] => Le format de paquets Appimage permet de distribuer des logiciels de manière portable sur n'importe quelle distribution Linux, y compris Ubuntu. Le but est de pouvoir déployer des applications simplement, avec une grande compatibilité, sans impacter le système.
   
@@ -63,7 +82,7 @@ Pour avoir des infos sur un paquet snappy, par exemple VLC :
 [Xorg only!] => Cet avertissement ne concerne que ceux qui utilisent la version de base (donc avec Gnome Shell), si vous utilisez une variante vous n'avez pas à vous poser de question car vous êtes forcément sous Xorg (donc logiciel compatible). Sous le nouveau Ubuntu avec Gnome Shell, il y a 2 sessions, la session Wayland et la session Xorg (choix par défaut). Certains logiciels ne sont pas compatibles avec Wayland mais fonctionneront sous Xorg. C'est le cas par exemple de "Synaptic" ou "Gparted". Cela dit, ce n'est pas très génant dans la mesure ou Xorg est la session par défaut. 
 
 Cela vient du fait que Wayland est plus sécurisé et interdit de lancer une application graphique avec les droits root. 
-A noté qu'il y a une méthode de contournement sous Wayland (cf mode avancé/extra partie optimisation, choix 6 "mode fraude wayland").
+A noté qu'il y a une méthode de contournement sous Wayland (cf mode avancé/extra partie optimisation, choix "commande fraude wayland").
 
 [à lancer manuellement] => Signifie que le logiciel devra être lancé manuellement depuis le dossier présent dans votre dossier perso (pas de raccourci dans le menu des applications).
 
