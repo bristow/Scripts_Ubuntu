@@ -687,9 +687,6 @@ then
     apt purge ubuntu-web-launchers -y
     # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
     mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions /home/$SUDO_USER/.themes /home/$SUDO_USER/.icons
-    
-    # Augmenter le temps maximum pour la capture vidéo à 10 minutes (600s) (par défaut c'était 30s)
-    su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600"
 fi
 ###################################################
 # Spécifique Xubuntu/Xfce 18.04
