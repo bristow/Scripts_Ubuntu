@@ -1,6 +1,8 @@
 #!/bin/bash
 # version 1.0.12
 
+## Info : vous pensez qu'il manque un logiciel utile à proposer dans le script ? faites votre demande ici : https://framaforms.org/demande-dajout-de-logiciel-pour-le-script-de-pi-1804-1523260125
+
 #  Copyleft 2018 Simbd
 #  
 #  This program is free software; you can redistribute it and/or modify
