@@ -654,7 +654,7 @@ sed -i "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
 
 #Vérification que snapd est bien installé (surtout utile pour les variantes) + installation de flatpak
-apt install snapd flatpak gnome-software-plugin-flatpak -y
+apt install snapd flatpak 
 flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Autres outils utiles
@@ -681,7 +681,7 @@ fi
 if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
 then
     # logiciels utiles pour Gnome
-    apt install dconf-editor gnome-tweak-tool folder-color gnome-system-tools -y
+    apt install gnome-software-plugin-flatpak dconf-editor gnome-tweak-tool folder-color gnome-system-tools -y
     apt install ubuntu-restricted-addons -y
     # Suppression de l'icone Amazon (présent uniquement sur la version de base)
     apt purge ubuntu-web-launchers -y
