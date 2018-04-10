@@ -106,13 +106,13 @@ echo "*******************************************************"
 read -p "Répondre par le chiffre correspondant (par défaut: 1) : " choixMode
 clear
 
-while [ "$choixMode" != "0" ] && [ "$choixMode" != "1" ] && [ "$choixMode" != "2" ] && [ "$choixMode" != "3" ]
+while [ "$choixMode" != "0" ] && [ "$choixMode" != "1" ] && [ "$choixMode" != "2" ] && [ "$choixMode" != "3" ] && [ "$choixMode" != "1000" ]
 do
     read -p "Désolé, je ne comprend pas votre réponse, les seuls choix possibles sont 0 (Automatique), 1 (Manuel niv1), 2 (Manuel niv2), 3 (Manuel niv3) : " choixMode
     clear
 done
 
-if [ "$choixMode" != "0" ] #lancement pour tous sauf mode novice
+if [ "$choixMode" != "0" ] && [ "$choixMode" != "1000" ] #lancement pour tous sauf mode novice
 then
     if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
     then
@@ -641,7 +641,7 @@ then
     read -p "Choix appimage : " choixAppimage
     clear
 fi
-                  
+
 ### Section installation automatisé
 
 ###################################################
@@ -725,6 +725,26 @@ then
     apt install vlc gnome-mpv gimp pinta -y
     #divers
     apt install brasero adobe-flashplugin gnome-todo -y
+fi
+
+###################################################
+## Mode Spécial (1000) - Technicien IT Automatique (cadre très spécifique)
+if [ "$choixMode" = "1000" ]
+then
+    # nettoyage grub
+    sed -ri 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=3/g' /etc/default/grub && mkdir /boot/old && mv /boot/memtest86* /boot/old/ ; update-grub
+    # alias maj
+    echo "alias maj='sudo apt update ; sudo apt full-upgrade -y ; sudo snap refresh ; sudo flatpak update -y'" >> /home/$SUDO_USER/.bashrc ; su $SUDO_USER -c "source ~/.bashrc"
+    # Teamviewer V8 (pour la licence)                 
+    wget http://download.teamviewer.com/download/version_8x/teamviewer_linux.deb && dpkg -i teamviewer_linux.deb ; apt install -fy ; rm teamviewer_linux.deb 
+    # Logiciels part1
+    apt install pidgin polari filezilla pinta gimp zim keepass2 keepassxc wormhole libreoffice libreoffice-l10n-fr  -y
+    # Logiciels part2    
+    apt install geany codeblocks virtualbox asciinema ncdu screen nmap tcpdump chromium-browser chromium-browser-l10n -y
+    # Driver imprimante Kyocera Taskalfa 3511i
+    wget https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/Kyocera_taskalfa_3511i.PPD ; mv Kyocera_taskalfa_3511i.PPD /etc/cups/ppd/
+    # Police d'écriture MS
+    echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
 fi
 
 # Création d'un répertoire pour le script et on se déplace dedans
