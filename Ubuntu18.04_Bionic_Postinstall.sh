@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.13
+# version 1.0.14
 
 ## Info : vous pensez qu'il manque un logiciel utile à proposer dans le script ? faites votre demande ici : https://framaforms.org/demande-dajout-de-logiciel-pour-le-script-de-pi-1804-1523260125
 
@@ -126,6 +126,7 @@ then
         echo "[2] Ajouter la session 'Gnome Vanilla' (cad une session Gnome non-customizé et sans extension)"
         echo "[3] Ajouter la session 'Gnome Classique' (interface plus traditionnelle dans le style de Gnome 2 ou Mate)"
         echo "[4] Ajouter la session 'Unity' (l'ancienne interface d'Ubuntu utilisé avant la 17.10)"
+        echo -e "[5] Ajouter une session avec Communitheme (via Snap) ${jaune}[Snap]${neutre}"
         echo "*******************************************************"
         read -p "Répondre par le ou les chiffres correspondants séparés d'un espace (exemple : 1) : " choixSession
         clear
@@ -373,28 +374,31 @@ then
     echo "[3] Brasero (logiciel de gravure de cd/dvd)"  
     echo "[4] Cheese (outil pour prendre des photos/vidéos à partir d'une webcam)"
     echo -e "[5] CoreBird (un client de bureau pour le réseau social Twitter)"
-    echo -e "[6] Diodon (Gestionnaire de presse-papiers GTK+)"
-    echo "[7] Flash Player (Adobe) : permet de lire des vidéos qui utiliseraient encore Flash sans support HTML5"
-    echo -e "[8] Gnome Encfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
-    echo "[9] Gnome Recipes (Application Gnome spécialisée dans les recettes de cuisine)"
-    echo -e "[10] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
-    echo -e "[11] Kazam ${violet}[X!]${neutre} (capture vidéo de votre bureau)"
-    echo "[12] KeePassX 2 (centralise la gestion de vos mots de passe personnels, protégé par un master password)"
-    echo -e "[13] MultiSystem ${gris}[DepExt]${neutre} Utilitaire permettant de créer une clé usb bootable avec plusieurs OS"
-    echo -e "[14] OpenBroadcaster Software (OBS) ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
-    echo -e "[15] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
-    echo -e "[16] Oracle Java 9 ${gris}[PPA]${neutre} (nouvelle version de Java)"
-    echo "[17] Pack d'applis en cyber-sécurité (aircrack-ng + nmap + John The Ripper[snap])"
-    echo "[18] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
-    echo "[19] RedShift (Ajuste la température de couleur de l'écran, fonction déjà incluse dans Gnome avec le mode nuit)"    
-    echo "[20] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
-    echo -e "[21] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
-    echo -e "[22] TeamViewer ${gris}[DepExt]${neutre}${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
-    echo -e "[23] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
-    echo "[24] VirtualBox {branche 5.2} (virtualisation de système Windows/Mac/Linux/Bsd)"
-    echo -e "[25] VirtualBox backporté ${gris}[DepExt]${neutre} dernière version stable possible depuis dépot d'Oracle"    
-    echo "[26] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
-    echo "[27] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"    
+    echo -e "[6] DDRescue (Permet de dupliquer le mieux possible les parties intactes des disques usagés)"
+    echo -e "[7] Diodon (Gestionnaire de presse-papiers GTK+)"
+    echo "[8] Flash Player (Adobe) : permet de lire des vidéos qui utiliseraient encore Flash sans support HTML5"
+    echo -e "[9] Gnome Encfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
+    echo "[10] Gnome Recipes (Application Gnome spécialisée dans les recettes de cuisine)"
+    echo -e "[11] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
+    echo -e "[12] Kazam ${violet}[X!]${neutre} (capture vidéo de votre bureau)"
+    echo "[13] KeePassX 2 (centralise la gestion de vos mots de passe personnels, protégé par un master password)"
+    echo -e "[14] MultiSystem ${gris}[DepExt]${neutre} Utilitaire permettant de créer une clé usb bootable avec plusieurs OS"
+    echo -e "[15] OpenBroadcaster Software (OBS) ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
+    echo -e "[16] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
+    echo -e "[17] Oracle Java 9 ${gris}[PPA]${neutre} (nouvelle version de Java)"
+    echo "[18] Pack d'applis en cyber-sécurité (aircrack-ng + nmap + John The Ripper[snap])"
+    echo "[19] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
+    echo "[20] RedShift (Ajuste la température de couleur de l'écran, fonction déjà incluse dans Gnome avec le mode nuit)"    
+    echo "[21] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
+    echo "[22] Smartmontools (Fournit l'état physiques des disques durs et des SSD voir de certaines clés USB)"
+    echo -e "[23] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
+    echo -e "[24] TeamViewer ${gris}[DepExt]${neutre}${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
+    echo -e "[25] Testdisk (Permet de ressusciter les partitions supprimées accidentellement ou les contenus des fichiers)"
+    echo -e "[26] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
+    echo "[27] VirtualBox {branche 5.2} (virtualisation de système Windows/Mac/Linux/Bsd)"
+    echo -e "[28] VirtualBox backporté ${gris}[DepExt]${neutre} dernière version stable possible depuis dépot d'Oracle"    
+    echo "[29] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
+    echo "[30] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"    
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixUtilitaire
     clear
@@ -769,6 +773,11 @@ do
     then 
         apt install unity-session unity-tweak-tool -y #session unity      
     fi
+    
+    if [ "$session" = "5" ]
+    then 
+        snap install communitheme #session avec communitheme
+    fi    
 done
 
 # Q3/ Installation des navigateurs demandées
@@ -1348,82 +1357,91 @@ do
         "5") #Corebird
             apt install corebird -y
             ;;  
-        "6") #Diodon
+        "6") #ddrescue
+            apt install gddrescue -y
+            ;;                
+        "7") #Diodon
             apt install diodon -y
             ;;              
-        "7") #FlashPlayer (avec dépot partenaire)
+        "8") #FlashPlayer (avec dépot partenaire)
             apt install adobe-flashplugin -y
             ;;    
-        "8") #Gnome Encfs Manager
+        "9") #Gnome Encfs Manager
             add-apt-repository -y ppa:gencfsm/ppa ; apt update ;
             apt install gnome-encfs-manager -y
             ;;             
-        "9") #Gnome Recipes
+        "10") #Gnome Recipes
             apt install gnome-recipes -y
             ;;   
-        "10") #Gufw
+        "11") #Gufw
             apt install gufw -y
             ;;              
-        "11") #Kazam
+        "12") #Kazam
             apt install kazam -y
             ;;
-        "12") #KeepassX2
+        "13") #KeepassX2
             apt install keepassx -y
             ;;             
-        "13") #MultiSystem
+        "14") #MultiSystem
             wget -q http://liveusb.info/multisystem/depot/multisystem.asc -O- | apt-key add -
             add-apt-repository -y 'deb http://liveusb.info/multisystem/depot all main'
             apt update ; apt install multisystem -y
             ;;            
-        "14") #OpenBroadcaster Software 
+        "15") #OpenBroadcaster Software 
             add-apt-repository -y ppa:obsproject/obs-studio ; apt update
             apt install ffmpeg obs-studio -y
             ;;  
-        "15") #Oracle Java 8 (dépot xenial car celui de bionic pas encore activé)
+        "16") #Oracle Java 8 (dépot xenial car celui de bionic pas encore activé)
             add-apt-repository -y ppa:webupd8team/java ; apt update 
             echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java8-installer -y
             ;;  
-        "16") #Oracle Java 9 (dépot xenial car celui de bionic pas encore activé)
+        "17") #Oracle Java 9 (dépot xenial car celui de bionic pas encore activé)
             add-apt-repository -y ppa:webupd8team/java ; apt update
             echo oracle-java9-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java9-installer -y
             ;;  
-        "17") #Pack cyber-sécurité
+        "18") #Pack cyber-sécurité
             apt install aircrack-ng nmap -y
             snap install john-the-ripper
             ;;       
-        "18") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
+        "19") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
             apt install vrms screenfetch asciinema ncdu screen rclone -y
             wget http://hoper.dnsalias.net/tdc/public/kclean.deb && dpkg -i kclean.deb ; apt install -fy ; rm kclean.deb 
             ;; 
-        "19") #Redshift  (à configurer par l'utilisateur lui même)
+        "20") #Redshift  (à configurer par l'utilisateur lui même)
             apt install redshift-gtk -y
             ;;             
-        "20") #SimpleScreenRecorder
+        "21") #SimpleScreenRecorder
             apt install simplescreenrecorder -y
             ;;
-        "21") #Synaptic
+        "22") #Smartmontools 
+            apt install --no-install-recommends smartmontools -y
+            ;;            
+        "23") #Synaptic
             apt install synaptic -y
             ;;              
-        "22") #Teamviewer
+        "24") #Teamviewer
             wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
             dpkg -i teamviewer* ; apt install -fy ; rm teamviewer*
             ;; 
-        "23") #VeraCrypt
+        "25") #Testdisk
+            apt install testdisk -y
+            ;;                
+        "26") #VeraCrypt
             add-apt-repository -y ppa:unit193/encryption ; apt update
             apt install -y veracrypt
             ;;               
-        "24") #VirtualBox
+        "27") #VirtualBox
             apt install virtualbox -y
             ;;  
-        "25") #Virtualbox dernière stable possible (oracle)
+        "28") #Virtualbox dernière stable possible (oracle)
             wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
             echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list
             apt update ; apt install -y virtualbox-5.2
             ;;            
-        "26") #Wine 
+        "29") #Wine 
             apt install wine-stable -y
             ;;
-        "27") #Wireshark
+        "30") #Wireshark
             debconf-set-selections <<< "wireshark-common/install-setuid true"
             apt install wireshark -y ; usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
             ;;         
