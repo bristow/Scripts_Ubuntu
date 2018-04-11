@@ -167,7 +167,7 @@ then
     echo "*******************************************************"
     echo -e "${bleu}4/ Quel(s) logiciel(s) de messagerie instantanée/tchat/VoIP/visio souhaitez-vous ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Aucun supplément"
+    echo "[1] Aucun supplément (Thunderbird par défaut)"
     echo -e "[2] Discord ${jaune}[Snap]${neutre} (logiciel propriétaire multiplateforme pour communiquer à plusieurs, pour les gameurs)"
     echo "[3] Ekiga (anciennement 'Gnome Meeting', logiciel de visioconférence/VoIP)"
     echo "[4] Empathy (messagerie instantanée adaptée à Gnome, multi-protocole)"
@@ -424,6 +424,7 @@ then
     echo "[15] Steam (plateforme de distribution de jeux. Permet notamment d'installer Dota2, TF2, CS, TR...)"
     echo "[16] SuperTux (clone de Super Mario mais avec un pingouin)"
     echo "[17] SuperTuxKart (clone de Super Mario Kart)"
+    echo "[18] Teeworlds (jeu de tir TPS multijoueur 2D, vous incarnez une petite créature, le tee)"    
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3) : " choixGaming
     clear
@@ -475,7 +476,7 @@ then
     echo -e "${jaune}15/ Sélectionnez ce qui vous intéresse en terme de customisation [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Pas d'ajout"
-    echo -e "[2] Communitheme ${gris}[PPA]${neutre} : le thème GTK + icon Suru + sound theme"
+    echo -e "[2] Communitheme ${gris}[PPA]${neutre} thème GTK + icon Suru + sound theme (inutile si session communitheme installé)"
     echo "[3] Icones Papirus (Solus) avec différentes variantes : Adapta, Nokto, Dark, Light"   
     echo "[4] Pack de curseurs : Breeze + Moblin + Oxygen/Oxygen-extra"    
     echo "[5] Pack d'icones 1 : Numix et Numix Circle, Breathe, Breeze, Elementary, Brave + supplément extra icone Gnome"
@@ -612,8 +613,7 @@ then
     echo -e "[17] Password Calculator ${bleu}[Flatpak]${neutre}"
     echo -e "[18] Riot ${bleu}[Flatpak]${neutre}"
     echo -e "[19] Skype ${bleu}[Flatpak]${neutre}"
-    echo -e "[20] Teeworlds ${bleu}[Flatpak]${neutre}" 
-    echo -e "[21] VLC ${bleu}[Flatpak]${neutre}"    
+    echo -e "[20] VLC ${bleu}[Flatpak]${neutre}"    
     echo "*******************************************************"
     read -p "Choix flatpak : " choixFlatpak
     clear
@@ -668,7 +668,7 @@ flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
 
 # Logiciels utiles normalement déjà installés (dans le cas ou ça ne serai pas le cas, notamment sur certaines variantes)
-apt install firefox firefox-locale-fr transmission-gtk
+apt install firefox firefox-locale-fr transmission-gtk thunderbird thunderbird-locale-fr -y
 
 # Codecs utiles
 apt install x264 x265 -y
@@ -1435,7 +1435,7 @@ do
             ;;  
         "28") #Virtualbox dernière stable possible (oracle)
             wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-            echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list
+            echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list
             apt update ; apt install -y virtualbox-5.2
             ;;            
         "29") #Wine 
@@ -1501,6 +1501,9 @@ do
         "17") #SuperTuxKart
             apt install supertuxkart -y
             ;;   
+        "18") #TeeWorlds
+            apt install teeworlds -y
+            ;;               
     esac
 done
 
@@ -1948,11 +1951,8 @@ do
             ;;        
         "19") #Skype version flatpak
             flatpak install flathub com.skype.Client -y
-            ;;              
-        "20") #Teeworlds
-            flatpak install flathub com.teeworlds.Teeworlds -y
-            ;;       
-        "21") #VLC version flatpak
+            ;;                   
+        "20") #VLC version flatpak
             flatpak install flathub org.videolan.VLC -y
             ;;
     esac
