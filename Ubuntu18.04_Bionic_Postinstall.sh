@@ -661,7 +661,7 @@ sed -i "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
 
 #Vérification que snapd est bien installé (surtout utile pour les variantes) + installation de flatpak
-apt install snapd flatpak 
+apt install snapd flatpak -y
 flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Autres outils utiles
