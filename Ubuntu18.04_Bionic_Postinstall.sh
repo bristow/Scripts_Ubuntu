@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.14
+# version 1.0.15
 
 ## Info : vous pensez qu'il manque un logiciel utile à proposer dans le script ? faites votre demande ici : https://framaforms.org/demande-dajout-de-logiciel-pour-le-script-de-pi-1804-1523260125
 
@@ -323,23 +323,25 @@ then
     echo -e "${bleu}10/ Quel(s) logiciel(s) de bureautique/courrier souhaitez-vous ?${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun supplément"
-    echo -e "[2] FeedReader ${bleu}[Flatpak]${neutre} (agrégateur RSS moderne pour consulter vos fils d'informations RSS)"
-    echo "[3] Freeplane (création de cartes heuristiques (Mind Map) avec des diagrammes représentant les connexions sémantiques)"
-    echo "[4] Geary (logiciel de messagerie, alternative à Thunderbird et bien intégré à Gnome)"
-    echo "[5] Gnome Evolution (logiciel de type groupware et courrielleur, facile à utiliser)"
-    echo "[6] Gnome Office (pack contenant Abiword, Gnumeric, Dia, Planner, Glabels, Glom, Tomboy et Gnucash)"
-    echo "[7] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
-    echo -e "[8] LibreOffice {branche gelé en 6.0} ${vert}[Recommandé]${neutre} suite bureautique libre (normalement déjà installé de base)"
-    echo -e "[9] LibreOffice Fresh (backporté) ${gris}[PPA]${neutre} {dernière version stable possible, changement de branche possible !} "    
-    echo -e "[10] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
-    echo -e "[11] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
-    echo -e "[12] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
-    echo "[13] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
-    echo "[14] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
-    echo -e "[15] Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applis d'édition avancées de chaînes éditoriales)"
-    echo "[16] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
-    echo -e "[17] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
-    echo "[18] Zim (wiki en local avec une collection de pages et de marqueurs)"
+    echo "[2] Calligra Suite (suite bureautique de KDE, il s'intègre donc bien avec cet environnement {kde/plasma})"
+    echo -e "[3] FeedReader ${bleu}[Flatpak]${neutre} (agrégateur RSS moderne pour consulter vos fils d'informations RSS)"
+    echo "[4] Freeplane (création de cartes heuristiques (Mind Map) avec des diagrammes représentant les connexions sémantiques)"
+    echo "[5] Geary (logiciel de messagerie, alternative à Thunderbird et bien intégré à Gnome)"
+    echo "[6] Gnome Evolution (logiciel de type groupware et courrielleur, facile à utiliser)"
+    echo "[7] Gnome Office (pack contenant Abiword, Gnumeric, Dia, Planner, Glabels, Glom, Tomboy et Gnucash)"
+    echo "[8] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
+    echo -e "[9] LibreOffice {branche gelé en 6.0} ${vert}[Recommandé]${neutre} suite bureautique libre (normalement déjà installé de base)"
+    echo -e "[10] LibreOffice Fresh (backporté) ${gris}[PPA]${neutre} {dernière version stable possible, changement de branche possible !} "    
+    echo -e "[11] LibreOffice Supplément : ajoute des styles d'icones, des modèles de documents et clipart supplémentaires + récupère l'extension Grammalecte)"
+    echo -e "[12] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
+    echo -e "[13] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
+    echo -e "[14] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
+    echo "[15] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
+    echo "[16] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
+    echo -e "[17] Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applis d'édition avancées de chaînes éditoriales)"
+    echo "[18] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
+    echo -e "[19] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
+    echo "[20] Zim (wiki en local avec une collection de pages et de marqueurs)"
     # Choix supplémentaire caché mais possible (car pose problème) :
     # [500] => Soft Maker Office Béta #peux faire planter l'installation du script avec ce logiciel (déconseillé)
     echo "*******************************************************"
@@ -354,13 +356,15 @@ then
     echo "[2] [MATH] Algobox (logiciel libre d'aide à l'élaboration/exécution d'algorithmes en mathématique)"  
     echo -e "[3] [TECHNO] Algoid [appli portable .jar] ${cyan}[M!]${neutre} (langage de programmation éducatif)"
     echo "[4] [CHIMIE] Avogadro (éditeur/visualiseur avancé de molécules pour le calcul scientifique en chimie)"
-    echo "[5] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"    
-    echo "[6] [MATH] GeoGebra (géométrie dynamique pour manipuler des objets avec un ensemble de fonctions algébriques)"
-    echo -e "[7] [GEO] Google Earth Pro ${gris}[DepExt]${neutre} (globe terrestre de Google pour explorer la planète)"
-    echo -e "[8] [TECHNO] mBlock ${cyan}[M!]${neutre} (environnement de programmation basé sur Scratch 2 pour Arduino"
-    echo "[9] [GEO] OooHg : extension pour LibreOffice qui ajoute 1600 cartes de géographie"
-    echo "[10] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
-    echo "[11] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
+    echo "[5] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"
+    echo "[6] [DIVERS] Einstein Puzzle (Jeu intellectuel ou il faut trouver toutes les cartes d'un tableau)"
+    echo "[7] [DIVERS] GCompris (Suite de logiciels ludo-éducatifs adapté pour les enfants de 2 à 10 ans)"
+    echo "[8] [MATH] GeoGebra (géométrie dynamique pour manipuler des objets avec un ensemble de fonctions algébriques)"
+    echo -e "[9] [GEO] Google Earth Pro ${gris}[DepExt]${neutre} (globe terrestre de Google pour explorer la planète)"
+    echo -e "[10] [TECHNO] mBlock ${cyan}[M!]${neutre} (environnement de programmation basé sur Scratch 2 pour Arduino"
+    echo "[11] [GEO] OooHg : extension pour LibreOffice qui ajoute 1600 cartes de géographie"
+    echo "[12] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
+    echo "[13] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixScience
     clear
@@ -414,17 +418,20 @@ then
     echo -e "[5] Battle for Wesnoth (stratégie, le joueur doit se battre pour retrouver sa place dans le royaume)"    
     echo "[6] FlightGear (simulateur de vol)"
     echo "[7] Gnome Games (pack d'une dizaine de mini-jeux pour Gnome)"
-    echo "[8] Megaglest (RTS 3d dans un monde fantastique avec 2 factions qui s'affrontent : la magie et la technologie)"    
-    echo "[9] Minecraft (un des plus célèbres jeux sandbox, jeu propriétaire et payant)"
-    echo "[10] Minetest (un clone de Minecraft mais libre/opensource et totalement gratuit)"
-    echo "[11] OpenArena (un clone libre du célèbre jeu 'Quake')"   
-    echo "[12] Pingus (clone de Lemmings, vous devrez aider des manchots un peu idiots à traverser des obstacles)"    
-    echo "[13] PlayOnLinux (permet de faire tourner des jeux Windows via Wine avec des réglages pré-établis)"    
-    echo -e "[14] RuneScape ${bleu}[Flatpak]${neutre} (reconnu MMORPG gratuit le plus populaire au monde avec plus de 15 millions de comptes F2P)"
-    echo "[15] Steam (plateforme de distribution de jeux. Permet notamment d'installer Dota2, TF2, CS, TR...)"
-    echo "[16] SuperTux (clone de Super Mario mais avec un pingouin)"
-    echo "[17] SuperTuxKart (clone de Super Mario Kart)"
-    echo "[18] Teeworlds (jeu de tir TPS multijoueur 2D, vous incarnez une petite créature, le tee)"    
+    echo -e "[8] Khaganat [Khanat] ${cyan}[M!]${neutre} ${rouge}[D!]${neutre} (MMORPG 100% libre avec un univers imaginaire, en phase alpha)"
+    echo "[9] Lutris (Plate-forme de jeux équivalente à Steam mais libre, rassemble tous vos jeux natifs ou non)"
+    echo "[10] Megaglest (RTS 3d dans un monde fantastique avec 2 factions qui s'affrontent : la magie et la technologie)"    
+    echo "[11] Minecraft (un des plus célèbres jeux sandbox, jeu propriétaire et payant)"
+    echo "[12] Minetest (un clone de Minecraft mais libre/opensource et totalement gratuit)"
+    echo "[13] OpenArena (un clone libre du célèbre jeu 'Quake')"   
+    echo "[14] Pingus (clone de Lemmings, vous devrez aider des manchots un peu idiots à traverser des obstacles)"    
+    echo "[15] PlayOnLinux (permet de faire tourner des jeux Windows via Wine avec des réglages pré-établis)"    
+    echo -e "[16] RuneScape ${bleu}[Flatpak]${neutre} (reconnu MMORPG gratuit le plus populaire au monde avec plus de 15 millions de comptes F2P)"
+    echo "[17] Steam (plateforme de distribution de jeux. Permet notamment d'installer Dota2, TF2, CS, TR...)"
+    echo "[18] SuperTux (clone de Super Mario mais avec un pingouin)"
+    echo "[19] SuperTuxKart (clone de Super Mario Kart)"
+    echo "[20] Teeworlds (jeu de tir TPS multijoueur 2D, vous incarnez une petite créature, le tee)" 
+    echo "[21] Xqf (Explorateur de serveurs de jeu pour visualiser tous les serveurs de vos jeux de façon unifié)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3) : " choixGaming
     clear
@@ -524,12 +531,14 @@ then
     echo -e "${jaune}17/ Des fonctions serveurs à activer ? [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Pas de service à activer"
-    echo -e "[2] PHP5.6 ${gris}[PPA]${neutre} (rétroportage de l'ancienne version)"
-    echo -e "[3] PHP7.2 ${gris}[PPA]${neutre} (dernière version stable de PHP)"
-    echo "[4] Serveur BDD PostgreSQL (pour installer une base de donnée PostgreSQL)"
-    echo "[5] Serveur FTP avec ProFTPd (stockage de fichier sur votre machine via FTP)"   
-    echo "[6] Serveur LAMP (pour faire un serveur web avec votre PC : Apache + MariaDB + PHP)"    
-    echo "[7] Serveur SSH (pour contrôler votre PC à distance via SSH)"
+    echo -e "[2] Docker ${gris}[DepExt]${neutre} (Permet d'empaqueter une appli+dépendances dans un conteneur isolé, utilisable partout)
+    echo -e "[3] PHP5.6 ${gris}[PPA]${neutre} (rétroportage de l'ancienne version)"
+    echo -e "[4] PHP7.2 ${gris}[PPA]${neutre} (dernière version stable de PHP)"
+    echo "[5] Samba + Interface d'administration gadmin-samba"
+    echo "[6] Serveur BDD PostgreSQL (pour installer une base de donnée PostgreSQL)"
+    echo "[7] Serveur FTP avec ProFTPd (stockage de fichier sur votre machine via FTP)"   
+    echo "[8] Serveur LAMP (pour faire un serveur web avec votre PC : Apache + MariaDB + PHP)"    
+    echo "[9] Serveur SSH (pour contrôler votre PC à distance via SSH)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixServeur
     clear
@@ -665,7 +674,7 @@ apt install snapd flatpak -y
 flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Autres outils utiles
-apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils -y
+apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils p7zip-full -y
 
 # Logiciels utiles normalement déjà installés (dans le cas ou ça ne serai pas le cas, notamment sur certaines variantes)
 apt install firefox firefox-locale-fr transmission-gtk thunderbird thunderbird-locale-fr -y
@@ -1231,61 +1240,70 @@ done
 for bureautique in $choixBureautique
 do
     case $bureautique in
-        "2") #Feedreader (flatpak)
+        "2") # Calligra Suite
+            apt install calligra -y
+            ;;      
+        "3") #Feedreader (flatpak)
             flatpak install flathub org.gnome.FeedReader -y
             ;;    
-        "3") #Freeplane
+        "4") #Freeplane
             apt install freeplane -y
             ;;    
-        "4") #Geary
+        "5") #Geary
             apt install geary -y
             ;;   
-        "5") #Gnome Evolution
+        "6") #Gnome Evolution
             apt install evolution -y
             ;;              
-        "6") #Gnome Office
+        "7") #Gnome Office
             apt install abiword gnumeric dia planner glabels glom tomboy gnucash -y
             ;; 
-        "7") #Latex
+        "8") #Latex
             apt install texlive texlive-lang-french texworks -y
             ;;             
-        "8") #LibreOffice
-            apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-templates -y
+        "9") #LibreOffice
+            apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze -y
             ;;    
-        "9") #LibreOffice fresh (PPA)
+        "10") #LibreOffice fresh (PPA)
             add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y  
-            apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-templates -y
+            apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze -y
+            ;;
+        "11") #LibreOffice : Supplément
+            apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango -y
+            apt install libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
+            # récupération extension grammalecte (oxt)
+            wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && mv Gramm* ..
             ;;            
-        "10") #MailSpring (Snap)
+        "12") #MailSpring (Snap)
             snap install mailspring
             ;;    
-        "11") #Notes Up (Flatpak)
+        "13") #Notes Up (Flatpak)
             flatpak install flathub com.github.philip_scott.notes-up -y
             ;;  
-        "12") #OnlyOffice (Snap)
+        "14") #OnlyOffice (Snap)
             snap install onlyoffice-desktopeditors --classic
             ;;            
-        "13") #PDFMod
+        "15") #PDFMod
             apt install pdfmod -y 
             ;;    
-        "14") #Police d'écriture Microsoft
+        "16") #Police d'écriture Microsoft
             echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
             ;;
-        "15") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
+        "17") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
             echo "deb https://download.scenari.org/deb xenial main" > /etc/apt/sources.list.d/scenari.list
             wget -O- https://download.scenari.org/deb/scenari.asc | apt-key add -
             apt update ; apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
             ;;
-        "16") #Wordgrinder
+        "18") #Wordgrinder
             apt install wordgrinder wordgrinder-x11 -y
             ;;            
-        "17") #WPS Office
+        "19") #WPS Office
             #wget http://ftp.fr.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb ; wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
             # problème de bande passante donc 1 serveur altnatif :
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/wps032018.deb ; wget http://nux87.free.fr/script-postinstall-ubuntu/deb/libpng.deb
             dpkg -i libpng* ; dpkg -i wps* ; apt install -fy ; rm *.deb ;
             ;;  
-        "18") #Zim
+        "20") #Zim
             apt install zim -y
             ;;                            
         # Entrées cachés car potentiellement risqué :
@@ -1313,28 +1331,34 @@ do
         "5") #Celestia
             wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh ; chmod +x Celestia*
             ./Celestia*.sh ; rm Celestia* ;
-            ;;            
-        "6") #Geogebra
+            ;;  
+        "6") #Einstein Puzzle
+            apt install einstein -y
+            ;;               
+        "7") #GCompris
+            apt install gcompris gcompris-qt gcompris-qt-data gnucap -y
+            ;;              
+        "8") #Geogebra
             apt install geogebra -y
             ;;            
-        "7") #Google Earth
+        "9") #Google Earth
             wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
             dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy
             sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth* #permet d'ignorer le 32bits sinon erreur lors d'un apt update
             ;;
-        "8") #mBlock 
+        "10") #mBlock 
             apt install libgconf-2-4 -y
             wget https://github.com/Makeblock-official/mBlock/releases/download/V4.0.0-Linux/mBlock-4.0.0-linux-4.0.0.tar.gz
             tar zxvf mBlock*.tar.gz -C /opt/ ; chown -R $SUDO_USER:$SUDO_USER /opt/mBlock
             ln -s /opt/mBlock/mblock /home/$SUDO_USER/raccourci_mblock ; rm mBlock*.tar.gz
             ;;            
-        "9") #oooHG - extension LO 
+        "11") #oooHG - extension LO 
             apt install ooohg -y
             ;;
-        "10") #Scratch 1.4
+        "12") #Scratch 1.4
             apt install scratch -y
             ;;  
-        "11") #Stellarium
+        "13") #Stellarium
             apt install stellarium -y
             ;;            
     esac
@@ -1469,41 +1493,52 @@ do
             ;;       
         "7") #Gnome Games 
             apt install gnome-games gnome-games-app -y
-            ;;     
-        "8") #Megaglest
+            ;;    
+        "8") #Khaganat
+            wget https://clients.lirria.khaganat.net/smokey_linux64.7z
+            7z x smokey* ; rm -rf smokey*.7z ; mv Khanat* /home/$SUDO_USER/khanat_game ; chown -R $SUDO_USER /home/$SUDO_USER/khanat_game
+            ;;                 
+        "9") #Lutris
+            wget https://download.opensuse.org/repositories/home:/strycore/xUbuntu_17.10/amd64/lutris_0.4.14_amd64.deb
+            dpkg -i lutris* ; apt install -fy ; rm lutris*
+            ;;                 
+        "10") #Megaglest
             apt install megaglest -y
             ;;            
-        "9") #Minecraft 
+        "11") #Minecraft 
             wget http://packages.linuxmint.com/pool/import/m/minecraft-installer/minecraft-installer_0.1+r12~ubuntu16.04.1_amd64.deb
             dpkg -i minecraft-installer_0.1+r12~ubuntu16.04.1_amd64.deb ; apt install -fy
             ;;
-        "10") #Minetest 
+        "12") #Minetest 
             apt install minetest minetest-mod-nether -y
             ;; 
-        "11") #OpenArena
+        "13") #OpenArena
             apt install openarena -y
             ;;    
-        "12") #Pingus
+        "14") #Pingus
             apt install pingus -y            
             ;;            
-        "13") #PlayOnLinux
+        "15") #PlayOnLinux
             apt install playonlinux -y
             ;;    
-        "14") #Runscape (flatpak)
+        "16") #Runscape (flatpak)
             flatpak install flathub com.jagex.RuneScape -y   
             ;;            
-        "15") #Steam
+        "17") #Steam
             apt install steam -y
             ;;
-        "16") #SuperTux
+        "18") #SuperTux
             apt install supertux -y
             ;;            
-        "17") #SuperTuxKart
+        "19") #SuperTuxKart
             apt install supertuxkart -y
             ;;   
-        "18") #TeeWorlds
+        "20") #TeeWorlds
             apt install teeworlds -y
-            ;;               
+            ;;     
+        "21") #Xqf
+            apt install xqf -y
+            ;;                 
     esac
 done
 
@@ -1734,24 +1769,34 @@ done
 for srv in $choixServeur
 do
     case $srv in
-        "2") #PHP5 
+        "2") #Docker (Dépot artful utilisé car celui pour Bionic pas encore actif)
+            apt install apt-transport-https ca-certificates curl software-properties-common -y
+            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+            add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable"
+            apt update ; apt install docker-ce -y
+            ;;    
+    
+        "3") #PHP5 
             add-apt-repository -y ppa:ondrej/php ; apt update
             apt install php5.6 -y
             ;;
-        "3") #php7.2
+        "4") #php7.2
             add-apt-repository -y ppa:ondrej/php ; apt update
             apt install php7.2 -y
-            ;;               
-        "4") #Postgresql
+            ;;     
+        "5") #Samba + gadmin-samba
+            apt install samba gadmin-samba -y
+            ;;                 
+        "6") #Postgresql
             apt install postgresql -y
             ;;            
-        "5") #proftpd
+        "7") #proftpd
             apt install proftpd -y
             ;;  
-        "6") #lamp
+        "8") #lamp
             apt install apache2 php mariadb-server libapache2-mod-php php-mysql -y
             ;;            
-        "7") #openssh-server
+        "9") #openssh-server
             apt install openssh-server -y
             ;;            
     esac
