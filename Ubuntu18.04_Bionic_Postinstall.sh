@@ -531,7 +531,7 @@ then
     echo -e "${jaune}17/ Des fonctions serveurs à activer ? [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Pas de service à activer"
-    echo -e "[2] Docker ${gris}[DepExt]${neutre} (Permet d'empaqueter une appli+dépendances dans un conteneur isolé, utilisable partout)
+    echo -e "[2] Docker ${gris}[DepExt]${neutre} (Permet d'empaqueter une appli+dépendances dans un conteneur isolé, utilisable partout)"
     echo -e "[3] PHP5.6 ${gris}[PPA]${neutre} (rétroportage de l'ancienne version)"
     echo -e "[4] PHP7.2 ${gris}[PPA]${neutre} (dernière version stable de PHP)"
     echo "[5] Samba + Interface d'administration gadmin-samba"
