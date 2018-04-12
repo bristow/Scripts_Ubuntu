@@ -332,7 +332,7 @@ then
     echo "[8] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
     echo -e "[9] LibreOffice {branche gelé en 6.0} ${vert}[Recommandé]${neutre} suite bureautique libre (normalement déjà installé de base)"
     echo -e "[10] LibreOffice Fresh (backporté) ${gris}[PPA]${neutre} {dernière version stable possible, changement de branche possible !} "    
-    echo -e "[11] LibreOffice Supplément : ajoute des styles d'icones, des modèles de documents et clipart supplémentaires + récupère l'extension Grammalecte)"
+    echo -e "[11] LibreOffice Supplément : ajoute des styles d'icones + des modèles de documents & clipart + récupère l'extension Grammalecte)"
     echo -e "[12] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
     echo -e "[13] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
     echo -e "[14] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
