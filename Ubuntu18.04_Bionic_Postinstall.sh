@@ -669,65 +669,68 @@ sed -i "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 #Maj du système + nettoyage
 apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
 
-#Vérification que snapd est bien installé (surtout utile pour les variantes) + installation de flatpak
-apt install snapd flatpak -y
-flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
-
-# Autres outils utiles
-apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils p7zip-full -y
-
-# Logiciels utiles normalement déjà installés (dans le cas ou ça ne serai pas le cas, notamment sur certaines variantes)
-apt install firefox firefox-locale-fr transmission-gtk thunderbird thunderbird-locale-fr -y
-
-# Codecs utiles
-apt install x264 x265 -y
-
-#optimisation
-apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus rapidement dans nautilus
-
-# Désactivation de l'affichage des messages d'erreurs à l'écran
-sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
-
 if [ "$1" = "vbox" ] ; then  # installe les additions invités pour une vm si script lancé avec paramètre "vbox" : ./script.sh vbox
     apt install virtualbox-guest-utils -y    
 fi
 
-###################################################
-# Pour version de base sous Gnome Shell
-if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
-then
-    # logiciels utiles pour Gnome
-    apt install gnome-software-plugin-flatpak dconf-editor gnome-tweak-tool folder-color gnome-system-tools -y
-    apt install ubuntu-restricted-addons -y
-    # Suppression de l'icone Amazon (présent uniquement sur la version de base)
-    apt purge ubuntu-web-launchers -y
-    # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
-    mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions /home/$SUDO_USER/.themes /home/$SUDO_USER/.icons
+if [ "$2" != "NRI!" ] ; then # Installé par défaut sauf dans un cas particulier si précision explicite en paramètre
+    #Vérification que snapd est bien installé (surtout utile pour les variantes) + installation de flatpak
+    apt install snapd flatpak -y
+    flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
+
+    # Autres outils utiles
+    apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils p7zip-full -y
+
+    # Logiciels utiles normalement déjà installés (dans le cas ou ça ne serai pas le cas, notamment sur certaines variantes)
+    apt install firefox firefox-locale-fr transmission-gtk thunderbird thunderbird-locale-fr -y
+
+    # Codecs utiles
+    apt install x264 x265 -y
+
+    #optimisation
+    apt install ffmpegthumbnailer -y #permet de charger les minatures vidéos plus rapidement dans nautilus
+
+    # Désactivation de l'affichage des messages d'erreurs à l'écran
+    sed -i 's/^enabled=1$/enabled=0/' /etc/default/apport
+
+    ###################################################
+    # Pour version de base sous Gnome Shell
+    if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
+    then
+        # logiciels utiles pour Gnome
+        apt install gnome-software-plugin-flatpak dconf-editor gnome-tweak-tool folder-color gnome-system-tools -y
+        apt install ubuntu-restricted-addons -y
+        # Suppression de l'icone Amazon (présent uniquement sur la version de base)
+        apt purge ubuntu-web-launchers -y
+        # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
+        mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions /home/$SUDO_USER/.themes /home/$SUDO_USER/.icons
+    fi
+    ###################################################
+    # Spécifique Xubuntu/Xfce 18.04
+    if [ "$distrib" = "1" ]
+    then
+        apt install xfce4 gtk3-engines-xfce xfce4-goodies xfwm4-themes xubuntu-restricted-addons -y 
+    fi
+    ###################################################
+    # Spécifique Ubuntu Mate/Mate 18.04
+    if [ "$distrib" = "2" ]
+    then
+        apt install mate-desktop-environment-extras mate-tweak mate-applet-brisk-menu -y 
+    fi
+    ###################################################
+    # Spécifique Lubuntu/Lxde/Lxqt 18.04
+    if [ "$distrib" = "3" ]
+    then
+        apt install lubuntu-restricted-addons -y
+    fi
+    ###################################################
+    # Spécifique Kubuntu/Kde 18.04
+    if [ "$distrib" = "4" ]
+    then
+        apt install kubuntu-restricted-addons kubuntu-restricted-extras -y
+    fi
 fi
-###################################################
-# Spécifique Xubuntu/Xfce 18.04
-if [ "$distrib" = "1" ]
-then
-    apt install xfce4 gtk3-engines-xfce xfce4-goodies xfwm4-themes xubuntu-restricted-addons -y 
-fi
-###################################################
-# Spécifique Ubuntu Mate/Mate 18.04
-if [ "$distrib" = "2" ]
-then
-    apt install mate-desktop-environment-extras mate-tweak mate-applet-brisk-menu -y 
-fi
-###################################################
-# Spécifique Lubuntu/Lxde/Lxqt 18.04
-if [ "$distrib" = "3" ]
-then
-    apt install lubuntu-restricted-addons -y
-fi
-###################################################
-# Spécifique Kubuntu/Kde 18.04
-if [ "$distrib" = "4" ]
-then
-    apt install kubuntu-restricted-addons kubuntu-restricted-extras -y
-fi
+
 ###################################################
 # Logiciels automatiques pour mode novice :
 if [ "$choixMode" = "0" ]
