@@ -90,7 +90,15 @@ A noté qu'il y a une méthode de contournement sous Wayland (cf mode avancé/ex
 
 N'hésitez pas à contribuer, par exemple pour :
 - corriger des fautes
-- ajouter des logiciels utiles manquants
+- ajouter des logiciels utiles manquants, vous pouvez faire des propositions ici : https://framaforms.org/demande-dajout-de-logiciel-pour-le-script-de-pi-1804-1523260125
 
 Pour cela il suffit de vous connecter avec votre compte github puis d'éditer le fichier du script (crayon en haut à droite), faire votre ajout/modif puis cliquer sur "Propose file change" et enfin "Pull Request". 
 Une fois validé, votre modif sera visible.
+
+### 7/ Option supplémentaire
+
+Si besoin (cas particulier), le script peut être lancé avec 2 options (paramètre) :
+
+- paramètre1 "vbox" : installe les additions invités, peut être utile si vous utilisez le script dans un Ubuntu virtualisé dans Virtualbox. Dans ce cas le script se lance comme ceci : sudo ./script.sh vbox
+
+- paramètre2 "NRI!" (NeRienInstaller) : n'installe aucun logiciel de base (déconseillé), attention n'utilisez cette option que si vous savez ce que vous faites, par exemple flatpak ne sera pas installé mais le script propose un choix de logiciel flatpak, si vous choisissez un paquet flatpak dans la liste dans ce cas ça ne fonctionnera pas et il faudra alors installer vous même flatpak manuellement avant de lancer le script. Cette option n'a d'intérêt que pour certains utilisateur qui veulent vraiment un système très minimale sans même des logiciels utiles comme "transmission" ou "thunderbird". Dans ce cas le script se lance comme ceci : sudo ./script.sh - NRI! (ou pour cummuler les 2 : sudo ./script.sh vbox NRI!)
