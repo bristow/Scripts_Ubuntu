@@ -591,7 +591,7 @@ then
     echo -e "[10] PyCharm édition Professionnelle ${violet}[X!]${neutre}${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
     echo -e "[11] Quassel client ${jaune}[Snap]${neutre}"
     echo -e "[12] Rube cube ${jaune}[Snap]${neutre}"
-    echo -e "[13] Shotcut ${jaune}[Snsnapap]${neutre}"   
+    echo -e "[13] Shotcut ${jaune}[Snap]${neutre}"   
     echo -e "[14] Skype ${jaune}[Snap]${neutre}"
     echo -e "[15] TermiusApp ${jaune}[Snap]${neutre}"
     echo -e "[16] TicTacToe ${jaune}[Snap]${neutre}"
