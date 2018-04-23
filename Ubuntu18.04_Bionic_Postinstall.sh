@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.15
+# version 1.0.16
 
 ## Info : vous pensez qu'il manque un logiciel utile à proposer dans le script ? faites votre demande ici : https://framaforms.org/demande-dajout-de-logiciel-pour-le-script-de-pi-1804-1523260125
 
@@ -205,13 +205,14 @@ then
     echo "[8] Grsync (une interface graphique pour l'outil rsync)"
     echo "[9] Gtk-Gnutella (un autre client stable et léger avec pas mal d'options)"
     echo -e "[10] Gydl ${bleu}[Flatpak]${neutre} (permet de télécharger des vidéos Youtube ou juste la piste audio)"
-    echo "[11] Nicotine+ (client P2P pour le réseau mono-source Soulseek)"
-    echo "[12] qBittorrent (client BitTorrent léger développé en C++ avec Qt)"    
-    echo "[13] Rtorrent (client BitTorrent en ligne de commande donc très léger)"
-    echo "[14] SubDownloader (téléchargement de sous-titre)"
-    echo -e "[15] Vuze ${jaune}[Snap]${neutre} (plate-forme commerciale d'Azureus avec BitTorrent)"
-    echo -e "[16] WebTorrent ${bleu}[Flatpak]${neutre} (permet le streamming de flux vidéo décentralisé via le protocole bittorrent)"
-    echo -e "[17] WormHole (un outil en CLI permettant le transfert sécurisé à travers n'importe quel réseau)"
+    echo "[11] Ktorrent (client torrent pour l'environnement de bureau KDE/Plasma)"    
+    echo "[12] Nicotine+ (client P2P pour le réseau mono-source Soulseek)"
+    echo "[13] qBittorrent (client BitTorrent léger développé en C++ avec Qt)"    
+    echo "[14] Rtorrent (client BitTorrent en ligne de commande donc très léger)"
+    echo "[15] SubDownloader (téléchargement de sous-titre)"
+    echo -e "[16] Vuze ${jaune}[Snap]${neutre} (plate-forme commerciale d'Azureus avec BitTorrent)"
+    echo -e "[17] WebTorrent ${bleu}[Flatpak]${neutre} (permet le streamming de flux vidéo décentralisé via le protocole bittorrent)"
+    echo -e "[18] WormHole (un outil en CLI permettant le transfert sécurisé à travers n'importe quel réseau)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3 4 15) : " choixTelechargement
     clear
@@ -324,24 +325,27 @@ then
     echo "*******************************************************"
     echo "[1] Aucun supplément"
     echo "[2] Calligra Suite (suite bureautique de KDE, il s'intègre donc bien avec cet environnement {kde/plasma})"
-    echo -e "[3] FeedReader ${bleu}[Flatpak]${neutre} (agrégateur RSS moderne pour consulter vos fils d'informations RSS)"
-    echo "[4] Freeplane (création de cartes heuristiques (Mind Map) avec des diagrammes représentant les connexions sémantiques)"
-    echo "[5] Geary (logiciel de messagerie, alternative à Thunderbird et bien intégré à Gnome)"
-    echo "[6] Gnome Evolution (logiciel de type groupware et courrielleur, facile à utiliser)"
-    echo "[7] Gnome Office (pack contenant Abiword, Gnumeric, Dia, Planner, Glabels, Glom, Tomboy et Gnucash)"
-    echo "[8] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
-    echo -e "[9] LibreOffice {branche gelé en 6.0} ${vert}[Recommandé]${neutre} suite bureautique libre (normalement déjà installé de base)"
-    echo -e "[10] LibreOffice Fresh (backporté) ${gris}[PPA]${neutre} {dernière version stable possible, changement de branche possible !} "    
-    echo -e "[11] LibreOffice Supplément : ajoute des styles d'icones + des modèles de documents & clipart + récupère l'extension Grammalecte)"
-    echo -e "[12] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
-    echo -e "[13] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
-    echo -e "[14] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
-    echo "[15] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
-    echo "[16] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
-    echo -e "[17] Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applis d'édition avancées de chaînes éditoriales)"
-    echo "[18] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
-    echo -e "[19] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
-    echo "[20] Zim (wiki en local avec une collection de pages et de marqueurs)"
+    echo "[3] FBReader (Lecteur de livres électroniques e-books supportant notamment les formats epub, fb2, chm, rtf, plucker...)"    
+    echo -e "[4] FeedReader ${bleu}[Flatpak]${neutre} (agrégateur RSS moderne pour consulter vos fils d'informations RSS)"
+    echo "[5] Freeplane (création de cartes heuristiques (Mind Map) avec des diagrammes représentant les connexions sémantiques)"
+    echo "[6] Geary (logiciel de messagerie, alternative à Thunderbird et bien intégré à Gnome)"
+    echo "[7] Gnome Evolution (logiciel de type groupware et courrielleur, facile à utiliser)"
+    echo "[8] Gnome Office (pack contenant Abiword, Gnumeric, Dia, Planner, Glabels, Glom, Tomboy et Gnucash)"
+    echo "[9] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
+    echo -e "[10] LibreOffice {branche gelé en 6.0} ${vert}[Recommandé]${neutre} suite bureautique libre (normalement déjà installé de base)"
+    echo -e "[11] LibreOffice Fresh (backporté) ${gris}[PPA]${neutre} {dernière version stable possible, changement de branche possible !} "    
+    echo -e "[12] LibreOffice Supplément : ajoute des styles d'icones + des modèles de documents & clipart + récupère l'extension Grammalecte)"
+    echo -e "[13] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
+    echo -e "[14] Master PDF Editor (éditeur PDF propriétaire capable de gérer les formulaires CERFA/XFA)" 
+    echo -e "[15] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
+    echo -e "[16] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
+    echo "[17] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
+    echo "[18] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
+    echo -e "[19] Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applis d'édition avancées de chaînes éditoriales)"
+    echo -e "[20] Scribus (Logiciel de PAO, convient plutôt pour la réalisation de plaquettes, livres et magazines)"
+    echo "[21] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
+    echo -e "[22] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
+    echo "[23] Zim (wiki en local avec une collection de pages et de marqueurs)"
     # Choix supplémentaire caché mais possible (car pose problème) :
     # [500] => Soft Maker Office Béta #peux faire planter l'installation du script avec ce logiciel (déconseillé)
     echo "*******************************************************"
@@ -414,24 +418,26 @@ then
     echo "[1] Aucun, je ne suis pas un gamer"
     echo "[2] 0ad: Empires Ascendant (jeu de stratégie en temps réel RTS)" 
     echo -e "[3] Albion Online ${bleu}[Flatpak]${neutre} (MMORPG avec système de quête et donjons)"    
-    echo "[4] Assault Cube (clone de Counter Strike)" 
-    echo -e "[5] Battle for Wesnoth (stratégie, le joueur doit se battre pour retrouver sa place dans le royaume)"    
-    echo "[6] FlightGear (simulateur de vol)"
-    echo "[7] Gnome Games (pack d'une dizaine de mini-jeux pour Gnome)"
-    echo -e "[8] Khaganat [Khanat] ${cyan}[M!]${neutre} ${rouge}[D!]${neutre} (MMORPG 100% libre avec un univers imaginaire, en phase alpha)"
-    echo "[9] Lutris (Plate-forme de jeux équivalente à Steam mais libre, rassemble tous vos jeux natifs ou non)"
-    echo "[10] Megaglest (RTS 3d dans un monde fantastique avec 2 factions qui s'affrontent : la magie et la technologie)"    
-    echo "[11] Minecraft (un des plus célèbres jeux sandbox, jeu propriétaire et payant)"
-    echo "[12] Minetest (un clone de Minecraft mais libre/opensource et totalement gratuit)"
-    echo "[13] OpenArena (un clone libre du célèbre jeu 'Quake')"   
-    echo "[14] Pingus (clone de Lemmings, vous devrez aider des manchots un peu idiots à traverser des obstacles)"    
-    echo "[15] PlayOnLinux (permet de faire tourner des jeux Windows via Wine avec des réglages pré-établis)"    
-    echo -e "[16] RuneScape ${bleu}[Flatpak]${neutre} (reconnu MMORPG gratuit le plus populaire au monde avec plus de 15 millions de comptes F2P)"
-    echo "[17] Steam (plateforme de distribution de jeux. Permet notamment d'installer Dota2, TF2, CS, TR...)"
-    echo "[18] SuperTux (clone de Super Mario mais avec un pingouin)"
-    echo "[19] SuperTuxKart (clone de Super Mario Kart)"
-    echo "[20] Teeworlds (jeu de tir TPS multijoueur 2D, vous incarnez une petite créature, le tee)" 
-    echo "[21] Xqf (Explorateur de serveurs de jeu pour visualiser tous les serveurs de vos jeux de façon unifié)"
+    echo "[4] AlienArena (jeu de tir à la première personne, gratuit, dérivé du moteur de Quake)"        
+    echo "[5] Assault Cube (clone de Counter Strike)" 
+    echo -e "[6] Battle for Wesnoth (stratégie, le joueur doit se battre pour retrouver sa place dans le royaume)"    
+    echo "[7] FlightGear (simulateur de vol)"
+    echo "[8] Gnome Games (pack d'une dizaine de mini-jeux pour Gnome)"
+    echo -e "[9] Khaganat [Khanat] ${cyan}[M!]${neutre} ${rouge}[D!]${neutre} (MMORPG 100% libre avec un univers imaginaire, en phase alpha)"
+    echo "[10] Lutris (Plate-forme de jeux équivalente à Steam mais libre, rassemble tous vos jeux natifs ou non)"
+    echo "[11] Megaglest (RTS 3d dans un monde fantastique avec 2 factions qui s'affrontent : la magie et la technologie)"    
+    echo "[12] Minecraft (un des plus célèbres jeux sandbox, jeu propriétaire et payant)"
+    echo "[13] Minetest (un clone de Minecraft mais libre/opensource et totalement gratuit)"
+    echo "[14] OpenArena (un clone libre du célèbre jeu 'Quake')"   
+    echo "[15] Pingus (clone de Lemmings, vous devrez aider des manchots un peu idiots à traverser des obstacles)"    
+    echo "[16] PlayOnLinux (permet de faire tourner des jeux Windows via Wine avec des réglages pré-établis)"    
+    echo "[17] PokerTH (jeu de poker opensource Texas Holdem No Limit jusqu'à 10 participants, humains ou IA)"    
+    echo -e "[18] RuneScape ${bleu}[Flatpak]${neutre} (reconnu MMORPG gratuit le plus populaire au monde avec plus de 15 millions de comptes F2P)"
+    echo "[19] Steam (plateforme de distribution de jeux. Permet notamment d'installer Dota2, TF2, CS, TR...)"
+    echo "[20] SuperTux (clone de Super Mario mais avec un pingouin)"
+    echo "[21] SuperTuxKart (clone de Super Mario Kart)"
+    echo "[22] Teeworlds (jeu de tir TPS multijoueur 2D, vous incarnez une petite créature, le tee)" 
+    echo "[23] Xqf (Explorateur de serveurs de jeu pour visualiser tous les serveurs de vos jeux de façon unifié)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3) : " choixGaming
     clear
@@ -981,26 +987,29 @@ do
             ;;       
         "10") #Gydl (flatpak)
             flatpak install flathub com.github.JannikHv.Gydl -y
-            ;;              
-        "11") #Nicotine+ 
+            ;;      
+        "11") #Ktorrent (kde/plasma)
+            apt install ktorrent -y
+            ;;               
+        "12") #Nicotine+ 
             apt install nicotine -y
             ;;               
-        "12") #qBittorrent
+        "13") #qBittorrent
             apt install qbittorrent -y
             ;;  
-        "13") #Rtorrent
+        "14") #Rtorrent
             apt install rtorrent screen -y
             ;;
-        "14") #SubDownloader
+        "15") #SubDownloader
             apt install subdownloader -y
             ;;              
-        "15") #Vuze
+        "16") #Vuze
             snap install vuze-vs --classic
             ;;  
-        "16") #Webtorrent (flatpak)
+        "17") #Webtorrent (flatpak)
             flatpak install flathub io.webtorrent.WebTorrent -y
             ;;
-        "17") #WormHole
+        "18") #WormHole
             apt install magic-wormhole -y
             ;;            
     esac
@@ -1245,68 +1254,77 @@ do
     case $bureautique in
         "2") # Calligra Suite
             apt install calligra -y
-            ;;      
-        "3") #Feedreader (flatpak)
+            ;;   
+        "3") # FBReader
+            apt install fbreader -y
+            ;;                
+        "4") #Feedreader (flatpak)
             flatpak install flathub org.gnome.FeedReader -y
             ;;    
-        "4") #Freeplane
+        "5") #Freeplane
             apt install freeplane -y
             ;;    
-        "5") #Geary
+        "6") #Geary
             apt install geary -y
             ;;   
-        "6") #Gnome Evolution
+        "7") #Gnome Evolution
             apt install evolution -y
             ;;              
-        "7") #Gnome Office
+        "8") #Gnome Office
             apt install abiword gnumeric dia planner glabels glom tomboy gnucash -y
             ;; 
-        "8") #Latex
+        "9") #Latex
             apt install texlive texlive-lang-french texworks -y
             ;;             
-        "9") #LibreOffice
+        "10") #LibreOffice
             apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze -y
             ;;    
-        "10") #LibreOffice fresh (PPA)
+        "11") #LibreOffice fresh (PPA)
             add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y  
             apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze -y
             ;;
-        "11") #LibreOffice : Supplément
+        "12") #LibreOffice : Supplément
             apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango -y
             apt install libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
             # récupération extension grammalecte (oxt)
             wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && mv Gramm* ..
             ;;            
-        "12") #MailSpring (Snap)
+        "13") #MailSpring (Snap)
             snap install mailspring
             ;;    
-        "13") #Notes Up (Flatpak)
+        "14") #Master PDF Editor
+            wget https://code-industry.net/public/master-pdf-editor-4.3.89_qt5.amd64.deb ; dpkg -i master-pdf* ; apt install -fy ; rm master-pdf*
+            ;;              
+        "15") #Notes Up (Flatpak)
             flatpak install flathub com.github.philip_scott.notes-up -y
             ;;  
-        "14") #OnlyOffice (Snap)
+        "16") #OnlyOffice (Snap)
             snap install onlyoffice-desktopeditors --classic
             ;;            
-        "15") #PDFMod
+        "17") #PDFMod
             apt install pdfmod -y 
             ;;    
-        "16") #Police d'écriture Microsoft
+        "18") #Police d'écriture Microsoft
             echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
             ;;
-        "17") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
+        "19") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
             echo "deb https://download.scenari.org/deb xenial main" > /etc/apt/sources.list.d/scenari.list
             wget -O- https://download.scenari.org/deb/scenari.asc | apt-key add -
             apt update ; apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
             ;;
-        "18") #Wordgrinder
+        "20") #Scribus
+            apt install scribus scribus-template -y
+            ;;    
+        "21") #Wordgrinder
             apt install wordgrinder wordgrinder-x11 -y
             ;;            
-        "19") #WPS Office
+        "22") #WPS Office
             #wget http://ftp.fr.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb ; wget http://kdl1.cache.wps.com/ksodl/download/linux/a21//wps-office_10.1.0.5707~a21_amd64.deb
             # problème de bande passante donc 1 serveur altnatif :
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/wps032018.deb ; wget http://nux87.free.fr/script-postinstall-ubuntu/deb/libpng.deb
             dpkg -i libpng* ; dpkg -i wps* ; apt install -fy ; rm *.deb ;
             ;;  
-        "20") #Zim
+        "23") #Zim
             apt install zim -y
             ;;                            
         # Entrées cachés car potentiellement risqué :
@@ -1484,62 +1502,68 @@ do
             ;;    
         "3") #Albion online (flatpak)
             flatpak install flathub com.albiononline.AlbionOnline -y
-            ;;                  
-        "4") #Assault Cube
+            ;;       
+        "4") #AlienArena
+            apt install alien-arena -y
+            ;;                
+        "5") #Assault Cube
             apt install assaultcube -y
             ;;     
-        "5") #Battle for Wesnoth
+        "6") #Battle for Wesnoth
             apt install wesnoth -y
             ;;            
-        "6") #FlightGear
+        "7") #FlightGear
             apt install flightgear -y
             ;;       
-        "7") #Gnome Games 
+        "8") #Gnome Games 
             apt install gnome-games gnome-games-app -y
             ;;    
-        "8") #Khaganat
+        "9") #Khaganat
             wget https://clients.lirria.khaganat.net/smokey_linux64.7z
             7z x smokey* ; rm -rf smokey*.7z ; mv Khanat* /home/$SUDO_USER/khanat_game ; chown -R $SUDO_USER /home/$SUDO_USER/khanat_game
             ;;                 
-        "9") #Lutris
+        "10") #Lutris
             wget https://download.opensuse.org/repositories/home:/strycore/xUbuntu_17.10/amd64/lutris_0.4.14_amd64.deb
             dpkg -i lutris* ; apt install -fy ; rm lutris*
             ;;                 
-        "10") #Megaglest
+        "11") #Megaglest
             apt install megaglest -y
             ;;            
-        "11") #Minecraft 
+        "12") #Minecraft 
             wget http://packages.linuxmint.com/pool/import/m/minecraft-installer/minecraft-installer_0.1+r12~ubuntu16.04.1_amd64.deb
             dpkg -i minecraft-installer_0.1+r12~ubuntu16.04.1_amd64.deb ; apt install -fy
             ;;
-        "12") #Minetest 
+        "13") #Minetest 
             apt install minetest minetest-mod-nether -y
             ;; 
-        "13") #OpenArena
+        "14") #OpenArena
             apt install openarena -y
             ;;    
-        "14") #Pingus
+        "15") #Pingus
             apt install pingus -y            
             ;;            
-        "15") #PlayOnLinux
+        "16") #PlayOnLinux
             apt install playonlinux -y
-            ;;    
-        "16") #Runscape (flatpak)
+            ;; 
+        "17") #PokerTH
+            apt install pokerth -y
+            ;;               
+        "18") #Runscape (flatpak)
             flatpak install flathub com.jagex.RuneScape -y   
             ;;            
-        "17") #Steam
+        "19") #Steam
             apt install steam -y
             ;;
-        "18") #SuperTux
+        "20") #SuperTux
             apt install supertux -y
             ;;            
-        "19") #SuperTuxKart
+        "21") #SuperTuxKart
             apt install supertuxkart -y
             ;;   
-        "20") #TeeWorlds
+        "22") #TeeWorlds
             apt install teeworlds -y
             ;;     
-        "21") #Xqf
+        "23") #Xqf
             apt install xqf -y
             ;;                 
     esac
