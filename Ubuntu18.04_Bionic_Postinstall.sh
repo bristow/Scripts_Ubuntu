@@ -341,7 +341,7 @@ then
     echo -e "[16] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
     echo "[17] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
     echo "[18] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
-    echo -e "[19] Scenari ${gris}[DepExt]${neutre} (scenarichaine 4.2 + opale : famille d'applis d'édition avancées de chaînes éditoriales)"
+    echo -e "[19] Scenari ${gris}[DepExt]${neutre} (utilise scenarichaine 4.2 : appli d'édition avancée de chaîne éditoriale)"
     echo -e "[20] Scribus (Logiciel de PAO, convient plutôt pour la réalisation de plaquettes, livres et magazines)"
     echo "[21] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
     echo -e "[22] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
@@ -1309,7 +1309,7 @@ do
         "19") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
             echo "deb https://download.scenari.org/deb xenial main" > /etc/apt/sources.list.d/scenari.list
             wget -O- https://download.scenari.org/deb/scenari.asc | apt-key add -
-            apt update ; apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
+            apt update ; apt install --no-install-recommends scenarichain4.2.fr-fr -y #(opale3.6.fr-fr pas installé car pose problème sur Bionic actuellement)
             ;;
         "20") #Scribus
             apt install scribus scribus-template -y
