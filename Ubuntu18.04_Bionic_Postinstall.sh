@@ -1589,10 +1589,9 @@ do
             wget https://extensions.gnome.org/extension-data/clipboard-indicator%40tudmotu.com.v30.shell-extension.zip
             unzip clipboard-indicator@tudmotu.com.v30.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
             ;;                
-        "6") #DashToDock (v3.26)
-            wget https://extensions.gnome.org/extension-data/dash-to-dock%40micxgx.gmail.com.v62.shell-extension.zip 
-            unzip dash-to-dock@micxgx.gmail.com.v62.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
-            #apt install gnome-shell-extension-dashtodock -y (méthode d'install non choisi car fait buggé la session pour cette extension)
+        "6") #DashToDock 
+            apt install gnome-shell-extension-dashtodock -y
+            #wget https://extensions.gnome.org/extension-data/dash-to-dock%40micxgx.gmail.com.v62.shell-extension.zip ; unzip dash-to-dock@micxgx.gmail.com.v62.shell-extension.zip -d /home/$SUDO_USER/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
             ;;
         "7") #DashToPanel
             apt install gnome-shell-extension-dash-to-panel -y
