@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.16
+# version 1.0.17
 
 ## Info : vous pensez qu'il manque un logiciel utile à proposer dans le script ? faites votre demande ici : https://framaforms.org/demande-dajout-de-logiciel-pour-le-script-de-pi-1804-1523260125
 
@@ -938,8 +938,7 @@ do
             ;;     
         "17") #Teamspeak (script à l'intérieur à lancer manuellement par l'utilisateur)
             wget http://nux87.free.fr/script-postinstall-ubuntu/archives/Teamspeak.tar.xz 
-            tar -xJf Teamspeak.tar.xz ; chown -R $SUDO_USER:$SUDO_USER Teamspeak 
-            rm -f Teamspeak.tar.xz
+            tar -xJf Teamspeak.tar.xz ; chown -R $SUDO_USER:$SUDO_USER Teamspeak ; rm -f Teamspeak.tar.xz ; mv Teamspeak ..
             ;;             
         "18") #telegram 
             apt install telegram-desktop -y
@@ -1344,7 +1343,7 @@ do
             ;;   
         "3") #AlgoIDE 
             wget http://www.algoid.net/downloads/AlgoIDE-release.jar
-            chmod +x AlgoIDE-release.jar && mv AlgoIDE-release.jar /home/$SUDO_USER/
+            chmod +x AlgoIDE-release.jar && mv AlgoIDE-release.jar /home/$SUDO_USER/ ; chown -R $SUDO_USER /home/$SUDO_USER/AlgoIDE* ; chmod +x /home/$SUDO_USER/AlgoIDE*
             ;;                 
         "4") #Avogadro
             apt install avogadro -y
@@ -2044,8 +2043,8 @@ do
             wget https://github.com/HR/Crypter/releases/download/v3.1.0/Crypter-3.1.0-x86_64.AppImage
             ;;            
         "5") #Digikam
-            wget https://download.kde.org/stable/digikam/digikam-5.5.0-01-x86-64.appimage
-            mv digikam-5.5.0-01-x86-64.appimage digikam-5.5.0-01-x86-64.AppImage
+            wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/digikam-5.9.0-01-x86-64.appimage
+            mv digikam-5.9.0-01-x86-64.appimage digikam-5.9.0-01-x86-64.AppImage
             ;;
         "6") #Freecad
             wget https://github.com/FreeCAD/FreeCAD/releases/download/0.16.6712/FreeCAD-0.16.6712.glibc2.17-x86_64.AppImage
