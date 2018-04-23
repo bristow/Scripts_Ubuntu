@@ -1,7 +1,6 @@
 #!/bin/bash
 # version 1.0.17
-
-## Info : vous pensez qu'il manque un logiciel utile à proposer dans le script ? faites votre demande ici : https://framaforms.org/demande-dajout-de-logiciel-pour-le-script-de-pi-1804-1523260125
+# Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
 #  
