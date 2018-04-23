@@ -1309,7 +1309,7 @@ do
         "19") #Scenari (dépot Artful utilisé car celui de bionic pas encore actif + dépendance ajouté)
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/libav-tools_3.3.4-2_all.deb ; dpkg -i libav-tools* ; rm libav-tools*
             wget -O- https://download.scenari.org/deb/scenari.asc | apt-key add - ; echo "deb https://download.scenari.org/deb artful main" > /etc/apt/sources.list.d/scenari.list
-            apt update ; apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
+            apt update ; apt install -fy ; apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
             ;;
         "20") #Scribus
             apt install scribus scribus-template -y
