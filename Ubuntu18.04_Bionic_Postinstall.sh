@@ -1306,10 +1306,10 @@ do
         "18") #Police d'écriture Microsoft
             echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
             ;;
-        "19") #Scenari (dépot Xenial utilisé car celui de bionic pas encore actif mais installation/fonctionnement OK)
-            echo "deb https://download.scenari.org/deb xenial main" > /etc/apt/sources.list.d/scenari.list
-            wget -O- https://download.scenari.org/deb/scenari.asc | apt-key add -
-            apt update ; apt install --no-install-recommends scenarichain4.2.fr-fr -y #(opale3.6.fr-fr pas installé car pose problème sur Bionic actuellement)
+        "19") #Scenari (dépot Artful utilisé car celui de bionic pas encore actif + dépendance ajouté)
+            wget http://nux87.free.fr/script-postinstall-ubuntu/deb/libav-tools_3.3.4-2_all.deb ; dpkg -i libav-tools* ; rm libav-tools*
+            wget -O- https://download.scenari.org/deb/scenari.asc | apt-key add - ; echo "deb https://download.scenari.org/deb artful main" > /etc/apt/sources.list.d/scenari.list
+            apt update ; apt install scenarichain4.2.fr-fr opale3.6.fr-fr -y
             ;;
         "20") #Scribus
             apt install scribus scribus-template -y
