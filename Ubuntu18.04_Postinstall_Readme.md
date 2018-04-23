@@ -46,7 +46,7 @@ Astuce : si vous voulez faire le choix par défaut (qui correspond à 1), vous p
 
 - Bien que ça soit indiqué rapidement dans le script, un petit rappel plus complet ici concernant les éléments en couleur :
 
-[Snap] => signifie que le logiciel ne sera pas installé avec la méthode traditionnelle (apt install...) mais avec Snap. Vous pouvez voir la liste de vos paquets Snappy installés via la commande suivante :
+[Snap] => signifie que le logiciel ne sera pas installé avec la méthode traditionnelle (apt install...) mais avec Snap. Snappy gère notamment le multi-branche pour vos logiciels, c'est à dire que vous pouvez choisir par exemple entre plusieurs versions pour un même logiciel, par exemple VLC est dispo en snap branche stable en 3.0 mais aussi en 4.0 dans la branche edge. Vous pouvez voir la liste de vos paquets Snappy installés via la commande suivante :
 ```bash 
   snap list
 ```  
@@ -60,7 +60,7 @@ Pour mettre à jour l'ensemble de vos paquets snaps :
   sudo snap refresh
 ```  
 
-[Flatpak] => cette fois-ci le logiciel sera installé avec Flatpak (une alternative aux snaps), c'est une méthode d'installation encore peu connue des Ubunteros pour 2 raisons : flatpak n'est pas installé par défaut et il n'est présent dans les dépots officiels que depuis les versions récentes (sous la 16.04 il fallait ajouter un PPA par exemple).
+[Flatpak] => cette fois-ci le logiciel sera installé avec Flatpak (une alternative aux snaps), c'est une méthode d'installation encore peu connue des Ubunteros pour 2 raisons : flatpak n'est pas installé par défaut et il n'est présent dans les dépots officiels que depuis les versions récentes (sous la 16.04 il fallait ajouter un PPA par exemple). Les paquets Flatpak fonctionnent particulièrement bien avec l'environnement "Gnome Shell", ça tombe bien, c'est l'environnement par défaut de la 18.04.
 
 Pour voir les paquets flatpak installés :
 ```bash 
@@ -75,30 +75,27 @@ Pour mettre à jour l'ensemble de vos paquets flatpak :
   sudo apt update && sudo apt full-upgrade -y ; sudo apt autoremove --purge -y ; sudo snap refresh ; sudo flatpak update -y
 ```  
 
-[AppImage] => Le format de paquets Appimage permet de distribuer des logiciels de manière portable sur n'importe quelle distribution Linux, y compris Ubuntu. Le but est de pouvoir déployer des applications simplement, avec une grande compatibilité, sans impacter le système.
+[AppImage] => Le format de paquets Appimage permet de distribuer des logiciels de manière portable sur n'importe quelle distribution Linux, y compris Ubuntu. Le but est de pouvoir déployer des applications simplement, avec une grande compatibilité, sans impacter le système. Cependant, sachez que contrairement aux paquets Snappy et Flatpak, les AppImages ne se mettent pas à jour. Si une nouvelle version sort du logiciel sort, ça sera à vous d'aller récupérer manuellement la nouvelle AppImage du logiciel en question.
   
-[Interv!] => Signifie que l'installation ne peux pas être entièrement automatisé, autrement dit en sélectionant un logiciel avec cet avertissement, le script va s'arréter en plein milieu et vous demander d'intervenir et ne reprendra qu'une fois avoir compléter l'installation (par exemple pour accepter un contrat de licence).
+[Interv!] => Signifie que l'installation ne peux pas être entièrement automatisé, autrement dit en sélectionant un logiciel avec cet avertissement, le script va s'arréter en plein milieu et vous demander d'intervenir et ne reprendra qu'une fois avoir compléter l'installation (par exemple pour accepter un contrat de licence). C'est quelque chose d'assez rare (très peu de logiciels sont concernés).
 
-[Xorg only!] => Cet avertissement ne concerne que ceux qui utilisent la version de base (donc avec Gnome Shell), si vous utilisez une variante vous n'avez pas à vous poser de question car vous êtes forcément sous Xorg (donc logiciel compatible). Sous le nouveau Ubuntu avec Gnome Shell, il y a 2 sessions, la session Wayland et la session Xorg (choix par défaut). Certains logiciels ne sont pas compatibles avec Wayland mais fonctionneront sous Xorg. C'est le cas par exemple de "Synaptic" ou "Gparted". Cela dit, ce n'est pas très génant dans la mesure ou Xorg est la session par défaut. 
-
+[Xorg only!] => Cet avertissement ne concerne que ceux qui utilisent la version de base (donc avec Gnome Shell), si vous utilisez une variante vous n'avez pas à vous poser de question car vous êtes forcément sous Xorg (donc logiciel compatible). Sous le nouveau Ubuntu avec Gnome Shell, il y a 2 sessions, la session Xorg (choix par défaut) et la session Wayland (choix alternatif). Certains logiciels ne sont pas compatibles avec Wayland mais fonctionneront sous Xorg. C'est le cas par exemple de "Synaptic" ou "Gparted". Cela dit, ce n'est pas très génant dans la mesure ou Xorg est la session par défaut sous la 18.04 (contrairement à la 17.10).
 Cela vient du fait que Wayland est plus sécurisé et interdit de lancer une application graphique avec les droits root. 
 A noté qu'il y a une méthode de contournement sous Wayland (cf mode avancé/extra partie optimisation, choix "commande fraude wayland").
+Vous pouvez alors lancer par exemple gparted en session Wayland via la commande : fraude gparted
 
-[à lancer manuellement] => Signifie que le logiciel devra être lancé manuellement depuis le dossier présent dans votre dossier perso (pas de raccourci dans le menu des applications).
+[à lancer manuellement] => Signifie que le logiciel devra être lancé manuellement depuis le dossier présent dans votre dossier perso (pas de raccourci dans le menu des applications). C'est le cas par exemple de Teamspeak ou Algoid. 
 
 ### 6/ Contribution
 
 N'hésitez pas à contribuer, par exemple pour :
 - corriger des fautes
-- ajouter des logiciels utiles manquants, vous pouvez faire des propositions ici : https://framaforms.org/demande-dajout-de-logiciel-pour-le-script-de-pi-1804-1523260125
+- proposer des logiciels manquants, vous pouvez faire des propositions ici : https://framaforms.org/demande-dajout-de-logiciel-pour-le-script-de-pi-1804-1523260125
 
-Pour cela il suffit de vous connecter avec votre compte github puis d'éditer le fichier du script (crayon en haut à droite), faire votre ajout/modif puis cliquer sur "Propose file change" et enfin "Pull Request". 
-Une fois validé, votre modif sera visible.
-
-### 7/ Option supplémentaire
+### 7/ Options supplémentaires
 
 Si besoin (cas particulier), le script peut être lancé avec 2 options (paramètre) :
 
-- paramètre1 "vbox" : installe les additions invités, peut être utile si vous utilisez le script dans un Ubuntu virtualisé dans Virtualbox. Dans ce cas le script se lance comme ceci : sudo ./script.sh vbox
+- paramètre 1 "vbox" : installe les additions invités, peut être utile si vous utilisez le script dans un Ubuntu virtualisé dans Virtualbox. Dans ce cas le script se lance comme ceci : sudo ./script.sh vbox
 
-- paramètre2 "NRI!" (NeRienInstaller) : n'installe aucun logiciel de base (déconseillé), attention n'utilisez cette option que si vous savez ce que vous faites, par exemple flatpak ne sera pas installé mais le script propose un choix de logiciel flatpak, si vous choisissez un paquet flatpak dans la liste dans ce cas ça ne fonctionnera pas et il faudra alors installer vous même flatpak manuellement avant de lancer le script. Cette option n'a d'intérêt que pour certains utilisateurs qui veulent vraiment un système très minimale sans même des logiciels utiles comme "transmission" ou "thunderbird". Dans ce cas le script se lance comme ceci : sudo ./script.sh - NRI! (ou pour cummuler les 2 : sudo ./script.sh vbox NRI!)
+- paramètre 2 "NRI!" (NeRienInstaller!) : n'installe aucun logiciel de base (déconseillé), attention n'utilisez cette option que si vous savez ce que vous faites, par exemple flatpak ne sera pas installé mais le script propose un choix de logiciel flatpak, si vous choisissez un paquet flatpak dans la liste dans ce cas ça ne fonctionnera pas et il faudra alors installer vous même flatpak manuellement avant de lancer le script. Cette option n'a d'intérêt que pour certains utilisateurs qui veulent vraiment un système très minimale sans même des logiciels utiles comme "transmission" ou "thunderbird". Dans ce cas le script se lance comme ceci : sudo ./script.sh - NRI! (ou pour cummuler les 2 : sudo ./script.sh vbox NRI!). 
