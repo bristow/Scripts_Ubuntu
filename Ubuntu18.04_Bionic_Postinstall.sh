@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.17
+# version 1.0.18
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -600,6 +600,7 @@ then
     echo -e "[14] Skype ${jaune}[Snap]${neutre}"
     echo -e "[15] TermiusApp ${jaune}[Snap]${neutre}"
     echo -e "[16] TicTacToe ${jaune}[Snap]${neutre}"
+    echo -e "[17] ZeroNet ${jaune}[Snap]${neutre}"
     echo "*******************************************************"
     read -p "Choix paquets snappy (exemple : 4 12) : " choixSnap
     clear
@@ -1959,7 +1960,10 @@ do
             ;;        
         "16") #TicTacToe
             snap install tic-tac-toe
-            ;;                   
+            ;;        
+        "17") #Zeronet
+            snap install zeronet
+            ;;              
     esac
 done        
     
