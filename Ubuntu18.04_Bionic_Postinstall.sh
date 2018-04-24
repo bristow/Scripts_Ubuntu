@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.18
+# version 1.0.19
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -185,7 +185,8 @@ then
     echo -e "[17] TeamSpeak ${cyan}[M!]${neutre} (équivalent à Mumble mais propriétaire)"
     echo -e "[18] Telegram (appli de messagerie basée sur le cloud avec du chiffrage)"
     echo -e "[19] Viber ${bleu}[Flatpak]${neutre} (logiciel de communication, surtout connu en application mobile)"
-    echo -e "[20] Wire ${gris}[DepExt]${neutre} (un autre client de messagerie instantanée chiffrée créé par Wire Swiss)" 
+    echo -e "[20] Weechat (client IRC léger, rapide et flexible s'utilisant en CLI)"   
+    echo -e "[21] Wire ${gris}[DepExt]${neutre} (un autre client de messagerie instantanée chiffrée créé par Wire Swiss)" 
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 6 10 14) : " choixMessagerie
     clear
@@ -945,8 +946,11 @@ do
             ;;  
         "19") #viber (flatpak)
             flatpak install flathub com.viber.Viber -y
-            ;;               
-        "20") #wire
+            ;;  
+        "20") #weechat
+            apt install weechat -y
+            ;;                 
+        "21") #wire
             apt-key adv --fetch-keys http://wire-app.wire.com/linux/releases.key
             echo "deb https://wire-app.wire.com/linux/debian stable main" | tee /etc/apt/sources.list.d/wire-desktop.list
             apt update ; apt install apt-transport-https wire-desktop -y
