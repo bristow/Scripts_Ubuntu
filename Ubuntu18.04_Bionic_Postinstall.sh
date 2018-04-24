@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.19
+# version 1.0.20
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -265,7 +265,7 @@ then
     echo -e "[11] Natron ${gris}[DepExt]${neutre} (programme de post-prod destiné au compositing et aux effets spéciaux)"    
     echo "[12] OpenShot Video Editor (éditeur vidéo, libre et écrit en Python. Il est conseillé d'ajouter Blender pour certaines fonctions)"    
     echo -e "[13] Peek ${bleu}[Flatpak]${neutre} (outil de création de Gif animé à partir d'une capture vidéo)"
-    echo -e "[14] Pitivi ${bleu}[Flatpak]${neutre} (logiciel de montage basique avec une interface simple et intuitive)"    
+    echo "[14] Pitivi (logiciel de montage basique avec une interface simple et intuitive)"    
     echo -e "[15] Shotcut ${gris}[PPA]${neutre} (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
     echo "[16] WinFF (encodage vidéo rapide dans différents formats)"
     echo "*******************************************************"
@@ -392,8 +392,8 @@ then
     echo "[13] KeePassX 2 (centralise la gestion de vos mots de passe personnels, protégé par un master password)"
     echo -e "[14] MultiSystem ${gris}[DepExt]${neutre} Utilitaire permettant de créer une clé usb bootable avec plusieurs OS"
     echo -e "[15] OpenBroadcaster Software (OBS) ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
-    echo -e "[16] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire pour le développement/éxécution de logiciels écrit en Java)"
-    echo -e "[17] Oracle Java 9 ${gris}[PPA]${neutre} (nouvelle version de Java)"
+    echo -e "[16] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire d'Oracle pour les logiciels développés en Java)"
+    echo -e "[17] Oracle Java 10 ${gris}[PPA]${neutre} (version actuelle de Java distribué par Oracle)"
     echo "[18] Pack d'applis en cyber-sécurité (aircrack-ng + nmap + John The Ripper[snap])"
     echo "[19] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
     echo "[20] RedShift (Ajuste la température de couleur de l'écran, fonction déjà incluse dans Gnome avec le mode nuit)"    
@@ -432,7 +432,7 @@ then
     echo "[15] Pingus (clone de Lemmings, vous devrez aider des manchots un peu idiots à traverser des obstacles)"    
     echo "[16] PlayOnLinux (permet de faire tourner des jeux Windows via Wine avec des réglages pré-établis)"    
     echo "[17] PokerTH (jeu de poker opensource Texas Holdem No Limit jusqu'à 10 participants, humains ou IA)"    
-    echo -e "[18] RuneScape ${bleu}[Flatpak]${neutre} (reconnu MMORPG gratuit le plus populaire au monde avec plus de 15 millions de comptes F2P)"
+    echo "[18] RuneScape (reconnu MMORPG gratuit le plus populaire au monde avec plus de 15 millions de comptes F2P)"
     echo "[19] Steam (plateforme de distribution de jeux. Permet notamment d'installer Dota2, TF2, CS, TR...)"
     echo "[20] SuperTux (clone de Super Mario mais avec un pingouin)"
     echo "[21] SuperTuxKart (clone de Super Mario Kart)"
@@ -538,8 +538,8 @@ then
     echo "*******************************************************"
     echo "[1] Pas de service à activer"
     echo -e "[2] Docker ${gris}[DepExt]${neutre} (Permet d'empaqueter une appli+dépendances dans un conteneur isolé, utilisable partout)"
-    echo -e "[3] PHP5.6 ${gris}[PPA]${neutre} (rétroportage de l'ancienne version)"
-    echo -e "[4] PHP7.2 ${gris}[PPA]${neutre} (dernière version stable de PHP)"
+    echo -e "[3] PHP5.6 ${gris}[PPA]${neutre} (rétroportage de l'ancienne version de PHP)"
+    echo "[4] PHP7.2 (dernière version stable de PHP)"
     echo "[5] Samba + Interface d'administration gadmin-samba"
     echo "[6] Serveur BDD PostgreSQL (pour installer une base de donnée PostgreSQL)"
     echo "[7] Serveur FTP avec ProFTPd (stockage de fichier sur votre machine via FTP)"   
@@ -1133,8 +1133,8 @@ do
         "13") #Peek (Flatpak) 
             flatpak install flathub com.uploadedlobster.peek -y
             ;;              
-        "14") #Pitivi (flatpak) #car la version via dpkg pose problème
-            flatpak install flathub org.pitivi.Pitivi -y
+        "14") #Pitivi 
+            apt install pitivi -y
             ;;
         "15") #Shotcut (PPA pour Bionic pas encore actif) // existe en snappy mais ne semble pas fonctionner
             add-apt-repository "deb http://ppa.launchpad.net/haraldhv/shotcut/ubuntu zesty main" -y
@@ -1439,13 +1439,13 @@ do
             add-apt-repository -y ppa:obsproject/obs-studio ; apt update
             apt install ffmpeg obs-studio -y
             ;;  
-        "16") #Oracle Java 8 (dépot xenial car celui de bionic pas encore activé)
+        "16") #Oracle Java 8 
             add-apt-repository -y ppa:webupd8team/java ; apt update 
             echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java8-installer -y
             ;;  
-        "17") #Oracle Java 9 (dépot xenial car celui de bionic pas encore activé)
-            add-apt-repository -y ppa:webupd8team/java ; apt update
-            echo oracle-java9-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java9-installer -y
+        "17") #Oracle Java 10 
+            add-apt-repository -y ppa:linuxuprising/java ; apt update
+            echo oracle-java10-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java10-installer -y
             ;;  
         "18") #Pack cyber-sécurité
             apt install aircrack-ng nmap -y
@@ -1551,8 +1551,8 @@ do
         "17") #PokerTH
             apt install pokerth -y
             ;;               
-        "18") #Runscape (flatpak)
-            flatpak install flathub com.jagex.RuneScape -y   
+        "18") #Runscape 
+            apt install runescape -y
             ;;            
         "19") #Steam
             apt install steam -y
@@ -1810,7 +1810,6 @@ do
             apt install php5.6 -y
             ;;
         "4") #php7.2
-            add-apt-repository -y ppa:ondrej/php ; apt update
             apt install php7.2 -y
             ;;     
         "5") #Samba + gadmin-samba
