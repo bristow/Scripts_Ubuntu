@@ -683,7 +683,7 @@ fi
 if [ "$2" != "NRI!" ] ; then # Installé par défaut sauf dans un cas particulier si précision explicite en paramètre
     #Vérification que snapd est bien installé (surtout utile pour les variantes) + installation de flatpak
     apt install snapd flatpak -y
-    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
     # Autres outils utiles
     apt install curl net-tools git gdebi vim htop gparted numlockx unrar debconf-utils p7zip-full -y
