@@ -159,7 +159,7 @@ then
     echo -e "[21] Vivaldi ${gris}[DepExt]${neutre} (un navigateur propriétaire avec une interface sobre assez particulière)"
     echo -e "[22] WaterFox ${gris}[DepExt]${neutre} (un fork de Firefox compatible avec les anciennes extensions)"
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants séparés d'un espace (exemple : 6 10 16) : " choixNavigateur
+    read -p "Répondre par le ou les chiffres correspondants séparés d'un espace (exemple : 4 9 21) : " choixNavigateur
     clear
 
     # Question 4 : Messagerie instantanée
@@ -167,7 +167,7 @@ then
     echo -e "${bleu}4/ Quel(s) logiciel(s) de messagerie instantanée/tchat/VoIP/visio souhaitez-vous ?${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun supplément (Thunderbird par défaut)"
-    echo -e "[2] Discord ${jaune}[Snap]${neutre} (logiciel propriétaire multiplateforme pour communiquer à plusieurs, pour les gameurs)"
+    echo -e "[2] Discord ${jaune}[Snap]${neutre} (logiciel propriétaire multiplateforme pour communiquer à plusieurs)"
     echo "[3] Ekiga (anciennement 'Gnome Meeting', logiciel de visioconférence/VoIP)"
     echo "[4] Empathy (messagerie instantanée adaptée à Gnome, multi-protocole)"
     echo "[5] Gajim (un autre client Jabber utilisant GTK+)"
@@ -187,7 +187,7 @@ then
     echo -e "[19] Viber ${bleu}[Flatpak]${neutre} (logiciel de communication, surtout connu en application mobile)"
     echo -e "[20] Wire ${gris}[DepExt]${neutre} (un autre client de messagerie instantanée chiffrée créé par Wire Swiss)" 
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 3 7 13 18) : " choixMessagerie
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 6 10 14) : " choixMessagerie
     clear
 
     # Question 5 : Download/Upload
@@ -213,7 +213,7 @@ then
     echo -e "[17] WebTorrent ${bleu}[Flatpak]${neutre} (permet le streamming de flux vidéo décentralisé via le protocole bittorrent)"
     echo -e "[18] WormHole (un outil en CLI permettant le transfert sécurisé à travers n'importe quel réseau)"
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3 4 15) : " choixTelechargement
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 4 6 8 14 18) : " choixTelechargement
     clear
 
     # Question 6 : Lecture multimédia
@@ -244,7 +244,7 @@ then
     echo -e "[21] VLC VideoLan backporté ${jaune}[Snap]${neutre} dernière version en développement - branche Edge (4.0...)"    
     echo "[22] Xmms2+Gxmms2 (un autre lecteur audio dans le style de Winamp)" 
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3) : " choixMultimedia
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 4 7 13 20) : " choixMultimedia
     clear
 
     # Question 7 : Traitement/montage video
@@ -268,7 +268,7 @@ then
     echo -e "[15] Shotcut ${gris}[PPA]${neutre} (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
     echo "[16] WinFF (encodage vidéo rapide dans différents formats)"
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixVideo
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 12) : " choixVideo
     clear
 
     # Question 8 : Traitement/montage photo & modélisation 3D
@@ -291,7 +291,7 @@ then
     echo "[14] SweetHome 3D (aménagement d'intérieur pour dessiner les plans d'une maison, placement des meubles...)"
     echo "[15] Ufraw (logiciel de dérawtisation capable de lire/interpréter la plupart des formats RAW)"
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 2 4) : " choixGraphisme
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 5 11) : " choixGraphisme
     clear
 
     # Question 9 : Traitement/encodage audio
@@ -315,7 +315,7 @@ then
     echo "[15] Sound-Juicer (pour extraire les pistes audios d'un cd)"
     echo "[16] Xcfa : X Convert File Audio (extraction cd audio, piste dvd, normalisation, création pochette)"
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 2 4) : " choixAudio
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 3 10) : " choixAudio
     clear
 
     # Question 10 : Bureautique et Mail
@@ -348,12 +348,12 @@ then
     # Choix supplémentaire caché mais possible (car pose problème) :
     # [500] => Soft Maker Office Béta #peux faire planter l'installation du script avec ce logiciel (déconseillé)
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixBureautique
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 10 12 18) : " choixBureautique
     clear
 
     # Question 11 : Science et éducation
     echo "*******************************************************"
-    echo -e "${bleu}11/ Des logiciels de science ou pour l'éducation ?${neutre}"
+    echo -e "${bleu}11/ Des logiciels de sciences ou pour l'éducation ?${neutre}"
     echo "*******************************************************"
     echo "[1] Pas d'ajout"
     echo "[2] [MATH] Algobox (logiciel libre d'aide à l'élaboration/exécution d'algorithmes en mathématique)"  
@@ -369,7 +369,7 @@ then
     echo "[12] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
     echo "[13] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixScience
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 5 13) : " choixScience
     clear
 
     # Question 12 : Utilitaires 
@@ -407,7 +407,7 @@ then
     echo "[29] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
     echo "[30] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"    
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixUtilitaire
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 5 13 26 27) : " choixUtilitaire
     clear
 
     # Question 13 : Gaming
@@ -438,7 +438,7 @@ then
     echo "[22] Teeworlds (jeu de tir TPS multijoueur 2D, vous incarnez une petite créature, le tee)" 
     echo "[23] Xqf (Explorateur de serveurs de jeu pour visualiser tous les serveurs de vos jeux de façon unifié)"
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3) : " choixGaming
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 10 13 16 19) : " choixGaming
     clear
 fi
 
@@ -448,7 +448,7 @@ then
     if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
     then
         # Question 14 : Extension 
-        echo -e "${vert}Astuce 5: Si vous aimez faire de la customisation graphique, il est recommandé d'installer 'user themes' (choix2)${neutre}"
+        echo -e "${vert}Astuce 5: Si vous aimez faire de la customisation graphique, il est recommandé d'installer l'extension 'user themes'${neutre}"
         echo "*******************************************************"
         echo -e "${jaune}14/ Des extensions pour gnome-shell à installer ? [mode avancé]${neutre}"
         echo "*******************************************************"
@@ -471,14 +471,14 @@ then
         echo "[17] Suspend button (ajout d'un bouton pour activer l'hibernation)"
         echo "[18] System-monitor (moniteur de ressources visible directement depuis le bureau)"        
         echo "[19] Taskbar (permet d'ajouter des raccourcis d'applis directement sur le panel en haut)"
-        echo "[20] Top Icons Plus (permet d'afficher un icone de notification pour les applis en haut à droite)"
+        echo "[20] Top Icons Plus (pour l'affichage d'icone de notif : normalement n'est plus nécessaire)"
         echo "[21] Trash (ajoute un raccourci vers la corbeille dans le panel en haut)"
         echo "[22] Unite (retire la décoration des fenêtres pour gagner de l'espace, pour un style proche du shell Unity)"
         echo -e "[23] User themes ${vert}[Recommandé]${neutre} (permet de charger des thèmes stockés dans votre répertoire perso)"
         echo "[24] Window list (affiche la liste des fenêtres en bas du bureau, comme à l'époque sous Gnome 2)"
         echo "[25] Workspace indicator (affiche dans le panel en haut dans quel espace de travail vous êtes)"
         echo "*******************************************************"
-        read -p "Répondre par le ou les chiffres correspondants (exemple : 2) : " choixExtension
+        read -p "Répondre par le ou les chiffres correspondants (exemple : 6 23) : " choixExtension
         clear
     fi
 
@@ -502,7 +502,7 @@ then
     echo "[13] Thèmes GTK pack3 : Albatross, Yuyo, Human, Gilouche, Materia"
     echo -e "[14] Visuel GDM avec thème gris [Pour G.S uniquement!] ${rouge}=> Attention : ajoute la session Vanilla en dépendance !${neutre}"
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 2 5) : " choixCustom
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 5 11) : " choixCustom
     clear
 
     # Question 16 : Prog
@@ -528,7 +528,7 @@ then
     echo -e "[17] Sublime Text ${gris}[DepExt]${neutre} (logiciel développé en C++ et Python prenant en charge 44 langages de programmation)"
     echo -e "[18] Visual Studio Code ${jaune}[Snap]${neutre} (développé par Microsoft, sous licence libre MIT)"
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 4 5) : " choixDev
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 8 10 11) : " choixDev
     clear
 
     # Question 17 : Serveur 
@@ -572,7 +572,7 @@ then
     echo "[18] Support imprimantes HP (hplip + sane + hplip-gui)"
     echo "[19] TLP (économie d'énergie pour pc portable)"
     echo "*******************************************************"
-    read -p "Répondre par le ou les chiffres correspondants (exemple : 2 3 7) : " choixOptimisation
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 2 5 8 10) : " choixOptimisation
     clear
 fi
 
@@ -601,7 +601,7 @@ then
     echo -e "[15] TermiusApp ${jaune}[Snap]${neutre}"
     echo -e "[16] TicTacToe ${jaune}[Snap]${neutre}"
     echo "*******************************************************"
-    read -p "Choix snappy : " choixSnap
+    read -p "Choix paquets snappy (exemple : 4 12) : " choixSnap
     clear
              
     # Question 20 : Flatpak
@@ -629,7 +629,7 @@ then
     echo -e "[19] Skype ${bleu}[Flatpak]${neutre}"
     echo -e "[20] VLC ${bleu}[Flatpak]${neutre}"    
     echo "*******************************************************"
-    read -p "Choix flatpak : " choixFlatpak
+    read -p "Choix paquets flatpak (exemple : 5 16) : " choixFlatpak
     clear
             
     # Question 21 : Appimages
@@ -637,7 +637,7 @@ then
     echo "*******************************************************"
     echo -e "${vert}21/ Mode Extra : récupération Appimages:${neutre}"
     echo "*******************************************************"
-    echo "[1] Aucune"
+    echo "[1] Aucun"
     echo -e "[2] Aidos Wallet ${vert}[Appimage]${neutre}"
     echo -e "[3] Chronos ${vert}[Appimage]${neutre}"
     echo -e "[4] Crypter ${vert}[Appimage]${neutre}"
@@ -656,7 +656,7 @@ then
     echo -e "[17] Spotify web client ${vert}[Appimage]${neutre}"
     echo -e "[18] Tulip ${vert}[Appimage]${neutre}"
     echo "*******************************************************"
-    read -p "Choix appimage : " choixAppimage
+    read -p "Choix logiciels portables au format AppImage (exemple : 9 16) : " choixAppimage
     clear
 fi
 
