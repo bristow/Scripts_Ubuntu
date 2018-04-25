@@ -323,8 +323,8 @@ then
     echo "*******************************************************"
     echo -e "${bleu}10/ Quel(s) logiciel(s) de bureautique/courrier souhaitez-vous ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Aucun supplément"
-    echo "[2] Calligra Suite (suite bureautique de KDE, il s'intègre donc bien avec cet environnement {kde/plasma})"
+    echo "[1] Aucun supplément (Thunderbird installé par défaut et LibreOffice est normalement présent de base)"
+    echo "[2] Calligra Suite (suite bureautique de KDE, il s'intègre donc bien avec l'environnement kde/plasma)"
     echo "[3] FBReader (Lecteur de livres électroniques e-books supportant notamment les formats epub, fb2, chm, rtf, plucker...)"    
     echo -e "[4] FeedReader ${bleu}[Flatpak]${neutre} (agrégateur RSS moderne pour consulter vos fils d'informations RSS)"
     echo "[5] Freeplane (création de cartes heuristiques (Mind Map) avec des diagrammes représentant les connexions sémantiques)"
@@ -341,7 +341,7 @@ then
     echo -e "[16] OnlyOffice ${jaune}[Snap]${neutre} (suite bureautique multifonctionnelle intégrée au CRM, avec jeu d'outils de collaboration)"
     echo "[17] PdfMod (logiciel permettant diverses modifications sur vos PDF)"
     echo "[18] Police d'écriture Microsoft (conseillé pour ne pas avoir de déformation de document crée avec MO)"
-    echo -e "[19] Scenari ${gris}[DepExt]${neutre} (utilise scenarichaine 4.2 : appli d'édition avancée de chaîne éditoriale)"
+    echo -e "[19] Scenari ${gris}[DepExt]${neutre} (contient scenarichaine v4.2 et Opale v3.6) : édition avancée de chaîne éditoriale"
     echo -e "[20] Scribus (Logiciel de PAO, convient plutôt pour la réalisation de plaquettes, livres et magazines)"
     echo "[21] Wordgrinder (traitement de texte léger en CLI, Formats OpenDocument, HTML import and export)"
     echo -e "[22] WPSOffice ${gris}[DepExt]${neutre} (suite bureautique propriétaire avec une interface proche de Microsoft Office)"
@@ -553,11 +553,11 @@ then
     echo "*******************************************************"
     echo -e "${jaune}18/ Des optimisations supplémentaires à activer ? [mode avancé]${neutre}"
     echo "*******************************************************"
-    echo "[1] Non"
-    echo "[2] Ajout d'une commande 'maj' qui met tout à jour (maj apt + purge + maj snap + maj flatpak)"
+    echo "[1] Non aucune"
+    echo "[2] Ajout d'une commande 'maj' qui met tout à jour (maj apt + maj snap + maj flatpak)"
     echo "[3] Ajouter le support pour le système de fichier exFat de Microsoft"
-    echo "[4] Ajouter le support pour le système de fichier HFS d'Apple"
-    echo "[5] Augmenter la sécurité de votre compte : empêcher l'accès à votre dossier perso aux autres utilisateurs"
+    echo "[4] Ajouter le support pour le système de fichier HFS+ d'Apple"
+    echo "[5] Augmenter la sécurité de votre compte : empêcher l'accès en lecture à votre dossier perso aux autres utilisateurs"
     echo "[6] Dépots supplémentaires pour Flatpak (NuvolaApps + KDEApps + GnomeApps, Flathub est déjà activé)" 
     echo "[7] Désactiver complètement le swap (utile si vous avez un SSD et 8 Go de ram ou plus)" 
     echo -e "[8] GameMode ${rouge}[I!]${neutre} ${rouge}[Experimental]${neutre} : optimisation temporaire pour les performances en jeu"
@@ -567,11 +567,11 @@ then
     echo "[12] Gnome Shell : Désactiver l'userlist de GDM (utile en entreprise intégrée à un domaine)"
     echo "[13] Installation de switcheroo-control : permet d'utiliser la carte dédié avec le pilote opensource" 
     echo "[14] Installer le microcode Intel propriétaire (pour cpu intel uniquement)"    
-    echo "[15] Installer le pilote propriétaire nVidia-390 + nvidia-prime (switch intel/nvidia) + meta-utils (glxgears test)"   
+    echo "[15] Installer le pilote propriétaire nVidia-390 + nvidia-prime (switch intel/nvidia) + mesa-utils (glxgears test)"   
     echo -e "[16] Lecture DVD commerciaux protégés par CSS (Content Scrambling System) ${rouge}[I!]${neutre}"
     echo "[17] Optimisation Grub : réduire le temps d'attente (si multiboot) de 10 à 2 secondes + retirer le test de RAM dans grub"
     echo "[18] Optimisation Swap : swapiness à 5% (swap utilisé uniquement si plus de 95% de ram utilisée)"
-    echo "[19] Retirer les paquets snappy pré-installés et réinstaller les paquets concernés par apt"
+    echo "[19] Retirer les paquets snappy pré-installés et réinstaller via apt (concerne 4 snaps : calculette+logs+moniteur+caracteres)"
     echo "[20] Support imprimantes HP (hplip + sane + hplip-gui)"
     echo "[21] TLP (économie d'énergie pour pc portable)"
     echo "*******************************************************"
@@ -1796,10 +1796,10 @@ done
 for srv in $choixServeur
 do
     case $srv in
-        "2") #Docker (Dépot artful utilisé car celui pour Bionic pas encore actif)
+        "2") #Docker 
             apt install apt-transport-https ca-certificates curl software-properties-common -y
             curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-            add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable"
+            add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
             apt update ; apt install docker-ce -y
             ;;    
     
