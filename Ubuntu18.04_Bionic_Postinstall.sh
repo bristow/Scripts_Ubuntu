@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.21
+# version 1.0.22
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -167,7 +167,7 @@ then
     echo -e "${bleu}4/ Quel(s) logiciel(s) de messagerie instantanée/tchat/VoIP/visio souhaitez-vous ?${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun supplément (Thunderbird par défaut)"
-    echo -e "[2] Discord ${jaune}[Snap]${neutre} (logiciel propriétaire multiplateforme pour communiquer à plusieurs)"
+    echo -e "[2] Discord ${bleu}[Flatpak]${neutre} (logiciel propriétaire multiplateforme pour communiquer à plusieurs)"
     echo "[3] Ekiga (anciennement 'Gnome Meeting', logiciel de visioconférence/VoIP)"
     echo "[4] Empathy (messagerie instantanée adaptée à Gnome, multi-protocole)"
     echo "[5] Gajim (un autre client Jabber utilisant GTK+)"
@@ -179,9 +179,9 @@ then
     echo "[11] Polari (client IRC pour Gnome)"
     echo "[12] Psi (multiplateforme, libre et surtout conçu pour le protocole XMPP cad Jabber)"
     echo "[13] Ring (anciennement 'SFLphone', logiciel très performant pour la téléphonie IP)"
-    echo -e "[14] Signal ${bleu}[Flatpak]${neutre} (messagerie instantanée cryptée recommandée par Edward Snowden)"
+    echo -e "[14] Signal ${jaune}[Snap]${neutre} (messagerie instantanée cryptée recommandée par Edward Snowden)"
     echo -e "[15] Skype ${gris}[DepExt]${neutre} (logiciel propriétaire de téléphonie, vidéophonie et clavardage très connue)"
-    echo -e "[16] Slack ${bleu}[Flatpak]${neutre} (plate-forme de communication collaborative propriétaire avec gestion de projets)"
+    echo -e "[16] Slack ${jaune}[Snap]${neutre} (plate-forme de communication collaborative propriétaire avec gestion de projets)"
     echo -e "[17] TeamSpeak ${cyan}[M!]${neutre} (équivalent à Mumble mais propriétaire)"
     echo -e "[18] Telegram (appli de messagerie basée sur le cloud avec du chiffrage)"
     echo -e "[19] Viber ${bleu}[Flatpak]${neutre} (logiciel de communication, surtout connu en application mobile)"
@@ -204,7 +204,7 @@ then
     echo -e "[7] FrostWire ${gris}[DepExt]${neutre} (client multiplate-forme pour le réseau Gnutella)"
     echo "[8] Grsync (une interface graphique pour l'outil rsync)"
     echo "[9] Gtk-Gnutella (un autre client stable et léger avec pas mal d'options)"
-    echo -e "[10] Gydl ${bleu}[Flatpak]${neutre} (permet de télécharger des vidéos Youtube ou juste la piste audio)"
+    echo -e "[10] Gydl ${jaune}[Snap]${neutre} (permet de télécharger des vidéos Youtube ou juste la piste audio)"
     echo "[11] Ktorrent (client torrent pour l'environnement de bureau KDE/Plasma)"    
     echo "[12] Nicotine+ (client P2P pour le réseau mono-source Soulseek)"
     echo "[13] qBittorrent (client BitTorrent léger développé en C++ avec Qt)"    
@@ -241,8 +241,8 @@ then
     echo "[17] QuodLibet (un lecteur audio très puissant avec liste de lecture basée sur les expressions rationnelles)"
     echo "[18] SmPlayer (lecteur basé sur mplayer avec une interface utilisant Qt)"
     echo -e "[19] Spotify ${jaune}[Snap]${neutre} (permet d'accéder gratuitement et légalement à de la musique en ligne)"
-    echo -e "[20] VLC VideoLan {branche 3.0} ${vert}[Recommandé]${neutre} (le couteau suisse de la vidéo, très complet !)"
-    echo -e "[21] VLC VideoLan backporté ${jaune}[Snap]${neutre} dernière version en développement - branche Edge (4.0...)"    
+    echo -e "[20] VLC {branche 3.0 Stable} ${vert}[Recommandé]${neutre} (le couteau suisse de la vidéo, très complet !)"
+    echo -e "[21] VLC Dev (backporté) ${jaune}[Snap]${neutre} dernière version en développement - branche Edge/instable (4.0...)"    
     echo "[22] Xmms2+Gxmms2 (un autre lecteur audio dans le style de Winamp)" 
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 4 7 13 20) : " choixMultimedia
@@ -394,7 +394,7 @@ then
     echo -e "[15] OpenBroadcaster Software (OBS) ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
     echo -e "[16] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire d'Oracle pour les logiciels développés en Java)"
     echo -e "[17] Oracle Java 10 ${gris}[PPA]${neutre} (version actuelle de Java distribué par Oracle)"
-    echo "[18] Pack d'applis en cyber-sécurité (aircrack-ng + nmap + John The Ripper[snap])"
+    echo "[18] Pack d'outils de hacking/cybersécurité (aircrack + nikto + john the ripper + hashcat + kismet)"
     echo "[19] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
     echo "[20] RedShift (Ajuste la température de couleur de l'écran, fonction déjà incluse dans Gnome avec le mode nuit)"    
     echo "[21] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
@@ -615,22 +615,21 @@ then
     echo -e "[2] 0ad ${bleu}[Flatpak]${neutre}"
     echo -e "[3] Audacity ${bleu}[Flatpak]${neutre}"
     echo -e "[4] Blender ${bleu}[Flatpak]${neutre}"  
-    echo -e "[5] Discord ${bleu}[Flatpak]${neutre}"
-    echo -e "[6] Dolphin Emulator ${bleu}[Flatpak]${neutre}"
-    echo -e "[7] Extreme Tuxracer ${bleu}[Flatpak]${neutre}"
-    echo -e "[8] Frozen Bubble ${bleu}[Flatpak]${neutre}"
-    echo -e "[9] Gimp ${bleu}[Flatpak]${neutre}"    
-    echo -e "[10] Gnome MPV ${bleu}[Flatpak]${neutre}"
-    echo -e "[11] Google Play Music Desktop Player ${bleu}[Flatpak]${neutre}"
-    echo -e "[12] Homebank ${bleu}[Flatpak]${neutre}"
-    echo -e "[13] Kdenlive ${bleu}[Flatpak]${neutre}"
-    echo -e "[14] LibreOffice ${bleu}[Flatpak]${neutre}"
-    echo -e "[15] Minetest ${bleu}[Flatpak]${neutre}"
-    echo -e "[16] Nextcloud cli ${bleu}[Flatpak]${neutre}"  
-    echo -e "[17] Password Calculator ${bleu}[Flatpak]${neutre}"
-    echo -e "[18] Riot ${bleu}[Flatpak]${neutre}"
-    echo -e "[19] Skype ${bleu}[Flatpak]${neutre}"
-    echo -e "[20] VLC ${bleu}[Flatpak]${neutre}"    
+    echo -e "[5] Dolphin Emulator ${bleu}[Flatpak]${neutre}"
+    echo -e "[6] Extreme Tuxracer ${bleu}[Flatpak]${neutre}"
+    echo -e "[7] Frozen Bubble ${bleu}[Flatpak]${neutre}"
+    echo -e "[8] Gimp ${bleu}[Flatpak]${neutre}"    
+    echo -e "[9] Gnome MPV ${bleu}[Flatpak]${neutre}"
+    echo -e "[10] Google Play Music Desktop Player ${bleu}[Flatpak]${neutre}"
+    echo -e "[11] Homebank ${bleu}[Flatpak]${neutre}"
+    echo -e "[12] Kdenlive ${bleu}[Flatpak]${neutre}"
+    echo -e "[13] LibreOffice ${bleu}[Flatpak]${neutre}"
+    echo -e "[14] Minetest ${bleu}[Flatpak]${neutre}"
+    echo -e "[15] Nextcloud cli ${bleu}[Flatpak]${neutre}"  
+    echo -e "[16] Password Calculator ${bleu}[Flatpak]${neutre}"
+    echo -e "[17] Riot ${bleu}[Flatpak]${neutre}"
+    echo -e "[18] Skype ${bleu}[Flatpak]${neutre}"
+    echo -e "[19] VLC ${bleu}[Flatpak]${neutre}"    
     echo "*******************************************************"
     read -p "Choix paquets flatpak (exemple : 5 16) : " choixFlatpak
     clear
@@ -888,10 +887,9 @@ done
 for messagerie in $choixMessagerie
 do
     case $messagerie in
-        "2") #discord (via snap)
-            apt install snapd-xdg-open -y
-            snap install discord
-            ;;    
+        "2") #Discord (flatpak)
+            flatpak install flathub com.discordapp.Discord -y
+            ;;  
         "3") #ekiga
             apt install ekiga -y
             ;;      
@@ -927,18 +925,17 @@ do
         "13") #ring
             apt install ring -y
             ;;  
-        "14") #signal (flatpak)
-            flatpak install --from https://vrutkovs.github.io/flatpak-signal/signal.flatpakref -y
+        "14") #signal (snap)
+            snap install signal-desktop
             ;;               
         "15") #skype
-            wget https://repo.skype.com/latest/skypeforlinux-64.deb
-            dpkg -i skypeforlinux-64.deb
-            apt install -fy
+            wget https://repo.skype.com/latest/skypeforlinux-64.deb ; dpkg -i skypeforlinux-64.deb ; apt install -fy
+            rm skypeforlinux*
             ;;   
-        "16") #Slack (flatpak)
-            flatpak install flathub com.slack.Slack -y
+        "16") #Slack (snap)
+            snap install slack --classic
             ;;     
-        "17") #Teamspeak (script à l'intérieur à lancer manuellement par l'utilisateur)
+        "17") #Teamspeak (script bash à l'intérieur à lancer manuellement par l'utilisateur)
             wget http://nux87.free.fr/script-postinstall-ubuntu/archives/Teamspeak.tar.xz 
             tar -xJf Teamspeak.tar.xz ; chown -R $SUDO_USER:$SUDO_USER Teamspeak ; rm -f Teamspeak.tar.xz ; mv Teamspeak ..
             ;;             
@@ -989,8 +986,8 @@ do
         "9") #Gtk-Gnutella
             apt install gtk-gnutella -y
             ;;       
-        "10") #Gydl (flatpak)
-            flatpak install flathub com.github.JannikHv.Gydl -y
+        "10") #Gydl (snap)
+            snap install gydl
             ;;      
         "11") #Ktorrent (kde/plasma)
             apt install ktorrent -y
@@ -1393,7 +1390,7 @@ done
 for utilitaire in $choixUtilitaire
 do
     case $utilitaire in
-        "2") #AnyDesk
+        "2") #AnyDesk (flatpak possible en alternative)
             wget https://download.anydesk.com/linux/anydesk_2.9.5-1_amd64.deb
             dpkg -i anydesk* ; apt install -fy ; rm anydesk* ;
             ;;        
@@ -1449,8 +1446,7 @@ do
             echo oracle-java10-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java10-installer -y
             ;;  
         "18") #Pack cyber-sécurité
-            apt install aircrack-ng nmap -y
-            snap install john-the-ripper
+            apt install aircrack-ng nmap nikto john hashcat kismet -y
             ;;       
         "19") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
             apt install vrms screenfetch asciinema ncdu screen rclone -y
@@ -1988,53 +1984,50 @@ do
             ;;          
         "4") #Blender version flatpak
             flatpak install flathub org.blender.Blender -y
-            ;;  
-        "5") #Discord
-            flatpak install flathub com.discordapp.Discord -y
             ;;              
-        "6") #Dolphin Emulator
+        "5") #Dolphin Emulator
             flatpak install flathub org.DolphinEmu.dolphin-emu -y
             ;;             
-        "7") #Extreme Tuxracer
+        "6") #Extreme Tuxracer
             flatpak install flathub net.sourceforge.ExtremeTuxRacer -y
             ;;                
-        "8") #Frozen Bubble
+        "7") #Frozen Bubble
             flatpak install flathub org.frozen_bubble.frozen-bubble -y
             ;;     
-        "9") #GIMP version flatpak
+        "8") #GIMP version flatpak
             flatpak install flathub org.gimp.GIMP -y
             ;;              
-        "10") #Gnome MPV version flatpak
+        "9") #Gnome MPV version flatpak
             flatpak install flathub io.github.GnomeMpv -y
             ;;                   
-        "11") #Google Play Music Desktop Player
+        "10") #Google Play Music Desktop Player
             flatpak install flathub com.googleplaymusicdesktopplayer.GPMDP -y
             ;;              
-        "12") #Homebank
+        "11") #Homebank
             flatpak install flathub fr.free.Homebank -y
             ;;     
-        "13") #Kdenlive
+        "12") #Kdenlive
             flatpak install flathub org.kde.kdenlive -y
             ;;               
-        "14") #LibreOffice version flatpak
+        "13") #LibreOffice version flatpak
             flatpak install flathub org.libreoffice.LibreOffice -y
             ;;         
-        "15") #Minetest version flatpak
+        "14") #Minetest version flatpak
             flatpak install flathub net.minetest.Minetest -y
             ;;             
-        "16") #Nextcloud
+        "15") #Nextcloud
             flatpak install flathub org.nextcloud.Nextcloud -y
             ;;        
-        "17") #Password Calculator
+        "16") #Password Calculator
             flatpak install flathub com.bixense.PasswordCalculator -y
             ;;             
-        "18") #Riot
+        "17") #Riot
             flatpak install flathub im.riot.Riot -y
             ;;        
-        "19") #Skype version flatpak
+        "18") #Skype version flatpak
             flatpak install flathub com.skype.Client -y
             ;;                   
-        "20") #VLC version flatpak
+        "19") #VLC version flatpak
             flatpak install flathub org.videolan.VLC -y
             ;;
     esac
