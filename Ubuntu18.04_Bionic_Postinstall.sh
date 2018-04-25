@@ -567,12 +567,13 @@ then
     echo "[12] Gnome Shell : Désactiver l'userlist de GDM (utile en entreprise intégrée à un domaine)"
     echo "[13] Installation de switcheroo-control : permet d'utiliser la carte dédié avec le pilote opensource" 
     echo "[14] Installer le microcode Intel propriétaire (pour cpu intel uniquement)"    
-    echo -e "[15] Lecture DVD commerciaux protégés par CSS (Content Scrambling System) ${rouge}[I!]${neutre}"
-    echo "[16] Optimisation Grub : réduire le temps d'attente (si multiboot) de 10 à 2 secondes + retirer le test de RAM dans grub"
-    echo "[17] Optimisation Swap : swapiness à 5% (swap utilisé uniquement si plus de 95% de ram utilisée)"
-    echo "[18] Retirer les paquets snappy pré-installés et réinstaller les paquets concernés par apt"
-    echo "[19] Support imprimantes HP (hplip + sane + hplip-gui)"
-    echo "[20] TLP (économie d'énergie pour pc portable)"
+    echo "[15] Installer le pilote propriétaire nVidia-390 + nvidia-prime (switch intel/nvidia) + meta-utils (glxgears test)"   
+    echo -e "[16] Lecture DVD commerciaux protégés par CSS (Content Scrambling System) ${rouge}[I!]${neutre}"
+    echo "[17] Optimisation Grub : réduire le temps d'attente (si multiboot) de 10 à 2 secondes + retirer le test de RAM dans grub"
+    echo "[18] Optimisation Swap : swapiness à 5% (swap utilisé uniquement si plus de 95% de ram utilisée)"
+    echo "[19] Retirer les paquets snappy pré-installés et réinstaller les paquets concernés par apt"
+    echo "[20] Support imprimantes HP (hplip + sane + hplip-gui)"
+    echo "[21] TLP (économie d'énergie pour pc portable)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 5 8 10) : " choixOptimisation
     clear
@@ -1889,28 +1890,31 @@ do
             ;;
         "14") #Microcode Intel
             apt install intel-microcode -y
-            ;;    
-        "15") #Lecture DVD Commerciaux
+            ;;   
+        "15") #Pilote propriétaire nvidia + nvidia prime + glxgears
+            apt install nvidia-driver-390 nvidia-prime nvidia-settings mesa-utils -y
+            ;;               
+        "16") #Lecture DVD Commerciaux
             apt install libdvdcss2 libdvd-pkg -y
             dpkg-reconfigure libdvd-pkg
             ;;  
-        "16") #Grub réduction temps d'attente + suppression test ram dans grub
+        "17") #Grub réduction temps d'attente + suppression test ram dans grub
             sed -ri 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/g' /etc/default/grub
             mkdir /boot/old ; mv /boot/memtest86* /boot/old/
             update-grub
             ;;                
-        "17") #Swapiness 95% +cache pressure 50
+        "18") #Swapiness 95% +cache pressure 50
             echo vm.swappiness=5 | tee /etc/sysctl.d/99-swappiness.conf
             sysctl -p /etc/sysctl.d/99-swappiness.conf
             ;;
-        "18") #Retirer paquet snappy et réinstaller les logiciels de manière classique
+        "19") #Retirer paquet snappy et réinstaller les logiciels de manière classique
             snap remove gnome-calculator gnome-characters gnome-logs gnome-system-monitor
             apt install -y gnome-calculator gnome-characters gnome-logs gnome-system-monitor
             ;;  
-        "19") #Support imprimante HP
+        "20") #Support imprimante HP
             apt install hplip hplip-doc hplip-gui sane sane-utils -y
             ;;               
-        "20") #TLP 
+        "21") #TLP 
             apt install --no-install-recommends tlp tlp-rdw -y
             systemctl enable tlp ; systemctl enable tlp-sleep
             ;;
