@@ -1892,7 +1892,7 @@ do
             apt install intel-microcode -y
             ;;   
         "15") #Pilote propriétaire nvidia + nvidia prime + glxgears
-            apt install nvidia-driver-390 nvidia-prime nvidia-settings mesa-utils -y
+            apt install nvidia-driver-390 bbswitch-dkms nvidia-settings nvidia-prime mesa-utils -y
             ;;               
         "16") #Lecture DVD Commerciaux
             apt install libdvdcss2 libdvd-pkg -y
