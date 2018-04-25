@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.20
+# version 1.0.21
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -558,20 +558,21 @@ then
     echo "[3] Ajouter le support pour le système de fichier exFat de Microsoft"
     echo "[4] Ajouter le support pour le système de fichier HFS d'Apple"
     echo "[5] Augmenter la sécurité de votre compte : empêcher l'accès à votre dossier perso aux autres utilisateurs"
-    echo "[6] Désactiver complètement le swap (utile si vous avez un SSD et 8 Go de ram ou plus)" 
-    echo -e "[7] GameMode ${rouge}[I!]${neutre} ${rouge}[Experimental]${neutre} : optimisation temporaire pour les performances en jeu"
-    echo -e "[8] Gnome Shell : Activer la minimisation de fenêtre sur les icones pour DashToDock ${cyan}(DtD doit être installé)${neutre}"
-    echo "[9] Gnome Shell : Ajouter une commande 'fraude' pour la session Wayland (ex : fraude synaptic)"
-    echo "[10] Gnome Shell : Augmenter la durée maximale de capture vidéo intégré de 30s à 600s (soit 10min)"    
-    echo "[11] Gnome Shell : Désactiver l'userlist de GDM (utile en entreprise intégrée à un domaine)"
-    echo "[12] Installation de switcheroo-control : permet d'utiliser la carte dédié avec le pilote opensource" 
-    echo "[13] Installer le microcode Intel propriétaire (pour cpu intel uniquement)"    
-    echo -e "[14] Lecture DVD commerciaux protégés par CSS (Content Scrambling System) ${rouge}[I!]${neutre}"
-    echo "[15] Optimisation Grub : réduire le temps d'attente (si multiboot) de 10 à 2 secondes + retirer le test de RAM dans grub"
-    echo "[16] Optimisation Swap : swapiness à 5% (swap utilisé uniquement si plus de 95% de ram utilisée)"
-    echo "[17] Retirer les paquets snappy pré-installés et réinstaller les paquets concernés par apt"
-    echo "[18] Support imprimantes HP (hplip + sane + hplip-gui)"
-    echo "[19] TLP (économie d'énergie pour pc portable)"
+    echo "[6] Dépots supplémentaires pour Flatpak (NuvolaApps + KDEApps + GnomeApps, Flathub est déjà activé)" 
+    echo "[7] Désactiver complètement le swap (utile si vous avez un SSD et 8 Go de ram ou plus)" 
+    echo -e "[8] GameMode ${rouge}[I!]${neutre} ${rouge}[Experimental]${neutre} : optimisation temporaire pour les performances en jeu"
+    echo -e "[9] Gnome Shell : Activer la minimisation de fenêtre sur les icones pour DashToDock ${cyan}(DtD doit être installé)${neutre}"
+    echo "[10] Gnome Shell : Ajouter une commande 'fraude' pour la session Wayland (ex : fraude synaptic)"
+    echo "[11] Gnome Shell : Augmenter la durée maximale de capture vidéo intégré de 30s à 600s (soit 10min)"    
+    echo "[12] Gnome Shell : Désactiver l'userlist de GDM (utile en entreprise intégrée à un domaine)"
+    echo "[13] Installation de switcheroo-control : permet d'utiliser la carte dédié avec le pilote opensource" 
+    echo "[14] Installer le microcode Intel propriétaire (pour cpu intel uniquement)"    
+    echo -e "[15] Lecture DVD commerciaux protégés par CSS (Content Scrambling System) ${rouge}[I!]${neutre}"
+    echo "[16] Optimisation Grub : réduire le temps d'attente (si multiboot) de 10 à 2 secondes + retirer le test de RAM dans grub"
+    echo "[17] Optimisation Swap : swapiness à 5% (swap utilisé uniquement si plus de 95% de ram utilisée)"
+    echo "[18] Retirer les paquets snappy pré-installés et réinstaller les paquets concernés par apt"
+    echo "[19] Support imprimantes HP (hplip + sane + hplip-gui)"
+    echo "[20] TLP (économie d'énergie pour pc portable)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 5 8 10) : " choixOptimisation
     clear
@@ -1846,33 +1847,38 @@ do
             ;;    
         "5") #Interdire l'accès des autres utilisateurs au dossier perso de l'utilisateur principal
             chmod -R o-rwx /home/$SUDO_USER
-            ;;       
-        "6") #Désactiver swap
+            ;;    
+        "6") #Dépots supplémentaires pour utiliser Flatpak (de base il y a déjà Flathub sans cette option)
+            flatpak remote-add --if-not-exists nuvola https://dl.tiliado.eu/flatpak/nuvola.flatpakrepo
+            flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
+            flatpak remote-add --if-not-exists gnome https://sdk.gnome.org/gnome.flatpakrepo
+            ;;           
+        "7") #Désactiver swap
             swapoff /swapfile #désactive l'utilisation du fichier swap
             rm /swapfile #supprime le fichier swap qui n'est plus utile
             sed -i -e '/.swapfile*/d' /etc/fstab #ligne swap retiré de fstab
             ;;    
-        "7") #GameMode
+        "8") #GameMode
             apt install meson libsystemd-dev pkg-config ninja-build mesa-utils -y
             git clone https://github.com/FeralInteractive/gamemode.git ; cd gamemode ; ./bootstrap.sh ; cd ..
             #jeu à lancer comme ceci : LD_PRELOAD=/usr/\$LIB/libgamemodeauto.so ./game
             # Ou pour steam : LD_PRELOAD=$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so %command%
             # + de précision ici : https://github.com/FeralInteractive/gamemode
             ;;              
-        "8") #Minimisation fenêtre sur l'icone du dock (pour dashtodock uniquement)
+        "9") #Minimisation fenêtre sur l'icone du dock (pour dashtodock uniquement)
             su $SUDO_USER -c "gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'"
             ;;    
-        "9") #Gnome Shell : pouvoir lancer via une commande fraude une appli avec droit root sous wayland (proposé par Christophe C sur Ubuntu-fr.org)
+        "10") #Gnome Shell : pouvoir lancer via une commande fraude une appli avec droit root sous wayland (proposé par Christophe C sur Ubuntu-fr.org)
             echo "#FONCTION POUR CONTOURNER WAYLAND
             fraude(){ 
                 xhost + && sudo \$1 && xhost -
                 }" >> /home/$SUDO_USER/.bashrc
             su $SUDO_USER -c "source ~/.bashrc"
             ;;  
-        "10") #Gnome Shell : augmenter durée capture vidéo de 30s à 10min
+        "11") #Gnome Shell : augmenter durée capture vidéo de 30s à 10min
             su $SUDO_USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600"
             ;;                 
-        "11") #Gnome Shell : Désactiver l'affichage de la liste des utilisateurs dans la gestion de session GDM (donc rentrer login manuellement)
+        "12") #Gnome Shell : Désactiver l'affichage de la liste des utilisateurs dans la gestion de session GDM (donc rentrer login manuellement)
             echo "user-db:user
             system-db:gdm
             file-db:/usr/share/gdm/greeter-dconf-defaults" > /etc/dconf/profile/gdm
@@ -1882,33 +1888,33 @@ do
             disable-user-list=true" > /etc/dconf/db/gdm.d/00-login-screen
             dconf update
             ;;            
-        "12") #Pour utiliser carte nvidia/pilote nouveau pour un jeu
+        "13") #Pour utiliser carte nvidia/pilote nouveau pour un jeu
             apt install switcheroo-control -y    
             ;;
-        "13") #Microcode Intel
+        "14") #Microcode Intel
             apt install intel-microcode -y
             ;;    
-        "14") #Lecture DVD Commerciaux
+        "15") #Lecture DVD Commerciaux
             apt install libdvdcss2 libdvd-pkg -y
             dpkg-reconfigure libdvd-pkg
             ;;  
-        "15") #Grub réduction temps d'attente + suppression test ram dans grub
+        "16") #Grub réduction temps d'attente + suppression test ram dans grub
             sed -ri 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/g' /etc/default/grub
             mkdir /boot/old ; mv /boot/memtest86* /boot/old/
             update-grub
             ;;                
-        "16") #Swapiness 95% +cache pressure 50
+        "17") #Swapiness 95% +cache pressure 50
             echo vm.swappiness=5 | tee /etc/sysctl.d/99-swappiness.conf
             sysctl -p /etc/sysctl.d/99-swappiness.conf
             ;;
-        "17") #Retirer paquet snappy et réinstaller les logiciels de manière classique
+        "18") #Retirer paquet snappy et réinstaller les logiciels de manière classique
             snap remove gnome-calculator gnome-characters gnome-logs gnome-system-monitor
             apt install -y gnome-calculator gnome-characters gnome-logs gnome-system-monitor
             ;;  
-        "18") #Support imprimante HP
+        "19") #Support imprimante HP
             apt install hplip hplip-doc hplip-gui sane sane-utils -y
             ;;               
-        "19") #TLP 
+        "20") #TLP 
             apt install --no-install-recommends tlp tlp-rdw -y
             systemctl enable tlp ; systemctl enable tlp-sleep
             ;;
