@@ -107,13 +107,13 @@ echo "*******************************************************"
 read -p "Répondre par le chiffre correspondant (par défaut: 1) : " choixMode
 clear
 
-while [ "$choixMode" != "0" ] && [ "$choixMode" != "1" ] && [ "$choixMode" != "2" ] && [ "$choixMode" != "3" ] && [ "$choixMode" != "1000" ]
+while [ "$choixMode" != "1" ] && [ "$choixMode" != "2" ] && [ "$choixMode" != "3" ] && [ "$choixMode" != "10" ] && [ "$choixMode" != "11" ] && [ "$choixMode" != "12" ]
 do
-    read -p "Désolé, je ne comprend pas votre réponse, les seuls choix possibles sont 0 (Automatique), 1 (Manuel niv1), 2 (Manuel niv2), 3 (Manuel niv3) : " choixMode
+    read -p "Désolé, je ne comprend pas votre réponse, les seuls choix possibles sont 1 (Manuel niv1), 2 (Manuel niv2), 3 (Manuel niv3) ainsi que les modes automatiques (10, 11, 12) : " choixMode
     clear
 done
 
-if [ "$choixMode" != "0" ] && [ "$choixMode" != "1000" ] #lancement pour tous sauf mode novice
+if [ "$choixMode" != "10" ] && [ "$choixMode" != "11" ] && [ "$choixMode" != "12" ] 
 then
     if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
     then
