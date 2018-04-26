@@ -166,7 +166,7 @@ then
 
     # Question 4 : Messagerie instantanée
     echo "*******************************************************"
-    echo -e "${bleu}4/ Quel(s) logiciel(s) de messagerie instantanée/tchat/VoIP/visio souhaitez-vous ?${neutre}"
+    echo -e "${bleu}4/ Quel(s) logiciel(s) de mail/messagerie instantanée/tchat/ToIP souhaitez-vous ?${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun supplément (Thunderbird par défaut)"
     echo -e "[2] Discord ${bleu}[Flatpak]${neutre} (logiciel propriétaire multiplateforme pour communiquer à plusieurs)"
@@ -222,7 +222,7 @@ then
     # Question 6 : Lecture multimédia
     echo -e "${vert}Astuce 4: Il est recommandé de choisir au moins VLC ou MPV car Totem est assez limité (lecteur de base)${neutre}"
     echo "*******************************************************"
-    echo -e "${bleu}6/ Quel(s) logiciel(s) de lecture audio/vidéo (ou de stream) voulez-vous ?${neutre}"
+    echo -e "${bleu}6/ Quel(s) logiciel(s) de lecture audio/vidéo/stream voulez-vous ?${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun supplément (normalement par défaut : Totem pour la vidéo, Rhythmbox pour la musique)"
     echo "[2] Audacious (lecteur complet pour les audiophiles avec beaucoup de plugins)"
@@ -372,7 +372,7 @@ then
     echo "[11] [GEO] Marble (globe virtuel opensource développé par KDE dans le cadre du projet KdeEdu)"
     echo -e "[12] [TECHNO] mBlock ${cyan}[M!]${neutre} (environnement de programmation basé sur Scratch 2 pour Arduino"
     echo "[13] [GEO] OooHg : extension pour LibreOffice qui ajoute 1600 cartes de géographie"
-    echo "[14] [GEO] OptGeo : logiciel d’optique géométrique libre et opensource"
+    echo "[14] [MATH] OptGeo : logiciel d’optique géométrique libre et opensource"
     echo "[15] [GESTION] Planner : gestionnaire de planning/projets avec diagrammes de Gantt. Alternative à Microsoft Project"    
     echo "[16] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
     echo "[17] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
