@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.23
+# version 1.0.24
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -97,10 +97,12 @@ echo -e "${vert}Conseil: Mettez votre terminal en plein écran pour un affichage
 echo "*******************************************************"
 echo -e "${bleu}1/ Mode de lancement du script :${neutre}"
 echo "*******************************************************"
-echo -e "[0] Mode ${gris}Automatique${neutre} (Aucune question posée, le script installera quelques logiciels. Plutôt pour les novices)"
-echo -e "[1] Mode ${bleu}Manuel niveau 1${neutre} (choix par défaut : pose diverses questions simples, recommandé pour la plupart des utilisateurs)"
+echo -e "[1] Mode ${bleu}Manuel niveau 1${neutre} (choix par défaut, recommandé pour la plupart des utilisateurs : pose diverses questions simples)"
 echo -e "[2] Mode ${jaune}Manuel niveau 2${neutre} (Des choix supplémentaires notamment en terme de logiciel de dev, des extensions, optimisation système)"
 echo -e "[3] Mode ${vert}Manuel niveau 3${neutre} (En plus du niveau2 propose un large choix supplémentaire de snap/flatpak/appimages)"
+echo -e "[10] Profil perso 1 (automatique) - Novices (Quelques logiciels installés pour les débutants)"
+echo -e "[11] Profil perso 2 (automatique) - Technicien IT (Cadre professionnel pour l'assistance technique)"
+echo -e "[12] Profil perso 3 (automatique) - Cedric.F (Installations personnalisées spécifiques pour Bristow)"
 echo "*******************************************************"
 read -p "Répondre par le chiffre correspondant (par défaut: 1) : " choixMode
 clear
@@ -747,9 +749,10 @@ if [ "$2" != "NRI!" ] ; then # Installé par défaut sauf dans un cas particulie
     fi
 fi
 
+### Modes automatiques
 ###################################################
-# Logiciels automatiques pour mode novice :
-if [ "$choixMode" = "0" ]
+# Débutant (choix 10)
+if [ "$choixMode" = "10" ]
 then
     #internet
     apt install chromium-browser pidgin -y
@@ -760,8 +763,8 @@ then
 fi
 
 ###################################################
-## Mode Spécial (1000) - Technicien IT Automatique (cadre très spécifique)
-if [ "$choixMode" = "1000" ]
+#  Technicien IT Automatique (choix 11)
+if [ "$choixMode" = "11" ]
 then
     # nettoyage grub
     sed -ri 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=3/g' /etc/default/grub && mkdir /boot/old && mv /boot/memtest86* /boot/old/ ; update-grub
@@ -778,6 +781,45 @@ then
     # Police d'écriture MS
     echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
 fi
+
+###################################################
+#  Cedric.F (choix 12)
+if [ "$choixMode" = "12" ]
+then
+    ### apt
+    apt install chromium-browser chromium-browser-l10n pidgin grsync vlc devede handbrake winff winff-qt gimp pinta shutter sweethome3d -y
+    apt install audacity sound-juicer gnote stellarium 
+    apt install --no-install-recommends openshot-qt -y
+    
+    ### ppa
+    add-apt-repository "deb http://ppa.launchpad.net/haraldhv/shotcut/ubuntu zesty main" -y ; apt-key adv --recv-keys --keyserver keyserver.ubuntu.com D03D19F673FED66EBD64099959A9D327745898E3 ; apt update ; apt install shotcut -y
+    
+    add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y ; apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze -y
+    apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
+    #grammalecte (oxt)
+    wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte*
+    unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt  
+    echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
+    
+    ### snap
+    snap install signal-desktop
+    
+    ### flatpak
+    flatpak install flathub de.haeckerfelix.gradio -y
+    
+    ### appimages
+    wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov ; mv molotov molotov.AppImage && chmod +x molotov.AppImage
+
+    ### dépot externe ou deb manuel
+    wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb ; dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy
+    sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth*
+    
+    
+    # reprendre a gnome maps....... (non terminé)
+fi
+
+
+
 
 # Création d'un répertoire pour le script et on se déplace dedans
 mkdir /home/$SUDO_USER/script_postinstall && cd /home/$SUDO_USER/script_postinstall/
@@ -820,7 +862,7 @@ do
             snap install brave
             ;;              
         "4") #chromium
-            apt install chromium-browser -y    
+            apt install chromium-browser chromium-browser-l10n -y    
             ;;   
         "5") #Dillo
             apt install dillo -y
