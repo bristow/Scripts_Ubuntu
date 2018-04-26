@@ -644,22 +644,23 @@ then
     echo "*******************************************************"
     echo "[1] Aucun"
     echo -e "[2] Aidos Wallet ${vert}[Appimage]${neutre}"
-    echo -e "[3] Chronos ${vert}[Appimage]${neutre}"
-    echo -e "[4] Crypter ${vert}[Appimage]${neutre}"
-    echo -e "[5] Digikam ${vert}[Appimage]${neutre}"
-    echo -e "[6] Freecad ${vert}[Appimage]${neutre}"
-    echo -e "[7] Imagine ${vert}[Appimage]${neutre}"
-    echo -e "[8] Infinite Electron ${vert}[Appimage]${neutre}"
-    echo -e "[9] Jaxx ${vert}[Appimage]${neutre}"
-    echo -e "[10] Kdenlive ${vert}[Appimage]${neutre}"
-    echo -e "[11] KDevelop ${vert}[Appimage]${neutre}"
-    echo -e "[12] MellowPlayer ${vert}[Appimage]${neutre}"
-    echo -e "[13] Nextcloud Cli ${vert}[Appimage]${neutre}"
-    echo -e "[14] Openshot ${vert}[Appimage]${neutre}"
-    echo -e "[15] Owncloud Cli ${vert}[Appimage]${neutre}"
-    echo -e "[16] Popcorntime ${vert}[Appimage]${neutre}"
-    echo -e "[17] Spotify web client ${vert}[Appimage]${neutre}"
-    echo -e "[18] Tulip ${vert}[Appimage]${neutre}"
+    echo -e "[3] AppImageUpdate ${vert}[Appimage]${neutre}"    
+    echo -e "[4] Chronos ${vert}[Appimage]${neutre}"
+    echo -e "[5] Crypter ${vert}[Appimage]${neutre}"
+    echo -e "[6] Digikam ${vert}[Appimage]${neutre}"
+    echo -e "[7] Freecad ${vert}[Appimage]${neutre}"
+    echo -e "[8] Imagine ${vert}[Appimage]${neutre}"
+    echo -e "[9] Infinite Electron ${vert}[Appimage]${neutre}"
+    echo -e "[10] Jaxx ${vert}[Appimage]${neutre}"
+    echo -e "[11] Kdenlive ${vert}[Appimage]${neutre}"
+    echo -e "[12] KDevelop ${vert}[Appimage]${neutre}"
+    echo -e "[13] MellowPlayer ${vert}[Appimage]${neutre}"
+    echo -e "[14] Nextcloud Cli ${vert}[Appimage]${neutre}"
+    echo -e "[15] Openshot ${vert}[Appimage]${neutre}"
+    echo -e "[16] Owncloud Cli ${vert}[Appimage]${neutre}"
+    echo -e "[17] Popcorntime ${vert}[Appimage]${neutre}"
+    echo -e "[18] Spotify web client ${vert}[Appimage]${neutre}"
+    echo -e "[19] Tulip ${vert}[Appimage]${neutre}"
     echo "*******************************************************"
     read -p "Choix logiciels portables au format AppImage (exemple : 9 16) : " choixAppimage
     clear
@@ -2052,54 +2053,57 @@ do
     case $appimage in
         "2") #Aidos Wallet
             wget https://github.com/AidosKuneen/aidos-wallet/releases/download/v1.2.7/Aidos-1.2.7-x86_64.AppImage
-            ;;  
-        "3") #Chronos
+            ;; 
+        "3") #AppImageUpdate
+            wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/AppImageUpdate-303-f2b8183-x86_64.AppImage
+            ;;              
+        "4") #Chronos
             wget https://github.com/web-pal/Chronos/releases/download/v2.2.1/Chronos-2.2.1-x86_64.AppImage
             ;;     
-        "4") #Crypter
+        "5") #Crypter
             wget https://github.com/HR/Crypter/releases/download/v3.1.0/Crypter-3.1.0-x86_64.AppImage
             ;;            
-        "5") #Digikam
+        "6") #Digikam
             wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/digikam-5.9.0-01-x86-64.appimage
             mv digikam-5.9.0-01-x86-64.appimage digikam-5.9.0-01-x86-64.AppImage
             ;;
-        "6") #Freecad
+        "7") #Freecad
             wget https://github.com/FreeCAD/FreeCAD/releases/download/0.16.6712/FreeCAD-0.16.6712.glibc2.17-x86_64.AppImage
             ;;            
-        "7") #Imagine
+        "8") #Imagine
             wget https://github.com/meowtec/Imagine/releases/download/v0.4.0/Imagine-0.4.0-x86_64.AppImage
             ;;     
-        "8") #Infinite Electron
+        "9") #Infinite Electron
             wget https://github.com/InfiniteLibrary/infinite-electron/releases/download/0.1.1/infinite-electron-0.1.1-x86_64.AppImage
             ;; 
-        "9") #Jaxx
+        "10") #Jaxx
             wget https://github.com/Jaxx-io/Jaxx/releases/download/v1.3.9/jaxx-1.3.9-x86_64.AppImage
             ;;              
-        "10") #Kdenlive version Appimage
+        "11") #Kdenlive version Appimage
             wget https://download.kde.org/unstable/kdenlive/16.12/linux/Kdenlive-16.12-rc-x86_64.AppImage
             ;;   
-        "11") #KDevelop
+        "12") #KDevelop
             wget https://download.kde.org/stable/kdevelop/5.2.0/bin/linux/KDevelop-5.2.0-x86_64.AppImage
             ;;     
-        "12") #MellowPlayer
+        "13") #MellowPlayer
             wget https://github.com/ColinDuquesnoy/MellowPlayer/releases/download/Continuous/MellowPlayer-x86_64.AppImage
             ;; 
-        "13") #Nextcloud version Appimage
+        "14") #Nextcloud version Appimage
             wget https://download.nextcloud.com/desktop/prereleases/Linux/Nextcloud-2.3.3-beta-x86_64.AppImage
             ;;    
-        "14") #Openshot version Appimage
+        "15") #Openshot version Appimage
             wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/OpenShot-v2.4.1-x86_64.AppImage
             ;;  
-        "15") #Owncloud Client
+        "16") #Owncloud Client
             wget http://download.opensuse.org/repositories/home:/ocfreitag/AppImage/owncloud-client-latest-x86_64.AppImage
             ;;     
-        "16") #Popcorntime
+        "17") #Popcorntime
             wget https://github.com/amilajack/popcorn-time-desktop/releases/download/v0.0.6/PopcornTime-0.0.6-x86_64.AppImage
             ;;                  
-        "17") #Spotify web client
+        "18") #Spotify web client
             wget https://github.com/Quacky2200/Spotify-Web-Player-for-Linux/releases/download/1.0.42/spotifywebplayer-1.0.42-x86_64.AppImage
             ;;      
-        "18") #Tulip
+        "19") #Tulip
             wget https://github.com/Tulip-Dev/tulip/releases/download/tulip_5_1_0/Tulip-5.1.0-x86_64.AppImage
             ;;                      
     esac
