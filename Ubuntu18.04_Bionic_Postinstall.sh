@@ -831,6 +831,7 @@ do
             ;;
         "9") #firefox developper edition 
             flatpak install --from https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxDevEdition.flatpakref -y
+            flatpak install flathub org.freedesktop.Platform.ffmpeg -y
             ;;               
         "10") #firefox esr
             add-apt-repository ppa:mozillateam/ppa -y 
@@ -838,6 +839,7 @@ do
             ;;
         "11") #firefox nightly
             flatpak install --from https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpakref -y
+            flatpak install flathub org.freedesktop.Platform.ffmpeg -y
             ;;
         "12") #Gnome Web/epiphany
             apt install epiphany-browser -y
