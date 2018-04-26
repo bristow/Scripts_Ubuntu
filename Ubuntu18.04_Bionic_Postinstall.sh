@@ -335,7 +335,7 @@ then
     echo "[9] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
     echo -e "[10] LibreOffice {branche gelé en 6.0} ${vert}[Recommandé]${neutre} suite bureautique libre (normalement déjà installé de base)"
     echo -e "[11] LibreOffice Fresh (backporté) ${gris}[PPA]${neutre} {dernière version stable possible, changement de branche possible !} "    
-    echo -e "[12] LibreOffice Supplément : ajoute des styles d'icones + des modèles de documents & clipart + récupère l'extension Grammalecte)"
+    echo -e "[12] LibreOffice Supplément : ajoute des styles d'icones + des modèles de documents & clipart + extension Grammalecte activé)"
     echo -e "[13] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
     echo -e "[14] Master PDF Editor (éditeur PDF propriétaire capable de gérer les formulaires CERFA/XFA)" 
     echo -e "[15] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
@@ -363,13 +363,18 @@ then
     echo "[4] [CHIMIE] Avogadro (éditeur/visualiseur avancé de molécules pour le calcul scientifique en chimie)"
     echo "[5] [ASTRO] Celestia (simulation spatiale en temps réel qui permet d’explorer l'univers en trois dimensions)"
     echo "[6] [DIVERS] Einstein Puzzle (Jeu intellectuel ou il faut trouver toutes les cartes d'un tableau)"
-    echo "[7] [DIVERS] GCompris (Suite de logiciels ludo-éducatifs adapté pour les enfants de 2 à 10 ans)"
-    echo "[8] [MATH] GeoGebra (géométrie dynamique pour manipuler des objets avec un ensemble de fonctions algébriques)"
-    echo -e "[9] [GEO] Google Earth Pro ${gris}[DepExt]${neutre} (globe terrestre de Google pour explorer la planète)"
-    echo -e "[10] [TECHNO] mBlock ${cyan}[M!]${neutre} (environnement de programmation basé sur Scratch 2 pour Arduino"
-    echo "[11] [GEO] OooHg : extension pour LibreOffice qui ajoute 1600 cartes de géographie"
-    echo "[12] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
-    echo "[13] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
+    echo "[7] [GESTION] GanttProject (planification d'un projet à travers la réalisation d'un diagramme de Gantt)"    
+    echo "[8] [DIVERS] GCompris (Suite de logiciels ludo-éducatifs adapté pour les enfants de 2 à 10 ans)"
+    echo "[9] [MATH] GeoGebra (géométrie dynamique pour manipuler des objets avec un ensemble de fonctions algébriques)"
+    echo -e "[10] [GEO] Google Earth Pro ${gris}[DepExt]${neutre} (globe terrestre de Google pour explorer la planète)"
+    echo "[11] [GEO] Marble (globe virtuel opensource développé par KDE dans le cadre du projet KdeEdu)"
+    echo -e "[12] [TECHNO] mBlock ${cyan}[M!]${neutre} (environnement de programmation basé sur Scratch 2 pour Arduino"
+    echo "[13] [GEO] OooHg : extension pour LibreOffice qui ajoute 1600 cartes de géographie"
+    echo "[14] [GEO] OptGeo : logiciel d’optique géométrique libre et opensource"
+    echo "[15] [GESTION] Planner : gestionnaire de planning/projets avec diagrammes de Gantt. Alternative à Microsoft Project"    
+    echo "[16] [TECHNO] Scratch [v1.4] (langage de programmation visuel libre, créé par le MIT, à vocation éducative et ludique)"
+    echo "[17] [ASTRO] Stellarium (planétarium avec l'affichage du ciel réaliste en 3D avec simulation d'un téléscope)"
+    echo "[18] [MATH] Xcas (le couteau suisse des maths : calcul formel, graphe de fonction, géométrie, tableur/stats etc...)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 5 13) : " choixScience
     clear
@@ -1297,7 +1302,8 @@ do
             apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango -y
             apt install libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
             # récupération extension grammalecte (oxt)
-            wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte* && mv Grammalecte* ..
+            wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte*
+            unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt  
             ;;            
         "13") #MailSpring (Snap)
             snap install mailspring
@@ -1345,7 +1351,7 @@ do
     esac
 done
 
-# Q11/ Science
+# Q11/ Science/Education
 for science in $choixScience
 do
     case $science in
@@ -1365,33 +1371,49 @@ do
             ;;  
         "6") #Einstein Puzzle
             apt install einstein -y
+            ;; 
+        "7") #GanttProject
+            wget https://dl.ganttproject.biz/ganttproject-2.8.7/ganttproject_2.8.7-r2262-1_all.deb
+            dpkg -i ganttproject* ; apt install -fy ; rm ganttproject*
             ;;               
-        "7") #GCompris
+        "8") #GCompris
             apt install gcompris gcompris-qt gcompris-qt-data gnucap -y
             ;;              
-        "8") #Geogebra
+        "9") #Geogebra
             apt install geogebra -y
             ;;            
-        "9") #Google Earth
+        "10") #Google Earth
             wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
             dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy
             sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth* #permet d'ignorer le 32bits sinon erreur lors d'un apt update
             ;;
-        "10") #mBlock 
+        "11") #Marble
+            apt install --no-install-recommends marble -y
+            ;;            
+        "12") #mBlock 
             apt install libgconf-2-4 -y
             wget https://github.com/Makeblock-official/mBlock/releases/download/V4.0.0-Linux/mBlock-4.0.0-linux-4.0.0.tar.gz
             tar zxvf mBlock*.tar.gz -C /opt/ ; chown -R $SUDO_USER:$SUDO_USER /opt/mBlock
             ln -s /opt/mBlock/mblock /home/$SUDO_USER/raccourci_mblock ; rm mBlock*.tar.gz
             ;;            
-        "11") #oooHG - extension LO 
+        "13") #oooHG - extension LO 
             apt install ooohg -y
             ;;
-        "12") #Scratch 1.4
+        "14") #OptGeo
+            apt install optgeo -y
+            ;;    
+        "15") #Planner
+            apt install planner -y
+            ;;                  
+        "16") #Scratch 1.4
             apt install scratch -y
             ;;  
-        "13") #Stellarium
+        "17") #Stellarium
             apt install stellarium -y
             ;;            
+        "18") #Xcas
+            apt install xcas -y
+            ;;               
     esac
 done
 
