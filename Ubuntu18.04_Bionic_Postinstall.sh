@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.22
+# version 1.0.23
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -218,7 +218,7 @@ then
     clear
 
     # Question 6 : Lecture multimédia
-    echo -e "${vert}Astuce 4: Il est recommandé de choisir au moins VLC ou MPV car le lecteur de base (Totem) est assez limité !${neutre}"
+    echo -e "${vert}Astuce 4: Il est recommandé de choisir au moins VLC ou MPV car Totem est assez limité (lecteur de base)${neutre}"
     echo "*******************************************************"
     echo -e "${bleu}6/ Quel(s) logiciel(s) de lecture audio/vidéo (ou de stream) voulez-vous ?${neutre}"
     echo "*******************************************************"
@@ -239,11 +239,12 @@ then
     echo "[15] Musique (un lecteur épuré)"
     echo "[16] Qmmp (dans le même style de Winamp pour les fans)"
     echo "[17] QuodLibet (un lecteur audio très puissant avec liste de lecture basée sur les expressions rationnelles)"
-    echo "[18] SmPlayer (lecteur basé sur mplayer avec une interface utilisant Qt)"
-    echo -e "[19] Spotify ${jaune}[Snap]${neutre} (permet d'accéder gratuitement et légalement à de la musique en ligne)"
-    echo -e "[20] VLC {branche 3.0 Stable} ${vert}[Recommandé]${neutre} (le couteau suisse de la vidéo, très complet !)"
-    echo -e "[21] VLC Dev (backporté) ${jaune}[Snap]${neutre} dernière version en développement - branche Edge/instable (4.0...)"    
-    echo "[22] Xmms2+Gxmms2 (un autre lecteur audio dans le style de Winamp)" 
+    echo "[18] Rhythmbox (lecture audio et de gestion de bibliothèque musicale, normalement proposé par défaut sauf en mode minimal)"
+    echo "[19] SmPlayer (lecteur basé sur mplayer avec une interface utilisant Qt)"
+    echo -e "[20] Spotify ${jaune}[Snap]${neutre} (permet d'accéder gratuitement et légalement à de la musique en ligne)"
+    echo -e "[21] VLC {branche 3.0 Stable} ${vert}[Recommandé]${neutre} (le couteau suisse de la vidéo, très complet !)"
+    echo -e "[22] VLC Dev (backporté) ${jaune}[Snap]${neutre} dernière version en développement - branche Edge/instable (4.0...)"    
+    echo "[23] Xmms2+Gxmms2 (un autre lecteur audio dans le style de Winamp)" 
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 4 7 13 20) : " choixMultimedia
     clear
@@ -537,14 +538,15 @@ then
     echo -e "${jaune}17/ Des fonctions serveurs à activer ? [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Pas de service à activer"
-    echo -e "[2] Docker ${gris}[DepExt]${neutre} (Permet d'empaqueter une appli+dépendances dans un conteneur isolé, utilisable partout)"
-    echo -e "[3] PHP5.6 ${gris}[PPA]${neutre} (rétroportage de l'ancienne version de PHP)"
-    echo "[4] PHP7.2 (dernière version stable de PHP)"
-    echo "[5] Samba + Interface d'administration gadmin-samba"
-    echo "[6] Serveur BDD PostgreSQL (pour installer une base de donnée PostgreSQL)"
-    echo "[7] Serveur FTP avec ProFTPd (stockage de fichier sur votre machine via FTP)"   
-    echo "[8] Serveur LAMP (pour faire un serveur web avec votre PC : Apache + MariaDB + PHP)"    
-    echo "[9] Serveur SSH (pour contrôler votre PC à distance via SSH)"
+    echo -e "[2] Cuberite ${jaune}[Snap]${neutre} (Serveur de jeu Minecraft performant et opensource écrit en C++)"
+    echo -e "[3] Docker ${gris}[DepExt]${neutre} (Permet d'empaqueter une appli+dépendances dans un conteneur isolé, utilisable partout)"
+    echo -e "[4] PHP5.6 ${gris}[PPA]${neutre} (rétroportage de l'ancienne version de PHP)"
+    echo "[5] PHP7.2 (dernière version stable de PHP)"
+    echo "[6] Samba + Interface d'administration gadmin-samba"
+    echo "[7] Serveur BDD PostgreSQL (pour installer une base de donnée PostgreSQL)"
+    echo "[8] Serveur FTP avec ProFTPd (stockage de fichier sur votre machine via FTP)"   
+    echo "[9] Serveur LAMP (pour faire un serveur web avec votre PC : Apache + MariaDB + PHP)"    
+    echo "[10] Serveur SSH (pour contrôler votre PC à distance via SSH)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixServeur
     clear
@@ -562,13 +564,13 @@ then
     echo "[7] Désactiver complètement le swap (utile si vous avez un SSD et 8 Go de ram ou plus)" 
     echo -e "[8] GameMode ${rouge}[I!]${neutre} ${rouge}[Experimental]${neutre} : optimisation temporaire pour les performances en jeu"
     echo -e "[9] Gnome Shell : Activer la minimisation de fenêtre sur les icones pour DashToDock ${cyan}(DtD doit être installé)${neutre}"
-    echo "[10] Gnome Shell : Ajouter une commande 'fraude' pour la session Wayland (ex : fraude synaptic)"
+    echo "[10] Gnome Shell : Ajout d'une commande 'fraude' pour Wayland (permet de lancer une appli graphique en root comme sous Xorg)"
     echo "[11] Gnome Shell : Augmenter la durée maximale de capture vidéo intégré de 30s à 600s (soit 10min)"    
     echo "[12] Gnome Shell : Désactiver l'userlist de GDM (utile en entreprise intégrée à un domaine)"
     echo "[13] Installation de switcheroo-control : permet d'utiliser la carte dédié avec le pilote opensource" 
     echo "[14] Installer le microcode Intel propriétaire (pour cpu intel uniquement)"    
     echo "[15] Installer le pilote propriétaire nVidia-390 + nvidia-prime (switch intel/nvidia) + mesa-utils (glxgears test)"   
-    echo -e "[16] Lecture DVD commerciaux protégés par CSS (Content Scrambling System) ${rouge}[I!]${neutre}"
+    echo "[16] Lecture DVD commerciaux protégés par CSS (Content Scrambling System)"
     echo "[17] Optimisation Grub : réduire le temps d'attente (si multiboot) de 10 à 2 secondes + retirer le test de RAM dans grub"
     echo "[18] Optimisation Swap : swapiness à 5% (swap utilisé uniquement si plus de 95% de ram utilisée)"
     echo "[19] Retirer les paquets snappy pré-installés et réinstaller via apt (concerne 4 snaps : calculette+logs+moniteur+caracteres)"
@@ -1070,20 +1072,23 @@ do
             ;;             
         "17") #QuodLibet
             apt install quodlibet -y
-            ;;                
-        "18") #SmPlayer
+            ;;   
+        "18") #Rhythmbox
+            apt install rhythmbox rhythmbox-plugins -y
+            ;;              
+        "19") #SmPlayer
             apt install smplayer smplayer-l10n smplayer-themes -y
             ;;    
-        "19") #Spotify (snap)
+        "20") #Spotify (snap)
             snap install spotify
             ;;              
-        "20") #VLC
+        "21") #VLC
             apt install vlc vlc-plugin-vlsub vlc-plugin-visualization -y
             ;;    
-        "21") #VLC dev - Snap edge
+        "22") #VLC dev - Snap edge
             snap install vlc --edge --classic 
             ;;               
-        "22") #xmms2 + plugins
+        "23") #xmms2 + plugins
             apt install xmms2 xmms2-plugin-all gxmms2 -y
             ;;             
     esac
@@ -1289,7 +1294,7 @@ do
             apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango -y
             apt install libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
             # récupération extension grammalecte (oxt)
-            wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && mv Gramm* ..
+            wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte* && mv Grammalecte* ..
             ;;            
         "13") #MailSpring (Snap)
             snap install mailspring
@@ -1796,33 +1801,35 @@ done
 for srv in $choixServeur
 do
     case $srv in
-        "2") #Docker 
+        "2") #Cuberite (snap)
+            snap install cuberite
+            ;;    
+        "3") #Docker 
             apt install apt-transport-https ca-certificates curl software-properties-common -y
             curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
             add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
             apt update ; apt install docker-ce -y
             ;;    
-    
-        "3") #PHP5 
+        "4") #PHP5 
             add-apt-repository -y ppa:ondrej/php ; apt update
             apt install php5.6 -y
             ;;
-        "4") #php7.2
+        "5") #php7.2
             apt install php7.2 -y
             ;;     
-        "5") #Samba + gadmin-samba
+        "6") #Samba + gadmin-samba
             apt install samba gadmin-samba -y
             ;;                 
-        "6") #Postgresql
+        "7") #Postgresql
             apt install postgresql -y
             ;;            
-        "7") #proftpd
+        "8") #proftpd
             apt install proftpd -y
             ;;  
-        "8") #lamp
+        "9") #lamp
             apt install apache2 php mariadb-server libapache2-mod-php php-mysql -y
             ;;            
-        "9") #openssh-server
+        "10") #openssh-server
             apt install openssh-server -y
             ;;            
     esac
