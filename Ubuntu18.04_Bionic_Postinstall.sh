@@ -395,7 +395,7 @@ then
     echo -e "[15] OpenBroadcaster Software (OBS) ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
     echo -e "[16] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire d'Oracle pour les logiciels développés en Java)"
     echo -e "[17] Oracle Java 10 ${gris}[PPA]${neutre} (version actuelle de Java distribué par Oracle)"
-    echo "[18] Pack d'outils de hacking/cybersécurité (aircrack + nikto + john the ripper + hashcat + kismet)"
+    echo "[18] Pack d'outils de hacking/cybersécurité (aircrack + nmap + nikto + john the ripper + hashcat + kismet)"
     echo "[19] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
     echo "[20] RedShift (Ajuste la température de couleur de l'écran, fonction déjà incluse dans Gnome avec le mode nuit)"    
     echo "[21] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
