@@ -427,7 +427,7 @@ then
     echo -e "[9] Khaganat [Khanat] ${cyan}[M!]${neutre} ${rouge}[D!]${neutre} (MMORPG 100% libre avec un univers imaginaire, en phase alpha)"
     echo "[10] Lutris (Plate-forme de jeux équivalente à Steam mais libre, rassemble tous vos jeux natifs ou non)"
     echo "[11] Megaglest (RTS 3d dans un monde fantastique avec 2 factions qui s'affrontent : la magie et la technologie)"    
-    echo "[12] Minecraft (un des plus célèbres jeux sandbox, jeu propriétaire et payant)"
+    echo -e "[12] Minecraft ${jaune}[Snap]${neutre} (un des plus célèbres jeux sandbox, jeu propriétaire et payant)"
     echo "[13] Minetest (un clone de Minecraft mais libre/opensource et totalement gratuit)"
     echo "[14] OpenArena (un clone libre du célèbre jeu 'Quake')"   
     echo "[15] Pingus (clone de Lemmings, vous devrez aider des manchots un peu idiots à traverser des obstacles)"    
@@ -1535,9 +1535,9 @@ do
         "11") #Megaglest
             apt install megaglest -y
             ;;            
-        "12") #Minecraft 
-            wget http://packages.linuxmint.com/pool/import/m/minecraft-installer/minecraft-installer_0.1+r12~ubuntu16.04.1_amd64.deb
-            dpkg -i minecraft-installer_0.1+r12~ubuntu16.04.1_amd64.deb ; apt install -fy
+        "12") #Minecraft (snap car le paquet deb semble poser problème)
+            snap install minecraft
+            #wget http://packages.linuxmint.com/pool/import/m/minecraft-installer/minecraft-installer_0.1+r12~ubuntu16.04.1_amd64.deb ; dpkg -i minecraft-installer_0.1+r12~ubuntu16.04.1_amd64.deb ; apt install -fy
             ;;
         "13") #Minetest 
             apt install minetest minetest-mod-nether -y
