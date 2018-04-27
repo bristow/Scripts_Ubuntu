@@ -812,7 +812,7 @@ then
     apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
     #grammalecte (oxt)
     wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte*
-    unopkg add --shared Grammalecte*.oxt" && rm Grammalecte*.oxt  
+    unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt  
     echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
     
     ### snap
