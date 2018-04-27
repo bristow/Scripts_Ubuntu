@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.25
+# version 1.0.26
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -34,8 +34,11 @@ clear
 
 # Contrôle de la configuration système (script correctement lancé + version 18.04 + gnome-shell présent)
 . /etc/lsb-release
-archi=$(uname -i)  #création d'une variable contenant l'architecture si elle est 32 ou 64 bits pour vérification
 
+# Si besoin de mettre la fenêtre pour le script en plein écran (désactivé par défaut)
+#apt install xdotool -y && xdotool key F11
+
+# contrôle
 if [ "$UID" -ne "0" ]
 then
     echo -e "${rouge}Ce script doit se lancer avec les droits d'administrateur : sudo ./script.sh${neutre}"
@@ -61,6 +64,7 @@ fi
 clear
 
 # Vérification de l'architecture
+archi=$(uname -i) 
 if [ "$archi" != "x86_64" ]
 then
     echo -e "${rouge}ATTENTION : vous n'êtes pas sous une architecture 64 bits actuellement ! Ce script est testé uniquement pour la version 64 bits. Beaucoup de logiciels ne seront installés qu'en 64 bits (dans ce cas ils ne pourront pas s'installer), néammoins la plupart devraient pouvoir s'installer en 32 bits${neutre}"
@@ -811,14 +815,15 @@ then
     apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
     #grammalecte (oxt)
     wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte*
-    unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt  
+    #unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt  
     echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
     
     ### snap
     snap install communitheme
     
     ### flatpak
-    flatpak install flathub de.haeckerfelix.gradio -y
+    #flatpak install flathub de.haeckerfelix.gradio -y
+    wget http://getdeb.megaglest.org/ubuntu/pool/apps/g/gradio/gradio_5.0-1~getdeb2_amd64.deb ; dpkg -i gradio* ; apt install -fy ; rm gradio*
     
     ### appimages
     wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov ; mv molotov molotov.AppImage ; chmod +x molotov.AppImage ; chown $SUDO_USER molotov* 
