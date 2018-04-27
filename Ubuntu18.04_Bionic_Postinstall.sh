@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.26
+# version 1.0.26b
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
