@@ -114,7 +114,7 @@ clear
 
 while [ "$choixMode" != "1" ] && [ "$choixMode" != "2" ] && [ "$choixMode" != "3" ] && [ "$choixMode" != "10" ] && [ "$choixMode" != "11" ] && [ "$choixMode" != "12" ] && [ "$choixMode" != "13" ]
 do
-    read -p "Désolé, je ne comprend pas votre réponse, les seuls choix possibles sont 1 (Manuel niv1), 2 (Manuel niv2), 3 (Manuel niv3) ainsi que les modes automatiques (10, 11, 12) : " choixMode
+    read -p "Désolé, je ne comprend pas votre réponse, les seuls choix possibles sont 1 (Manuel niv1), 2 (Manuel niv2), 3 (Manuel niv3) ainsi que les modes automatiques (de 10 à 13) : " choixMode
     clear
 done
 
