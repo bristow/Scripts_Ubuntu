@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.24
+# version 1.0.25
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -100,20 +100,28 @@ echo "*******************************************************"
 echo -e "[1] Mode ${bleu}Manuel niveau 1${neutre} (choix par défaut, recommandé pour la plupart des utilisateurs : pose diverses questions simples)"
 echo -e "[2] Mode ${jaune}Manuel niveau 2${neutre} (Des choix supplémentaires notamment en terme de logiciel de dev, des extensions, optimisation système)"
 echo -e "[3] Mode ${vert}Manuel niveau 3${neutre} (En plus du niveau2 propose un large choix supplémentaire de snap/flatpak/appimages)"
-echo -e "[10] Profil perso 1 (automatique) - Novices (Quelques logiciels installés pour les débutants)"
-echo -e "[11] Profil perso 2 (automatique) - Technicien IT (Cadre professionnel pour l'assistance technique)"
-echo -e "[12] Profil perso 3 (automatique) - Cedric.F (Installations personnalisées spécifiques pour Bristow)"
+echo -e "[10] Profil 1 (automatique) - Novices (Quelques logiciels installés pour les débutants)"
+echo -e "[11] Profil 2 (automatique) - Technicien IT (Cadre professionnel pour l'assistance technique)"
+echo -e "[12] Profil 3 (automatique) - Etablissements scolaires (Collèges, lycées, universités)"
+echo -e "[13] Profil 4 (automatique) - Cedric.F (Installations personnalisées spécifiques pour Bristow)"
 echo "*******************************************************"
 read -p "Répondre par le chiffre correspondant (par défaut: 1) : " choixMode
 clear
 
-while [ "$choixMode" != "1" ] && [ "$choixMode" != "2" ] && [ "$choixMode" != "3" ] && [ "$choixMode" != "10" ] && [ "$choixMode" != "11" ] && [ "$choixMode" != "12" ]
+while [ "$choixMode" != "1" ] && [ "$choixMode" != "2" ] && [ "$choixMode" != "3" ] && [ "$choixMode" != "10" ] && [ "$choixMode" != "11" ] && [ "$choixMode" != "12" ] && [ "$choixMode" != "13" ]
 do
     read -p "Désolé, je ne comprend pas votre réponse, les seuls choix possibles sont 1 (Manuel niv1), 2 (Manuel niv2), 3 (Manuel niv3) ainsi que les modes automatiques (10, 11, 12) : " choixMode
     clear
 done
 
-if [ "$choixMode" != "10" ] && [ "$choixMode" != "11" ] && [ "$choixMode" != "12" ] 
+if [ "$choixMode" != "12" ] # étab scolaire (fait appel au script externe dédié aux établissements scolaires)
+then
+    wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-postinstall.sh ; chmod +x ubuntu-et-variantes-postinstall.sh
+    ./ubuntu-et-variantes-postinstall.sh ; rm ubuntu-et-variantes-postinstall.sh
+    exit
+fi
+
+if [ "$choixMode" != "10" ] && [ "$choixMode" != "11" ] && [ "$choixMode" != "13" ] 
 then
     if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
     then
@@ -783,12 +791,13 @@ then
 fi
 
 ###################################################
-#  Cedric.F (choix 12)
-if [ "$choixMode" = "12" ]
+#  Cedric.F (choix 13)
+if [ "$choixMode" = "13" ]
 then
     ### apt
-    apt install chromium-browser chromium-browser-l10n pidgin grsync vlc devede handbrake winff winff-qt gimp pinta shutter sweethome3d -y
-    apt install audacity sound-juicer gnote stellarium 
+    apt install chromium-browser chromium-browser-l10n pidgin grsync vlc devede handbrake winff winff-qt gimp pinta shutter sweethome3d minetest -y
+    apt install audacity sound-juicer gnote stellarium gnome-maps brasero cheese diodon adobe-flashplugin gnome-recipes keepassx gnome-games gnome-games-app -y
+    apt install numix-icon-theme -y ; git clone https://github.com/numixproject/numix-icon-theme-circle.git ; mv -f numix-icon-theme-circle/* /usr/share/icons/ ; rm -r numix-icon-theme-circle
     apt install --no-install-recommends openshot-qt -y
     
     ### ppa
@@ -803,6 +812,7 @@ then
     
     ### snap
     snap install signal-desktop
+    snap install communitheme
     
     ### flatpak
     flatpak install flathub de.haeckerfelix.gradio -y
@@ -811,15 +821,10 @@ then
     wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov ; mv molotov molotov.AppImage && chmod +x molotov.AppImage
 
     ### dépot externe ou deb manuel
-    wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb ; dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy
-    sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth*
-    
-    
-    # reprendre a gnome maps....... (non terminé)
+    wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb ; dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy 
+    sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth* #google earth
+    wget https://download.anydesk.com/linux/anydesk_2.9.5-1_amd64.deb ; dpkg -i anydesk* ; apt install -fy ; rm anydesk* # anydesk 
 fi
-
-
-
 
 # Création d'un répertoire pour le script et on se déplace dedans
 mkdir /home/$SUDO_USER/script_postinstall && cd /home/$SUDO_USER/script_postinstall/
