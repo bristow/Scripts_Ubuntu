@@ -104,10 +104,10 @@ echo "*******************************************************"
 echo -e "[1] Mode ${bleu}Manuel niveau 1${neutre} (choix par défaut, recommandé pour la plupart des utilisateurs : pose diverses questions simples)"
 echo -e "[2] Mode ${jaune}Manuel niveau 2${neutre} (Des choix supplémentaires notamment en terme de logiciel de dev, des extensions, optimisation système)"
 echo -e "[3] Mode ${vert}Manuel niveau 3${neutre} (En plus du niveau2 propose un large choix supplémentaire de snap/flatpak/appimages)"
-echo -e "[10] Profil 1 (automatique) - Novices (Quelques logiciels installés pour les débutants)"
-echo -e "[11] Profil 2 (automatique) - Technicien IT (Cadre professionnel pour l'assistance technique)"
-echo -e "[12] Profil 3 (automatique) - Etablissements scolaires (Collèges, lycées, universités)"
-echo -e "[13] Profil 4 (automatique) - Cedric.F (Installations personnalisées spécifiques pour Bristow)"
+echo -e "[10] Profil A (automatique) - Novices (Quelques logiciels installés pour les débutants)"
+echo -e "[11] Profil B (automatique) - Technicien IT (Cadre professionnel pour l'assistance technique)"
+echo -e "[12] Profil C (automatique) - Etablissements scolaires (Collèges, lycées, universités)"
+echo -e "[13] Profil D (automatique) - Cedric.F (Installations personnalisées spécifiques pour Bristow)"
 echo "*******************************************************"
 read -p "Répondre par le chiffre correspondant (par défaut: 1) : " choixMode
 clear
@@ -814,21 +814,18 @@ then
     add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y ; apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze -y
     apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
     #grammalecte (oxt)
-    wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte*
-    #unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt  
+    wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte* 
+    unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt ; chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/libreoffice
+    mv Grammalecte* ..
+    #Police d'écriture Microsoft
     echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
-    
     ### snap
     snap install communitheme
-    
-    ### flatpak
-    #flatpak install flathub de.haeckerfelix.gradio -y
-    wget http://getdeb.megaglest.org/ubuntu/pool/apps/g/gradio/gradio_5.0-1~getdeb2_amd64.deb ; dpkg -i gradio* ; apt install -fy ; rm gradio*
-    
     ### appimages
     wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov ; mv molotov molotov.AppImage ; chmod +x molotov.AppImage ; chown $SUDO_USER molotov* 
-
     ### dépot externe ou deb manuel
+    # Gradio
+    wget http://getdeb.megaglest.org/ubuntu/pool/apps/g/gradio/gradio_5.0-1~getdeb2_amd64.deb ; dpkg -i gradio* ; apt install -fy ; rm gradio*
     # Google Earth
     wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb ; dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy 
     sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth* #google earth
