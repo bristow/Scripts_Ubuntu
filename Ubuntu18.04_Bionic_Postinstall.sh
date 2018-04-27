@@ -807,18 +807,21 @@ then
     apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
     #grammalecte (oxt)
     wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte*
-    unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt  
+    su $SUDO_USER -c "unopkg add --shared Grammalecte*.oxt" && rm Grammalecte*.oxt  
     echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
     
     ### snap
-    snap install signal-desktop
+    curl -s https://updates.signal.org/desktop/apt/keys.asc | apt-key add -
+    echo "deb [arch=amd64] https://updates.signal.org/desktop/apt bionic main" | tee -a /etc/apt/sources.list.d/signal-bionic.list
+    apt update ; apt install signal-desktop -y
+    #snap install signal-desktop
     snap install communitheme
     
     ### flatpak
     flatpak install flathub de.haeckerfelix.gradio -y
     
     ### appimages
-    wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov ; mv molotov molotov.AppImage && chmod +x molotov.AppImage
+    wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov ; mv molotov molotov.AppImage ; chmod +x molotov.AppImage ; chown $SUDO_USER molotov* 
 
     ### dépot externe ou deb manuel
     wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb ; dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy 
@@ -1349,8 +1352,8 @@ do
             apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango -y
             apt install libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
             # récupération extension grammalecte (oxt)
-            wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte*
-            unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt  
+            #wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte*
+            #unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt  
             ;;            
         "13") #MailSpring (Snap)
             snap install mailspring
