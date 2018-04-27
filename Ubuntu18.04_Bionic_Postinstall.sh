@@ -114,7 +114,7 @@ do
     clear
 done
 
-if [ "$choixMode" != "12" ] # étab scolaire (fait appel au script externe dédié aux établissements scolaires)
+if [ "$choixMode" = "12" ] # étab scolaire (fait appel au script externe dédié aux établissements scolaires)
 then
     wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-postinstall.sh ; chmod +x ubuntu-et-variantes-postinstall.sh
     ./ubuntu-et-variantes-postinstall.sh ; rm ubuntu-et-variantes-postinstall.sh
