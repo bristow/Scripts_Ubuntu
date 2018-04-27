@@ -694,9 +694,6 @@ sed -i "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 #Maj du système + nettoyage
 apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
 
-# Désinstallation des paquets snappy inutiles (5 préinstallés par défaut) et remplacement par la version deb via apt 
-snap remove gnome-3-26-1604 gnome-calculator gnome-characters gnome-logs gnome-system-monitor ; apt install gnome-calculator gnome-characters gnome-logs gnome-system-monitor -y 
-
 # Création d'un répertoire pour le script et on se déplace dedans
 mkdir /home/$SUDO_USER/script_postinstall && cd /home/$SUDO_USER/script_postinstall/
 
@@ -735,6 +732,8 @@ if [ "$2" != "NRI!" ] ; then # Installé par défaut sauf dans un cas particulie
         apt purge ubuntu-web-launchers -y
         # Création répertoire extension pour l'ajout d'extension supplémentaire pour l'utilisateur principal
         mkdir /home/$SUDO_USER/.local/share/gnome-shell/extensions /home/$SUDO_USER/.themes /home/$SUDO_USER/.icons
+        # Désinstallation des paquets snappy inutiles (5 préinstallés par défaut) et remplacement par la version deb via apt 
+        snap remove gnome-3-26-1604 gnome-calculator gnome-characters gnome-logs gnome-system-monitor ; apt install gnome-calculator gnome-characters gnome-logs gnome-system-monitor -y 
     fi
     ###################################################
     # Spécifique Xubuntu/Xfce 18.04
