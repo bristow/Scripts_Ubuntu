@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.26b
+# version 1.0.27
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -349,7 +349,7 @@ then
     echo "[9] LaTex + Texworks (langage de description de document avec un éditeur spécialisé LaTex)"
     echo -e "[10] LibreOffice {branche gelé en 6.0} ${vert}[Recommandé]${neutre} suite bureautique libre (normalement déjà installé de base)"
     echo -e "[11] LibreOffice Fresh (backporté) ${gris}[PPA]${neutre} {dernière version stable possible, changement de branche possible !} "    
-    echo -e "[12] LibreOffice Supplément : ajoute des styles d'icones + des modèles de documents & clipart + extension Grammalecte activé)"
+    echo -e "[12] LibreOffice Supplément : ajoute des styles d'icones, des modèles de documents & clipart + extension Grammalecte activé)"
     echo -e "[13] MailSpring ${jaune}[Snap]${neutre} (client de messagerie moderne et multi-plateforme)"
     echo -e "[14] Master PDF Editor (éditeur PDF propriétaire capable de gérer les formulaires CERFA/XFA)" 
     echo -e "[15] Notes Up ${bleu}[Flatpak]${neutre} (éditeur et manager de notes avec markdown, simple mais efficace)"
@@ -809,16 +809,18 @@ then
     apt install --no-install-recommends openshot-qt -y
     
     ### ppa
+    # Shotcut
     add-apt-repository "deb http://ppa.launchpad.net/haraldhv/shotcut/ubuntu zesty main" -y ; apt-key adv --recv-keys --keyserver keyserver.ubuntu.com D03D19F673FED66EBD64099959A9D327745898E3 ; apt update ; apt install shotcut -y
-    
+    # LibreOffice PPA générique 
     add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y ; apt install libreoffice libreoffice-l10n-fr libreoffice-style-breeze -y
+    # Supplément libreoffice
     apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
-    #grammalecte (oxt)
+    #installation extension grammalecte (oxt)
     wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte* 
     unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt ; chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/libreoffice
-    mv Grammalecte* ..
     #Police d'écriture Microsoft
     echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
+    
     ### snap
     snap install communitheme
     ### appimages
@@ -1355,9 +1357,9 @@ do
         "12") #LibreOffice : Supplément
             apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango -y
             apt install libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
-            # récupération extension grammalecte (oxt)
-            #wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte*
-            #unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt  
+            #installation extension grammalecte (oxt)
+            wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte* 
+            unopkg add --shared Grammalecte*.oxt && rm Grammalecte*.oxt ; chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config/libreoffice
             ;;            
         "13") #MailSpring (Snap)
             snap install mailspring
