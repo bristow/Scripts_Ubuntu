@@ -588,9 +588,8 @@ then
     echo "[16] Lecture DVD commerciaux protégés par CSS (Content Scrambling System)"
     echo "[17] Optimisation Grub : réduire le temps d'attente (si multiboot) de 10 à 2 secondes + retirer le test de RAM dans grub"
     echo "[18] Optimisation Swap : swapiness à 5% (swap utilisé uniquement si plus de 95% de ram utilisée)"
-    echo "[19] Retirer les paquets snappy pré-installés et réinstaller via apt (concerne 4 snaps : calculette+logs+moniteur+caracteres)"
-    echo "[20] Support imprimantes HP (hplip + sane + hplip-gui)"
-    echo "[21] TLP (économie d'énergie pour pc portable)"
+    echo "[19] Support imprimantes HP (hplip + sane + hplip-gui)"
+    echo "[20] TLP (économie d'énergie pour pc portable)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 2 5 8 10) : " choixOptimisation
     clear
@@ -694,6 +693,12 @@ sed -i "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 
 #Maj du système + nettoyage
 apt update ; apt full-upgrade -y ; apt autoremove --purge -y ; apt clean
+
+# Désinstallation des paquets snappy inutiles (5 préinstallés par défaut) et remplacement par la version deb via apt 
+snap remove gnome-3-26-1604 gnome-calculator gnome-characters gnome-logs gnome-system-monitor ; apt install gnome-calculator gnome-characters gnome-logs gnome-system-monitor -y 
+
+# Création d'un répertoire pour le script et on se déplace dedans
+mkdir /home/$SUDO_USER/script_postinstall && cd /home/$SUDO_USER/script_postinstall/
 
 if [ "$1" = "vbox" ] ; then  # installe les additions invités pour une vm si script lancé avec paramètre "vbox" : ./script.sh vbox
     apt install virtualbox-guest-utils -y    
@@ -807,14 +812,10 @@ then
     apt install libreoffice-style-elementary libreoffice-style-oxygen libreoffice-style-human libreoffice-style-sifr libreoffice-style-tango libreoffice-templates hunspell-fr mythes-fr hyphen-fr openclipart-libreoffice python3-uno -y
     #grammalecte (oxt)
     wget https://www.dicollecte.org/grammalecte/oxt/Grammalecte-fr-v0.6.2.oxt && chown $SUDO_USER Grammalecte* && chmod +x Grammalecte*
-    su $SUDO_USER -c "unopkg add --shared Grammalecte*.oxt" && rm Grammalecte*.oxt  
+    unopkg add --shared Grammalecte*.oxt" && rm Grammalecte*.oxt  
     echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt install ttf-mscorefonts-installer -y
     
     ### snap
-    curl -s https://updates.signal.org/desktop/apt/keys.asc | apt-key add -
-    echo "deb [arch=amd64] https://updates.signal.org/desktop/apt bionic main" | tee -a /etc/apt/sources.list.d/signal-bionic.list
-    apt update ; apt install signal-desktop -y
-    #snap install signal-desktop
     snap install communitheme
     
     ### flatpak
@@ -824,13 +825,15 @@ then
     wget http://desktop-auto-upgrade.molotov.tv/linux/2.1.2/molotov ; mv molotov molotov.AppImage ; chmod +x molotov.AppImage ; chown $SUDO_USER molotov* 
 
     ### dépot externe ou deb manuel
+    # Google Earth
     wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb ; dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy 
     sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth* #google earth
+    # Anydesk
     wget https://download.anydesk.com/linux/anydesk_2.9.5-1_amd64.deb ; dpkg -i anydesk* ; apt install -fy ; rm anydesk* # anydesk 
+    # Signal
+    curl -s https://updates.signal.org/desktop/apt/keys.asc | apt-key add - ; echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | tee -a /etc/apt/sources.list.d/signal-xenial.list
+    apt update && apt install signal-desktop -y
 fi
-
-# Création d'un répertoire pour le script et on se déplace dedans
-mkdir /home/$SUDO_USER/script_postinstall && cd /home/$SUDO_USER/script_postinstall/
 
 ## Installation suivant les choix de l'utilisateur :
 
@@ -1988,15 +1991,11 @@ do
         "18") #Swapiness 95% +cache pressure 50
             echo vm.swappiness=5 | tee /etc/sysctl.d/99-swappiness.conf
             sysctl -p /etc/sysctl.d/99-swappiness.conf
-            ;;
-        "19") #Retirer paquet snappy et réinstaller les logiciels de manière classique
-            snap remove gnome-calculator gnome-characters gnome-logs gnome-system-monitor
-            apt install -y gnome-calculator gnome-characters gnome-logs gnome-system-monitor
-            ;;  
-        "20") #Support imprimante HP
+            ;; 
+        "19") #Support imprimante HP
             apt install hplip hplip-doc hplip-gui sane sane-utils -y
             ;;               
-        "21") #TLP 
+        "20") #TLP 
             apt install --no-install-recommends tlp tlp-rdw -y
             systemctl enable tlp ; systemctl enable tlp-sleep
             ;;
@@ -2184,11 +2183,10 @@ done
 # Rangement des AppImage et vérification du bon propriétaire de certains dossiers.
 cd /home/$SUDO_USER/script_postinstall/
 mkdir ../appimages ; mv *.AppImage ../appimages/ ; chmod -R +x ../appimages 
-chown -R $SUDO_USER:$SUDO_USER ../appimages ../script_postinstall ../.icons ../.themes ../.local
+chown -R $SUDO_USER:$SUDO_USER ../appimages ../.icons ../.themes ../.local
 
 # Nettoyage fichiers/dossiers inutiles qui étaient utilisés par le script
-rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb ; 
-cd .. && rm -rf /home/$SUDO_USER/script_postinstall
+rm *.zip ; rm *.tar.gz ; rm *.tar.xz ; rm *.deb ; cd .. && rm -rf /home/$SUDO_USER/script_postinstall
 clear
 
 # Maj/Nettoyage
