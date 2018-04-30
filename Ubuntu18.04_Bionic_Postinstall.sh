@@ -430,7 +430,7 @@ then
     echo "*******************************************************"
     echo -e "${bleu}13/ Souhaitez-vous un logiciel de sécurité, hacking ou récupération de donnée ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Je n'en n'5ai pas besoin"
+    echo "[1] Je n'en n'ai pas besoin"
     echo "[2] DDRescue (Permet de dupliquer le mieux possible les parties intactes des disques usagés)"
     echo -e "[3] Gnome Encfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
     echo -e "[4] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
