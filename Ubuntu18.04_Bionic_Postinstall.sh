@@ -954,7 +954,7 @@ do
             ;;            
         "21") #Vivaldi x64 (sera toujours à jour bien qu'une version précise soit téléchargé : dépot ajouté par le deb)
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/vivaldi.deb
-            dpkg -i vivaldi* ; apt install -fy ; apt upgrade vivaldi-stable -y ; rm vivaldi.deb
+            dpkg -i vivaldi* ; apt install -fy ; rm vivaldi.deb ; apt update && apt upgrade -y 
             ;;
         "22") #Waterfox
             echo "deb https://dl.bintray.com/hawkeye116477/waterfox-deb release main" >> /etc/apt/sources.list.d/waterfox.list
