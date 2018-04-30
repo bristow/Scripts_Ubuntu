@@ -193,7 +193,7 @@ then
     echo "[11] Polari (client IRC pour Gnome)"
     echo "[12] Psi (multiplateforme, libre et surtout conçu pour le protocole XMPP cad Jabber)"
     echo "[13] Ring (anciennement 'SFLphone', logiciel très performant pour la téléphonie IP)"
-    echo -e "[14] Riot/Matrix {bleu}[Flatpak]${neutre} (Outil libre de messagerie instantannée sécurisée supportant le protocole Matrix)"
+    echo -e "[14] Riot/Matrix ${bleu}[Flatpak]${neutre} (Outil libre de messagerie instantannée sécurisée supportant le protocole Matrix)"
     echo -e "[15] Signal ${jaune}[Snap]${neutre} (messagerie instantanée cryptée recommandée par Edward Snowden)"
     echo -e "[16] Skype ${gris}[DepExt]${neutre} (logiciel propriétaire de téléphonie, vidéophonie et clavardage très connue)"
     echo -e "[17] Slack ${jaune}[Snap]${neutre} (plate-forme de communication collaborative propriétaire avec gestion de projets)"
@@ -428,9 +428,9 @@ then
 
     # Question 13 : Sécurité, hacking, récupération
     echo "*******************************************************"
-    echo -e "${bleu}13/ Souhaitez-vous des logiciels de sécurité, hacking ou récupération de données ?${neutre}"
+    echo -e "${bleu}13/ Souhaitez-vous un logiciel de sécurité, hacking ou récupération de donnée ?${neutre}"
     echo "*******************************************************"
-    echo "[1] Je n'en n'ai pas besoin"
+    echo "[1] Je n'en n'5ai pas besoin"
     echo "[2] DDRescue (Permet de dupliquer le mieux possible les parties intactes des disques usagés)"
     echo -e "[3] Gnome Encfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
     echo -e "[4] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
