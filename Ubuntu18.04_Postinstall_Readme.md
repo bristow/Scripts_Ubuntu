@@ -16,15 +16,15 @@ Astuce : si vous voulez faire le choix par défaut (qui correspond à 1), vous p
 
 - C'est très simple, il suffit de télécharger le script shell (appuyer sur raw avant sur github) ou directement en faisant :
 ```bash 
-  wget https://raw.githubusercontent.com/BionicBeaver/GNULinux/master/Ubuntu18.04_BionicBeaver_Postinstallation.sh
+  wget https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Ubuntu18.04_Bionic_Postinstall.sh
 ```
 - Il suffit ensuite de mettre les droits d'éxécution : 
 ```bash 
-  chmod +x Ubuntu18.04_BionicBeaver_Postinstallation.sh
+  chmod +x Ubuntu18.04_Bionic_Postinstall.sh
 ```
 - Enfin pour le lancer : 
 ```bash 
-  sudo ./Ubuntu18.04_BionicBeaver_Postinstallation.sh
+  sudo ./Ubuntu18.04_Bionic_Postinstall.sh
 ``` 
 
 ### 4/ Utilisation
