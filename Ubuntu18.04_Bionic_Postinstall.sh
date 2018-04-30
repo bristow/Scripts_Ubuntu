@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.27
+# version 1.0.28
 # Aperçu de ce que donne le script en capture vidéo ici : https://asciinema.org/a/5G8rzzZ4WM6Lx8JCjmwYtNiAs
 
 #  Copyleft 2018 Simbd
@@ -193,14 +193,15 @@ then
     echo "[11] Polari (client IRC pour Gnome)"
     echo "[12] Psi (multiplateforme, libre et surtout conçu pour le protocole XMPP cad Jabber)"
     echo "[13] Ring (anciennement 'SFLphone', logiciel très performant pour la téléphonie IP)"
-    echo -e "[14] Signal ${jaune}[Snap]${neutre} (messagerie instantanée cryptée recommandée par Edward Snowden)"
-    echo -e "[15] Skype ${gris}[DepExt]${neutre} (logiciel propriétaire de téléphonie, vidéophonie et clavardage très connue)"
-    echo -e "[16] Slack ${jaune}[Snap]${neutre} (plate-forme de communication collaborative propriétaire avec gestion de projets)"
-    echo -e "[17] TeamSpeak ${cyan}[M!]${neutre} (équivalent à Mumble mais propriétaire)"
-    echo -e "[18] Telegram (appli de messagerie basée sur le cloud avec du chiffrage)"
-    echo -e "[19] Viber ${bleu}[Flatpak]${neutre} (logiciel de communication, surtout connu en application mobile)"
-    echo -e "[20] Weechat (client IRC léger, rapide et flexible s'utilisant en CLI)"   
-    echo -e "[21] Wire ${gris}[DepExt]${neutre} (un autre client de messagerie instantanée chiffrée créé par Wire Swiss)" 
+    echo -e "[14] Riot/Matrix {bleu}[Flatpak]${neutre} (Outil libre de messagerie instantannée sécurisée supportant le protocole Matrix)"
+    echo -e "[15] Signal ${jaune}[Snap]${neutre} (messagerie instantanée cryptée recommandée par Edward Snowden)"
+    echo -e "[16] Skype ${gris}[DepExt]${neutre} (logiciel propriétaire de téléphonie, vidéophonie et clavardage très connue)"
+    echo -e "[17] Slack ${jaune}[Snap]${neutre} (plate-forme de communication collaborative propriétaire avec gestion de projets)"
+    echo -e "[18] TeamSpeak ${cyan}[M!]${neutre} (équivalent à Mumble mais propriétaire)"
+    echo -e "[19] Telegram (appli de messagerie basée sur le cloud avec du chiffrage)"
+    echo -e "[20] Viber ${bleu}[Flatpak]${neutre} (logiciel de communication, surtout connu en application mobile)"
+    echo -e "[21] Weechat (client IRC léger, rapide et flexible s'utilisant en CLI)"   
+    echo -e "[22] Wire ${gris}[DepExt]${neutre} (un autre client de messagerie instantanée chiffrée créé par Wire Swiss)" 
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 6 10 14) : " choixMessagerie
     clear
@@ -263,26 +264,29 @@ then
     read -p "Répondre par le ou les chiffres correspondants (exemple : 4 7 13 20) : " choixMultimedia
     clear
 
-    # Question 7 : Traitement/montage video
+    # Question 7 : Traitement/montage/capture video
     echo "*******************************************************"
-    echo -e "${bleu}7/ Souhaitez-vous un logiciel de montage/encodage vidéo ?${neutre}"
+    echo -e "${bleu}7/ Souhaitez-vous un logiciel de montage/encodage/capture vidéo ?${neutre}"
     echo "*******************************************************"
     echo "[1] Non, aucun ajout"
     echo -e "[2] Cinelerra ${gris}[PPA]${neutre} (montage non-linéaire sophistiqué, équivalent à Adobe première, Final Cut et Sony Vegas"
     echo "[3] DeVeDe (création de DVD/CD vidéos lisibles par des lecteurs de salon)"
     echo -e "[4] Flowblade ${violet}[X!]${neutre} (logiciel de montage vidéo multi-piste performant)"
     echo "[5] Handbrake (transcodage de n'importe quel fichier vidéo)"
-    echo "[6] KDEnLive (éditeur vidéo non-linéaire pour monter sons et images avec effets spéciaux)"        
-    echo "[7] Libav-tools (fork de FFmpeg, outil en CLI pour la conversion via : avconv)"
-    echo "[8] Lives (dispose des fonctionnalités d'éditions vidéo/son classique, des filtres et multipiste"
-    echo "[9] Mencoder (s'utilise en ligne de commande : encodage de fichiers vidéos)"    
-    echo "[10] MMG : MkvMergeGui (interface graphique pour l'outil mkmerge : création/manipulation fichier mkv)"    
-    echo -e "[11] Natron ${gris}[DepExt]${neutre} (programme de post-prod destiné au compositing et aux effets spéciaux)"    
-    echo "[12] OpenShot Video Editor (éditeur vidéo, libre et écrit en Python. Il est conseillé d'ajouter Blender pour certaines fonctions)"    
-    echo -e "[13] Peek ${bleu}[Flatpak]${neutre} (outil de création de Gif animé à partir d'une capture vidéo)"
-    echo "[14] Pitivi (logiciel de montage basique avec une interface simple et intuitive)"    
-    echo -e "[15] Shotcut ${gris}[PPA]${neutre} (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
-    echo "[16] WinFF (encodage vidéo rapide dans différents formats)"
+    echo -e "[6] Kazam ${violet}[X!]${neutre} (capture vidéo de votre bureau)"
+    echo "[7] KDEnLive (éditeur vidéo non-linéaire pour monter sons et images avec effets spéciaux)"        
+    echo "[8] Libav-tools (fork de FFmpeg, outil en CLI pour la conversion via : avconv)"
+    echo "[9] Lives (dispose des fonctionnalités d'éditions vidéo/son classique, des filtres et multipiste"
+    echo "[10] Mencoder (s'utilise en ligne de commande : encodage de fichiers vidéos)"    
+    echo "[11] MMG : MkvMergeGui (interface graphique pour l'outil mkmerge : création/manipulation fichier mkv)"    
+    echo -e "[12] Natron ${gris}[DepExt]${neutre} (programme de post-prod destiné au compositing et aux effets spéciaux)"    
+    echo -e "[13] OpenBroadcaster Software (OBS) ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
+    echo "[14] OpenShot Video Editor (éditeur vidéo, libre et écrit en Python. Il est conseillé d'ajouter Blender pour certaines fonctions)"    
+    echo -e "[15] Peek ${bleu}[Flatpak]${neutre} (outil de création de Gif animé à partir d'une capture vidéo)"
+    echo "[16] Pitivi (logiciel de montage basique avec une interface simple et intuitive)"    
+    echo -e "[17] Shotcut ${gris}[PPA]${neutre} (éditeur de vidéos libre, open source, gratuit et multiplateforme)"
+    echo "[18] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
+    echo "[19] WinFF (encodage vidéo rapide dans différents formats)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 12) : " choixVideo
     clear
@@ -298,14 +302,15 @@ then
     echo -e "[5] Gimp ${vert}[Recommandé]${neutre} (montage photo avancé, équivalent à 'Adobe Photoshop')"
     echo "[6] Inkscape (logiciel spécialisé dans le dessin vectoriel, équivalent de 'Adobe Illustrator')"
     echo "[7] K-3D (animation et modélisation polygonale et modélisation par courbes)"
-    echo "[8] Krita (outil d'édition et retouche d'images, orienté plutôt vers le dessin bitmap)"
-    echo "[9] LibreCAD (anciennement CADubuntu, DAO 2D pour modéliser des dessins techniques)"
-    echo "[10] MyPaint (logiciel de peinture numérique développé en Python)"
-    echo "[11] Pinta (graphisme simple équivalent à Paint.NET)"
-    echo -e "[12] Pixeluvo ${gris}[DepExt]${neutre} (une autre alternative à Photoshop mais il reste propriétaire)"
-    echo -e "[13] Shutter ${violet}[X!]${neutre} (pour effectuer des captures d'écran + appliquer des modifications diverses)"
-    echo "[14] SweetHome 3D (aménagement d'intérieur pour dessiner les plans d'une maison, placement des meubles...)"
-    echo "[15] Ufraw (logiciel de dérawtisation capable de lire/interpréter la plupart des formats RAW)"
+    echo "[8] KolourPaint (logiciel basique équivalent à Microsoft Paint)"
+    echo "[9] Krita (outil d'édition et retouche d'images, orienté plutôt vers le dessin bitmap)"
+    echo "[10] LibreCAD (anciennement CADubuntu, DAO 2D pour modéliser des dessins techniques)"
+    echo "[11] MyPaint (logiciel de peinture numérique développé en Python)"
+    echo "[12] Pinta (graphisme simple équivalent à Paint.NET)"
+    echo -e "[13] Pixeluvo ${gris}[DepExt]${neutre} (une autre alternative à Photoshop mais il reste propriétaire)"
+    echo -e "[14] Shutter ${violet}[X!]${neutre} (pour effectuer des captures d'écran + appliquer des modifications diverses)"
+    echo "[15] SweetHome 3D (aménagement d'intérieur pour dessiner les plans d'une maison, placement des meubles...)"
+    echo "[16] Ufraw (logiciel de dérawtisation capable de lire/interpréter la plupart des formats RAW)"
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 5 11) : " choixGraphisme
     clear
@@ -392,7 +397,7 @@ then
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 5 13) : " choixScience
     clear
-
+    
     # Question 12 : Utilitaires 
     echo "*******************************************************"
     echo -e "${bleu}12/ Quel(s) utilitaire(s) supplémentaire(s) voulez-vous ?${neutre}"
@@ -402,38 +407,49 @@ then
     echo "[3] Brasero (logiciel de gravure de cd/dvd)"  
     echo "[4] Cheese (outil pour prendre des photos/vidéos à partir d'une webcam)"
     echo -e "[5] CoreBird (un client de bureau pour le réseau social Twitter)"
-    echo -e "[6] DDRescue (Permet de dupliquer le mieux possible les parties intactes des disques usagés)"
-    echo -e "[7] Diodon (Gestionnaire de presse-papiers GTK+)"
-    echo "[8] Flash Player (Adobe) : permet de lire des vidéos qui utiliseraient encore Flash sans support HTML5"
-    echo -e "[9] Gnome Encfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
-    echo "[10] Gnome Recipes (Application Gnome spécialisée dans les recettes de cuisine)"
-    echo -e "[11] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
-    echo -e "[12] Kazam ${violet}[X!]${neutre} (capture vidéo de votre bureau)"
-    echo "[13] KeePassX 2 (centralise la gestion de vos mots de passe personnels, protégé par un master password)"
-    echo -e "[14] MultiSystem ${gris}[DepExt]${neutre} Utilitaire permettant de créer une clé usb bootable avec plusieurs OS"
-    echo -e "[15] OpenBroadcaster Software (OBS) ${gris}[PPA]${neutre} (pour faire du live en streaming, adapté pour les gamers)"
-    echo -e "[16] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire d'Oracle pour les logiciels développés en Java)"
-    echo -e "[17] Oracle Java 10 ${gris}[PPA]${neutre} (version actuelle de Java distribué par Oracle)"
-    echo "[18] Pack d'outils de hacking/cybersécurité (aircrack + nmap + nikto + john the ripper + hashcat + kismet)"
-    echo "[19] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
-    echo "[20] RedShift (Ajuste la température de couleur de l'écran, fonction déjà incluse dans Gnome avec le mode nuit)"    
-    echo "[21] SimpleScreenRecorder (autre alternative pour la capture vidéo)"
-    echo "[22] Smartmontools (Fournit l'état physiques des disques durs et des SSD voir de certaines clés USB)"
-    echo -e "[23] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
-    echo -e "[24] TeamViewer ${gris}[DepExt]${neutre}${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
-    echo -e "[25] Testdisk (Permet de ressusciter les partitions supprimées accidentellement ou les contenus des fichiers)"
-    echo -e "[26] VeraCrypt ${gris}[PPA]${neutre} (utilitaire sous licence libre utilisé pour le chiffrement)"    
-    echo "[27] VirtualBox {branche 5.2} (virtualisation de système Windows/Mac/Linux/Bsd)"
-    echo -e "[28] VirtualBox backporté ${gris}[DepExt]${neutre} dernière version stable possible depuis dépot d'Oracle"    
-    echo "[29] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"
-    echo "[30] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"    
+    echo -e "[6] Diodon (Gestionnaire de presse-papiers GTK+)"
+    echo "[7] Flash Player (Adobe) : permet de lire des vidéos qui utiliseraient encore Flash sans support HTML5"
+    echo "[8] Gnome Recipes (Application Gnome spécialisée dans les recettes de cuisine)"
+    echo -e "[9] MultiSystem ${gris}[DepExt]${neutre} Utilitaire permettant de créer une clé usb bootable avec plusieurs OS"
+    echo -e "[10] Oracle Java 8 ${gris}[PPA]${neutre} (plate-forme propriétaire d'Oracle pour les logiciels développés en Java)"
+    echo -e "[11] Oracle Java 10 ${gris}[PPA]${neutre} (version actuelle de Java distribué par Oracle)"
+    echo "[12] Pack d'outils utiles : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone"
+    echo "[13] RedShift (Ajuste la température de couleur de l'écran, fonction déjà incluse dans Gnome avec le mode nuit)"    
+    echo "[14] Smartmontools (Fournit l'état physiques des disques durs et des SSD voir de certaines clés USB)"
+    echo -e "[15] Synaptic ${violet}[X!]${neutre} (gestionnaire graphique pour les paquets deb)"
+    echo -e "[16] TeamViewer ${gris}[DepExt]${neutre}${violet}[X!]${neutre} (logiciel propriétaire de télémaintenance avec contrôle de bureau à distance)"
+    echo "[17] VirtualBox {branche 5.2} (virtualisation de système Windows/Mac/Linux/Bsd)"
+    echo -e "[18] VirtualBox backporté ${gris}[DepExt]${neutre} dernière version stable possible depuis dépot d'Oracle" 
+    echo "[19] Whalebird (client de bureau pour le réseau social ouvert et décentralisé Mastodon)"
+    echo "[20] Wine (une sorte d'émulateur pour faire tourner des applis/jeux conçus à la base pour Windows)"  
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 5 13 26 27) : " choixUtilitaire
     clear
 
-    # Question 13 : Gaming
+    # Question 13 : Sécurité, hacking, récupération
     echo "*******************************************************"
-    echo -e "${bleu}13/ Quel(s) jeux-vidéo(s) (ou applis liées aux jeux) voulez-vous installer ?${neutre}"
+    echo -e "${bleu}13/ Souhaitez-vous des logiciels de sécurité, hacking ou récupération de données ?${neutre}"
+    echo "*******************************************************"
+    echo "[1] Je n'en n'ai pas besoin"
+    echo "[2] DDRescue (Permet de dupliquer le mieux possible les parties intactes des disques usagés)"
+    echo -e "[3] Gnome Encfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
+    echo -e "[4] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
+    echo "[5] KeePass (utilise mono, centralise la gestion de vos mots de passe personnels, protégé par un master password)"
+    echo "[6] KeePassX (utilise Qt, fork du logiciel Keepass, ne semble plus maintenu)"
+    echo "[7] KeePassXC (une autre alternive recommandée, fork de KeepassX)"
+    echo "[8] Pack d'outils de hacking/cybersécurité (aircrack + nmap + nikto + john the ripper + hashcat + kismet)"
+    echo "[9] Sirikali (interface en Qt pour gérer les lecteurs chiffrés avec ecryptfs, cryfs, encfs, gocryptfs, securefs)"
+    echo -e "[10] Testdisk (Permet de ressusciter les partitions supprimées accidentellement ou les contenus des fichiers)"
+    echo -e "[11] VeraCrypt ${gris}[PPA]${neutre} (utilitaire libre utilisé pour le chiffrement, suite du projet TrueCrypt)"    
+    echo "[12] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"  
+    echo "*******************************************************"
+    read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixSecurite
+    clear
+
+
+    # Question 14 : Gaming
+    echo "*******************************************************"
+    echo -e "${bleu}14/ Quel(s) jeux-vidéo(s) (ou applis liées aux jeux) voulez-vous installer ?${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun, je ne suis pas un gamer"
     echo "[2] 0ad: Empires Ascendant (jeu de stratégie en temps réel RTS)" 
@@ -468,10 +484,10 @@ if [ "$choixMode" = "2" ] || [ "$choixMode" = "3" ]
 then
     if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ]
     then
-        # Question 14 : Extension 
+        # Question 15 : Extension 
         echo -e "${vert}Astuce 5: Si vous aimez faire de la customisation graphique, il est recommandé d'installer l'extension 'user themes'${neutre}"
         echo "*******************************************************"
-        echo -e "${jaune}14/ Des extensions pour gnome-shell à installer ? [mode avancé]${neutre}"
+        echo -e "${jaune}15/ Des extensions pour gnome-shell à installer ? [mode avancé]${neutre}"
         echo "*******************************************************"
         echo "[1] Non, ne pas ajouter de nouvelles extensions"
         echo "[2] AlternateTab (alternative au Alt+Tab issu du mode classique)"
@@ -503,10 +519,10 @@ then
         clear
     fi
 
-    # Question 15 : Customization
+    # Question 16 : Customization
     echo -e "${vert}Astuce 6: Si vous voulez transformer l'apparence du bureau, il faudra modifier vous-même l'agencement du bureau en plus d'appliquer les thèmes/icones${neutre}"
     echo "*******************************************************"
-    echo -e "${jaune}15/ Sélectionnez ce qui vous intéresse en terme de customisation [mode avancé]${neutre}"
+    echo -e "${jaune}16/ Sélectionnez ce qui vous intéresse en terme de customisation [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Pas d'ajout"
     echo -e "[2] Communitheme ${gris}[PPA]${neutre} thème GTK + icon Suru + sound theme (inutile si session communitheme installé)"
@@ -526,9 +542,9 @@ then
     read -p "Répondre par le ou les chiffres correspondants (exemple : 5 11) : " choixCustom
     clear
 
-    # Question 16 : Prog
+    # Question 17 : Prog
     echo "*******************************************************"
-    echo -e "${jaune}16/ Quel(s) éditeur(s) de texte et logiciel(s) de développement voulez-vous ? [mode avancé]${neutre}"
+    echo -e "${jaune}17/ Quel(s) éditeur(s) de texte et logiciel(s) de développement voulez-vous ? [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun (en dehors de Vim et Gedit)"
     echo -e "[2] Android Studio ${bleu}[Flatpak]${neutre} (IDE de Google spécialisé pour le développement d'application Android)"    
@@ -552,9 +568,9 @@ then
     read -p "Répondre par le ou les chiffres correspondants (exemple : 8 10 11) : " choixDev
     clear
 
-    # Question 17 : Serveur 
+    # Question 18 : Serveur 
     echo "*******************************************************"
-    echo -e "${jaune}17/ Des fonctions serveurs à activer ? [mode avancé]${neutre}"
+    echo -e "${jaune}18/ Des fonctions serveurs à activer ? [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Pas de service à activer"
     echo -e "[2] Cuberite ${jaune}[Snap]${neutre} (Serveur de jeu Minecraft performant et opensource écrit en C++)"
@@ -570,9 +586,9 @@ then
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixServeur
     clear
 
-    # Question 18 : Optimisation
+    # Question 19 : Optimisation
     echo "*******************************************************"
-    echo -e "${jaune}18/ Des optimisations supplémentaires à activer ? [mode avancé]${neutre}"
+    echo -e "${jaune}19/ Des optimisations supplémentaires à activer ? [mode avancé]${neutre}"
     echo "*******************************************************"
     echo "[1] Non aucune"
     echo "[2] Ajout d'une commande 'maj' qui met tout à jour (maj apt + maj snap + maj flatpak)"
@@ -602,10 +618,10 @@ fi
 # Mode Extra
 if [ "$choixMode" = "3" ] 
 then
-    # Question 19 : Snap
+    # Question 20 : Snap
     echo -e "${vert}Astuce 7: Les paquets Snappy, flatpak et Appimages sont indépendants les uns des autres, ainsi, vous pouvez avoir un même logiciel en plusieurs exemplaires dans des versions différentes${neutre}"
     echo "*******************************************************"
-    echo -e "${vert}19/ Mode Extra : supplément paquet Snap :${neutre}"
+    echo -e "${vert}20/ Mode Extra : supplément paquet Snap :${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
     echo -e "[2] Blender ${orange}[--classic]${neutre} ${jaune}[Snap]${neutre}"
@@ -628,9 +644,9 @@ then
     read -p "Choix paquets snappy (exemple : 4 12) : " choixSnap
     clear
              
-    # Question 20 : Flatpak
+    # Question 21 : Flatpak
     echo "*******************************************************"
-    echo -e "${vert}20/ Mode Extra : supplément paquet Flatpak :${neutre}"
+    echo -e "${vert}21/ Mode Extra : supplément paquet Flatpak :${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
     echo -e "[2] 0ad ${bleu}[Flatpak]${neutre}"
@@ -648,17 +664,16 @@ then
     echo -e "[14] Minetest ${bleu}[Flatpak]${neutre}"
     echo -e "[15] Nextcloud cli ${bleu}[Flatpak]${neutre}"  
     echo -e "[16] Password Calculator ${bleu}[Flatpak]${neutre}"
-    echo -e "[17] Riot ${bleu}[Flatpak]${neutre}"
-    echo -e "[18] Skype ${bleu}[Flatpak]${neutre}"
-    echo -e "[19] VLC ${bleu}[Flatpak]${neutre}"    
+    echo -e "[17] Skype ${bleu}[Flatpak]${neutre}"
+    echo -e "[18] VLC ${bleu}[Flatpak]${neutre}"    
     echo "*******************************************************"
     read -p "Choix paquets flatpak (exemple : 5 16) : " choixFlatpak
     clear
             
-    # Question 21 : Appimages
+    # Question 22 : Appimages
     echo -e "${vert}Astuce 8: Vos AppImages seront disponibles dans un dossier 'appimage' dans votre dossier perso, pour lancer une application : ./nomdulogiciel.AppImage (les droits d'éxécutions seront déjà attribués)${neutre}"
     echo "*******************************************************"
-    echo -e "${vert}21/ Mode Extra : récupération Appimages:${neutre}"
+    echo -e "${vert}22/ Mode Extra : récupération Appimages:${neutre}"
     echo "*******************************************************"
     echo "[1] Aucun"
     echo -e "[2] Aidos Wallet ${vert}[Appimage]${neutre}"
@@ -992,30 +1007,33 @@ do
         "13") #ring
             apt install ring -y
             ;;  
-        "14") #signal (snap)
+        "14") #Riot (flatpak)
+            flatpak install flathub im.riot.Riot -y
+            ;;                    
+        "15") #signal (snap)
             snap install signal-desktop
             ;;               
-        "15") #skype
+        "16") #skype
             wget https://repo.skype.com/latest/skypeforlinux-64.deb ; dpkg -i skypeforlinux-64.deb ; apt install -fy
             rm skypeforlinux*
             ;;   
-        "16") #Slack (snap)
+        "17") #Slack (snap)
             snap install slack --classic
             ;;     
-        "17") #Teamspeak (script bash à l'intérieur à lancer manuellement par l'utilisateur)
+        "18") #Teamspeak (script bash à l'intérieur à lancer manuellement par l'utilisateur)
             wget http://nux87.free.fr/script-postinstall-ubuntu/archives/Teamspeak.tar.xz 
             tar -xJf Teamspeak.tar.xz ; chown -R $SUDO_USER:$SUDO_USER Teamspeak ; rm -f Teamspeak.tar.xz ; mv Teamspeak ..
             ;;             
-        "18") #telegram 
+        "19") #telegram 
             apt install telegram-desktop -y
             ;;  
-        "19") #viber (flatpak)
+        "20") #viber (flatpak)
             flatpak install flathub com.viber.Viber -y
             ;;  
-        "20") #weechat
+        "21") #weechat
             apt install weechat -y
             ;;                 
-        "21") #wire
+        "22") #wire
             apt-key adv --fetch-keys http://wire-app.wire.com/linux/releases.key
             echo "deb https://wire-app.wire.com/linux/debian stable main" | tee /etc/apt/sources.list.d/wire-desktop.list
             apt update ; apt install apt-transport-https wire-desktop -y
@@ -1158,7 +1176,7 @@ do
     esac
 done
 
-# Q7/ Montage vidéo
+# Q7/ Montage/encodage/capture vidéo
 for video in $choixVideo
 do
     case $video in
@@ -1175,41 +1193,51 @@ do
         "5") #Handbrake
             apt install handbrake -y
             ;;
-        "6") #KDEnLive
+        "6") #Kazam
+            apt install kazam -y
+            ;;            
+        "7") #KDEnLive
             apt install kdenlive breeze-icon-theme -y
             ;;            
-        "7") #Libav-tools
+        "8") #Libav-tools
             apt install libav-tools -y
             ;;
-        "8") #Lives
+        "9") #Lives
             apt install lives -y
             ;;    
-        "9") #Mencoder
+        "10") #Mencoder
             apt install mencoder -y
             ;;  
-        "10") #MMG MkvMergeGui
+        "11") #MMG MkvMergeGui
             apt install mkvtoolnix mkvtoolnix-gui -y
             ;;             
-        "11") #Natron
+        "12") #Natron
             wget http://nux87.free.fr/script-postinstall-ubuntu/deb/natron_2.3.3_amd64.deb
             dpkg -i natron_2.3.3_amd64.deb
             apt install -fy
-            ;;               
-        "12") #OpenShot Video Editor 
+            ;;    
+        "13") #OpenBroadcaster Software 
+            add-apt-repository -y ppa:obsproject/obs-studio ; apt update
+            apt install ffmpeg obs-studio -y
+            ;;              
+        "14") #OpenShot Video Editor 
             apt install --no-install-recommends openshot-qt -y
             ;;
-        "13") #Peek (Flatpak) 
+        "15") #Peek (Flatpak) 
             flatpak install flathub com.uploadedlobster.peek -y
             ;;              
-        "14") #Pitivi 
+        "16") #Pitivi 
             apt install pitivi -y
             ;;
-        "15") #Shotcut (PPA pour Bionic pas encore actif) // existe en snappy mais ne semble pas fonctionner
+        "17") #Shotcut (PPA pour Bionic pas encore actif) // existe en snappy mais ne semble pas fonctionner
             add-apt-repository "deb http://ppa.launchpad.net/haraldhv/shotcut/ubuntu zesty main" -y
             apt-key adv --recv-keys --keyserver keyserver.ubuntu.com D03D19F673FED66EBD64099959A9D327745898E3
             apt update ; apt install shotcut -y
             ;;    
-        "16") #WinFF
+        "18") #SimpleScreenRecorder
+            apt install simplescreenrecorder -y
+            ;;            
+        "19") #WinFF
             apt install winff winff-doc winff-qt -y
             ;;            
     esac
@@ -1236,31 +1264,34 @@ do
             ;;     
         "7") #K-3D
             apt install k3d -y
+            ;;  
+        "8") #KolourPaint
+            apt install kolourpaint -y
             ;;              
-        "8") #Krita
+        "9") #Krita
             apt install krita krita-l10n -y
             ;;
-        "9") #LibreCAD
+        "10") #LibreCAD
             apt install librecad -y
             ;;               
-        "10") #MyPaint
+        "11") #MyPaint
             apt install mypaint mypaint-data-extras -y
             ;;              
-        "11") #Pinta
+        "12") #Pinta
             apt install pinta -y
             ;;
-        "12") #Pixeluvo
+        "13") #Pixeluvo
             wget http://www.pixeluvo.com/downloads/pixeluvo_1.6.0-2_amd64.deb
             dpkg -i pixeluvo_1.6.0-2_amd64.deb
             apt install -fy
             ;; 
-        "13") #Shutter
+        "14") #Shutter
             apt install shutter -y
             ;;              
-        "14") #SweetHome 3D
+        "15") #SweetHome 3D
             apt install sweethome3d -y
             ;;               
-        "15") #Ufraw
+        "16") #Ufraw
             apt install ufraw ufraw-batch -y
             ;;              
     esac
@@ -1489,98 +1520,108 @@ do
             ;;  
         "5") #Corebird
             apt install corebird -y
-            ;;  
-        "6") #ddrescue
-            apt install gddrescue -y
-            ;;                
-        "7") #Diodon
+            ;;               
+        "6") #Diodon
             apt install diodon -y
             ;;              
-        "8") #FlashPlayer (avec dépot partenaire)
+        "7") #FlashPlayer (avec dépot partenaire)
             apt install adobe-flashplugin -y
-            ;;    
-        "9") #Gnome Encfs Manager
-            add-apt-repository -y ppa:gencfsm/ppa ; apt update ;
-            apt install gnome-encfs-manager -y
-            ;;             
-        "10") #Gnome Recipes
-            apt install gnome-recipes -y
-            ;;   
-        "11") #Gufw
-            apt install gufw -y
             ;;              
-        "12") #Kazam
-            apt install kazam -y
-            ;;
-        "13") #KeepassX2
-            apt install keepassx -y
-            ;;             
-        "14") #MultiSystem
+        "8") #Gnome Recipes
+            apt install gnome-recipes -y
+            ;;                        
+        "9") #MultiSystem
             wget -q http://liveusb.info/multisystem/depot/multisystem.asc -O- | apt-key add -
             add-apt-repository -y 'deb http://liveusb.info/multisystem/depot all main'
             apt update ; apt install multisystem -y
             ;;            
-        "15") #OpenBroadcaster Software 
-            add-apt-repository -y ppa:obsproject/obs-studio ; apt update
-            apt install ffmpeg obs-studio -y
-            ;;  
-        "16") #Oracle Java 8 
+        "10") #Oracle Java 8 
             add-apt-repository -y ppa:webupd8team/java ; apt update 
             echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java8-installer -y
             ;;  
-        "17") #Oracle Java 10 
+        "11") #Oracle Java 10 
             add-apt-repository -y ppa:linuxuprising/java ; apt update
             echo oracle-java10-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections | apt install oracle-java10-installer -y
-            ;;  
-        "18") #Pack cyber-sécurité
-            apt install aircrack-ng nmap nikto john hashcat kismet -y
-            ;;       
-        "19") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
+            ;;     
+        "12") #pack d'outils : vrms + screenfetch + asciinema + ncdu + screen + kclean + rclone
             apt install vrms screenfetch asciinema ncdu screen rclone -y
             wget http://hoper.dnsalias.net/tdc/public/kclean.deb && dpkg -i kclean.deb ; apt install -fy ; rm kclean.deb 
             ;; 
-        "20") #Redshift  (à configurer par l'utilisateur lui même)
+        "13") #Redshift  (à configurer par l'utilisateur lui même)
             apt install redshift-gtk -y
-            ;;             
-        "21") #SimpleScreenRecorder
-            apt install simplescreenrecorder -y
-            ;;
-        "22") #Smartmontools 
+            ;;                      
+        "14") #Smartmontools 
             apt install --no-install-recommends smartmontools -y
             ;;            
-        "23") #Synaptic
+        "15") #Synaptic
             apt install synaptic -y
             ;;              
-        "24") #Teamviewer
+        "16") #Teamviewer
             wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
             dpkg -i teamviewer* ; apt install -fy ; rm teamviewer*
-            ;; 
-        "25") #Testdisk
-            apt install testdisk -y
-            ;;                
-        "26") #VeraCrypt
-            add-apt-repository -y ppa:unit193/encryption ; apt update
-            apt install -y veracrypt
-            ;;               
-        "27") #VirtualBox
+            ;;                           
+        "17") #VirtualBox
             apt install virtualbox -y
             ;;  
-        "28") #Virtualbox dernière stable possible (oracle)
+        "18") #Virtualbox dernière stable possible (oracle)
             wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
             echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list
             apt update ; apt install -y virtualbox-5.2
-            ;;            
-        "29") #Wine 
+            ;;  
+        "19") #Whalebird
+            wget https://github.com/h3poteto/whalebird-desktop/releases/download/0.6.1/Whalebird-0.6.1-linux-x64.deb
+            dpkg -i Whalebird* ; apt install -fy ; rm Whalebird*
+            ;;             
+        "20") #Wine 
             apt install wine-stable -y
-            ;;
-        "30") #Wireshark
-            debconf-set-selections <<< "wireshark-common/install-setuid true"
-            apt install wireshark -y ; usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
-            ;;         
+            ;;       
     esac
 done
 
-# Q13/ Jeux
+# Q13/ Sécurité
+for securite in $choixSecurite
+do
+    case $securite in
+        "2") #ddrescue
+            apt install gddrescue -y
+            ;;   
+        "3") #Gnome Encfs Manager
+            add-apt-repository -y ppa:gencfsm/ppa ; apt update ;
+            apt install gnome-encfs-manager -y
+            ;;  
+        "4") #Gufw
+            apt install gufw -y
+            ;;  
+        "5") #Keepass (v2)
+            apt install keepass2 -y
+            ;;    
+        "6") #KeepassX (v2)
+            apt install keepassx -y
+            ;;                
+        "7") #KeepassXC (v2)
+            apt install keepassxc -y
+            ;;      
+        "8") #Pack cyber-sécurité
+            apt install aircrack-ng nmap nikto john hashcat kismet -y
+            ;;     
+        "9") #Sirikali
+            apt install sirikali -y
+            ;; 
+        "10") #Testdisk
+            apt install testdisk -y
+            ;;  
+        "11") #VeraCrypt
+            add-apt-repository -y ppa:unit193/encryption ; apt update
+            apt install -y veracrypt
+            ;;   
+        "12") #Wireshark
+            debconf-set-selections <<< "wireshark-common/install-setuid true"
+            apt install wireshark -y ; usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
+            ;;              
+    esac
+done
+
+# Q14/ Jeux
 for gaming in $choixGaming
 do
     case $gaming in
@@ -1658,7 +1699,7 @@ done
 
 # Mode avancé
 
-# 14/ Extensions (extension en commentaire pas encore compatible avec GS 3.28)
+# 15/ Extensions (extension en commentaire pas encore compatible avec GS 3.28)
 for extension in $choixExtension
 do
     case $extension in
@@ -1749,7 +1790,7 @@ do
     esac
 done
 
-# Q15/ Customization
+# Q16/ Customization
 for custom in $choixCustom
 do
     case $custom in
@@ -1813,7 +1854,7 @@ do
     esac
 done
 
-# Q16/ Programmation/Dev
+# Q17/ Programmation/Dev
 for dev in $choixDev
 do
     case $dev in
@@ -1878,7 +1919,7 @@ do
     esac
 done
 
-# Q17/ Serveurs
+# Q18/ Serveurs
 for srv in $choixServeur
 do
     case $srv in
@@ -1916,7 +1957,7 @@ do
     esac
 done
 
-# Q18/ Optimisation/Réglage
+# Q19/ Optimisation/Réglage
 for optimisation in $choixOptimisation
 do
     case $optimisation in
@@ -2005,7 +2046,7 @@ do
     esac
 done
 
-# Question 19 : Extra Snap
+# Question 20 : Extra Snap
 for snap in $choixSnap
 do
     case $snap in
@@ -2060,7 +2101,7 @@ do
     esac
 done        
     
-# Question 20 : Extra Flatpak
+# Question 21 : Extra Flatpak
 for flatpak in $choixFlatpak
 do
     case $flatpak in
@@ -2108,20 +2149,17 @@ do
             ;;        
         "16") #Password Calculator
             flatpak install flathub com.bixense.PasswordCalculator -y
-            ;;             
-        "17") #Riot
-            flatpak install flathub im.riot.Riot -y
-            ;;        
-        "18") #Skype version flatpak
+            ;;                  
+        "17") #Skype version flatpak
             flatpak install flathub com.skype.Client -y
             ;;                   
-        "19") #VLC version flatpak
+        "18") #VLC version flatpak
             flatpak install flathub org.videolan.VLC -y
             ;;
     esac
 done
 
-# Question 21 : Extra Appimages
+# Question 22 : Extra Appimages
 for appimage in $choixAppimage
 do
     case $appimage in
