@@ -431,17 +431,18 @@ then
     echo -e "${bleu}13/ Souhaitez-vous un logiciel de sécurité, hacking ou récupération de donnée ?${neutre}"
     echo "*******************************************************"
     echo "[1] Je n'en n'ai pas besoin"
-    echo "[2] DDRescue (Permet de dupliquer le mieux possible les parties intactes des disques usagés)"
-    echo -e "[3] Gnome Encfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
-    echo -e "[4] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
-    echo "[5] KeePass (utilise mono, centralise la gestion de vos mots de passe personnels, protégé par un master password)"
-    echo "[6] KeePassX (utilise Qt, fork du logiciel Keepass, ne semble plus maintenu)"
-    echo "[7] KeePassXC (une autre alternive recommandée, fork de KeepassX)"
-    echo "[8] Pack d'outils de hacking/cybersécurité (aircrack + nmap + nikto + john the ripper + hashcat + kismet)"
-    echo "[9] Sirikali (interface en Qt pour gérer les lecteurs chiffrés avec ecryptfs, cryfs, encfs, gocryptfs, securefs)"
-    echo -e "[10] Testdisk (Permet de ressusciter les partitions supprimées accidentellement ou les contenus des fichiers)"
-    echo -e "[11] VeraCrypt ${gris}[PPA]${neutre} (utilitaire libre utilisé pour le chiffrement, suite du projet TrueCrypt)"    
-    echo "[12] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"  
+    echo -e "[2] Crypter ${vert}[Appimage]${neutre} (permet de chiffrer/déchiffrer des fichiers simplement)"
+    echo "[3] DDRescue (Permet de dupliquer le mieux possible les parties intactes des disques usagés)"
+    echo -e "[4] Gnome Encfs Manager ${gris}[PPA]${neutre} (coffre-fort pour vos fichiers/dossiers)"
+    echo -e "[5] Gufw ${violet}[X!]${neutre} (interface graphique pour le pare-feu installé par défaut dans Ubuntu 'Ufw')"
+    echo "[6] KeePass (utilise mono, centralise la gestion de vos mots de passe personnels, protégé par un master password)"
+    echo "[7] KeePassX (utilise Qt, fork du logiciel Keepass, ne semble plus maintenu)"
+    echo "[8] KeePassXC (une autre alternive recommandée, fork de KeepassX)"
+    echo "[9] Pack d'outils de hacking/cybersécurité (aircrack + nmap + nikto + john the ripper + hashcat + kismet)"
+    echo "[10] Sirikali (interface en Qt pour gérer les lecteurs chiffrés avec ecryptfs, cryfs, encfs, gocryptfs, securefs)"
+    echo -e "[11] Testdisk (Permet de ressusciter les partitions supprimées accidentellement ou les contenus des fichiers)"
+    echo -e "[12] VeraCrypt ${gris}[PPA]${neutre} (utilitaire libre utilisé pour le chiffrement, suite du projet TrueCrypt)"    
+    echo "[13] Wireshark (analyseur de paquets utilisé dans le dépannage et l'analyse de réseaux )"  
     echo "*******************************************************"
     read -p "Répondre par le ou les chiffres correspondants (exemple : 1) : " choixSecurite
     clear
@@ -678,22 +679,20 @@ then
     echo "[1] Aucun"
     echo -e "[2] Aidos Wallet ${vert}[Appimage]${neutre}"
     echo -e "[3] AppImageUpdate ${vert}[Appimage]${neutre}"    
-    echo -e "[4] Chronos ${vert}[Appimage]${neutre}"
-    echo -e "[5] Crypter ${vert}[Appimage]${neutre}"
-    echo -e "[6] Digikam ${vert}[Appimage]${neutre}"
-    echo -e "[7] Freecad ${vert}[Appimage]${neutre}"
-    echo -e "[8] Imagine ${vert}[Appimage]${neutre}"
-    echo -e "[9] Infinite Electron ${vert}[Appimage]${neutre}"
-    echo -e "[10] Jaxx ${vert}[Appimage]${neutre}"
-    echo -e "[11] Kdenlive ${vert}[Appimage]${neutre}"
-    echo -e "[12] KDevelop ${vert}[Appimage]${neutre}"
-    echo -e "[13] MellowPlayer ${vert}[Appimage]${neutre}"
-    echo -e "[14] Nextcloud Cli ${vert}[Appimage]${neutre}"
-    echo -e "[15] Openshot ${vert}[Appimage]${neutre}"
-    echo -e "[16] Owncloud Cli ${vert}[Appimage]${neutre}"
-    echo -e "[17] Popcorntime ${vert}[Appimage]${neutre}"
-    echo -e "[18] Spotify web client ${vert}[Appimage]${neutre}"
-    echo -e "[19] Tulip ${vert}[Appimage]${neutre}"
+    echo -e "[4] Digikam ${vert}[Appimage]${neutre}"
+    echo -e "[5] Freecad ${vert}[Appimage]${neutre}"
+    echo -e "[6] Imagine ${vert}[Appimage]${neutre}"
+    echo -e "[7] Infinite Electron ${vert}[Appimage]${neutre}"
+    echo -e "[8] Jaxx ${vert}[Appimage]${neutre}"
+    echo -e "[9] Kdenlive ${vert}[Appimage]${neutre}"
+    echo -e "[10] KDevelop ${vert}[Appimage]${neutre}"
+    echo -e "[11] MellowPlayer ${vert}[Appimage]${neutre}"
+    echo -e "[12] Nextcloud Cli ${vert}[Appimage]${neutre}"
+    echo -e "[13] Openshot ${vert}[Appimage]${neutre}"
+    echo -e "[14] Owncloud Cli ${vert}[Appimage]${neutre}"
+    echo -e "[15] Popcorntime ${vert}[Appimage]${neutre}"
+    echo -e "[16] Spotify web client ${vert}[Appimage]${neutre}"
+    echo -e "[17] Tulip ${vert}[Appimage]${neutre}"
     echo "*******************************************************"
     read -p "Choix logiciels portables au format AppImage (exemple : 9 16) : " choixAppimage
     clear
@@ -1582,39 +1581,42 @@ done
 for securite in $choixSecurite
 do
     case $securite in
-        "2") #ddrescue
+        "2") #Crypter (appimage)
+            wget https://github.com/HR/Crypter/releases/download/v3.1.0/Crypter-3.1.0-x86_64.AppImage
+            ;;      
+        "3") #ddrescue
             apt install gddrescue -y
             ;;   
-        "3") #Gnome Encfs Manager
+        "4") #Gnome Encfs Manager
             add-apt-repository -y ppa:gencfsm/ppa ; apt update ;
             apt install gnome-encfs-manager -y
             ;;  
-        "4") #Gufw
+        "5") #Gufw
             apt install gufw -y
             ;;  
-        "5") #Keepass (v2)
+        "6") #Keepass (v2)
             apt install keepass2 -y
             ;;    
-        "6") #KeepassX (v2)
+        "7") #KeepassX (v2)
             apt install keepassx -y
             ;;                
-        "7") #KeepassXC (v2)
+        "8") #KeepassXC (v2)
             apt install keepassxc -y
             ;;      
-        "8") #Pack cyber-sécurité
+        "9") #Pack cyber-sécurité
             apt install aircrack-ng nmap nikto john hashcat kismet -y
             ;;     
-        "9") #Sirikali
+        "10") #Sirikali
             apt install sirikali -y
             ;; 
-        "10") #Testdisk
+        "11") #Testdisk
             apt install testdisk -y
             ;;  
-        "11") #VeraCrypt
+        "12") #VeraCrypt
             add-apt-repository -y ppa:unit193/encryption ; apt update
             apt install -y veracrypt
             ;;   
-        "12") #Wireshark
+        "13") #Wireshark
             debconf-set-selections <<< "wireshark-common/install-setuid true"
             apt install wireshark -y ; usermod -aG wireshark $SUDO_USER #permet à l'utilisateur principal de faire des captures
             ;;              
@@ -2168,54 +2170,48 @@ do
             ;; 
         "3") #AppImageUpdate
             wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/AppImageUpdate-303-f2b8183-x86_64.AppImage
-            ;;              
-        "4") #Chronos
-            wget https://github.com/web-pal/Chronos/releases/download/v2.2.1/Chronos-2.2.1-x86_64.AppImage
-            ;;     
-        "5") #Crypter
-            wget https://github.com/HR/Crypter/releases/download/v3.1.0/Crypter-3.1.0-x86_64.AppImage
-            ;;            
-        "6") #Digikam
+            ;;                       
+        "4") #Digikam
             wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/digikam-5.9.0-01-x86-64.appimage
             mv digikam-5.9.0-01-x86-64.appimage digikam-5.9.0-01-x86-64.AppImage
             ;;
-        "7") #Freecad
+        "5") #Freecad
             wget https://github.com/FreeCAD/FreeCAD/releases/download/0.16.6712/FreeCAD-0.16.6712.glibc2.17-x86_64.AppImage
             ;;            
-        "8") #Imagine
+        "6") #Imagine
             wget https://github.com/meowtec/Imagine/releases/download/v0.4.0/Imagine-0.4.0-x86_64.AppImage
             ;;     
-        "9") #Infinite Electron
+        "7") #Infinite Electron
             wget https://github.com/InfiniteLibrary/infinite-electron/releases/download/0.1.1/infinite-electron-0.1.1-x86_64.AppImage
             ;; 
-        "10") #Jaxx
+        "8") #Jaxx
             wget https://github.com/Jaxx-io/Jaxx/releases/download/v1.3.9/jaxx-1.3.9-x86_64.AppImage
             ;;              
-        "11") #Kdenlive version Appimage
+        "9") #Kdenlive version Appimage
             wget https://download.kde.org/unstable/kdenlive/16.12/linux/Kdenlive-16.12-rc-x86_64.AppImage
             ;;   
-        "12") #KDevelop
+        "10") #KDevelop
             wget https://download.kde.org/stable/kdevelop/5.2.0/bin/linux/KDevelop-5.2.0-x86_64.AppImage
             ;;     
-        "13") #MellowPlayer
+        "11") #MellowPlayer
             wget https://github.com/ColinDuquesnoy/MellowPlayer/releases/download/Continuous/MellowPlayer-x86_64.AppImage
             ;; 
-        "14") #Nextcloud version Appimage
+        "12") #Nextcloud version Appimage
             wget https://download.nextcloud.com/desktop/prereleases/Linux/Nextcloud-2.3.3-beta-x86_64.AppImage
             ;;    
-        "15") #Openshot version Appimage
+        "13") #Openshot version Appimage
             wget http://nux87.free.fr/script-postinstall-ubuntu/appimage/OpenShot-v2.4.1-x86_64.AppImage
             ;;  
-        "16") #Owncloud Client
+        "14") #Owncloud Client
             wget http://download.opensuse.org/repositories/home:/ocfreitag/AppImage/owncloud-client-latest-x86_64.AppImage
             ;;     
-        "17") #Popcorntime
+        "15") #Popcorntime
             wget https://github.com/amilajack/popcorn-time-desktop/releases/download/v0.0.6/PopcornTime-0.0.6-x86_64.AppImage
             ;;                  
-        "18") #Spotify web client
+        "16") #Spotify web client
             wget https://github.com/Quacky2200/Spotify-Web-Player-for-Linux/releases/download/1.0.42/spotifywebplayer-1.0.42-x86_64.AppImage
             ;;      
-        "19") #Tulip
+        "17") #Tulip
             wget https://github.com/Tulip-Dev/tulip/releases/download/tulip_5_1_0/Tulip-5.1.0-x86_64.AppImage
             ;;                      
     esac
