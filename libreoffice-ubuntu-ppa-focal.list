@@ -1,0 +1,2 @@
+deb http://172.17.15.252:3142/ppa.launchpad.net/libreoffice/ppa/ubuntu focal main
+# deb-src http://ppa.launchpad.net/libreoffice/ppa/ubuntu focal main
